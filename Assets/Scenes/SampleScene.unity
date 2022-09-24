@@ -294,7 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mistakeAudio: {fileID: 0}
   successAudio: {fileID: 0}
-  backgroundLoop: {fileID: 0}
+  backgroundLoop: {fileID: 8300000, guid: f13c1a9609a8d494684f693ac94f0eb9, type: 3}
   gameLoop: {fileID: 0}
 --- !u!82 &942694250
 AudioSource:
