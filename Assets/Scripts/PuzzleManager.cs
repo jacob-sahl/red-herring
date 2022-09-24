@@ -120,12 +120,25 @@ public class PuzzleManager : MonoBehaviour
 
     private void EndPuzzle()
     {
-        uiController.displayText("Game Over");
+        puzzleStarted = false;
+        
         Debug.Log($"Box Opened: {CheckAnswer()}");
+        List<string> winners = new List<string>();
+        if (CheckAnswer()) {
+            winners.Add("Operator");
+        }
         foreach (var instructor in instructors)
         {
             Debug.Log($"{instructor.name}'s secret goal: {instructor.CheckSecretGoal(_pressed)}");
+            if (instructor.CheckSecretGoal(_pressed)) {
+            winners.Add($"{instructor.name}");
+            }
         }
+        string gameOverText = "Game Over. Winners:";
+        foreach (var winner in winners) {
+            gameOverText += $" {winner}";
+        }
+        uiController.displayText(gameOverText);
 
     }
 }

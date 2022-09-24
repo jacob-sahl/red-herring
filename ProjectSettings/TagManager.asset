@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Button
+  - key3
+  - key2
+  - key1
+  - key4
+  - green
+  - reset
   layers:
   - Default
   - TransparentFX

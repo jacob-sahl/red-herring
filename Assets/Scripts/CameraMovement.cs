@@ -28,6 +28,7 @@ public class CameraMovement : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
+                Debug.Log($"HIT {hit.collider.gameObject.name}");
                 switch (hit.collider.gameObject.tag)
                 {
                     case "key1":
