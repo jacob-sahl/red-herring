@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float xMovement;
     private float yMovement;
     public float speed = 1;
-    public float sensitivity = 10;
+    public float sensitivity = 1000;
     private float yRotation = 0;
 
     // Start is called before the first frame update

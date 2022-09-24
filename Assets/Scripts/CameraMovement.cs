@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float sensitivity = 10;
+    public float sensitivity = 1000;
     bool mousePressed = false;
     // Start is called before the first frame update
     void Start()
