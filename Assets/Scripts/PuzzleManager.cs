@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Button
+public enum ButtonType
 {
     Key1,
     Key2,
@@ -15,13 +15,15 @@ public enum Button
 public class PuzzleManager : MonoBehaviour
 {
     
-    public float puzzleTime = 60f * 5f;
+    public float puzzleTime = 60f * 3f;
     [SerializeField] private float _timeLeft = 0f;
+    [SerializeField] private bool puzzleStarted;
+    private UIController uiController;
     
-    [SerializeField] private List<Button> _pressed = new List<Button>{};
+    [SerializeField] private List<ButtonType> _pressed = new List<ButtonType>{};
     
-    [SerializeField] private List<Button> _solution = new List<Button>{ Button.Key2, Button.Key3, Button.Key4, Button.Key1, Button.Key4, Button.Key2, Button.Key2 };
-    [SerializeField] private List<Button> _answer = new List<Button>{};
+    [SerializeField] private List<ButtonType> _solution = new List<ButtonType>{ ButtonType.Key2, ButtonType.Key3, ButtonType.Key4, ButtonType.Key1, ButtonType.Key4, ButtonType.Key2, ButtonType.Key2 };
+    [SerializeField] private List<ButtonType> _answer = new List<ButtonType>{};
     
     public List<Instructor> instructors = new List<Instructor>{};
     // Start is called before the first frame update
@@ -30,40 +32,46 @@ public class PuzzleManager : MonoBehaviour
         SetupInstructors();
 
         _timeLeft = puzzleTime;
+        puzzleStarted = true;
+        uiController = GameObject.Find("Canvas").GetComponent<UIController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _timeLeft -= Time.deltaTime;
+        if (puzzleStarted) {
+            _timeLeft -= Time.deltaTime;
+            uiController.displayTime(_timeLeft);
         
-        if (_timeLeft <= 0)
-        {
-            Time.timeScale = 0;
-            // ends the game
-            EndPuzzle();
+            if (_timeLeft <= 0)
+            {
+                Time.timeScale = 0;
+                // ends the game
+                EndPuzzle();
+            }
         }
+        
     }
 
-    public void ButtonPressed(Button button)
+    public void ButtonPressed(ButtonType button)
     {
         _pressed.Add(button);
         switch (button)
         {
-            case Button.Key1:
-            case Button.Key2:
-            case Button.Key3:
-            case Button.Key4:
+            case ButtonType.Key1:
+            case ButtonType.Key2:
+            case ButtonType.Key3:
+            case ButtonType.Key4:
                 _answer.Add(button);
                 if (CheckAnswer())
                 {
                     EndPuzzle();
                 };
                 break;
-            case Button.Reset:
+            case ButtonType.Reset:
                 _answer.Clear();
                 break;
-            case Button.Green:
+            case ButtonType.Green:
                 break;
         }
 
@@ -98,7 +106,7 @@ public class PuzzleManager : MonoBehaviour
         {
             if (pressed.Count > 4)
             {
-                return pressed[2] == Button.Reset && pressed[3] == Button.Reset;
+                return pressed[2] == ButtonType.Reset && pressed[3] == ButtonType.Reset;
             }
             else
             {
@@ -106,12 +114,13 @@ public class PuzzleManager : MonoBehaviour
             }
         });
         
-        this.instructors[1].SetupSecretGoal(pressed => pressed.Contains(Button.Green));
-        this.instructors[2].SetupSecretGoal(pressed => !pressed.Contains(Button.Green));
+        this.instructors[1].SetupSecretGoal(pressed => pressed.Contains(ButtonType.Green));
+        this.instructors[2].SetupSecretGoal(pressed => !pressed.Contains(ButtonType.Green));
     }
 
     private void EndPuzzle()
     {
+        uiController.displayText("Game Over");
         Debug.Log($"Box Opened: {CheckAnswer()}");
         foreach (var instructor in instructors)
         {

@@ -6,7 +6,7 @@ public class Instructor : MonoBehaviour
 {
     
     // an lambda function checks if wins
-    public delegate bool secretGoal(List<Button> pressed);
+    public delegate bool secretGoal(List<ButtonType> pressed);
 
     public new string name = "";
     private secretGoal _goal;
@@ -17,7 +17,7 @@ public class Instructor : MonoBehaviour
         this._goal = goal;
     }
     
-    public bool CheckSecretGoal(List<Button> pressed)
+    public bool CheckSecretGoal(List<ButtonType> pressed)
     {
         // do something with the pressed buttons
         return _goal(pressed);

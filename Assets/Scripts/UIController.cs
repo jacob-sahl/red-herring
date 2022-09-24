@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -10,10 +11,17 @@ public class UIController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    public void updateTime(string val)
+    public void displayTime(float timeToDisplay)
     {
-        // TextMeshPro time = GameObject.Find("TimerText");
-        // time.text = val;
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        GameObject UIText = GameObject.Find("TimerTextRaw");
+        Text time = UIText.GetComponent<Text>();
+        time.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+    public void displayText(string text) {
+        GameObject UIText = GameObject.Find("TimerTextRaw");
+        Text time = UIText.GetComponent<Text>();
+        time.text = text;
     }
 }
