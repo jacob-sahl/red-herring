@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnFire()
     {
-        Debug.Log("Mouse Clicked");
+        //Debug.Log("Mouse Clicked");
     }
 
     // Update is called once per frame
