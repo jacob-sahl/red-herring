@@ -41,15 +41,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 2, transform.position.z);
         }
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        rb.AddRelativeForce(new Vector3(xMovement, 0, yMovement) * speed);
-        if (transform.position.y != 0)
-        {
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-        }
+        transform.Translate(new Vector3(xMovement, 0, yMovement) * speed * Time.deltaTime);
     }
 }
