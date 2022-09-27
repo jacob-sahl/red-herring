@@ -19,6 +19,7 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private float _timeLeft = 0f;
     [SerializeField] private bool puzzleStarted;
     private UIController uiController;
+    private AudioController audioController;
     
     [SerializeField] private List<ButtonType> _pressed = new List<ButtonType>{};
     
@@ -34,6 +35,7 @@ public class PuzzleManager : MonoBehaviour
         _timeLeft = puzzleTime;
         puzzleStarted = true;
         uiController = GameObject.Find("Canvas").GetComponent<UIController>();
+        audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
     }
 
     // Update is called once per frame
@@ -63,8 +65,12 @@ public class PuzzleManager : MonoBehaviour
             case ButtonType.Key3:
             case ButtonType.Key4:
                 _answer.Add(button);
+                if (_answer[_answer.Count - 1] != _solution[_answer.Count - 1]) {
+                    audioController.playMistake();
+                }
                 if (CheckAnswer())
                 {
+                    audioController.playSuccess();
                     EndPuzzle();
                 };
                 break;
