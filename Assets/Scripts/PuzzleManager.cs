@@ -9,7 +9,8 @@ public enum ButtonType
     Key3,
     Key4,
     Reset,
-    Green
+    Green,
+    Invalid,
 }
 
 public class PuzzleManager : MonoBehaviour
@@ -28,14 +29,19 @@ public class PuzzleManager : MonoBehaviour
     
     public List<Instructor> instructors = new List<Instructor>{};
     // Start is called before the first frame update
+    void Awake()
+    {
+        EventManager.AddListener<InteractEvent>(OnButtonPressed);
+    }
+
     void Start()
     {
         SetupInstructors();
 
         _timeLeft = puzzleTime;
         puzzleStarted = true;
-        uiController = GameObject.Find("Canvas").GetComponent<UIController>();
         audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
+        uiController = GameObject.Find("Hud").GetComponent<UIController>();
     }
 
     // Update is called once per frame
@@ -55,16 +61,43 @@ public class PuzzleManager : MonoBehaviour
         
     }
 
-    public void ButtonPressed(ButtonType button)
+    ButtonType GetButtonTypeFromTag(string buttonTag)
     {
-        _pressed.Add(button);
-        switch (button)
+        switch (buttonTag)
+        {
+            case "key1":
+                return ButtonType.Key1;
+            case "key2":
+                return ButtonType.Key2;
+            case "key3":
+                return ButtonType.Key3;
+            case "key4":
+                return ButtonType.Key4;
+            case "reset":
+                return ButtonType.Reset;
+            case "green":
+                return ButtonType.Green;
+            default:    
+                return ButtonType.Invalid;                
+        }    
+    }
+
+    public void OnButtonPressed(InteractEvent evt)
+    {
+        ButtonPressed(evt.ObjectTag);
+    }
+    
+    public void ButtonPressed(string buttonTag)
+    {
+        ButtonType buttonType = GetButtonTypeFromTag(buttonTag);
+        _pressed.Add(buttonType);
+        switch (buttonType)
         {
             case ButtonType.Key1:
             case ButtonType.Key2:
             case ButtonType.Key3:
             case ButtonType.Key4:
-                _answer.Add(button);
+                _answer.Add(buttonType);
                 if (_answer[_answer.Count - 1] != _solution[_answer.Count - 1]) {
                     audioController.playMistake();
                 }
@@ -144,6 +177,11 @@ public class PuzzleManager : MonoBehaviour
         foreach (var winner in winners) {
             gameOverText += $" {winner}";
         }
+
+        GameOverEvent gameOverEvent = new GameOverEvent();
+        gameOverEvent.PuzzleSolved = CheckAnswer();
+        gameOverEvent.EndGameMessage = gameOverText;
+        EventManager.Broadcast(gameOverEvent);
         uiController.displayText(gameOverText);
 
     }
