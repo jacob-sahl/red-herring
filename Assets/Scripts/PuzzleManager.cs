@@ -28,13 +28,18 @@ public class PuzzleManager : MonoBehaviour
     
     public List<Instructor> instructors = new List<Instructor>{};
     // Start is called before the first frame update
+    void Awake()
+    {
+        EventManager.AddListener<InteractEvent>(OnButtonPressed);
+    }
+
     void Start()
     {
         SetupInstructors();
 
         _timeLeft = puzzleTime;
         puzzleStarted = true;
-        uiController = GameObject.Find("Canvas").GetComponent<UIController>();
+        uiController = GameObject.Find("Hud").GetComponent<UIController>();
     }
 
     // Update is called once per frame
@@ -73,6 +78,11 @@ public class PuzzleManager : MonoBehaviour
             default:    
                 return ButtonType.Invalid;                
         }    
+    }
+
+    public void OnButtonPressed(InteractEvent evt)
+    {
+        ButtonPressed(evt.ObjectTag);
     }
     
     public void ButtonPressed(string buttonTag)
@@ -161,6 +171,11 @@ public class PuzzleManager : MonoBehaviour
         foreach (var winner in winners) {
             gameOverText += $" {winner}";
         }
+
+        GameOverEvent gameOverEvent = new GameOverEvent();
+        gameOverEvent.PuzzleSolved = CheckAnswer();
+        gameOverEvent.EndGameMessage = gameOverText;
+        EventManager.Broadcast(gameOverEvent);
         uiController.displayText(gameOverText);
 
     }
