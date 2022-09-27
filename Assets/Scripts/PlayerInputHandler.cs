@@ -75,7 +75,18 @@ public class PlayerInputHandler : MonoBehaviour
 
         return false;
     }
+    
+    public bool GetInteractInputHeld()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetButton(Constants.ButtonNameInteract);
+        }
 
+        return false;
+    }
+
+    
     public bool CanProcessInput()
     {
         return Cursor.lockState == CursorLockMode.Locked && !_gameController.gameIsEnding;

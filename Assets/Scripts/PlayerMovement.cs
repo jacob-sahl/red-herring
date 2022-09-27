@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     float _cameraVerticalAngle = 0f;
     
     CharacterController _controller;
+    
+    Outline _lastOutline;
 
     // Start is called before the first frame update
     void Start()
@@ -80,19 +82,50 @@ public class PlayerMovement : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
-        HandleCharacterMovement();
-        if (_inputHandler.GetInteractInputDown())
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
+            var colliderGameObject = hit.collider.gameObject;
+            var outline = colliderGameObject.GetComponent<Outline>();
+            if (outline != null)
             {
-                var colliderGameObject = hit.collider.gameObject;
-                Debug.Log($"HIT {colliderGameObject.name} with tag {colliderGameObject.tag}");
-                InteractEvent interact = Events.InteractEvent;
-                interact.ObjectTag = hit.collider.gameObject.tag;
-                EventManager.Broadcast(interact);
+                if (_lastOutline != null && _lastOutline != outline)
+                {
+                    _lastOutline.enabled = false;
+                }
+                _lastOutline = outline;
+                _lastOutline.OutlineMode = Outline.Mode.OutlineAll;
+                _lastOutline.OutlineWidth = 5;
+
+                if (_inputHandler.GetInteractInputDown())
+                {
+                    InteractEvent interact = Events.InteractEvent;
+                    interact.ObjectTag = hit.collider.gameObject.tag;
+                    EventManager.Broadcast(interact);
+                }
+                
+                if (_inputHandler.GetInteractInputHeld())
+                {
+                    _lastOutline.OutlineWidth = 5;
+                    _lastOutline.OutlineColor = Color.red;
+                }
+                else
+                {
+                    _lastOutline.OutlineColor = Color.white;
+                }
+                _lastOutline.enabled = true;
+            }
+            else
+            {
+                if (_lastOutline != null)
+                {
+                    _lastOutline.enabled = false;
+                }
             }
         }
+        
+        HandleCharacterMovement();
+
     }
 }
