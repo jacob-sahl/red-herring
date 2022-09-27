@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         float Yrotation = Input.GetAxis("Mouse Y");
-        transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime * -1, 0.0f, 0.0f));
+        transform.Rotate(new Vector3(Mathf.Clamp(Yrotation * sensitivity * Time.deltaTime * -1, -89f, 89f), 0.0f, 0.0f));
 
         if (Input.GetMouseButtonDown(0) && !mousePressed)
         {
@@ -28,28 +28,8 @@ public class CameraMovement : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log($"HIT {hit.collider.gameObject.name}");
-                switch (hit.collider.gameObject.tag)
-                {
-                    case "key1":
-                        puzzleManager.ButtonPressed(ButtonType.Key1);
-                        break;
-                    case "key2":
-                        puzzleManager.ButtonPressed(ButtonType.Key2);
-                        break;
-                    case "key3":
-                        puzzleManager.ButtonPressed(ButtonType.Key3);
-                        break;
-                    case "key4":
-                        puzzleManager.ButtonPressed(ButtonType.Key4);
-                        break;
-                    case "reset":
-                        puzzleManager.ButtonPressed(ButtonType.Reset);
-                        break;
-                    case "green":
-                        puzzleManager.ButtonPressed(ButtonType.Green);
-                        break;
-                }
+                Debug.Log($"HIT {hit.collider.gameObject.name} with tag {hit.collider.gameObject.tag}");
+                puzzleManager.ButtonPressed(hit.collider.gameObject.tag);
             }
         }
         else

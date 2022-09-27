@@ -9,7 +9,8 @@ public enum ButtonType
     Key3,
     Key4,
     Reset,
-    Green
+    Green,
+    Invalid,
 }
 
 public class PuzzleManager : MonoBehaviour
@@ -53,16 +54,38 @@ public class PuzzleManager : MonoBehaviour
         
     }
 
-    public void ButtonPressed(ButtonType button)
+    ButtonType GetButtonTypeFromTag(string buttonTag)
     {
-        _pressed.Add(button);
-        switch (button)
+        switch (buttonTag)
+        {
+            case "key1":
+                return ButtonType.Key1;
+            case "key2":
+                return ButtonType.Key2;
+            case "key3":
+                return ButtonType.Key3;
+            case "key4":
+                return ButtonType.Key4;
+            case "reset":
+                return ButtonType.Reset;
+            case "green":
+                return ButtonType.Green;
+            default:    
+                return ButtonType.Invalid;                
+        }    
+    }
+    
+    public void ButtonPressed(string buttonTag)
+    {
+        ButtonType buttonType = GetButtonTypeFromTag(buttonTag);
+        _pressed.Add(buttonType);
+        switch (buttonType)
         {
             case ButtonType.Key1:
             case ButtonType.Key2:
             case ButtonType.Key3:
             case ButtonType.Key4:
-                _answer.Add(button);
+                _answer.Add(buttonType);
                 if (CheckAnswer())
                 {
                     EndPuzzle();
