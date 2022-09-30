@@ -11,6 +11,7 @@ TagManager:
   - key4
   - green
   - reset
+  - ICursor
   layers:
   - Default
   - TransparentFX

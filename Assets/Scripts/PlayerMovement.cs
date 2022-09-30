@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
   [Header("References")]
@@ -59,12 +60,6 @@ public class PlayerMovement : MonoBehaviour
     }
   }
 
-
-  private void OnFire()
-  {
-    //Debug.Log("Mouse Clicked");
-  }
-
   // Update is called once per frame
   void Update()
   {
@@ -110,8 +105,6 @@ public class PlayerMovement : MonoBehaviour
         }
       }
     }
-
     HandleCharacterMovement();
-
   }
 }
