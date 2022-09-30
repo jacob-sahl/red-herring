@@ -5,26 +5,28 @@ using UnityEngine;
 public class ICursorController : MonoBehaviour
 {
   private RectTransform _rect;
-  private PlayerInputHandler _inputHandler;
-  // Start is called before the first frame update
+  private InstructorInputHandler _inputHandler;
+
+  public bool _dev_handling = true;
+
   void Start()
   {
     _rect = GetComponent<RectTransform>();
-    // position = new Vector2(transform.position.x, transform.position.y);
-    _inputHandler = GetComponent<PlayerInputHandler>();
+    _inputHandler = GameObject.Find("Instructors").GetComponent<InstructorInputHandler>();
   }
 
   private void handleCursorMove()
   {
-    Vector2 lookInput = _inputHandler.GetLookInput();
-    float x = Mathf.Clamp(lookInput.x, -(Screen.width / 2), Screen.width / 2);
-    float y = Mathf.Clamp(lookInput.y, -(Screen.height / 2), Screen.height / 2);
-    _rect.position = new Vector3(x, y, 0);
+    Vector2 lookInput = _inputHandler.GetCursorMove();
+
+    float x = Mathf.Clamp(_rect.anchoredPosition.x + lookInput.x, -(Screen.width / 2), Screen.width / 2);
+    float y = Mathf.Clamp(_rect.anchoredPosition.y + lookInput.y, -(Screen.height / 2), Screen.height / 2);
+    _rect.anchoredPosition = new Vector2(x, y);
   }
 
-  // Update is called once per frame
   void Update()
   {
+    if (!_dev_handling) return;
     handleCursorMove();
   }
 }

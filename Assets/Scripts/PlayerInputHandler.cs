@@ -19,7 +19,6 @@ public class PlayerInputHandler : MonoBehaviour
   private Vector2 lookInput;
 
 
-  // Start is called before the first frame update
   void Start()
   {
     _gameController = FindObjectOfType<GameController>();
@@ -59,7 +58,6 @@ public class PlayerInputHandler : MonoBehaviour
   public void OnLook(InputAction.CallbackContext context)
   {
     lookInput = context.ReadValue<Vector2>();
-    Debug.Log("Looked");
   }
 
 
