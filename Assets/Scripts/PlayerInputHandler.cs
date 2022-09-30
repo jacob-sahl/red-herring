@@ -1,126 +1,107 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    [Tooltip("Sensitivity multiplier for moving the camera around")]
-    public float LookSensitivity = 1f;
+  [Tooltip("Sensitivity multiplier for moving the camera around")]
+  public float LookSensitivity = 1f;
 
-    [Tooltip("Used to flip the vertical input axis")]
-    public bool InvertYAxis = false;
+  [Tooltip("Used to flip the vertical input axis")]
+  public bool InvertYAxis = false;
 
-    [Tooltip("Used to flip the horizontal input axis")]
-    public bool InvertXAxis = false;
+  [Tooltip("Used to flip the horizontal input axis")]
+  public bool InvertXAxis = false;
+  private GameController _gameController;
+  private bool _interactInputWasHeld;
+  private Vector2 movementInput;
+  private Vector2 lookInput;
 
-    private GameController _gameController;
 
-    private bool _interactInputWasHeld;
+  // Start is called before the first frame update
+  void Start()
+  {
+    _gameController = FindObjectOfType<GameController>();
 
+    Cursor.lockState = CursorLockMode.Locked;
+    Cursor.visible = false;
+    lookInput = Vector2.zero;
+  }
 
-    // Start is called before the first frame update
-    void Start()
+  public void OnMove(InputAction.CallbackContext context)
+  {
+    movementInput = context.ReadValue<Vector2>();
+  }
+
+  public Vector2 GetMoveInput()
+  {
+    if (CanProcessInput())
     {
-        _gameController = FindObjectOfType<GameController>();
+      // constrain move input to a maximum magnitude of 1, otherwise diagonal movement might exceed the max move speed defined
+      Vector2 move = Vector2.ClampMagnitude(movementInput, 1);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+      if (InvertXAxis)
+      {
+        move = move * new Vector2(-1, 0);
+      }
+      if (InvertYAxis)
+      {
+        move = move * new Vector2(0, -1);
+      }
+
+      return move;
     }
 
-    // Update is called once per frame
-    void Update()
+    return Vector2.zero;
+  }
+
+  public void OnLook(InputAction.CallbackContext context)
+  {
+    lookInput = context.ReadValue<Vector2>();
+  }
+
+
+  public Vector2 GetLookInput()
+  {
+    if (CanProcessInput())
     {
+      return lookInput;
+    }
+    return Vector2.zero;
+  }
+
+  public bool GetInteractInputDown()
+  {
+    if (CanProcessInput() && !_interactInputWasHeld)
+    {
+      if (Input.GetButtonDown(Constants.ButtonNameInteract))
+      {
+        _interactInputWasHeld = true;
+        return true;
+      }
+    }
+    else
+    {
+      _interactInputWasHeld = false;
     }
 
-    public Vector3 GetMoveInput()
+    return false;
+  }
+
+  public bool GetInteractInputHeld()
+  {
+    if (CanProcessInput())
     {
-        if (CanProcessInput())
-        {
-            Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), 0f,
-                Input.GetAxisRaw("Vertical"));
-
-            // constrain move input to a maximum magnitude of 1, otherwise diagonal movement might exceed the max move speed defined
-            move = Vector3.ClampMagnitude(move, 1);
-
-            return move;
-        }
-
-        return Vector3.zero;
+      return Input.GetButton(Constants.ButtonNameInteract);
     }
 
-    public float GetLookInputsHorizontal()
-    {
-        return GetMouseOrStickLookAxis(Constants.MouseAxisNameHorizontal, Constants.AxisNameJoystickLookHorizontal);
-    }
+    return false;
+  }
 
-    public float GetLookInputsVertical()
-    {
-        return GetMouseOrStickLookAxis(Constants.MouseAxisNameVertical, Constants.AxisNameJoystickLookVertical);
-    }
 
-    public bool GetInteractInputDown()
-    {
-        if (CanProcessInput() && !_interactInputWasHeld)
-        {
-            if (Input.GetButtonDown(Constants.ButtonNameInteract))
-            {
-                _interactInputWasHeld = true;
-                return true;
-            }
-        }
-        else
-        {
-            _interactInputWasHeld = false;
-        }
-
-        return false;
-    }
-    
-    public bool GetInteractInputHeld()
-    {
-        if (CanProcessInput())
-        {
-            return Input.GetButton(Constants.ButtonNameInteract);
-        }
-
-        return false;
-    }
-
-    
-    public bool CanProcessInput()
-    {
-        return Cursor.lockState == CursorLockMode.Locked && !_gameController.gameIsEnding;
-    }
-
-    float GetMouseOrStickLookAxis(string mouseInputName, string stickInputName)
-    {
-        if (CanProcessInput())
-        {
-            // Check if this look input is coming from the mouse
-            bool isGamepad = Input.GetAxis(stickInputName) != 0f;
-            float i = isGamepad ? Input.GetAxis(stickInputName) : Input.GetAxisRaw(mouseInputName);
-
-            // handle inverting vertical input
-            if (InvertYAxis)
-                i *= -1f;
-
-            // apply sensitivity multiplier
-            i *= LookSensitivity;
-
-            if (isGamepad)
-            {
-                // since mouse input is already deltaTime-dependant, only scale input with frame time if it's coming from sticks
-                i *= Time.deltaTime;
-            }
-            else
-            {
-                // reduce mouse input amount to be equivalent to stick movement
-                i *= 0.01f;
-            }
-
-            return i;
-        }
-
-        return 0f;
-    }
+  public bool CanProcessInput()
+  {
+    return Cursor.lockState == CursorLockMode.Locked && !_gameController.gameIsEnding;
+  }
 }
