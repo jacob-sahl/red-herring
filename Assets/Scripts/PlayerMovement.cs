@@ -70,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
   void Update()
   {
     if (_inputHandler == null) return;
-    Debug.Log("Input Assigned");
     RaycastHit hit;
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     if (Physics.Raycast(ray, out hit))
