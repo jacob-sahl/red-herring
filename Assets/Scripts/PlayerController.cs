@@ -30,13 +30,13 @@ public class PlayerController : MonoBehaviour
     // If this is P1, make them the Operator
     if (playerId == 0)
     {
-      role = PlayerRole.Operator;
+      //   role = PlayerRole.Operator;
       GameObject.Find("Operator").GetComponent<PlayerMovement>().assignInputHandler(_inputHandler);
       playerInput.SwitchCurrentActionMap("Operator");
     }
     else
     {
-      role = PlayerRole.Instructor;
+      //   role = PlayerRole.Instructor;
       // Create an iCursor for this player
       iCursor = Instantiate(iCursorPrefab, GameObject.Find("Hud").transform);
       iCursor.GetComponent<ICursorController>()._inputHandler = _inputHandler;
