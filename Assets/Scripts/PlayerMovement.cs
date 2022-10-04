@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     if (Physics.Raycast(ray, out hit))
     {
+      // Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
       var colliderGameObject = hit.collider.gameObject;
       var outline = colliderGameObject.GetComponent<Outline>();
       if (outline != null)
