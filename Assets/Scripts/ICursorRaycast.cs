@@ -8,6 +8,7 @@ public class ICursorRaycast : MonoBehaviour
   [Tooltip("Reference to the main camera used for the player")]
   public Camera playerCamera;
   ICursorController _controller;
+  Outline _lastOutline;
   void Start()
   {
     _controller = GetComponent<ICursorController>();
@@ -32,10 +33,22 @@ public class ICursorRaycast : MonoBehaviour
       var outline = colliderGameObject.GetComponent<Outline>();
       if (outline != null)
       {
+        if (_lastOutline != null && _lastOutline != outline)
+        {
+          _lastOutline.enabled = false;
+        }
         outline.OutlineMode = Outline.Mode.OutlineAll;
         outline.OutlineWidth = 5;
         outline.OutlineColor = iColor;
         outline.enabled = true;
+        _lastOutline = outline;
+      }
+      else
+      {
+        if (_lastOutline != null)
+        {
+          _lastOutline.enabled = false;
+        }
       }
     }
   }
