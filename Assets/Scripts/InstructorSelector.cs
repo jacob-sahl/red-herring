@@ -5,18 +5,17 @@ using UnityEngine.InputSystem;
 
 public class InstructorSelector : MonoBehaviour
 {
-
   private ICursorController[] controllers;
   private int currentInstructor;
   private bool toggled = false;
 
-  private InstructorInputHandler _inputHandler;
+  private PlayerInputHandler _inputHandler;
 
   void Start()
   {
     currentInstructor = 0;
     controllers = FindObjectsOfType<ICursorController>();
-    _inputHandler = GetComponent<InstructorInputHandler>();
+    _inputHandler = GetComponent<PlayerInputHandler>();
     selectInstructor();
   }
 

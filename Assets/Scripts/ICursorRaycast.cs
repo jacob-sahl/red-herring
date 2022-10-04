@@ -11,11 +11,13 @@ public class ICursorRaycast : MonoBehaviour
   void Start()
   {
     _controller = GetComponent<ICursorController>();
+    playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    Debug.Log(playerCamera);
   }
 
   void Update()
   {
-    if (!_controller._dev_handling) return;
+    // if (!_controller._dev_handling) return;
     RaycastHit hit;
     Vector3 position = _controller.GetPosition();
     Ray ray = playerCamera.ScreenPointToRay(position);
@@ -24,7 +26,7 @@ public class ICursorRaycast : MonoBehaviour
       //   ICursorHoverEvent evt = Events.ICursorHoverEvent;
       //   evt.ObjectTag = hit.collider.gameObject.tag;
       //   EventManager.Broadcast(evt);
-      Color iColor = _controller.GetInstructor().color;
+      Color iColor = _controller.color;
       // Debug.DrawRay(ray.origin, ray.direction, iColor, 10);
       var colliderGameObject = hit.collider.gameObject;
       var outline = colliderGameObject.GetComponent<Outline>();

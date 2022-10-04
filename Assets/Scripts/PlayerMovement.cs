@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
   void Start()
   {
     _controller = GetComponent<CharacterController>();
-    _inputHandler = GetComponent<PlayerInputHandler>();
   }
 
   void HandleCharacterMovement()
@@ -60,9 +59,16 @@ public class PlayerMovement : MonoBehaviour
     }
   }
 
+  public void assignInputHandler(PlayerInputHandler handler)
+  {
+    _inputHandler = handler;
+  }
+
   // Update is called once per frame
   void Update()
   {
+    if (_inputHandler == null) return;
+    Debug.Log("Input Assigned");
     RaycastHit hit;
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     if (Physics.Raycast(ray, out hit))

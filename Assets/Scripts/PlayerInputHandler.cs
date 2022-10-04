@@ -17,6 +17,7 @@ public class PlayerInputHandler : MonoBehaviour
   private bool _interactInputWasHeld;
   private Vector2 movementInput;
   private Vector2 lookInput;
+  private Vector2 cursorMovement;
 
 
   void Start()
@@ -70,6 +71,16 @@ public class PlayerInputHandler : MonoBehaviour
     return Vector2.zero;
   }
 
+  public void OnCursorMove(InputAction.CallbackContext context)
+  {
+    cursorMovement = context.ReadValue<Vector2>();
+  }
+
+  public Vector2 GetCursorMoveInput()
+  {
+    return cursorMovement;
+  }
+
   public bool GetInteractInputDown()
   {
     if (CanProcessInput() && !_interactInputWasHeld)
@@ -88,6 +99,7 @@ public class PlayerInputHandler : MonoBehaviour
     return false;
   }
 
+  // TODO: move to New Input System
   public bool GetInteractInputHeld()
   {
     if (CanProcessInput())
