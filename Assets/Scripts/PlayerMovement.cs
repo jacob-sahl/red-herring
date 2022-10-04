@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
   [Tooltip("Max movement speed")]
   public float maxSpeed = 10f;
 
+  public float mouseDragSpeed = 5f;
+
   [Tooltip(
       "Sharpness for the movement when grounded, a low value will make the player accelerate and decelerate slowly, a high value will do the opposite")]
   public float MovementSharpness = 15;
@@ -55,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     {
       Vector2 moveInput = _inputHandler.GetMoveInput();
       Vector3 movement = (moveInput.y * transform.forward) + (moveInput.x * transform.right);
-      _controller.Move(movement * maxSpeed * Time.deltaTime);
+      _controller.Move(((movement * maxSpeed) + (-transform.up)) * Time.deltaTime);
     }
   }
 
@@ -73,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     if (Physics.Raycast(ray, out hit))
     {
       var colliderGameObject = hit.collider.gameObject;
+
       var outline = colliderGameObject.GetComponent<Outline>();
       if (outline != null)
       {
@@ -109,9 +112,35 @@ public class PlayerMovement : MonoBehaviour
           _lastOutline.enabled = false;
         }
       }
+
+      var draggable = colliderGameObject.GetComponent<Draggable>();
+      if (draggable != null)
+      {
+        if (_inputHandler.GetInteractInputDown())
+        {
+          StartCoroutine(DragObject(colliderGameObject));
+        }
+      }
     }
 
     HandleCharacterMovement();
 
+  }
+
+  private IEnumerator DragObject(GameObject dragObject)
+  {
+    float initialDistance = Vector3.Distance(dragObject.transform.position, Camera.main.transform.position);
+    Rigidbody rb = dragObject.GetComponent<Rigidbody>();
+    if (rb != null)
+    {
+      while (_inputHandler.GetInteractInputHeld())
+      {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 direction = ray.GetPoint(initialDistance) - dragObject.transform.position;
+        rb.velocity = direction * (mouseDragSpeed / rb.mass);
+        //rb.AddForce(direction * mouseDragSpeed);
+        yield return new WaitForFixedUpdate();
+      }
+    }
   }
 }
