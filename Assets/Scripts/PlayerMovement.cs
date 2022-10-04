@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
   [Header("References")]
@@ -33,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
   void Start()
   {
     _controller = GetComponent<CharacterController>();
-    _inputHandler = GetComponent<PlayerInputHandler>();
   }
 
   void HandleCharacterMovement()
@@ -61,19 +61,21 @@ public class PlayerMovement : MonoBehaviour
     }
   }
 
-
-  private void OnFire()
+  public void assignInputHandler(PlayerInputHandler handler)
   {
-    //Debug.Log("Mouse Clicked");
+    _inputHandler = handler;
   }
 
   // Update is called once per frame
   void Update()
   {
+    if (_inputHandler == null) return;
+    Debug.Log("Input Assigned");
     RaycastHit hit;
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     if (Physics.Raycast(ray, out hit))
     {
+      // Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
       var colliderGameObject = hit.collider.gameObject;
 
       var outline = colliderGameObject.GetComponent<Outline>();
@@ -122,9 +124,7 @@ public class PlayerMovement : MonoBehaviour
         }
       }
     }
-
     HandleCharacterMovement();
-
   }
 
   private IEnumerator DragObject(GameObject dragObject)
