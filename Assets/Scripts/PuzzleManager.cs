@@ -21,6 +21,7 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private bool puzzleStarted;
     private UIController uiController;
     private AudioController audioController;
+    private GameObject puzzle_text;
     
     [SerializeField] private List<ButtonType> _pressed = new List<ButtonType>{};
     
@@ -28,6 +29,7 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private List<ButtonType> _answer = new List<ButtonType>{};
     
     public List<Instructor> instructors = new List<Instructor>{};
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -42,6 +44,7 @@ public class PuzzleManager : MonoBehaviour
         puzzleStarted = true;
         audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
         uiController = GameObject.Find("Hud").GetComponent<UIController>();
+        puzzle_text = GameObject.Find("Puzzle_Text");
     }
 
     // Update is called once per frame
@@ -118,6 +121,15 @@ public class PuzzleManager : MonoBehaviour
 
     private bool CheckAnswer()
     {
+        if (_answer.Count == 0) {
+            //break;
+            // make puzzle text visible
+            puzzle_text.SetActive(true);
+        } else {
+            // break;
+            // make puzzle text invisible
+            puzzle_text.SetActive(false);
+        }
         if (_answer.Count == _solution.Count)
         {
             for (int i = 0; i < _answer.Count; i++)
