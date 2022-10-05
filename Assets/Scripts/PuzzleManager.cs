@@ -15,7 +15,15 @@ public enum ButtonType
 
 public class PuzzleManager : MonoBehaviour
 {
-    
+    [Header("Parameters")] [Tooltip("Duration of the fade-to-black at the end of the game")]
+    public float endSceneLoadDelay = 3f;
+
+    [Tooltip("The canvas group of the fade-to-black screen")]
+    public CanvasGroup endGameFadeCanvasGroup;
+
+    [Header("Ending")] [Tooltip("This string has to be the name of the scene you want to load when game ends")]
+    public string endSceneName = "EndScene";
+
     public float puzzleTime = 60f * 3f;
     [SerializeField] private float _timeLeft = 0f;
     [SerializeField] private bool puzzleStarted;
@@ -28,6 +36,9 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private List<ButtonType> _answer = new List<ButtonType>{};
     
     public List<Instructor> instructors = new List<Instructor>{};
+    public bool gameIsEnding;
+    private float _timeLoadEndGameScene;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -56,6 +67,18 @@ public class PuzzleManager : MonoBehaviour
                 Time.timeScale = 0;
                 // ends the game
                 EndPuzzle();
+            }
+        }
+        
+        if (gameIsEnding)
+        {
+            float timeRatio = 1 - (_timeLoadEndGameScene - Time.time) / endSceneLoadDelay;
+            endGameFadeCanvasGroup.alpha = timeRatio;
+
+            if (Time.time >= _timeLoadEndGameScene)
+            {
+                GameController.Instance.LoadEndScene();
+                gameIsEnding = false;
             }
         }
         
@@ -183,6 +206,19 @@ public class PuzzleManager : MonoBehaviour
         gameOverEvent.EndGameMessage = gameOverText;
         EventManager.Broadcast(gameOverEvent);
         uiController.displayText(gameOverText);
+        FadeOut();
+    }
+    
+    private void FadeOut()
+    {
+        // unlocks the cursor before leaving the scene, to be able to click buttons
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
+        // Remember that we need to load the appropriate end scene after a delay
+        gameIsEnding = true;
+        endGameFadeCanvasGroup.gameObject.SetActive(true);
+
+        _timeLoadEndGameScene = Time.time + endSceneLoadDelay;
     }
 }
