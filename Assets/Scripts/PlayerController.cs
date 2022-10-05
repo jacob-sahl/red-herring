@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
   private PlayerInput playerInput;
   void Start()
   {
-    manager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+    manager = GameController.Instance.PlayerManager;
     playerId = manager.addPlayer();
     color = playerColors[playerId];
     _inputHandler = GetComponent<PlayerInputHandler>();

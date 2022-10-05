@@ -13,7 +13,7 @@ public class PlayerInputHandler : MonoBehaviour
 
   [Tooltip("Used to flip the horizontal input axis")]
   public bool InvertXAxis = false;
-  private GameController _gameController;
+  private PuzzleManager _puzzleManager;
   private bool _interactInputWasHeld;
   private Vector2 movementInput;
   private Vector2 lookInput;
@@ -22,7 +22,7 @@ public class PlayerInputHandler : MonoBehaviour
 
   void Start()
   {
-    _gameController = FindObjectOfType<GameController>();
+    _puzzleManager = FindObjectOfType<PuzzleManager>();
 
     Cursor.lockState = CursorLockMode.Locked;
     Cursor.visible = false;
@@ -113,6 +113,6 @@ public class PlayerInputHandler : MonoBehaviour
 
   public bool CanProcessInput()
   {
-    return Cursor.lockState == CursorLockMode.Locked && !_gameController.gameIsEnding;
+    return Cursor.lockState == CursorLockMode.Locked && !_puzzleManager.gameIsEnding;
   }
 }
