@@ -6,6 +6,7 @@ public static class Events
   public static DisplayMessageEvent DisplayMessageEvent = new DisplayMessageEvent();
   public static InteractEvent InteractEvent = new InteractEvent();
   public static ICursorHoverEvent ICursorHoverEvent = new ICursorHoverEvent();
+  public static FocusEvent FocusEvent = new FocusEvent();
 }
 
 
@@ -29,5 +30,9 @@ public class InteractEvent : GameEvent
 public class ICursorHoverEvent : GameEvent
 {
   public string ObjectTag;
+}
 
+public class FocusEvent : GameEvent
+{
+  public string ObjectTag;
 }
