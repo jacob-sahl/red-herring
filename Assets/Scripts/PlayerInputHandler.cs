@@ -14,7 +14,9 @@ public class PlayerInputHandler : MonoBehaviour
   [Tooltip("Used to flip the horizontal input axis")]
   public bool InvertXAxis = false;
   private PuzzleManager _puzzleManager;
-  private bool _interactInputWasHeld;
+  private bool interacted;
+  private bool interactHeld;
+  private bool backed;
   private Vector2 movementInput;
   private Vector2 lookInput;
   private Vector2 cursorMovement;
@@ -81,34 +83,87 @@ public class PlayerInputHandler : MonoBehaviour
     return cursorMovement;
   }
 
-  public bool GetInteractInputDown()
+  public void OnInteract(InputAction.CallbackContext context)
   {
-    if (CanProcessInput() && !_interactInputWasHeld)
-    {
-      if (Input.GetButtonDown(Constants.ButtonNameInteract))
-      {
-        _interactInputWasHeld = true;
-        return true;
-      }
-    }
-    else
-    {
-      _interactInputWasHeld = false;
-    }
-
-    return false;
+    interacted = context.action.triggered;
+    interactHeld = context.performed;
+    // if (context.performed) {
+    //   interactHeld = true;
+    // } else {
+    //   interactHeld = false;
+    // }
   }
 
-  // TODO: move to New Input System
-  public bool GetInteractInputHeld()
+  public bool GetInteractInput()
   {
     if (CanProcessInput())
     {
-      return Input.GetButton(Constants.ButtonNameInteract);
+      if (interacted)
+      {
+        interacted = false;
+        return true;
+      }
+      return false;
     }
-
     return false;
   }
+
+  public bool GetInteractHeld()
+  {
+    if (CanProcessInput())
+    {
+      return interactHeld;
+    }
+    return false;
+  }
+
+  public void OnBack(InputAction.CallbackContext context)
+  {
+    backed = context.action.triggered;
+  }
+
+  public bool GetBackInput()
+  {
+    if (CanProcessInput())
+    {
+      if (backed)
+      {
+        backed = false;
+        return true;
+      }
+      return false;
+    }
+    return false;
+  }
+
+  // public bool GetInteractInputDown()
+  // {
+  //   if (CanProcessInput() && !_interactInputWasHeld)
+  //   {
+  //     if (Input.GetButtonDown(Constants.ButtonNameInteract))
+  //     {
+  //       _interactInputWasHeld = true;
+  //       return true;
+  //     }
+  //   }
+  //   else
+  //   {
+  //     _interactInputWasHeld = false;
+  //   }
+
+  //   return false;
+  // }
+
+  // // TODO: move to New Input System
+  // public bool GetInteractInputHeld()
+  // {
+  //   if (CanProcessInput())
+  //   {
+  //     return Input.GetButton(Constants.ButtonNameInteract);
+  //   }
+
+  //   return false;
+  // }
 
 
   public bool CanProcessInput()

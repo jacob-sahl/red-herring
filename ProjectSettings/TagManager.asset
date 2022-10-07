@@ -12,6 +12,7 @@ TagManager:
   - green
   - reset
   - ICursor
+  - typewriter
   layers:
   - Default
   - TransparentFX
