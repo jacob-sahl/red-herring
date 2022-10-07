@@ -18,8 +18,9 @@ public class PlayerMovement : MonoBehaviour
   [Header("Movement")]
   [Tooltip("Max movement speed")]
   public float maxSpeed = 10f;
-
   public float mouseDragSpeed = 5f;
+
+  [Header("Focused")]
   public float cursorSpeed = 250f;
   public float rotateSpeed = 0.5f;
 
@@ -131,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
   void Update()
   {
     if (_inputHandler == null) return;
+
     RaycastHit hit;
     Ray ray = playerCamera.ScreenPointToRay(cursorPosition);
     if (Physics.Raycast(ray, out hit))

@@ -87,11 +87,6 @@ public class PlayerInputHandler : MonoBehaviour
   {
     interacted = context.action.triggered;
     interactHeld = context.performed;
-    // if (context.performed) {
-    //   interactHeld = true;
-    // } else {
-    //   interactHeld = false;
-    // }
   }
 
   public bool GetInteractInput()
@@ -106,6 +101,11 @@ public class PlayerInputHandler : MonoBehaviour
       return false;
     }
     return false;
+  }
+
+  public void OnInteractHeld(InputAction.CallbackContext context)
+  {
+    interactHeld = context.performed;
   }
 
   public bool GetInteractHeld()
