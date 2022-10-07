@@ -15,6 +15,7 @@ public class PlayerInputHandler : MonoBehaviour
   public bool InvertXAxis = false;
   private PuzzleManager _puzzleManager;
   private bool interacted;
+  private bool interactHeld;
   private bool backed;
   private Vector2 movementInput;
   private Vector2 lookInput;
@@ -85,6 +86,12 @@ public class PlayerInputHandler : MonoBehaviour
   public void OnInteract(InputAction.CallbackContext context)
   {
     interacted = context.action.triggered;
+    interactHeld = context.performed;
+    // if (context.performed) {
+    //   interactHeld = true;
+    // } else {
+    //   interactHeld = false;
+    // }
   }
 
   public bool GetInteractInput()
@@ -97,6 +104,15 @@ public class PlayerInputHandler : MonoBehaviour
         return true;
       }
       return false;
+    }
+    return false;
+  }
+
+  public bool GetInteractHeld()
+  {
+    if (CanProcessInput())
+    {
+      return interactHeld;
     }
     return false;
   }

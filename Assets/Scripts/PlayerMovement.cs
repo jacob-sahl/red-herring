@@ -50,7 +50,11 @@ public class PlayerMovement : MonoBehaviour
   void OnFocus(FocusEvent evt)
   {
     focusedObject = GameObject.FindGameObjectWithTag(evt.ObjectTag);
+
+    // Reset the object to face the camera
     focusedObject.transform.LookAt(playerCamera.transform.position);
+
+    // Calculate vectors relative to the camera to serve as rotational axes
     Vector3 a = playerCamera.transform.forward;
     Vector3 b = Vector3.up;
     Vector3 c = Vector3.right;
@@ -100,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
       Vector2 lookInput = _inputHandler.GetLookInput();
       Vector2 lookProcessed = lookInput * cursorSpeed * Time.deltaTime;
       RectTransform rect = cursor.GetComponent<RectTransform>();
+      // Move the Rect of the cursor text
       float x = Mathf.Clamp(rect.anchoredPosition.x + lookProcessed.x, -(Screen.width / 2), Screen.width / 2);
       float y = Mathf.Clamp(rect.anchoredPosition.y + lookProcessed.y, -(Screen.height / 2), Screen.height / 2);
       rect.anchoredPosition = new Vector2(x, y);
@@ -206,9 +211,9 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb = dragObject.GetComponent<Rigidbody>();
     if (rb != null)
     {
-      while (_inputHandler.GetInteractInput())
+      while (_inputHandler.GetInteractHeld())
       {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(cursorPosition);
         Vector3 direction = ray.GetPoint(initialDistance) - dragObject.transform.position;
         rb.velocity = direction * (mouseDragSpeed / rb.mass);
         //rb.AddForce(direction * mouseDragSpeed);
