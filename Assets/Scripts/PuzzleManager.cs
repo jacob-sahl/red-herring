@@ -62,7 +62,7 @@ public class PuzzleManager : MonoBehaviour
     audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
     uiController = GameObject.Find("Hud").GetComponent<UIController>();
     puzzle_text = GameObject.Find("Puzzle_Text");
-    puzzle_text.SetActive(false);
+    // puzzle_text.SetActive(false);
 
     // calls SetupInstructors in UpdateSolution as well
     UpdateSolution(_solution, Solutions.puzzle0);
@@ -177,11 +177,13 @@ public class PuzzleManager : MonoBehaviour
     if (_answer.Count == 0)
     {
       // make puzzle text visible
+      // puzzle_text.SetActive(true);
       Debug.Log("puzzle text active");
     }
     else
     {
       // make puzzle text invisible
+      // puzzle_text.SetActive(false);
       Debug.Log("puzzle text inactive");
     }
 
