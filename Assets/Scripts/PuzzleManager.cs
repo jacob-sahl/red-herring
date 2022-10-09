@@ -13,6 +13,12 @@ public enum ButtonType
   Invalid,
 }
 
+public enum Solutions
+{
+  puzzle0,
+  puzzle1
+}
+
 public class PuzzleManager : MonoBehaviour
 {
   [Header("Parameters")]
@@ -31,10 +37,11 @@ public class PuzzleManager : MonoBehaviour
   [SerializeField] private bool puzzleStarted;
   private UIController uiController;
   private AudioController audioController;
+  private GameObject puzzle_text;
 
   [SerializeField] private List<ButtonType> _pressed = new List<ButtonType> { };
 
-  [SerializeField] private List<ButtonType> _solution = new List<ButtonType> { ButtonType.Key2, ButtonType.Key3, ButtonType.Key4, ButtonType.Key1, ButtonType.Key4, ButtonType.Key2, ButtonType.Key2 };
+  [SerializeField] private List<ButtonType> _solution;
   [SerializeField] private List<ButtonType> _answer = new List<ButtonType> { };
 
   public List<Instructor> instructors = new List<Instructor> { };
@@ -48,12 +55,34 @@ public class PuzzleManager : MonoBehaviour
 
   void Start()
   {
-    SetupInstructors();
+    // SetupInstructors();
 
     _timeLeft = puzzleTime;
     puzzleStarted = true;
     audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
     uiController = GameObject.Find("Hud").GetComponent<UIController>();
+    puzzle_text = GameObject.Find("Puzzle_Text");
+    Debug.Log(puzzle_text);
+    puzzle_text.SetActive(false);
+
+    // calls SetupInstructors in UpdateSolution as well
+    UpdateSolution(_solution, Solutions.puzzle0);
+
+  }
+
+  // Update solution to solution_num
+  void UpdateSolution(List<ButtonType> _solution, Solutions puzzle)
+  {
+    switch (puzzle)
+    {
+      case Solutions.puzzle0:
+        _solution = new List<ButtonType> { ButtonType.Key2, ButtonType.Key3, ButtonType.Key4, ButtonType.Key1, ButtonType.Key4, ButtonType.Key2, ButtonType.Key2 };
+        break;
+      case Solutions.puzzle1:
+        break;
+    }
+    Debug.Log(_solution);
+    SetupInstructors(puzzle);
   }
 
   // Update is called once per frame
@@ -123,21 +152,43 @@ public class PuzzleManager : MonoBehaviour
       case ButtonType.Key3:
       case ButtonType.Key4:
         _answer.Add(buttonType);
-        if (_answer[_answer.Count - 1] != _solution[_answer.Count - 1])
+        if (_answer.Count > _solution.Count || _answer[_answer.Count - 1] != _solution[_answer.Count - 1])
         {
           audioController.playMistake();
         }
+
+        break;
+      case ButtonType.Reset:
+        //_answer.Clear();
         if (CheckAnswer())
         {
           audioController.playSuccess();
           EndPuzzle();
-        };
-        break;
-      case ButtonType.Reset:
-        _answer.Clear();
+        }
+        else
+        {
+          _answer.Clear();
+        }
         break;
       case ButtonType.Green:
         break;
+    }
+
+    // make mistake text turn on or off
+    Debug.Log(_answer.Count);
+    if (_answer.Count == 0)
+    {
+      //break;
+      // make puzzle text visible
+      puzzle_text.SetActive(true);
+      Debug.Log("puzzle text active");
+    }
+    else
+    {
+      // break;
+      // make puzzle text invisible
+      puzzle_text.SetActive(false);
+      Debug.Log("puzzle text inactive");
     }
 
   }
@@ -162,25 +213,32 @@ public class PuzzleManager : MonoBehaviour
     }
   }
 
-  private void SetupInstructors()
+  private void SetupInstructors(Solutions puzzle)
   {
     this.instructors[0].name = "Instructor 0";
     this.instructors[1].name = "Instructor 1";
     this.instructors[2].name = "Instructor 2";
-    this.instructors[0].SetupSecretGoal(pressed =>
+    switch (puzzle)
     {
-      if (pressed.Count > 4)
-      {
-        return pressed[2] == ButtonType.Reset && pressed[3] == ButtonType.Reset;
-      }
-      else
-      {
-        return false;
-      }
-    });
+      case Solutions.puzzle0:
+        this.instructors[0].SetupSecretGoal(pressed =>
+        {
+          if (pressed.Count > 4)
+          {
+            return pressed[2] == ButtonType.Reset && pressed[3] == ButtonType.Reset;
+          }
+          else
+          {
+            return false;
+          }
+        });
 
-    this.instructors[1].SetupSecretGoal(pressed => pressed.Contains(ButtonType.Green));
-    this.instructors[2].SetupSecretGoal(pressed => !pressed.Contains(ButtonType.Green));
+        this.instructors[1].SetupSecretGoal(pressed => pressed.Contains(ButtonType.Green));
+        this.instructors[2].SetupSecretGoal(pressed => !pressed.Contains(ButtonType.Green));
+        break;
+      case Solutions.puzzle1:
+        break;
+    }
   }
 
   private void EndPuzzle()
