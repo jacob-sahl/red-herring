@@ -35,12 +35,14 @@ public class PlayerMovement : MonoBehaviour
   GameObject cursor;
   Vector3 cursorPosition;
   GameObject focusedObject;
+  GameObject focusedObjectPlaceholder;
   Vector3 focusRotationXAxis;
   Vector3 focusRotationYAxis;
 
   // Start is called before the first frame update
   void Start()
   {
+    focusedObjectPlaceholder = new GameObject();
     _controller = GetComponent<CharacterController>();
     cursor = GameObject.Find("DetectiveCursor");
     cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
@@ -55,6 +57,9 @@ public class PlayerMovement : MonoBehaviour
     focusRotationYAxis = Vector3.Cross(playerCamera.transform.forward, playerCamera.transform.right);
 
     focusedObject = GameObject.FindGameObjectWithTag(evt.ObjectTag);
+    focusedObjectPlaceholder.transform.position = focusedObject.transform.position;
+    focusedObjectPlaceholder.transform.rotation = focusedObject.transform.rotation;
+    focusedObjectPlaceholder.transform.localScale = focusedObject.transform.localScale;
     Debug.Log("Focusing: " + focusedObject);
 
     // Reset the object to face the camera
@@ -99,6 +104,10 @@ public class PlayerMovement : MonoBehaviour
       cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
       cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
       canMove = true;
+      // Put the object back where it was
+      focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
+      focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
+      focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
       focusedObject.GetComponent<Focus>().enablePhysics();
       return;
     }
