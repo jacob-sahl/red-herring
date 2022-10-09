@@ -62,7 +62,6 @@ public class PuzzleManager : MonoBehaviour
     audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
     uiController = GameObject.Find("Hud").GetComponent<UIController>();
     puzzle_text = GameObject.Find("Puzzle_Text");
-    Debug.Log(puzzle_text);
     puzzle_text.SetActive(false);
 
     // calls SetupInstructors in UpdateSolution as well
@@ -175,19 +174,14 @@ public class PuzzleManager : MonoBehaviour
     }
 
     // make mistake text turn on or off
-    Debug.Log(_answer.Count);
     if (_answer.Count == 0)
     {
-      //break;
       // make puzzle text visible
-      puzzle_text.SetActive(true);
       Debug.Log("puzzle text active");
     }
     else
     {
-      // break;
       // make puzzle text invisible
-      puzzle_text.SetActive(false);
       Debug.Log("puzzle text inactive");
     }
 
