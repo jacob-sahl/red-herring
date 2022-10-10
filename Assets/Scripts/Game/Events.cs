@@ -24,7 +24,7 @@ public class DisplayMessageEvent : GameEvent
 
 public class InteractEvent : GameEvent
 {
-  public string ObjectTag;
+  public GameObject gameObject;
 }
 
 public class ICursorHoverEvent : GameEvent

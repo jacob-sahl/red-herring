@@ -1,22 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum ButtonType
 {
-  Key1,
-  Key2,
-  Key3,
-  Key4,
-  Reset,
-  Green,
-  Invalid,
-}
-
-public enum Solutions
-{
-  puzzle0,
-  puzzle1
+  Submit,
+  A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
+  One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Zero,
+  Space,
 }
 
 public class PuzzleManager : MonoBehaviour
@@ -37,7 +29,57 @@ public class PuzzleManager : MonoBehaviour
   [SerializeField] private bool puzzleStarted;
   private UIController uiController;
   private AudioController audioController;
-  private GameObject puzzle_text;
+  private TextMeshProUGUI puzzle_text;
+
+  [Header("Puzzle")]
+  [Tooltip("This defines the possible puzzle solutions.")]
+  public static List<List<ButtonType>> Solutions = new List<List<ButtonType>> {
+    new List<ButtonType> {
+      ButtonType.B, ButtonType.L, ButtonType.U, ButtonType.E, ButtonType.Space,
+      ButtonType.R, ButtonType.E, ButtonType.D, ButtonType.Space,
+      ButtonType.Y, ButtonType.E, ButtonType.L, ButtonType.L, ButtonType.O, ButtonType.W
+      },
+  };
+
+  private Dictionary<ButtonType, string> ButtonToString = new Dictionary<ButtonType, string> {
+    {ButtonType.A, "A"},
+    {ButtonType.B, "B"},
+    {ButtonType.C, "C"},
+    {ButtonType.D, "D"},
+    {ButtonType.E, "E"},
+    {ButtonType.F, "F"},
+    {ButtonType.G, "G"},
+    {ButtonType.H, "H"},
+    {ButtonType.I, "I"},
+    {ButtonType.J, "J"},
+    {ButtonType.K, "K"},
+    {ButtonType.L, "L"},
+    {ButtonType.M, "M"},
+    {ButtonType.N, "N"},
+    {ButtonType.O, "O"},
+    {ButtonType.P, "P"},
+    {ButtonType.Q, "Q"},
+    {ButtonType.R, "R"},
+    {ButtonType.S, "S"},
+    {ButtonType.T, "T"},
+    {ButtonType.U, "U"},
+    {ButtonType.V, "V"},
+    {ButtonType.W, "W"},
+    {ButtonType.X, "X"},
+    {ButtonType.Y, "Y"},
+    {ButtonType.Z, "Z"},
+    {ButtonType.One, "1"},
+    {ButtonType.Two, "2"},
+    {ButtonType.Three, "3"},
+    {ButtonType.Four, "4"},
+    {ButtonType.Five, "5"},
+    {ButtonType.Six, "6"},
+    {ButtonType.Seven, "7"},
+    {ButtonType.Eight, "8"},
+    {ButtonType.Nine, "9"},
+    {ButtonType.Zero, "0"},
+    {ButtonType.Space, " "},
+  };
 
   [SerializeField] private List<ButtonType> _pressed = new List<ButtonType> { };
 
@@ -55,33 +97,21 @@ public class PuzzleManager : MonoBehaviour
 
   void Start()
   {
-    // SetupInstructors();
-
     _timeLeft = puzzleTime;
+
     puzzleStarted = true;
     audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
     uiController = GameObject.Find("Hud").GetComponent<UIController>();
-    puzzle_text = GameObject.Find("Puzzle_Text");
-    puzzle_text.SetActive(false);
+    puzzle_text = GameObject.Find("Puzzle_Text").GetComponentInChildren<TextMeshProUGUI>();
 
-    // calls SetupInstructors in UpdateSolution as well
-    UpdateSolution(_solution, Solutions.puzzle0);
-
+    // Demo puzzle ID = 0
+    UpdateSolution(0);
   }
 
   // Update solution to solution_num
-  void UpdateSolution(List<ButtonType> _solution, Solutions puzzle)
+  void UpdateSolution(int puzzleId)
   {
-    switch (puzzle)
-    {
-      case Solutions.puzzle0:
-        _solution = new List<ButtonType> { ButtonType.Key2, ButtonType.Key3, ButtonType.Key4, ButtonType.Key1, ButtonType.Key4, ButtonType.Key2, ButtonType.Key2 };
-        break;
-      case Solutions.puzzle1:
-        break;
-    }
-    Debug.Log(_solution);
-    SetupInstructors(puzzle);
+    _solution = Solutions[puzzleId];
   }
 
   // Update is called once per frame
@@ -114,51 +144,25 @@ public class PuzzleManager : MonoBehaviour
 
   }
 
-  ButtonType GetButtonTypeFromTag(string buttonTag)
+  public void OnButtonPressed(InteractEvent evt)
   {
-    switch (buttonTag)
+    Button button = evt.gameObject.GetComponent<Button>();
+    if (button)
     {
-      case "key1":
-        return ButtonType.Key1;
-      case "key2":
-        return ButtonType.Key2;
-      case "key3":
-        return ButtonType.Key3;
-      case "key4":
-        return ButtonType.Key4;
-      case "reset":
-        return ButtonType.Reset;
-      case "green":
-        return ButtonType.Green;
-      default:
-        return ButtonType.Invalid;
+      ButtonPressed(button);
     }
   }
 
-  public void OnButtonPressed(InteractEvent evt)
+  public void ButtonPressed(Button button)
   {
-    ButtonPressed(evt.ObjectTag);
-  }
-
-  public void ButtonPressed(string buttonTag)
-  {
-    ButtonType buttonType = GetButtonTypeFromTag(buttonTag);
-    _pressed.Add(buttonType);
-    switch (buttonType)
+    _pressed.Add(button.buttonType);
+    if (_answer.Count == 0)
     {
-      case ButtonType.Key1:
-      case ButtonType.Key2:
-      case ButtonType.Key3:
-      case ButtonType.Key4:
-        _answer.Add(buttonType);
-        if (_answer.Count > _solution.Count || _answer[_answer.Count - 1] != _solution[_answer.Count - 1])
-        {
-          audioController.playMistake();
-        }
-
-        break;
-      case ButtonType.Reset:
-        //_answer.Clear();
+      puzzle_text.text = "";
+    }
+    switch (button.buttonType)
+    {
+      case ButtonType.Submit:
         if (CheckAnswer())
         {
           audioController.playSuccess();
@@ -167,24 +171,15 @@ public class PuzzleManager : MonoBehaviour
         else
         {
           _answer.Clear();
+          puzzle_text.text = "Mistake!";
+          audioController.playMistake();
         }
         break;
-      case ButtonType.Green:
+      default:
+        _answer.Add(button.buttonType);
+        puzzle_text.text += ButtonToString[button.buttonType];
         break;
     }
-
-    // make mistake text turn on or off
-    if (_answer.Count == 0)
-    {
-      // make puzzle text visible
-      Debug.Log("puzzle text active");
-    }
-    else
-    {
-      // make puzzle text invisible
-      Debug.Log("puzzle text inactive");
-    }
-
   }
 
   private bool CheckAnswer()
@@ -207,32 +202,17 @@ public class PuzzleManager : MonoBehaviour
     }
   }
 
-  private void SetupInstructors(Solutions puzzle)
+  private void SetupInstructors()
   {
-    this.instructors[0].name = "Instructor 0";
-    this.instructors[1].name = "Instructor 1";
-    this.instructors[2].name = "Instructor 2";
-    switch (puzzle)
+    instructors[0].name = "Instructor 0";
+    instructors[1].name = "Instructor 1";
+    instructors[2].name = "Instructor 2";
+    this.instructors[0].SetupSecretGoal(pressed =>
     {
-      case Solutions.puzzle0:
-        this.instructors[0].SetupSecretGoal(pressed =>
-        {
-          if (pressed.Count > 4)
-          {
-            return pressed[2] == ButtonType.Reset && pressed[3] == ButtonType.Reset;
-          }
-          else
-          {
-            return false;
-          }
-        });
-
-        this.instructors[1].SetupSecretGoal(pressed => pressed.Contains(ButtonType.Green));
-        this.instructors[2].SetupSecretGoal(pressed => !pressed.Contains(ButtonType.Green));
-        break;
-      case Solutions.puzzle1:
-        break;
-    }
+      return false;
+    });
+    this.instructors[1].SetupSecretGoal(pressed => pressed.Contains(ButtonType.G));
+    this.instructors[2].SetupSecretGoal(pressed => !pressed.Contains(ButtonType.G));
   }
 
   private void EndPuzzle()
@@ -247,11 +227,11 @@ public class PuzzleManager : MonoBehaviour
     }
     foreach (var instructor in instructors)
     {
-      Debug.Log($"{instructor.name}'s secret goal: {instructor.CheckSecretGoal(_pressed)}");
-      if (instructor.CheckSecretGoal(_pressed))
-      {
-        winners.Add($"{instructor.name}");
-      }
+      // Debug.Log($"{instructor.name}'s secret goal: {instructor.CheckSecretGoal(_pressed)}");
+      // if (instructor.CheckSecretGoal(_pressed))
+      // {
+      //   winners.Add($"{instructor.name}");
+      // }
     }
     string gameOverText = "Game Over. Winners:";
     foreach (var winner in winners)

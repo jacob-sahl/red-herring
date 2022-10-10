@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour
   }
   void Focus(GameObject target)
   {
+    Debug.Log(target);
     playerCam.transform.LookAt(target.transform);
   }
 }
