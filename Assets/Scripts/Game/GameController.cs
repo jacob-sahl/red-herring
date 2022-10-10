@@ -6,82 +6,83 @@ using UnityEngine.Serialization;
 
 public class GameController : MonoBehaviour
 {
-    public static GameController Instance { get; private set; }
-    public PlayerManager PlayerManager;
-    public PuzzleManager PuzzleManager;
-    [SerializeField] public bool forceStart = false;
+  public static GameController Instance { get; private set; }
+  public PlayerManager PlayerManager;
+  public PuzzleManager PuzzleManager;
+  [SerializeField] public bool forceStart = false;
 
-    void Awake()
-    {
-        EventManager.AddListener<GameStartEvent>(onGameStart);
+  void Awake()
+  {
+    EventManager.AddListener<GameStartEvent>(onGameStart);
 
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+    if (Instance != null && Instance != this)
+    {
+      Destroy(this);
     }
+    else
+    {
+      Instance = this;
+      DontDestroyOnLoad(gameObject);
+    }
+  }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        PlayerManager = PlayerManager.Instance;
-    }
+  // Start is called before the first frame update
+  void Start()
+  {
+    PlayerManager = PlayerManager.Instance;
+  }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
+  // Update is called once per frame
+  void Update()
+  {
+  }
 
-    public void LoadScene(string name)
-    {
-        SceneManager.LoadScene(name);
-    }
+  public void LoadScene(string name)
+  {
+    SceneManager.LoadScene(name);
+  }
 
-    public void LoadMenuScene()
-    {
-        LoadScene("Menu");
-    }
+  public void LoadMenuScene()
+  {
+    LoadScene("Menu");
+  }
 
-    public void LoadEndScene()
-    {
-        LoadScene("End");
-    }
+  public void LoadEndScene()
+  {
+    LoadScene("End");
+  }
 
-    private bool checkCanStartGame()
+  private bool checkCanStartGame()
+  {
+    return forceStart || PlayerManager.players.Count == 4;
+  }
+  public void LoadPuzzle()
+  {
+    if (checkCanStartGame())
     {
-        return forceStart || PlayerManager.players.Count == 4;
+      LoadScene("_MAINSCENE");
     }
-    public void LoadPuzzle()
+    else
     {
-        if (checkCanStartGame())
-        {
-            LoadScene("MP_MAINSCENE");
-        } else
-        {
-            Debug.Log("Not enough players");
-        }
+      Debug.Log("Not enough players");
     }
+  }
 
-    public bool IsGameEnding()
+  public bool IsGameEnding()
+  {
+    if (PuzzleManager == null)
     {
-        if (PuzzleManager == null)
-        {
-            return false;
-        }
-        else
-        {
-            return PuzzleManager.gameIsEnding;
-        }
+      return false;
     }
+    else
+    {
+      return PuzzleManager.gameIsEnding;
+    }
+  }
 
-    private void onGameStart(GameStartEvent e)
-    {
-        Debug.Log("Game Start received by GameController");
-        PuzzleManager = GameObject.Find("PuzzleManager").GetComponent<PuzzleManager>();
-    }
+  private void onGameStart(GameStartEvent e)
+  {
+    Debug.Log("Game Start received by GameController");
+    PuzzleManager = GameObject.Find("PuzzleManager").GetComponent<PuzzleManager>();
+  }
 }

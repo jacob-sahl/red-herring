@@ -448,6 +448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerManager: {fileID: 0}
+  PuzzleManager: {fileID: 0}
+  forceStart: 0
 --- !u!4 &330362218
 Transform:
   m_ObjectHideFlags: 0
@@ -2325,6 +2327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8540c310dae87e468a333990a085ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []
 --- !u!4 &1794028093
 Transform:
   m_ObjectHideFlags: 0

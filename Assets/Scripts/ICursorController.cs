@@ -9,11 +9,13 @@ public class ICursorController : MonoBehaviour
   public PlayerInputHandler _inputHandler;
   public bool _dev_handling = true;
   public Color color;
-  public float cursorSpeed = 250f;
+  public float initCursorSpeed = 400f;
+  private float cursorSpeed;
 
   void Start()
   {
     _rect = GetComponent<RectTransform>();
+    cursorSpeed = initCursorSpeed;
   }
 
   private void handleCursorMove()

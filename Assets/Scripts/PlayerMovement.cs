@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
   public float mouseDragSpeed = 5f;
 
   [Header("Focused")]
-  public float cursorSpeed = 250f;
+  public float cursorSpeed = 400f;
   public float rotateSpeed = 0.5f;
 
   [Tooltip(
