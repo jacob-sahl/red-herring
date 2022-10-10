@@ -16,7 +16,7 @@ public class SetupPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateAllPlayers();
     }
 
     // Update is called once per frame
@@ -28,26 +28,32 @@ public class SetupPlayer : MonoBehaviour
     private void onPlayerJoined(PlayerJoinedEvent e)
     {
         Debug.Log("SetupPlayer: Player Joined");
-        JoinPlayer(e.PlayerID);
+        UpdatePlayer(e.PlayerID);
     }
-    
-    private void JoinPlayer(int playerID)
-    {
-        GameObject player = players[playerID];
-        player.transform.Find("JoinPrompt").gameObject.SetActive(false);
-        var avatar = player.transform.Find("Avatar");
-        avatar.GetComponent<Image>().color = PlayerManager.Instance.getPlayer(playerID).color;
-        avatar.gameObject.SetActive(true);
-    }
-    
+
     private void onPlayerUpdated(PlayerUpdateEvent e)
     {
         Debug.Log("SetupPlayer: Player Updated");
-        int playerID = e.PlayerID;
-        GameObject player = players[playerID];
-        player.transform.Find("JoinPrompt").gameObject.SetActive(false);
-        var avatar = player.transform.Find("Avatar");
-        avatar.GetComponent<Image>().color = PlayerManager.Instance.getPlayer(playerID).color;
-        avatar.gameObject.SetActive(true);
+        UpdatePlayer(e.PlayerID);
+    }
+    
+    private void UpdateAllPlayers()
+    {
+        for (int i = 0; i < PlayerManager.Instance.players.Count; i++)
+        {
+            UpdatePlayer(i);
+        }
+    }
+    
+    private void UpdatePlayer(int playerID)
+    {
+        if (playerID < players.Count)
+        {
+            GameObject player = players[playerID];
+            player.transform.Find("JoinPrompt").gameObject.SetActive(false);
+            var avatar = player.transform.Find("Avatar");
+            avatar.GetComponent<Image>().color = PlayerManager.Instance.getPlayer(playerID).color;
+            avatar.gameObject.SetActive(true);
+        }
     }
 }
