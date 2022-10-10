@@ -106,6 +106,9 @@ public class PuzzleManager : MonoBehaviour
 
     // Demo puzzle ID = 0
     UpdateSolution(0);
+    GameStartEvent gameStartEvent = new GameStartEvent();
+    EventManager.Broadcast(gameStartEvent);
+    Debug.Log("GameStartEvent broadcasted");
   }
 
   // Update solution to solution_num
@@ -128,6 +131,11 @@ public class PuzzleManager : MonoBehaviour
         // ends the game
         EndPuzzle();
       }
+
+      _timeLeft = puzzleTime;
+      puzzleStarted = true;
+      audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
+      uiController = GameObject.Find("Hud").GetComponent<UIController>();
     }
 
     if (gameIsEnding)

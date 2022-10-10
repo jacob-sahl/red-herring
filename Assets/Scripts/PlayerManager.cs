@@ -1,31 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
+  public List<PlayerController> players = new List<PlayerController>();
   public static PlayerManager Instance { get; private set; }
   void Awake() {
+    EventManager.AddListener<GameStartEvent>(onGameStart);
+
     if (Instance != null && Instance != this) 
     { 
       Destroy(this); 
     } 
     else 
     { 
-      Instance = this; 
+      Instance = this;
+      DontDestroyOnLoad(gameObject);
     } 
   }
-  
-  private int nPlayers;
+
+  private int nPlayers
+  {
+    get { return players.Count; }
+  }
 
   void Start()
   {
-    nPlayers = 0;
   }
-  public int addPlayer()
+  
+  public int addPlayer(PlayerController player)
   {
-    nPlayers += 1;
-    return (nPlayers - 1);
+    int playerID = nPlayers;
+    players.Add(player);
+    PlayerJoinedEvent e = new PlayerJoinedEvent();
+    e.PlayerID = playerID;
+    EventManager.Broadcast(e);
+    return playerID;
+  }
+  
+  void OnPlayerJoined() {
+    Debug.Log("PlayerManager: Player Joined");
+  }
+  
+  private void onGameStart(GameStartEvent e)
+  {
+    Debug.Log("Game Start received by GameController");
+    GetComponent<PlayerInputManager>().DisableJoining();
   }
 
+  public PlayerController getPlayer(int playerID)
+  {
+    return players[playerID];
+  }
 }
