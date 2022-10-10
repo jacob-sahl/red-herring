@@ -35,12 +35,14 @@ public class PlayerMovement : MonoBehaviour
   GameObject cursor;
   Vector3 cursorPosition;
   GameObject focusedObject;
+  GameObject focusedObjectPlaceholder;
   Vector3 focusRotationXAxis;
   Vector3 focusRotationYAxis;
 
   // Start is called before the first frame update
   void Start()
   {
+    focusedObjectPlaceholder = new GameObject();
     _controller = GetComponent<CharacterController>();
     cursor = GameObject.Find("DetectiveCursor");
     cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
@@ -50,17 +52,21 @@ public class PlayerMovement : MonoBehaviour
 
   void OnFocus(FocusEvent evt)
   {
+    // Calculate vectors relative to the camera to serve as rotational axes
+    focusRotationXAxis = Vector3.Cross(playerCamera.transform.forward, Vector3.up);
+    focusRotationYAxis = Vector3.Cross(playerCamera.transform.forward, playerCamera.transform.right);
+
     focusedObject = GameObject.FindGameObjectWithTag(evt.ObjectTag);
+    focusedObjectPlaceholder.transform.position = focusedObject.transform.position;
+    focusedObjectPlaceholder.transform.rotation = focusedObject.transform.rotation;
+    focusedObjectPlaceholder.transform.localScale = focusedObject.transform.localScale;
+    Debug.Log("Focusing: " + focusedObject);
 
     // Reset the object to face the camera
+    float distance = Vector3.Distance(focusedObject.transform.position, playerCamera.transform.position);
     focusedObject.transform.LookAt(playerCamera.transform.position);
-
-    // Calculate vectors relative to the camera to serve as rotational axes
-    Vector3 a = playerCamera.transform.forward;
-    Vector3 b = Vector3.up;
-    Vector3 c = Vector3.right;
-    focusRotationXAxis = Vector3.Cross(a, b);
-    focusRotationYAxis = Vector3.Cross(a, c);
+    focusedObject.transform.Rotate(focusRotationXAxis, focusedObject.GetComponent<Focus>().defaultRotation.x, Space.World);
+    focusedObject.transform.Translate((distance - focusedObject.GetComponent<Focus>().focusDistance) * -1 * playerCamera.transform.forward, Space.World);
   }
 
   void HandleCharacterMovement()
@@ -94,9 +100,14 @@ public class PlayerMovement : MonoBehaviour
     bool exited = _inputHandler.GetBackInput();
     if (exited)
     {
+      // Reset cursor to centre and exit focus
       cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
       cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
       canMove = true;
+      // Put the object back where it was
+      focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
+      focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
+      focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
       focusedObject.GetComponent<Focus>().enablePhysics();
       return;
     }
@@ -109,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
       float x = Mathf.Clamp(rect.anchoredPosition.x + lookProcessed.x, -(Screen.width / 2), Screen.width / 2);
       float y = Mathf.Clamp(rect.anchoredPosition.y + lookProcessed.y, -(Screen.height / 2), Screen.height / 2);
       rect.anchoredPosition = new Vector2(x, y);
-      // Rect positions behave differently & weird, so recalculate for cursor
+      // Rect positions behave differently, so recalculate for cursor
       float cx = Mathf.Clamp(cursorPosition.x + lookProcessed.x, 0, Screen.width);
       float cy = Mathf.Clamp(cursorPosition.y + lookProcessed.y, 0, Screen.height);
       cursorPosition = new Vector2(cx, cy);
@@ -139,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
     {
       // Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
       var colliderGameObject = hit.collider.gameObject;
+      // Debug.Log(colliderGameObject);
       var outline = colliderGameObject.GetComponent<Outline>();
       var focus = colliderGameObject.GetComponent<Focus>();
 
@@ -174,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
           {
             _lastOutline.OutlineColor = Color.yellow; // not sure why this isn't working
             InteractEvent interact = Events.InteractEvent;
-            interact.ObjectTag = colliderGameObject.tag;
+            interact.gameObject = colliderGameObject;
             EventManager.Broadcast(interact);
           }
         }

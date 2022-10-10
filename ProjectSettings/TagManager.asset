@@ -13,6 +13,7 @@ TagManager:
   - reset
   - ICursor
   - typewriter
+  - puzzleObjectPart
   layers:
   - Default
   - TransparentFX
