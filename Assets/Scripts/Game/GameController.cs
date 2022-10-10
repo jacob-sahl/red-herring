@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public static GameController Instance { get; private set; }
     public PlayerManager PlayerManager;
     public PuzzleManager PuzzleManager;
+    [SerializeField] public bool forceStart = false;
 
     void Awake()
     {
@@ -53,13 +54,13 @@ public class GameController : MonoBehaviour
 
     private bool checkCanStartGame()
     {
-        return PlayerManager.players.Count == 4;
+        return forceStart || PlayerManager.players.Count == 4;
     }
     public void LoadPuzzle()
     {
         if (checkCanStartGame())
         {
-            LoadScene("Puzzle");
+            LoadScene("MP_MAINSCENE");
         } else
         {
             Debug.Log("Not enough players");
