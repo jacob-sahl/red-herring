@@ -17,6 +17,7 @@ public class PlayerInputHandler : MonoBehaviour
   private bool interacted;
   private bool interactHeld;
   private bool backed;
+  private bool _interactInputWasHeld;
   private Vector2 movementInput;
   private Vector2 lookInput;
   private Vector2 cursorMovement;
@@ -24,11 +25,21 @@ public class PlayerInputHandler : MonoBehaviour
 
   void Start()
   {
-    _puzzleManager = FindObjectOfType<PuzzleManager>();
-
+    EventManager.AddListener<GameStartEvent>(onGameStart);
+  }
+  
+  private void LockCursor()
+  {
+    Debug.Log("Locking cursor");
     Cursor.lockState = CursorLockMode.Locked;
     Cursor.visible = false;
     lookInput = Vector2.zero;
+  }
+  
+  private void UnlockCursor()
+  {
+    Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
   }
 
   public void OnMove(InputAction.CallbackContext context)
@@ -168,6 +179,12 @@ public class PlayerInputHandler : MonoBehaviour
 
   public bool CanProcessInput()
   {
-    return Cursor.lockState == CursorLockMode.Locked && !_puzzleManager.gameIsEnding;
+    return Cursor.lockState == CursorLockMode.Locked && !GameController.Instance.IsGameEnding();
+  }
+  
+  private void onGameStart(GameStartEvent e)
+  {
+    Debug.Log("Game started Received by PlayerInputHandler");
+    LockCursor();
   }
 }

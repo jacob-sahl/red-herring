@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
   private Color[] playerColors = { Color.red, Color.cyan, Color.green, Color.magenta };
   public GameObject iCursorPrefab;
-  private Color color;
+  public Color color;
   private int playerId;
   enum PlayerRole
   {
@@ -19,14 +20,44 @@ public class PlayerController : MonoBehaviour
   private PlayerInputHandler _inputHandler;
   private PlayerManager manager;
   private PlayerInput playerInput;
-  void Start()
+
+  private void Awake()
   {
+    DontDestroyOnLoad(this.gameObject);
+    EventManager.AddListener<GameStartEvent>(onGameStart);
     manager = GameController.Instance.PlayerManager;
-    playerId = manager.addPlayer();
-    color = playerColors[playerId];
     _inputHandler = GetComponent<PlayerInputHandler>();
     playerInput = GetComponent<PlayerInput>();
+    playerId = manager.addPlayer(this);
+    color = playerColors[playerId];
+    PlayerUpdateEvent e = new PlayerUpdateEvent();
+    e.PlayerID = playerId;
+    EventManager.Broadcast(e);
+  }
 
+  void Start()
+  {
+
+    // // If this is P1, make them the Operator
+    // if (playerId == 0)
+    // {
+    //   //   role = PlayerRole.Operator;
+    //   GameObject.Find("Operator").GetComponent<PlayerMovement>().assignInputHandler(_inputHandler);
+    //   playerInput.SwitchCurrentActionMap("Operator");
+    // }
+    // else
+    // {
+    //   //   role = PlayerRole.Instructor;
+    //   // Create an iCursor for this player
+    //   iCursor = Instantiate(iCursorPrefab, GameObject.Find("Hud").transform);
+    //   iCursor.GetComponent<ICursorController>()._inputHandler = _inputHandler;
+    //   iCursor.GetComponent<ICursorController>().color = color;
+    //   playerInput.SwitchCurrentActionMap("Instructor");
+    // }
+  }
+  
+  void onGameStart(GameStartEvent e)
+  {
     // If this is P1, make them the Operator
     if (playerId == 0)
     {
