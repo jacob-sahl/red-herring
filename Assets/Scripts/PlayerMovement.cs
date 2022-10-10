@@ -186,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
           {
             _lastOutline.OutlineColor = Color.yellow; // not sure why this isn't working
             InteractEvent interact = Events.InteractEvent;
-            interact.ObjectTag = colliderGameObject.tag;
+            interact.gameObject = colliderGameObject;
             EventManager.Broadcast(interact);
           }
         }
