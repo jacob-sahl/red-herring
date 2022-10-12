@@ -4,6 +4,7 @@ public static class Events
 {
   public static LevelEndEvent levelEndEvent = new LevelEndEvent();
   public static LevelStartEvent LevelStartEvent = new LevelStartEvent();
+  public static LevelSetupCompleteEvent LevelSetupCompleteEvent = new LevelSetupCompleteEvent();
   public static DisplayMessageEvent DisplayMessageEvent = new DisplayMessageEvent();
   public static InteractEvent InteractEvent = new InteractEvent();
   public static ICursorHoverEvent ICursorHoverEvent = new ICursorHoverEvent();
@@ -48,6 +49,11 @@ public class PlayerJoinedEvent : GameEvent
 }
 
 public class PlayerUpdateEvent : GameEvent
+{
+  public int PlayerID;
+}
+
+public class LevelSetupCompleteEvent : GameEvent
 {
   public int PlayerID;
 }

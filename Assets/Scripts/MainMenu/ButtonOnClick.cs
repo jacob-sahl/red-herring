@@ -21,4 +21,10 @@ public class ButtonOnClick : MonoBehaviour
         Debug.Log("Menu");
         GameController.Instance.LoadMenuScene();
     }
+    
+    public void SetupLevel()
+    {
+        Debug.Log("Setup");
+        GameController.Instance.SetupLevel();
+    }
 }

@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
   public LevelManager levelManager;
   [SerializeField] public bool forceStart = false;
 
+  public List<Instructor> instructors = new List<Instructor>();
   void Awake()
   {
     EventManager.AddListener<LevelStartEvent>(onGameStart);
@@ -84,9 +85,20 @@ public class GameController : MonoBehaviour
   {
     Debug.Log("Game Start received by GameController");
     levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+
+    foreach (var instructor in instructors)
+    {
+      levelManager.AddInstructors(instructor);
+    }
+  }
+  
+  public void SetupLevel()
+  {
+    instructors.Add(new Instructor("Instructor 0", TypeWriterSecretGoals.TypedFool));
+    instructors.Add(new Instructor("Instructor 1", TypeWriterSecretGoals.FlippedTypeWriter));
+    instructors.Add(new Instructor("Instructor 2", GeneralSecretGoals.LookThroughWindow));
     
-    levelManager.AddInstructors(new Instructor("Instructor 0", TypeWriterSecretGoals.TypedFool));
-    levelManager.AddInstructors(new Instructor("Instructor 1", TypeWriterSecretGoals.FlippedTypeWriter));
-    levelManager.AddInstructors(new Instructor("Instructor 2", GeneralSecretGoals.LookThroughWindow));
+    LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
+    EventManager.Broadcast(e);
   }
 }

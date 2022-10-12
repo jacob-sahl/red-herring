@@ -52,13 +52,10 @@ public class LevelManager : MonoBehaviour
 
             if (_timeLeft <= 0)
             {
-                Time.timeScale = 0;
                 // ends the game
                 EndLevel();
             }
-
-            _timeLeft = puzzleTime;
-            puzzleStarted = true;
+            
             audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
             uiController = GameObject.Find("Hud").GetComponent<UIController>();
         }

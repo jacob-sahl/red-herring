@@ -7,7 +7,7 @@ public class Instructor
 
   // an lambda function checks if wins
   public new string name = "";
-  private SecretGoal _goal;
+  public SecretGoal _goal;
 
   public Instructor(string name, SecretGoal goal)
   {
