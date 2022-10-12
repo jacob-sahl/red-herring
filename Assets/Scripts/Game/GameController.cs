@@ -97,9 +97,9 @@ public class GameController : MonoBehaviour
   
   public void SetupLevel()
   {
-    instructors.Add(new Instructor("Instructor 0", TypeWriterSecretGoals.TypedFool));
-    instructors.Add(new Instructor("Instructor 1", TypeWriterSecretGoals.FlippedTypeWriter));
-    instructors.Add(new Instructor("Instructor 2", GeneralSecretGoals.LookThroughWindow));
+    instructors.Add(new Instructor("Instructor 0", TypeWriterSecretGoals.TypedFool, "The answer is very colourful."));
+    instructors.Add(new Instructor("Instructor 1", TypeWriterSecretGoals.FlippedTypeWriter, "The answer is not secondary."));
+    instructors.Add(new Instructor("Instructor 2", GeneralSecretGoals.LookThroughWindow, "The answer is in alphabetical order."));
     
     LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
     EventManager.Broadcast(e);

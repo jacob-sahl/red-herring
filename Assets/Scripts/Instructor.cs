@@ -8,11 +8,13 @@ public class Instructor
   // an lambda function checks if wins
   public new string name = "";
   public SecretGoal _goal;
+  public string clue;
 
-  public Instructor(string name, SecretGoal goal)
+  public Instructor(string name, SecretGoal goal, string clue)
   {
     this.name = name;
     this._goal = goal;
+    this.clue = clue;
   }
   
   public void SetupSecretGoal(SecretGoal goal)
