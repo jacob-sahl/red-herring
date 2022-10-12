@@ -2,8 +2,8 @@ using UnityEngine;
 
 public static class Events
 {
-  public static GameOverEvent GameOverEvent = new GameOverEvent();
-  public static GameStartEvent GameStartEvent = new GameStartEvent();
+  public static LevelEndEvent levelEndEvent = new LevelEndEvent();
+  public static LevelStartEvent LevelStartEvent = new LevelStartEvent();
   public static DisplayMessageEvent DisplayMessageEvent = new DisplayMessageEvent();
   public static InteractEvent InteractEvent = new InteractEvent();
   public static ICursorHoverEvent ICursorHoverEvent = new ICursorHoverEvent();
@@ -13,7 +13,7 @@ public static class Events
 }
 
 
-public class GameOverEvent : GameEvent
+public class LevelEndEvent : GameEvent
 {
   public bool PuzzleSolved;
   public string EndGameMessage;
@@ -30,7 +30,7 @@ public class InteractEvent : GameEvent
   public GameObject gameObject;
 }
 
-public class GameStartEvent : GameEvent
+public class LevelStartEvent : GameEvent
 {
 }
 

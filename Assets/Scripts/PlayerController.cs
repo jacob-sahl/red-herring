@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
   private void Awake()
   {
     DontDestroyOnLoad(this.gameObject);
-    EventManager.AddListener<GameStartEvent>(onGameStart);
+    EventManager.AddListener<LevelStartEvent>(onGameStart);
     manager = GameController.Instance.PlayerManager;
     _inputHandler = GetComponent<PlayerInputHandler>();
     playerInput = GetComponent<PlayerInput>();
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     // }
   }
   
-  void onGameStart(GameStartEvent e)
+  void onGameStart(LevelStartEvent e)
   {
     // If this is P1, make them the Operator
     if (playerId == 0)
