@@ -16,6 +16,7 @@ public static class Events
 
 public class LevelEndEvent : GameEvent
 {
+  public string endMessage;
 }
 
 public class DisplayMessageEvent : GameEvent

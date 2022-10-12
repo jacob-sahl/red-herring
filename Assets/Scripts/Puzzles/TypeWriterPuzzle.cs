@@ -99,9 +99,6 @@ public class TypeWriterPuzzle : Puzzle
 
           // Demo puzzle ID = 0
           UpdateSolution(0);
-          LevelStartEvent levelStartEvent = new LevelStartEvent();
-          EventManager.Broadcast(levelStartEvent);
-          Debug.Log("GameStartEvent broadcasted");
       }
       
       void UpdateSolution(int puzzleId)

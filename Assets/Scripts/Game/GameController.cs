@@ -12,9 +12,12 @@ public class GameController : MonoBehaviour
   [SerializeField] public bool forceStart = false;
 
   public List<Instructor> instructors = new List<Instructor>();
+
+  public string _roundEndText;
   void Awake()
   {
     EventManager.AddListener<LevelStartEvent>(onGameStart);
+    EventManager.AddListener<LevelEndEvent>(onLevelEnd);
 
     if (Instance != null && Instance != this)
     {
@@ -100,5 +103,10 @@ public class GameController : MonoBehaviour
     
     LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
     EventManager.Broadcast(e);
+  }
+  
+  void onLevelEnd(LevelEndEvent e)
+  {
+    _roundEndText = e.endMessage;
   }
 }

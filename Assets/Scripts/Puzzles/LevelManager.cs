@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 
 public class LevelManager : MonoBehaviour
@@ -109,31 +110,40 @@ public class LevelManager : MonoBehaviour
     private void EndLevel()
     {
         puzzleStarted = false;
+        string roundEndText = "In this round, ";
         foreach (var puzzle in puzzles)
         {
             if (puzzle.isComplete)
             {
-                Debug.Log($"Puzzle {puzzle.name} is complete");
+                roundEndText += $"Puzzle {puzzle.name} is complete. \n";
             }
             else
             {
-                Debug.Log($"Puzzle {puzzle.name} is not complete");
+                roundEndText += $"Puzzle {puzzle.name} is not complete. \n";
             }
         }
 
         foreach (var instructor in instructors)
         {
+            bool flag = false;
             foreach (var puzzle in puzzles)
             {
                 if (instructor.CheckSecretGoal(puzzle))
                 {
-                    Debug.Log($"{instructor.name}'s secret goal: True");
+                    roundEndText += $"{instructor.name} completed secret goal '{instructor._goal.description}. '\n";
+                    flag = true;
                 }
             }
+
+            if (!flag)
+            {
+                roundEndText += $"{instructor.name}'s secret goal '{instructor._goal.description}' was not complete. \n";
+            }
         }
-        
+        Debug.Log(roundEndText);
         
         LevelEndEvent levelEndEvent = new LevelEndEvent();
+        levelEndEvent.endMessage = roundEndText;
         EventManager.Broadcast(levelEndEvent);
 
         FadeOut();
