@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
   {
     if (checkCanStartGame())
     {
-      LoadScene("_MAINSCENE_1");
+      LoadScene("_MAINSCENE");
     }
     else
     {
@@ -94,17 +94,17 @@ public class GameController : MonoBehaviour
       levelManager.AddInstructors(instructor);
     }
   }
-  
+
   public void SetupLevel()
   {
     instructors.Add(new Instructor("Instructor 0", TypeWriterSecretGoals.TypedFool, "The answer is very colourful."));
     instructors.Add(new Instructor("Instructor 1", TypeWriterSecretGoals.FlippedTypeWriter, "The answer is not secondary."));
     instructors.Add(new Instructor("Instructor 2", GeneralSecretGoals.LookThroughWindow, "The answer is in alphabetical order."));
-    
+
     LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
     EventManager.Broadcast(e);
   }
-  
+
   void onLevelEnd(LevelEndEvent e)
   {
     _roundEndText = e.endMessage;
