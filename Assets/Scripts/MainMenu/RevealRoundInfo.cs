@@ -43,7 +43,7 @@ namespace MainMenu
                 {
                     player.transform.Find("Role").GetComponent<TMP_Text>().text = "Informant";
                     player.transform.Find("SecretText").GetComponent<TMP_Text>().text =
-                        "Secret: " + playerController.instructor._goal.description;
+                        "Secret: " + playerController.instructor._goal.description + '\n' + "Clue: " + playerController.instructor.clue;
                 }
             }
         }
