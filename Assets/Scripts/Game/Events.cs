@@ -15,8 +15,6 @@ public static class Events
 
 public class LevelEndEvent : GameEvent
 {
-  public bool PuzzleSolved;
-  public string EndGameMessage;
 }
 
 public class DisplayMessageEvent : GameEvent

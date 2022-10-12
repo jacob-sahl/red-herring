@@ -39,6 +39,8 @@ public class LevelManager : MonoBehaviour
         LevelStartEvent levelStartEvent = new LevelStartEvent();
         EventManager.Broadcast(levelStartEvent);
         Debug.Log("GameStartEvent broadcasted");
+        
+        SetupInstructors();
     }
 
 
@@ -81,9 +83,9 @@ public class LevelManager : MonoBehaviour
         instructors[0].name = "Instructor 0";
         instructors[1].name = "Instructor 1";
         instructors[2].name = "Instructor 2";
-        this.instructors[0].SetupSecretGoal(pressed => { return false; });
-        this.instructors[1].SetupSecretGoal(pressed => pressed.Contains(ButtonType.G));
-        this.instructors[2].SetupSecretGoal(pressed => !pressed.Contains(ButtonType.G));
+        this.instructors[0].SetupSecretGoal(TypeWriterSecretGoals.TypedFool.goal);
+        this.instructors[1].SetupSecretGoal(GeneralSecretGoals.LookThroughWindow.goal);
+        this.instructors[2].SetupSecretGoal(TypeWriterSecretGoals.FlippedTypeWriter.goal);
     }
 
     public void addPuzzle(Puzzle puzzle)
@@ -117,34 +119,33 @@ public class LevelManager : MonoBehaviour
     private void EndLevel()
     {
         puzzleStarted = false;
+        foreach (var puzzle in puzzles)
+        {
+            if (puzzle.isComplete)
+            {
+                Debug.Log($"Puzzle {puzzle.name} is complete");
+            }
+            else
+            {
+                Debug.Log($"Puzzle {puzzle.name} is not complete");
+            }
+        }
 
-        // Debug.Log($"Box Opened: {CheckAnswer()}");
-        // List<string> winners = new List<string>();
-        // if (CheckAnswer())
-        // {
-        //     winners.Add("Operator");
-        // }
-        //
-        // foreach (var instructor in instructors)
-        // {
-        //     // Debug.Log($"{instructor.name}'s secret goal: {instructor.CheckSecretGoal(_pressed)}");
-        //     // if (instructor.CheckSecretGoal(_pressed))
-        //     // {
-        //     //   winners.Add($"{instructor.name}");
-        //     // }
-        // }
-        //
-        // string gameOverText = "Game Over. Winners:";
-        // foreach (var winner in winners)
-        // {
-        //     gameOverText += $" {winner}";
-        // }
-        //
-        // LevelEndEvent levelEndEvent = new LevelEndEvent();
-        // levelEndEvent.PuzzleSolved = CheckAnswer();
-        // levelEndEvent.EndGameMessage = gameOverText;
-        // EventManager.Broadcast(levelEndEvent);
-        // uiController.displayText(gameOverText);
+        foreach (var instructor in instructors)
+        {
+            foreach (var puzzle in puzzles)
+            {
+                if (instructor.CheckSecretGoal(puzzle))
+                {
+                    Debug.Log($"{instructor.name}'s secret goal: True");
+                }
+            }
+        }
+        
+        
+        LevelEndEvent levelEndEvent = new LevelEndEvent();
+        EventManager.Broadcast(levelEndEvent);
+
         FadeOut();
     }
 

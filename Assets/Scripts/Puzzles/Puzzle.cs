@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class Puzzle : MonoBehaviour
 {
+    public string puzzleName;
     public LevelManager levelManager;
     public delegate void completeCallback();
     private completeCallback _complete_callback;
