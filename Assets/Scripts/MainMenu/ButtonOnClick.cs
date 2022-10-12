@@ -13,12 +13,18 @@ public class ButtonOnClick : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Start");
-        GameController.Instance.LoadPuzzle();
+        GameController.Instance.LoadLevel();
     }
     
     public void LoadMenu()
     {
         Debug.Log("Menu");
         GameController.Instance.LoadMenuScene();
+    }
+    
+    public void SetupLevel()
+    {
+        Debug.Log("Setup");
+        GameController.Instance.SetupLevel();
     }
 }

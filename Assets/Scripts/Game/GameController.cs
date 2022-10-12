@@ -8,12 +8,16 @@ public class GameController : MonoBehaviour
 {
   public static GameController Instance { get; private set; }
   public PlayerManager PlayerManager;
-  public PuzzleManager PuzzleManager;
+  public LevelManager levelManager;
   [SerializeField] public bool forceStart = false;
 
+  public List<Instructor> instructors = new List<Instructor>();
+
+  public string _roundEndText;
   void Awake()
   {
-    EventManager.AddListener<GameStartEvent>(onGameStart);
+    EventManager.AddListener<LevelStartEvent>(onGameStart);
+    EventManager.AddListener<LevelEndEvent>(onLevelEnd);
 
     if (Instance != null && Instance != this)
     {
@@ -56,11 +60,11 @@ public class GameController : MonoBehaviour
   {
     return forceStart || PlayerManager.players.Count == 4;
   }
-  public void LoadPuzzle()
+  public void LoadLevel()
   {
     if (checkCanStartGame())
     {
-      LoadScene("_MAINSCENE");
+      LoadScene("_MAINSCENE_1");
     }
     else
     {
@@ -70,19 +74,39 @@ public class GameController : MonoBehaviour
 
   public bool IsGameEnding()
   {
-    if (PuzzleManager == null)
+    if (levelManager == null)
     {
       return false;
     }
     else
     {
-      return PuzzleManager.gameIsEnding;
+      return levelManager.gameIsEnding;
     }
   }
 
-  private void onGameStart(GameStartEvent e)
+  private void onGameStart(LevelStartEvent e)
   {
     Debug.Log("Game Start received by GameController");
-    PuzzleManager = GameObject.Find("PuzzleManager").GetComponent<PuzzleManager>();
+    levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+
+    foreach (var instructor in instructors)
+    {
+      levelManager.AddInstructors(instructor);
+    }
+  }
+  
+  public void SetupLevel()
+  {
+    instructors.Add(new Instructor("Instructor 0", TypeWriterSecretGoals.TypedFool, "The answer is very colourful."));
+    instructors.Add(new Instructor("Instructor 1", TypeWriterSecretGoals.FlippedTypeWriter, "The answer is not secondary."));
+    instructors.Add(new Instructor("Instructor 2", GeneralSecretGoals.LookThroughWindow, "The answer is in alphabetical order."));
+    
+    LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
+    EventManager.Broadcast(e);
+  }
+  
+  void onLevelEnd(LevelEndEvent e)
+  {
+    _roundEndText = e.endMessage;
   }
 }

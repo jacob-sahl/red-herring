@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
   public List<PlayerController> players = new List<PlayerController>();
   public static PlayerManager Instance { get; private set; }
   void Awake() {
-    EventManager.AddListener<GameStartEvent>(onGameStart);
+    EventManager.AddListener<LevelStartEvent>(onGameStart);
 
     if (Instance != null && Instance != this) 
     { 
@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
     Debug.Log("PlayerManager: Player Joined");
   }
   
-  private void onGameStart(GameStartEvent e)
+  private void onGameStart(LevelStartEvent e)
   {
     Debug.Log("Game Start received by GameController");
     GetComponent<PlayerInputManager>().DisableJoining();

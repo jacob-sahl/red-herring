@@ -2,26 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Instructor : MonoBehaviour
+public class Instructor
 {
 
   // an lambda function checks if wins
-  public delegate bool secretGoal(List<ButtonType> pressed);
   public new string name = "";
-  public Color color;
-  private secretGoal _goal;
+  public SecretGoal _goal;
+  public string clue;
 
-  public void SetupSecretGoal(secretGoal goal)
+  public Instructor(string name, SecretGoal goal, string clue)
+  {
+    this.name = name;
+    this._goal = goal;
+    this.clue = clue;
+  }
+  
+  public void SetupSecretGoal(SecretGoal goal)
   {
     // do something with the goal
     this._goal = goal;
   }
 
-  public bool CheckSecretGoal(List<ButtonType> pressed)
+  public bool CheckSecretGoal(Puzzle puzzle)
   {
     // do something with the pressed buttons
-    return _goal(pressed);
+    return _goal.checkSecretGoal(puzzle);
   }
-
 
 }

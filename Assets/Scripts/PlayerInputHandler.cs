@@ -13,7 +13,7 @@ public class PlayerInputHandler : MonoBehaviour
 
   [Tooltip("Used to flip the horizontal input axis")]
   public bool InvertXAxis = false;
-  private PuzzleManager _puzzleManager;
+  private LevelManager _levelManager;
   private bool interacted;
   private bool interactHeld;
   private bool backed;
@@ -25,7 +25,7 @@ public class PlayerInputHandler : MonoBehaviour
 
   void Start()
   {
-    EventManager.AddListener<GameStartEvent>(onGameStart);
+    EventManager.AddListener<LevelStartEvent>(onGameStart);
   }
   
   private void LockCursor()
@@ -182,7 +182,7 @@ public class PlayerInputHandler : MonoBehaviour
     return Cursor.lockState == CursorLockMode.Locked && !GameController.Instance.IsGameEnding();
   }
   
-  private void onGameStart(GameStartEvent e)
+  private void onGameStart(LevelStartEvent e)
   {
     Debug.Log("Game started Received by PlayerInputHandler");
     LockCursor();
