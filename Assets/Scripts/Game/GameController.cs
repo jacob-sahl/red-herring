@@ -84,5 +84,9 @@ public class GameController : MonoBehaviour
   {
     Debug.Log("Game Start received by GameController");
     levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+    
+    levelManager.AddInstructors(new Instructor("Instructor 0", TypeWriterSecretGoals.TypedFool.goal));
+    levelManager.AddInstructors(new Instructor("Instructor 1", TypeWriterSecretGoals.FlippedTypeWriter.goal));
+    levelManager.AddInstructors(new Instructor("Instructor 2", GeneralSecretGoals.LookThroughWindow.goal));
   }
 }

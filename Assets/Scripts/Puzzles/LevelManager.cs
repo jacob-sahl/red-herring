@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     public CanvasGroup endGameFadeCanvasGroup;
 
     [Header("Ending")] [Tooltip("This string has to be the name of the scene you want to load when game ends")]
-    public string endSceneName = "EndScene";
+    public string endSceneName = "End";
 
     public float puzzleTime = 60f * 3f;
     [SerializeField] private float _timeLeft = 0f;
@@ -39,8 +39,6 @@ public class LevelManager : MonoBehaviour
         LevelStartEvent levelStartEvent = new LevelStartEvent();
         EventManager.Broadcast(levelStartEvent);
         Debug.Log("GameStartEvent broadcasted");
-        
-        SetupInstructors();
     }
 
 
@@ -78,14 +76,9 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void SetupInstructors()
+    public void AddInstructors(Instructor instructor)
     {
-        instructors[0].name = "Instructor 0";
-        instructors[1].name = "Instructor 1";
-        instructors[2].name = "Instructor 2";
-        this.instructors[0].SetupSecretGoal(TypeWriterSecretGoals.TypedFool.goal);
-        this.instructors[1].SetupSecretGoal(GeneralSecretGoals.LookThroughWindow.goal);
-        this.instructors[2].SetupSecretGoal(TypeWriterSecretGoals.FlippedTypeWriter.goal);
+        instructors.Add(instructor);
     }
 
     public void addPuzzle(Puzzle puzzle)
