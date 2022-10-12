@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+public delegate bool SecretGoalDelegate(Puzzle puzzle);
+
 public static class GeneralSecretGoals
 {
     public static SecretGoal LookThroughWindow = new SecretGoal((Puzzle puzzle) => true,
@@ -8,12 +10,12 @@ public static class GeneralSecretGoals
 
 public struct SecretGoal
 {
-    public Instructor.secretGoal goal;
+    public SecretGoalDelegate checkSecretGoal;
     public string description;
 
-    public SecretGoal(Instructor.secretGoal goal, string description)
+    public SecretGoal(SecretGoalDelegate checkSecretGoal, string description)
     {
-        this.goal = goal;
+        this.checkSecretGoal = checkSecretGoal;
         this.description = description;
     }
 }
