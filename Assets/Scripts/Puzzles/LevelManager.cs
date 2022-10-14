@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
     public AudioController audioController;
 
 
-    public List<Instructor> instructors = new List<Instructor> { };
+    public List<Informant> informants = new List<Informant> { };
     public bool gameIsEnding;
     private float _timeLoadEndGameScene;
 
@@ -74,9 +74,9 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void AddInstructors(Instructor instructor)
+    public void AddInformants(Informant informant)
     {
-        instructors.Add(instructor);
+        informants.Add(informant);
     }
 
     public void addPuzzle(Puzzle puzzle)
@@ -123,21 +123,21 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        foreach (var instructor in instructors)
+        foreach (var informant in informants)
         {
             bool flag = false;
             foreach (var puzzle in puzzles)
             {
-                if (instructor.CheckSecretGoal(puzzle))
+                if (informant.CheckSecretGoal(puzzle))
                 {
-                    roundEndText += $"{instructor.name} completed secret goal '{instructor._goal.description}. '\n";
+                    roundEndText += $"{informant.name} completed secret goal '{informant._goal.description}. '\n";
                     flag = true;
                 }
             }
 
             if (!flag)
             {
-                roundEndText += $"{instructor.name}'s secret goal '{instructor._goal.description}' was not complete. \n";
+                roundEndText += $"{informant.name}'s secret goal '{informant._goal.description}' was not complete. \n";
             }
         }
         Debug.Log(roundEndText);

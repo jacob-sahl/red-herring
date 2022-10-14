@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Instructor
+public class Informant
 {
 
   // an lambda function checks if wins
@@ -10,7 +10,7 @@ public class Instructor
   public SecretGoal _goal;
   public string clue;
 
-  public Instructor(string name, SecretGoal goal, string clue)
+  public Informant(string name, SecretGoal goal, string clue)
   {
     this.name = name;
     this._goal = goal;
