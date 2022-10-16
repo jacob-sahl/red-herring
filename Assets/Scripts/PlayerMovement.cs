@@ -200,14 +200,15 @@ public class PlayerMovement : MonoBehaviour
         }
       }
 
-      var draggable = colliderGameObject.GetComponent<Draggable>();
-      if (draggable != null)
+      if (_inputHandler.GetInteractInput())
       {
-        if (_inputHandler.GetInteractInput())
+        var draggable = colliderGameObject.GetComponent<Draggable>();
+        if (draggable != null)
         {
           StartCoroutine(DragObject(colliderGameObject));
         }
       }
+
     }
     if (canMove)
     {
@@ -225,14 +226,17 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb = dragObject.GetComponent<Rigidbody>();
     if (rb != null)
     {
+      float originalMouseSpeed = RotationSpeed;
       while (_inputHandler.GetInteractHeld())
       {
+        RotationSpeed = originalMouseSpeed * (1 / (1 + rb.mass));
         Ray ray = Camera.main.ScreenPointToRay(cursorPosition);
         Vector3 direction = ray.GetPoint(initialDistance) - dragObject.transform.position;
-        rb.velocity = direction * (mouseDragSpeed / rb.mass);
+        rb.velocity = direction * mouseDragSpeed;
         //rb.AddForce(direction * mouseDragSpeed);
         yield return new WaitForFixedUpdate();
       }
+      RotationSpeed = originalMouseSpeed;
     }
   }
 }

@@ -2,7 +2,7 @@
     "name": "PlayerInputActions",
     "maps": [
         {
-            "name": "Operator",
+            "name": "Detective",
             "id": "d513c514-09d1-42eb-8e2b-7be59f0b8598",
             "actions": [
                 {
@@ -244,7 +244,7 @@
             ]
         },
         {
-            "name": "Instructor",
+            "name": "Informant",
             "id": "e07e96f2-ece8-4100-9040-c8a2de6dab2c",
             "actions": [
                 {
@@ -257,7 +257,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ToggleInstructor",
+                    "name": "ToggleInformant",
                     "type": "Button",
                     "id": "b26d69a6-6d7e-4dce-99b7-b441cb395014",
                     "expectedControlType": "Button",
@@ -296,7 +296,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "ToggleInstructor",
+                    "action": "ToggleInformant",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

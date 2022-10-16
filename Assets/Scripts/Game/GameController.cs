@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
   public LevelManager levelManager;
   [SerializeField] public bool forceStart = false;
 
-  public List<Instructor> instructors = new List<Instructor>();
+  public List<Informant> informants = new List<Informant>();
 
   public string _roundEndText;
   void Awake()
@@ -89,17 +89,17 @@ public class GameController : MonoBehaviour
     Debug.Log("Game Start received by GameController");
     levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
-    foreach (var instructor in instructors)
+    foreach (var informant in informants)
     {
-      levelManager.AddInstructors(instructor);
+      levelManager.AddInformants(informant);
     }
   }
 
   public void SetupLevel()
   {
-    instructors.Add(new Instructor("Instructor 0", TypeWriterSecretGoals.TypedFool, "The answer is very colourful."));
-    instructors.Add(new Instructor("Instructor 1", TypeWriterSecretGoals.FlippedTypeWriter, "The answer is not secondary."));
-    instructors.Add(new Instructor("Instructor 2", GeneralSecretGoals.LookThroughWindow, "The answer is in alphabetical order."));
+    informants.Add(new Informant("Informant 0", TypeWriterSecretGoals.TypedFool, "The answer is very colourful."));
+    informants.Add(new Informant("Informant 1", TypeWriterSecretGoals.FlippedTypeWriter, "The answer is not secondary."));
+    informants.Add(new Informant("Informant 2", GeneralSecretGoals.LookThroughWindow, "The answer is in alphabetical order."));
 
     LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
     EventManager.Broadcast(e);

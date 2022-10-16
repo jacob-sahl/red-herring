@@ -35,7 +35,7 @@ namespace MainMenu
                 var avatar = player.transform.Find("Avatar");
                 PlayerController playerController = PlayerManager.Instance.getPlayer(playerID);
                 avatar.GetComponent<Image>().color = playerController.color;
-                if (playerController.role == PlayerRole.Operator)
+                if (playerController.role == PlayerRole.Detective)
                 {
                     player.transform.Find("Role").GetComponent<TMP_Text>().text = "Detective";
                 }
@@ -43,7 +43,7 @@ namespace MainMenu
                 {
                     player.transform.Find("Role").GetComponent<TMP_Text>().text = "Informant";
                     player.transform.Find("SecretText").GetComponent<TMP_Text>().text =
-                        "Secret: " + playerController.instructor._goal.description + '\n' + "Clue: " + playerController.instructor.clue;
+                        "Secret: " + playerController.informant._goal.description + '\n' + "Clue: " + playerController.informant.clue;
                 }
             }
         }

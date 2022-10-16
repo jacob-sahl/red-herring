@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public enum PlayerRole
 {
-  Operator,
-  Instructor
+  Detective,
+  Informant
 }
 public class PlayerController : MonoBehaviour
 {
@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
   private PlayerManager manager;
   private PlayerInput playerInput;
 
-  // Only set when the player is an instructor
-  public Instructor instructor;
+  // Only set when the player is an informant
+  public Informant informant;
   
   private void Awake()
   {
@@ -42,21 +42,21 @@ public class PlayerController : MonoBehaviour
   void Start()
   {
 
-    // // If this is P1, make them the Operator
+    // // If this is P1, make them the Detective
     // if (playerId == 0)
     // {
-    //   //   role = PlayerRole.Operator;
-    //   GameObject.Find("Operator").GetComponent<PlayerMovement>().assignInputHandler(_inputHandler);
-    //   playerInput.SwitchCurrentActionMap("Operator");
+    //   //   role = PlayerRole.Detective;
+    //   GameObject.Find("Detective").GetComponent<PlayerMovement>().assignInputHandler(_inputHandler);
+    //   playerInput.SwitchCurrentActionMap("Detective");
     // }
     // else
     // {
-    //   //   role = PlayerRole.Instructor;
+    //   //   role = PlayerRole.Informant;
     //   // Create an iCursor for this player
     //   iCursor = Instantiate(iCursorPrefab, GameObject.Find("Hud").transform);
     //   iCursor.GetComponent<ICursorController>()._inputHandler = _inputHandler;
     //   iCursor.GetComponent<ICursorController>().color = color;
-    //   playerInput.SwitchCurrentActionMap("Instructor");
+    //   playerInput.SwitchCurrentActionMap("Informant");
     // }
   }
 
@@ -64,21 +64,21 @@ public class PlayerController : MonoBehaviour
   {
     if (playerId == 0)
     {
-      role = PlayerRole.Operator;
+      role = PlayerRole.Detective;
     }
     else
     {
-      role = PlayerRole.Instructor;
-      instructor = GameController.Instance.instructors[playerId - 1];
+      role = PlayerRole.Informant;
+      informant = GameController.Instance.informants[playerId - 1];
     }
   }
   void onGameStart(LevelStartEvent e)
   {
-    // If this is P1, make them the Operator
+    // If this is P1, make them the Detective
     if (playerId == 0)
     {
-      GameObject.Find("Operator").GetComponent<PlayerMovement>().assignInputHandler(_inputHandler);
-      playerInput.SwitchCurrentActionMap("Operator");
+      GameObject.Find("Detective").GetComponent<PlayerMovement>().assignInputHandler(_inputHandler);
+      playerInput.SwitchCurrentActionMap("Detective");
     }
     else
     {
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
       iCursor = Instantiate(iCursorPrefab, GameObject.Find("Hud").transform);
       iCursor.GetComponent<ICursorController>()._inputHandler = _inputHandler;
       iCursor.GetComponent<ICursorController>().color = color;
-      playerInput.SwitchCurrentActionMap("Instructor");
+      playerInput.SwitchCurrentActionMap("Informant");
     }
   }
 }
