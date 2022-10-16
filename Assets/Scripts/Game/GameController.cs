@@ -6,58 +6,107 @@ using UnityEngine.Serialization;
 
 public class GameController : MonoBehaviour
 {
-    [FormerlySerializedAs("EndSceneLoadDelay")] [Header("Parameters")] [Tooltip("Duration of the fade-to-black at the end of the game")]
-    public float endSceneLoadDelay = 3f;
+  public static GameController Instance { get; private set; }
+  public PlayerManager PlayerManager;
+  public LevelManager levelManager;
+  [SerializeField] public bool forceStart = false;
 
-    [FormerlySerializedAs("EndGameFadeCanvasGroup")] [Tooltip("The canvas group of the fade-to-black screen")]
-    public CanvasGroup endGameFadeCanvasGroup;
+  public List<Informant> informants = new List<Informant>();
 
-    [FormerlySerializedAs("EndSceneName")] [Header("Ending")] [Tooltip("This string has to be the name of the scene you want to load when game ends")]
-    public string endSceneName = "EndScene";
-    
-    public bool gameIsEnding;
+  public string _roundEndText;
+  void Awake()
+  {
+    EventManager.AddListener<LevelStartEvent>(onGameStart);
+    EventManager.AddListener<LevelEndEvent>(onLevelEnd);
 
-    private float _timeLoadEndGameScene;
-
-    void Awake()
+    if (Instance != null && Instance != this)
     {
-        EventManager.AddListener<GameOverEvent>(OnGameOver);
+      Destroy(this);
     }
-
-    // Start is called before the first frame update
-    void Start()
+    else
     {
+      Instance = this;
+      DontDestroyOnLoad(gameObject);
     }
+  }
 
-    // Update is called once per frame
-    void Update()
+  // Start is called before the first frame update
+  void Start()
+  {
+    PlayerManager = PlayerManager.Instance;
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+  }
+
+  public void LoadScene(string name)
+  {
+    SceneManager.LoadScene(name);
+  }
+
+  public void LoadMenuScene()
+  {
+    LoadScene("Menu");
+  }
+
+  public void LoadEndScene()
+  {
+    LoadScene("End");
+  }
+
+  private bool checkCanStartGame()
+  {
+    return forceStart || PlayerManager.players.Count == 4;
+  }
+  public void LoadLevel()
+  {
+    if (checkCanStartGame())
     {
-        if (gameIsEnding)
-        {
-            float timeRatio = 1 - (_timeLoadEndGameScene - Time.time) / endSceneLoadDelay;
-            endGameFadeCanvasGroup.alpha = timeRatio;
-
-            if (Time.time >= _timeLoadEndGameScene)
-            {
-                // SceneManager.LoadScene(endSceneName);
-                gameIsEnding = false;
-            }
-        }
+      LoadScene("_MAINSCENE");
     }
-
-    void OnGameOver(GameOverEvent evt) => EndGame(evt.PuzzleSolved, evt.EndGameMessage);
-
-    void EndGame(bool puzzleSolved, string endGameMessage)
+    else
     {
-        // unlocks the cursor before leaving the scene, to be able to click buttons
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        // Remember that we need to load the appropriate end scene after a delay
-        gameIsEnding = true;
-        endGameFadeCanvasGroup.gameObject.SetActive(true);
-
-        _timeLoadEndGameScene = Time.time + endSceneLoadDelay;
-        
+      Debug.Log("Not enough players");
     }
+  }
+
+  public bool IsGameEnding()
+  {
+    if (levelManager == null)
+    {
+      return false;
+    }
+    else
+    {
+      return levelManager.gameIsEnding;
+    }
+  }
+
+  private void onGameStart(LevelStartEvent e)
+  {
+    Debug.Log("Game Start received by GameController");
+    levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+
+    foreach (var informant in informants)
+    {
+      levelManager.AddInformants(informant);
+    }
+  }
+
+  public void SetupLevel()
+  {
+    informants.Add(new Informant("Informant 0", TypeWriterSecretGoals.TypedFool, "The answer is very colourful."));
+    informants.Add(new Informant("Informant 1", TypeWriterSecretGoals.FlippedTypeWriter, "The answer is not secondary."));
+    informants.Add(new Informant("Informant 2", GeneralSecretGoals.LookThroughWindow, "The answer is in alphabetical order."));
+
+    LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
+    EventManager.Broadcast(e);
+  }
+
+  void onLevelEnd(LevelEndEvent e)
+  {
+    _roundEndText = e.endMessage;
+  }
 }

@@ -11,6 +11,9 @@ TagManager:
   - key4
   - green
   - reset
+  - ICursor
+  - typewriter
+  - puzzleObjectPart
   layers:
   - Default
   - TransparentFX
