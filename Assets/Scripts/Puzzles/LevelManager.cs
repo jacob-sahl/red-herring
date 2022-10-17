@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        _timeLeft = 3f; //puzzleTime;
+        _timeLeft = puzzleTime; //3f;
 
         puzzleStarted = true;
         audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
