@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        _timeLeft = puzzleTime;
+        _timeLeft = 3f; //puzzleTime;
 
         puzzleStarted = true;
         audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
@@ -130,7 +130,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (informant.CheckSecretGoal(puzzle))
                 {
-                    roundEndText += $"{informant.name} completed secret goal '{informant._goal.description}. '\n";
+                    roundEndText += $"{informant.name} completed secret goal '{informant._goal.description} '\n";
                     flag = true;
                 }
             }

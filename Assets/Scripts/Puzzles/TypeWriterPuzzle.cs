@@ -23,10 +23,10 @@ public static class TypeWriterSecretGoals
         }
 
         return false;
-    }, "Get the detective to type the word FOOL.");
+    }, "Get the detective to type the word FOOL");
 
     public static SecretGoal FlippedTypeWriter =
-        new SecretGoal((Puzzle puzzle) => true, "Get the detective to flip the typewriter upside down.");
+        new SecretGoal((Puzzle puzzle) => true, "Get the detective to flip the typewriter upside down");
 }
 
 public class TypeWriterPuzzle : Puzzle
