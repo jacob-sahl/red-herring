@@ -150,6 +150,7 @@ public class PlayerInputHandler : MonoBehaviour
     return false;
   }
 
+  // TODO make these functions work
   public void OnCrouch(InputAction.CallbackContext context)
   {
     Debug.Log("crouch");
@@ -164,6 +165,9 @@ public class PlayerInputHandler : MonoBehaviour
 
   public (bool, bool) GetCrouchAndJump()
   {
+    // TODO remove these
+    crouch = Input.GetKey("left ctrl");
+    jump = Input.GetKeyDown("space");
     return (crouch, jump);
   }
 
