@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -19,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
   [Tooltip("Max movement speed")]
   public float maxSpeed = 10f;
   public float mouseDragSpeed = 5f;
+  public float crouchHeight = 0.5f;
 
   [Header("Focused")]
   public float cursorSpeed = 400f;
@@ -38,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
   GameObject focusedObjectPlaceholder;
   Vector3 focusRotationXAxis;
   Vector3 focusRotationYAxis;
+  float cameraHeight;
 
   // Start is called before the first frame update
   void Start()
@@ -48,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
     canMove = true;
     EventManager.AddListener<FocusEvent>(OnFocus);
+    cameraHeight = playerCamera.transform.position.y;
   }
 
   void OnFocus(FocusEvent evt)
@@ -91,6 +96,26 @@ public class PlayerMovement : MonoBehaviour
       Vector2 moveInput = _inputHandler.GetMoveInput();
       Vector3 movement = (moveInput.y * transform.forward) + (moveInput.x * transform.right);
       _controller.Move(((movement * maxSpeed) + (-transform.up)) * Time.deltaTime);
+    }
+
+    // Handle crouch and jump
+    {
+      (bool crouch, bool jump) = _inputHandler.GetCrouchAndJump();
+      if (crouch || jump)
+      {
+        // check if grounded
+        // TODO
+
+        if (crouch)
+        {
+          playerCamera.transform.Translate(0, -crouchHeight, 0);
+        }
+        else
+        {
+          playerCamera.transform.position = new Vector3(0, cameraHeight, 0);
+        }
+
+      }
     }
   }
 
