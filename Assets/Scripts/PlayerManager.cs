@@ -6,19 +6,21 @@ using UnityEngine.InputSystem;
 public class PlayerManager : MonoBehaviour
 {
   public List<PlayerController> players = new List<PlayerController>();
+  public GameObject iCursorPrefab;
   public static PlayerManager Instance { get; private set; }
-  void Awake() {
+  void Awake()
+  {
     EventManager.AddListener<LevelStartEvent>(onGameStart);
 
-    if (Instance != null && Instance != this) 
-    { 
-      Destroy(this); 
-    } 
-    else 
-    { 
+    if (Instance != null && Instance != this)
+    {
+      Destroy(this);
+    }
+    else
+    {
       Instance = this;
       DontDestroyOnLoad(gameObject);
-    } 
+    }
   }
 
   private int nPlayers
@@ -29,7 +31,25 @@ public class PlayerManager : MonoBehaviour
   void Start()
   {
   }
-  
+
+  // For dev purposes, fill the players so we have 4
+  public void fillPlayers()
+  {
+    Debug.Log("Filling Players");
+    while (nPlayers < 4)
+    {
+      GameObject obj = new GameObject();
+      obj.AddComponent<PlayerInputHandler>();
+      obj.AddComponent<PlayerInput>();
+      obj.AddComponent<PlayerController>();
+      PlayerController newPlayer = obj.GetComponent<PlayerController>();
+      players.Add(newPlayer);
+      PlayerJoinedEvent e = new PlayerJoinedEvent();
+      e.PlayerID = newPlayer.playerId;
+      EventManager.Broadcast(e);
+    }
+  }
+
   public int addPlayer(PlayerController player)
   {
     int playerID = nPlayers;
@@ -39,11 +59,12 @@ public class PlayerManager : MonoBehaviour
     EventManager.Broadcast(e);
     return playerID;
   }
-  
-  void OnPlayerJoined() {
+
+  void OnPlayerJoined()
+  {
     Debug.Log("PlayerManager: Player Joined");
   }
-  
+
   private void onGameStart(LevelStartEvent e)
   {
     Debug.Log("Game Start received by GameController");

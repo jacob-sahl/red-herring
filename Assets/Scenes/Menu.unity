@@ -2258,6 +2258,10 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   levelManager: {fileID: 0}
   forceStart: 1
+  _roundEndText: 
+  mainSceneName: issue32
+  detectiveOrder: 
+  currentRound: 0
 --- !u!4 &666354604
 Transform:
   m_ObjectHideFlags: 0
@@ -4212,6 +4216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
+  iCursorPrefab: {fileID: 84580730019488752, guid: c8ab1999cca3e1f498328db062cce577, type: 3}
 --- !u!4 &991785555
 Transform:
   m_ObjectHideFlags: 0
