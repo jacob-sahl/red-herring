@@ -42,8 +42,10 @@ namespace MainMenu
                 else
                 {
                     player.transform.Find("Role").GetComponent<TMP_Text>().text = "Informant";
-                    player.transform.Find("SecretText").GetComponent<TMP_Text>().text =
-                        "Secret: " + playerController.informant._goal.description + '\n' + "Clue: " + playerController.informant.clue;
+                    var qrCode = player.transform.Find("QRCode").gameObject;
+                    qrCode.SetActive(true);
+                    qrCode.GetComponent<QRCodeObject>().QRCodeContent = CardURLGenerator.GetCardURL("1", "window",
+                        playerController.informant.clue, playerController.informant._goal.description);
                 }
             }
         }
