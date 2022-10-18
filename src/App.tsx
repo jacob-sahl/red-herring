@@ -1,5 +1,7 @@
 import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import Card from "./components/Card";
 
 function App() {
     return (
@@ -9,6 +11,9 @@ function App() {
                     Red Herring!
                 </h1>
             </header>
+            <Routes>
+                <Route path="/" element={<Card />} />
+            </Routes>
         </div>
     );
 }
