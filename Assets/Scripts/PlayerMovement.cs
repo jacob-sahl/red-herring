@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -19,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
   [Tooltip("Max movement speed")]
   public float maxSpeed = 10f;
   public float mouseDragSpeed = 5f;
+  public float crouchHeight = 0.65f;
+  public float jumpHeight = 2f;
 
   [Header("Focused")]
   public float cursorSpeed = 400f;
@@ -38,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
   GameObject focusedObjectPlaceholder;
   Vector3 focusRotationXAxis;
   Vector3 focusRotationYAxis;
+  float cameraHeight;
 
   // Start is called before the first frame update
   void Start()
@@ -48,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
     canMove = true;
     EventManager.AddListener<FocusEvent>(OnFocus);
+    cameraHeight = playerCamera.transform.localPosition.y;
   }
 
   void OnFocus(FocusEvent evt)
@@ -90,7 +96,30 @@ public class PlayerMovement : MonoBehaviour
     {
       Vector2 moveInput = _inputHandler.GetMoveInput();
       Vector3 movement = (moveInput.y * transform.forward) + (moveInput.x * transform.right);
-      _controller.Move(((movement * maxSpeed) + (-transform.up)) * Time.deltaTime);
+      _controller.SimpleMove(movement * maxSpeed);
+    }
+
+    // Handle crouch and jump
+    {
+      float newCameraHeight = cameraHeight;
+      (bool crouch, bool jump) = _inputHandler.GetCrouchAndJump();
+      if (crouch || jump)
+      {
+        // check if grounded
+        if (_controller.isGrounded)
+        {
+
+          if (crouch)
+          {
+            newCameraHeight = newCameraHeight - crouchHeight;
+          }
+          else if (jump)
+          {
+            StartCoroutine(Jump());
+          }
+        }
+      }
+      playerCamera.transform.localPosition = new Vector3(0, newCameraHeight, 0);
     }
   }
 
@@ -237,6 +266,15 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForFixedUpdate();
       }
       RotationSpeed = originalMouseSpeed;
+    }
+  }
+
+  private IEnumerator Jump()
+  {
+    for (int i = 0; i < 5; i++)  // jump force applied over 5 frames
+    {
+      transform.Translate(0, jumpHeight / 5, 0); // TODO better jump function
+      yield return new WaitForFixedUpdate();
     }
   }
 }

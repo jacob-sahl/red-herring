@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,8 @@ public class PlayerInputHandler : MonoBehaviour
   private Vector2 movementInput;
   private Vector2 lookInput;
   private Vector2 cursorMovement;
+  private bool crouch = false;
+  private bool jump = false;
 
 
   void Start()
@@ -145,6 +148,28 @@ public class PlayerInputHandler : MonoBehaviour
       return false;
     }
     return false;
+  }
+
+  public void OnCrouch(InputAction.CallbackContext context)
+  {
+    crouch = context.action.triggered;
+  }
+
+  public void OnJump(InputAction.CallbackContext context)
+  {
+    jump = context.action.triggered;
+  }
+
+  public (bool, bool) GetCrouchAndJump()
+  {
+    if (CanProcessInput())
+    {
+      return (crouch, jump);
+    }
+    else
+    {
+      return (false, false);
+    }
   }
 
   // public bool GetInteractInputDown()
