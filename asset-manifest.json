@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/red-herring/static/css/main.435b6aff.css",
+    "main.js": "/red-herring/static/js/main.8c437f4a.js",
+    "static/js/787.3cb8177e.chunk.js": "/red-herring/static/js/787.3cb8177e.chunk.js",
+    "static/media/XTypewriter-Regular.ttf": "/red-herring/static/media/XTypewriter-Regular.581f6c778beb0d4d99c3.ttf",
+    "static/media/XTypewriter-Bold.ttf": "/red-herring/static/media/XTypewriter-Bold.d730df640e3c86b22564.ttf",
+    "index.html": "/red-herring/index.html",
+    "main.435b6aff.css.map": "/red-herring/static/css/main.435b6aff.css.map",
+    "main.8c437f4a.js.map": "/red-herring/static/js/main.8c437f4a.js.map",
+    "787.3cb8177e.chunk.js.map": "/red-herring/static/js/787.3cb8177e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.435b6aff.css",
+    "static/js/main.8c437f4a.js"
+  ]
+}
