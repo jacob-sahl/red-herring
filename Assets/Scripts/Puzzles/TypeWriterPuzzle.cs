@@ -70,6 +70,8 @@ public class TypeWriterPuzzle : Puzzle
   [SerializeField] private string _solution = "";
   [SerializeField] private string _answer = "";
 
+  private List<SecretObjectiveID> broadcastedObjectives = new List<SecretObjectiveID>();
+
   public override void Awake()
   {
     base.Awake();
@@ -125,6 +127,14 @@ public class TypeWriterPuzzle : Puzzle
         _answer += ButtonToString[button.buttonType];
         puzzle_text.text += ButtonToString[button.buttonType];
         break;
+    }
+    if (pressed.Contains("FOOL") && !broadcastedObjectives.Contains(SecretObjectiveID.TypeFOOL))
+    {
+      SecretObjectiveEvent s = new SecretObjectiveEvent();
+      s.id = SecretObjectiveID.TypeFOOL;
+      s.status = true;
+      EventManager.Broadcast(s);
+      broadcastedObjectives.Add(SecretObjectiveID.TypeFOOL);
     }
   }
 

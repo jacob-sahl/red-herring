@@ -53,7 +53,6 @@ public class LevelManager : MonoBehaviour
     // remove the current detective
     informants.Remove(gameController.detectiveOrder[gameController.currentRound - 1]);
     List<int> order = new List<int>();
-    Debug.Log("I.Count: " + informants.Count);
     for (int i = 0; i < 3; i++)
     {
       int index = Mathf.FloorToInt(Random.Range(0, informants.Count));

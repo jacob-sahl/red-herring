@@ -28,6 +28,8 @@ public struct SecretObjective
     {
       this.completed = evt.status;
       // TODO: rumble the controller of the informant
+      Debug.Log("Secret objective updated: " + description);
+      Debug.Log("Status: " + completed);
     }
   }
 }
