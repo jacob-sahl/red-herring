@@ -170,9 +170,41 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: db1b7f8c-987f-49ff-b40d-8a95c8f2fc58
     m_ActionName: Operator/Back[/Keyboard/e,/XInputControllerWindows/buttonEast,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1578753109667785267}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnCrouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3544b2dc-bcf9-4250-a313-b25209e26421
+    m_ActionName: Detective/Crouch[/Keyboard/ctrl]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1578753109667785267}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d55107af-1e2b-4774-b3e7-227fbbbc7dd2
+    m_ActionName: Detective/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Instructor
+  m_DefaultActionMap: Detective
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &3613825858205273111
@@ -188,3 +220,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iCursorPrefab: {fileID: 84580730019488752, guid: c8ab1999cca3e1f498328db062cce577, type: 3}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  role: 0

@@ -150,25 +150,26 @@ public class PlayerInputHandler : MonoBehaviour
     return false;
   }
 
-  // TODO make these functions work
   public void OnCrouch(InputAction.CallbackContext context)
   {
-    Debug.Log("crouch");
     crouch = context.action.triggered;
   }
 
   public void OnJump(InputAction.CallbackContext context)
   {
-    Debug.Log("jump");
     jump = context.action.triggered;
   }
 
   public (bool, bool) GetCrouchAndJump()
   {
-    // TODO remove these
-    crouch = Input.GetKey("left ctrl");
-    jump = Input.GetKeyDown("space");
-    return (crouch, jump);
+    if (CanProcessInput())
+    {
+      return (crouch, jump);
+    }
+    else
+    {
+      return (false, false);
+    }
   }
 
   // public bool GetInteractInputDown()
