@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
   public List<int> detectiveOrder;
   // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
   public int currentRound;
+  public List<int> currentSecretObjectiveAssignment = new List<int>();
   void Awake()
   {
     // Randomized detective order
@@ -32,6 +33,7 @@ public class GameController : MonoBehaviour
 
     // Deterministic detective order
     detectiveOrder = new List<int> { 0, 1, 2, 3 };
+    randomizeSecretObjectives();
 
     currentRound = 0;
 
@@ -46,6 +48,20 @@ public class GameController : MonoBehaviour
     {
       Instance = this;
       DontDestroyOnLoad(gameObject);
+    }
+  }
+
+  void randomizeSecretObjectives()
+  {
+    // Randomize
+    List<int> informants = new List<int> { 0, 1, 2, 3 };
+    // remove the current detective
+    informants.Remove(detectiveOrder[currentRound]);
+    for (int i = 0; i < 3; i++)
+    {
+      int index = Mathf.FloorToInt(Random.Range(0, informants.Count));
+      currentSecretObjectiveAssignment.Add(informants[index]);
+      informants.Remove(informants[index]);
     }
   }
 

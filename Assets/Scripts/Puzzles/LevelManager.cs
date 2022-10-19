@@ -48,17 +48,7 @@ public class LevelManager : MonoBehaviour
   void assignSecretObjectives()
   {
     secretObjectives = new List<SecretObjective>();
-    // Randomize
-    List<int> informants = new List<int> { 0, 1, 2, 3 };
-    // remove the current detective
-    informants.Remove(gameController.detectiveOrder[gameController.currentRound - 1]);
-    List<int> order = new List<int>();
-    for (int i = 0; i < 3; i++)
-    {
-      int index = Mathf.FloorToInt(Random.Range(0, informants.Count));
-      order.Add(informants[index]);
-      informants.Remove(informants[index]);
-    }
+    List<int> order = gameController.currentSecretObjectiveAssignment;
     // Hardcoded for now. LATER: secret objectives depend on the puzzle instance
     secretObjectives.Add(new SecretObjective(
         playerManager.players[order[0]],

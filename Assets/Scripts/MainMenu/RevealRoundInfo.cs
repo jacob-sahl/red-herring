@@ -10,6 +10,20 @@ namespace MainMenu
   {
     public List<GameObject> players = new List<GameObject>();
 
+    // BANDAID
+    List<string> clues = new List<string> {
+      "The answer is in alphabetical order.",
+      "The answer is very colourful.",
+      "The answer is not secondary.",
+    };
+
+    List<string> secretObjectives = new List<string> {
+      "Get the detective to look out of the window for three consecutive seconds.",
+      "Get the detective to turn the typewriter upside-down.",
+      "Get the detective to type 'FOOL' into the typewriter.",
+    };
+    //BANDAID ^
+
     void Start()
     {
       UpdateAllPlayers();
@@ -29,6 +43,8 @@ namespace MainMenu
 
     private void UpdatePlayer(int playerID)
     {
+      // BANDAID SOLUTION:
+
       if (playerID < players.Count)
       {
         GameObject player = players[playerID];
@@ -41,25 +57,16 @@ namespace MainMenu
         }
         else
         {
-            if (playerID < players.Count)
-            {
-                GameObject player = players[playerID];
-                var avatar = player.transform.Find("Avatar");
-                PlayerController playerController = PlayerManager.Instance.getPlayer(playerID);
-                avatar.GetComponent<Image>().color = playerController.color;
-                if (playerController.role == PlayerRole.Detective)
-                {
-                    player.transform.Find("Role").GetComponent<TMP_Text>().text = "Detective";
-                }
-                else
-                {
-                    player.transform.Find("Role").GetComponent<TMP_Text>().text = "Informant";
-                    var qrCode = player.transform.Find("QRCode").gameObject;
-                    qrCode.SetActive(true);
-                    qrCode.GetComponent<QRCodeObject>().QRCodeContent = CardURLGenerator.GetCardURL("1", "window",
-                        playerController.informant.clue, playerController.informant._goal.description);
-                }
-            }
+          //BANDAID
+          int i = GameController.Instance.currentSecretObjectiveAssignment.IndexOf(playerID);
+          //BANDAID ^
+          player.transform.Find("Role").GetComponent<TMP_Text>().text = "Informant";
+          var qrCode = player.transform.Find("QRCode").gameObject;
+          qrCode.SetActive(true);
+          //BANDAID
+          qrCode.GetComponent<QRCodeObject>().QRCodeContent = CardURLGenerator.GetCardURL("1", "window",
+              clues[i], secretObjectives[i]);
+          //BANDAID ^
         }
       }
     }
