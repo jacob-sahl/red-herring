@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 8f052ad4e09f76d44a3006f831a7469e
   - enabled: 0
-    path: Assets/Scenes/_old.unity
+    path: 
     guid: 877baba6ef7eca040ab82bc656e38511
   - enabled: 1
     path: Assets/Scenes/End.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/issue32.unity
     guid: 850d1ee9d19c5124b820653e97e09d20
+  - enabled: 1
+    path: Assets/Scenes/pausescene.unity
+    guid: 772d58b67fd39a64d9f6ed33d13edcf4
   m_configObjects: {}

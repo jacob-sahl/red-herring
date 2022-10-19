@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using UnityEngine.Serialization;
 
 public class PlayerInputHandler : MonoBehaviour
 {
@@ -24,13 +26,14 @@ public class PlayerInputHandler : MonoBehaviour
   private Vector2 cursorMovement;
   private bool crouch = false;
   private bool jump = false;
+  private bool pause = false;
 
 
   void Start()
   {
     EventManager.AddListener<LevelStartEvent>(onGameStart);
   }
-
+  
   private void LockCursor()
   {
     Debug.Log("Locking cursor");
@@ -38,7 +41,7 @@ public class PlayerInputHandler : MonoBehaviour
     Cursor.visible = false;
     lookInput = Vector2.zero;
   }
-
+  
   private void UnlockCursor()
   {
     Cursor.lockState = CursorLockMode.None;
@@ -149,7 +152,7 @@ public class PlayerInputHandler : MonoBehaviour
     }
     return false;
   }
-  
+
   public void OnCrouch(InputAction.CallbackContext context)
   {
     crouch = context.action.triggered;
@@ -158,7 +161,30 @@ public class PlayerInputHandler : MonoBehaviour
   public void OnJump(InputAction.CallbackContext context)
   {
     jump = context.action.triggered;
-  }
+    //Debug.Log("jump:" + jump);
+    }
+
+  public void OnPause(InputAction.CallbackContext context)
+   {
+        pause = context.action.triggered;
+        Debug.Log("pause:"+ pause);
+        GameObject PauseText = GameObject.Find("PauseText");
+        Debug.Log(PauseText);
+        if (pause && Time.timeScale == 0.0f)
+        {
+            Time.timeScale = 1f;
+            PauseText.SetActive(false);
+        }
+        if (pause && Time.timeScale == 1.0f)
+        {
+            Time.timeScale = 0f;
+            PauseText.SetActive(true);
+        }
+       /* if (pause)
+        {
+            _levelManager.Pause(pause);
+        }*/
+   }
 
   public (bool, bool) GetCrouchAndJump()
   {
@@ -201,11 +227,12 @@ public class PlayerInputHandler : MonoBehaviour
   //   return false;
   // }
 
+
   public bool CanProcessInput()
   {
     return Cursor.lockState == CursorLockMode.Locked && !GameController.Instance.IsGameEnding();
   }
-
+  
   private void onGameStart(LevelStartEvent e)
   {
     Debug.Log("Game started Received by PlayerInputHandler");
