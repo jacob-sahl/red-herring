@@ -27,12 +27,18 @@ public class PlayerInputHandler : MonoBehaviour
   private bool crouch = false;
   private bool jump = false;
   private bool pause = false;
+  private bool pauseRelased = false;
+  private GameObject PauseText; //= GameObject.Find("PauseText");
 
 
   void Start()
   {
     EventManager.AddListener<LevelStartEvent>(onGameStart);
-  }
+    pauseRelased = false;
+    PauseText = GameObject.Find("PauseText");
+    PauseText.SetActive(false);
+
+    }
   
   private void LockCursor()
   {
@@ -167,18 +173,28 @@ public class PlayerInputHandler : MonoBehaviour
   public void OnPause(InputAction.CallbackContext context)
    {
         pause = context.action.triggered;
-        Debug.Log("pause:"+ pause);
-        GameObject PauseText = GameObject.Find("PauseText");
+        //Debug.Log("pause:"+ pause);
+        //GameObject PauseText = GameObject.Find("PauseText");
         Debug.Log(PauseText);
-        if (pause && Time.timeScale == 0.0f)
+        if (!pause)
+        {
+            pauseRelased = true;
+        }
+        if (pause && Time.timeScale == 0.0f && pauseRelased)
         {
             Time.timeScale = 1f;
-            PauseText.SetActive(false);
+            
+            pauseRelased = false;
+            Debug.Log("unpaused");
+            PauseText.SetActive(false); //.getComponent<MeshRenderer>().enabled = false;
         }
-        if (pause && Time.timeScale == 1.0f)
+        if (pause && Time.timeScale == 1.0f && pauseRelased)
         {
             Time.timeScale = 0f;
-            PauseText.SetActive(true);
+            
+            pauseRelased = false;
+            Debug.Log("paused");
+            PauseText.SetActive(false); //.getComponent<MeshRenderer>().enabled = true;
         }
        /* if (pause)
         {
