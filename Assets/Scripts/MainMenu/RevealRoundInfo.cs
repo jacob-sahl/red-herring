@@ -41,9 +41,25 @@ namespace MainMenu
         }
         else
         {
-          player.transform.Find("Role").GetComponent<TMP_Text>().text = "Informant";
-          // player.transform.Find("SecretText").GetComponent<TMP_Text>().text =
-          //     "Secret: " + playerController.informant._goal.description + '\n' + "Clue: " + playerController.informant.clue;
+            if (playerID < players.Count)
+            {
+                GameObject player = players[playerID];
+                var avatar = player.transform.Find("Avatar");
+                PlayerController playerController = PlayerManager.Instance.getPlayer(playerID);
+                avatar.GetComponent<Image>().color = playerController.color;
+                if (playerController.role == PlayerRole.Detective)
+                {
+                    player.transform.Find("Role").GetComponent<TMP_Text>().text = "Detective";
+                }
+                else
+                {
+                    player.transform.Find("Role").GetComponent<TMP_Text>().text = "Informant";
+                    var qrCode = player.transform.Find("QRCode").gameObject;
+                    qrCode.SetActive(true);
+                    qrCode.GetComponent<QRCodeObject>().QRCodeContent = CardURLGenerator.GetCardURL("1", "window",
+                        playerController.informant.clue, playerController.informant._goal.description);
+                }
+            }
         }
       }
     }
