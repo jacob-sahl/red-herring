@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
   void Start()
   {
 
-    gameController = GameObject.Find("GameController").GetComponent<GameController>();
+    gameController = GameController.Instance;
     audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
     uiController = GameObject.Find("Hud").GetComponent<UIController>();
     playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();

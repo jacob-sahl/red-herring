@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     DontDestroyOnLoad(this.gameObject);
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelSetupCompleteEvent>(onLevelSetupComplete);
-    gameController = GameObject.Find("GameController").GetComponent<GameController>();
+    gameController = GameController.Instance;
     manager = GameController.Instance.PlayerManager;
     _inputHandler = GetComponent<PlayerInputHandler>();
     playerInput = GetComponent<PlayerInput>();
