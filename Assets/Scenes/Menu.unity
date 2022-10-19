@@ -2551,7 +2551,7 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   forceStart: 1
   _roundEndText: 
-  mainSceneName: _MAINSCENE
+  mainSceneName: issue32
   detectiveOrder: 
   currentRound: 0
   currentSecretObjectiveAssignment: 
