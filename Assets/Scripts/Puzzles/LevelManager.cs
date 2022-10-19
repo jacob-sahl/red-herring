@@ -49,6 +49,10 @@ public class LevelManager : MonoBehaviour
         if (puzzleStarted)
         {
             _timeLeft -= Time.deltaTime;
+            if (_timeLeft <= 0) // stops time from displaying as a negative number
+            {
+                _timeLeft = 0;
+            }
             uiController.displayTime(_timeLeft);
 
             if (_timeLeft <= 0)
@@ -77,6 +81,7 @@ public class LevelManager : MonoBehaviour
     public void AddInformants(Informant informant)
     {
         informants.Add(informant);
+        Debug.Log("informants added: " + informant.name);
     }
 
     public void addPuzzle(Puzzle puzzle)
@@ -111,6 +116,7 @@ public class LevelManager : MonoBehaviour
     {
         puzzleStarted = false;
         string roundEndText = "In this round, ";
+        //Debug.Log("informants: " + informants.Count);
         foreach (var puzzle in puzzles)
         {
             if (puzzle.isComplete)
@@ -139,9 +145,13 @@ public class LevelManager : MonoBehaviour
             {
                 roundEndText += $"{informant.name}'s secret goal '{informant._goal.description}' was not complete. \n";
             }
+
         }
         Debug.Log(roundEndText);
-        
+        informants.Clear();
+        //informants = new List<Informant>();
+        //Debug.Log("informants: "+ informants.Count);
+
         LevelEndEvent levelEndEvent = new LevelEndEvent();
         levelEndEvent.endMessage = roundEndText;
         EventManager.Broadcast(levelEndEvent);

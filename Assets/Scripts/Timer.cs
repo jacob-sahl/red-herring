@@ -23,10 +23,19 @@ public class Timer : MonoBehaviour
     void DisplayTime(float timeToDisplay)
     {
         float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
+        if (minutes < 0)
+        {
+            minutes = 0;
+        }
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        if (seconds < 0)
+        {
+            seconds = 0;
+        }
         GameObject UIText = GameObject.Find("TimerTextRaw");
         Text time = UIText.GetComponent<Text>();
         time.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        // Debug.Log(time.text);
     }
 
     void Update()
