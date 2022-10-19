@@ -30,7 +30,7 @@ public class PlayerInputHandler : MonoBehaviour
   {
     EventManager.AddListener<LevelStartEvent>(onGameStart);
   }
-  
+
   private void LockCursor()
   {
     Debug.Log("Locking cursor");
@@ -38,7 +38,7 @@ public class PlayerInputHandler : MonoBehaviour
     Cursor.visible = false;
     lookInput = Vector2.zero;
   }
-  
+
   private void UnlockCursor()
   {
     Cursor.lockState = CursorLockMode.None;
@@ -149,7 +149,7 @@ public class PlayerInputHandler : MonoBehaviour
     }
     return false;
   }
-
+  
   public void OnCrouch(InputAction.CallbackContext context)
   {
     crouch = context.action.triggered;
@@ -201,12 +201,11 @@ public class PlayerInputHandler : MonoBehaviour
   //   return false;
   // }
 
-
   public bool CanProcessInput()
   {
     return Cursor.lockState == CursorLockMode.Locked && !GameController.Instance.IsGameEnding();
   }
-  
+
   private void onGameStart(LevelStartEvent e)
   {
     Debug.Log("Game started Received by PlayerInputHandler");

@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 4.65
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 0b05f711b90d47e468fc3a2f0fe3d575, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2551,6 +2551,9 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   forceStart: 1
   _roundEndText: 
+  mainSceneName: issue32
+  detectiveOrder: 
+  currentRound: 0
 --- !u!4 &666354604
 Transform:
   m_ObjectHideFlags: 0
@@ -3750,6 +3753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
+  iCursorPrefab: {fileID: 84580730019488752, guid: c8ab1999cca3e1f498328db062cce577, type: 3}
 --- !u!4 &991785555
 Transform:
   m_ObjectHideFlags: 0

@@ -10,12 +10,31 @@ public class GameController : MonoBehaviour
   public PlayerManager PlayerManager;
   public LevelManager levelManager;
   [SerializeField] public bool forceStart = false;
-
-  public List<Informant> informants = new List<Informant>();
-
   public string _roundEndText;
+
+  [Header("Main Scene")]
+  [Tooltip("This string has to be the name of the scene you want to load when starting a round")]
+  public string mainSceneName;
+  public List<int> detectiveOrder;
+  // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
+  public int currentRound;
   void Awake()
   {
+    // Randomized detective order
+    // List<int> players = new List<int> { 0, 1, 2, 3 };
+    // detectiveOrder = new List<int>();
+    // for (int i = 0; i < players.Count; i++)
+    // {
+    //   int index = Mathf.FloorToInt(Random.Range(0, players.Count));
+    //   detectiveOrder.Add(players[index]);
+    //   players.Remove(players[index]);
+    // }
+
+    // Deterministic detective order
+    detectiveOrder = new List<int> { 0, 1, 2, 3 };
+
+    currentRound = 0;
+
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelEndEvent>(onLevelEnd);
 
@@ -64,7 +83,10 @@ public class GameController : MonoBehaviour
   {
     if (checkCanStartGame())
     {
-      LoadScene("_MAINSCENE");
+      currentRound++;
+      // FOR DEV PURPOSES: (REMOVE ON BUILD)
+      PlayerManager.fillPlayers();
+      LoadScene(mainSceneName);
     }
     else
     {
@@ -88,19 +110,10 @@ public class GameController : MonoBehaviour
   {
     Debug.Log("Game Start received by GameController");
     levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-
-    foreach (var informant in informants)
-    {
-      levelManager.AddInformants(informant);
-    }
   }
 
   public void SetupLevel()
   {
-    informants.Add(new Informant("Informant 0", TypeWriterSecretGoals.TypedFool, "The answer is very colourful."));
-    informants.Add(new Informant("Informant 1", TypeWriterSecretGoals.FlippedTypeWriter, "The answer is not secondary."));
-    informants.Add(new Informant("Informant 2", GeneralSecretGoals.LookThroughWindow, "The answer is in alphabetical order."));
-
     LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
     EventManager.Broadcast(e);
   }

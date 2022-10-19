@@ -7,158 +7,191 @@ using UnityEngine.Serialization;
 
 public class LevelManager : MonoBehaviour
 {
-    [Header("Parameters")] [Tooltip("Duration of the fade-to-black at the end of the game")]
-    public float endSceneLoadDelay = 3f;
+  [Header("Parameters")]
+  [Tooltip("Duration of the fade-to-black at the end of the game")]
+  public float endSceneLoadDelay = 3f;
 
-    [Tooltip("The canvas group of the fade-to-black screen")]
-    public CanvasGroup endGameFadeCanvasGroup;
+  [Tooltip("The canvas group of the fade-to-black screen")]
+  public CanvasGroup endGameFadeCanvasGroup;
 
-    [Header("Ending")] [Tooltip("This string has to be the name of the scene you want to load when game ends")]
-    public string endSceneName = "End";
+  [Header("Ending")]
+  [Tooltip("This string has to be the name of the scene you want to load when game ends")]
+  public string endSceneName = "End";
 
-    public float puzzleTime = 60f * 3f;
-    [SerializeField] private float _timeLeft = 0f;
-    [SerializeField] private bool puzzleStarted;
-    private UIController uiController;
-    public AudioController audioController;
+  public float puzzleTime = 60f * 3f;
+  [SerializeField] private float _timeLeft = 0f;
+  [SerializeField] private bool puzzleStarted;
+  private UIController uiController;
+  public AudioController audioController;
+  private PlayerManager playerManager;
+  private GameController gameController;
+  public List<SecretObjective> secretObjectives;
+  public bool gameIsEnding;
+  private float _timeLoadEndGameScene;
+  public List<Puzzle> puzzles = new List<Puzzle> { };
 
+  void Start()
+  {
 
-    public List<Informant> informants = new List<Informant> { };
-    public bool gameIsEnding;
-    private float _timeLoadEndGameScene;
+    gameController = GameController.Instance;
+    audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
+    uiController = GameObject.Find("Hud").GetComponent<UIController>();
+    playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+    assignSecretObjectives();
 
-    public List<Puzzle> puzzles = new List<Puzzle> { };
-
-    void Start()
+    _timeLeft = puzzleTime;
+    puzzleStarted = true;
+    LevelStartEvent levelStartEvent = new LevelStartEvent();
+    EventManager.Broadcast(levelStartEvent);
+    Debug.Log("GameStartEvent broadcasted");
+  }
+  void assignSecretObjectives()
+  {
+    secretObjectives = new List<SecretObjective>();
+    // Randomize
+    List<int> informants = new List<int> { 0, 1, 2, 3 };
+    // remove the current detective
+    informants.Remove(gameController.detectiveOrder[gameController.currentRound - 1]);
+    List<int> order = new List<int>();
+    for (int i = 0; i < 3; i++)
     {
-        _timeLeft = puzzleTime;
+      int index = Mathf.FloorToInt(Random.Range(0, informants.Count));
+      order.Add(informants[index]);
+      informants.Remove(informants[index]);
+    }
+    // Hardcoded for now. LATER: secret objectives depend on the puzzle instance
+    secretObjectives.Add(new SecretObjective(
+        playerManager.players[order[0]],
+        "Get the detective to look out of the window for three consecutive seconds.",
+        SecretObjectiveID.LookThroughWindow
+    ));
+    secretObjectives.Add(new SecretObjective(
+        playerManager.players[order[1]],
+        "Get the detective to turn the typewriter upside-down.",
+        SecretObjectiveID.InvertTypewriter
+    ));
+    secretObjectives.Add(new SecretObjective(
+        playerManager.players[order[2]],
+        "Get the detective to type 'FOOL' into the typewriter.",
+        SecretObjectiveID.TypeFOOL
+    ));
+  }
 
-        puzzleStarted = true;
-        audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
-        uiController = GameObject.Find("Hud").GetComponent<UIController>();
+  // Update is called once per frame
+  void Update()
+  {
+    if (puzzleStarted)
+    {
+      _timeLeft -= Time.deltaTime;
+      uiController.displayTime(_timeLeft);
 
-        LevelStartEvent levelStartEvent = new LevelStartEvent();
-        EventManager.Broadcast(levelStartEvent);
-        Debug.Log("GameStartEvent broadcasted");
+      if (_timeLeft <= 0)
+      {
+        // ends the game
+        EndLevel();
+      }
+
+      audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
+      uiController = GameObject.Find("Hud").GetComponent<UIController>();
     }
 
-
-    // Update is called once per frame
-    void Update()
+    if (gameIsEnding)
     {
-        if (puzzleStarted)
+      float timeRatio = 1 - (_timeLoadEndGameScene - Time.time) / endSceneLoadDelay;
+      endGameFadeCanvasGroup.alpha = timeRatio;
+
+      if (Time.time >= _timeLoadEndGameScene)
+      {
+        GameController.Instance.LoadEndScene();
+        gameIsEnding = false;
+      }
+    }
+  }
+
+  public void addPuzzle(Puzzle puzzle)
+  {
+    puzzles.Add(puzzle);
+    puzzle.SetCompleteCallback(() => onPuzzleComplete(puzzle));
+  }
+
+  private void onPuzzleComplete(Puzzle puzzle)
+  {
+    Debug.Log("Puzzle complete");
+    if (canEndLevel())
+    {
+      EndLevel();
+    }
+  }
+
+  private bool canEndLevel()
+  {
+    foreach (Puzzle puzzle in puzzles)
+    {
+      if (!puzzle.isComplete)
+      {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  private void EndLevel()
+  {
+    puzzleStarted = false;
+    List<int> pointsToAdd = new List<int> { 0, 0, 0, 0 };
+    string roundEndText = "In this round, ";
+    foreach (var puzzle in puzzles)
+    {
+      if (puzzle.isComplete)
+      {
+        roundEndText += $"Puzzle {puzzle.name} is complete. \n";
+        // Calculate points each player earned this round
+        for (int i = 0; i < pointsToAdd.Count; i++)
         {
-            _timeLeft -= Time.deltaTime;
-            uiController.displayTime(_timeLeft);
-
-            if (_timeLeft <= 0)
-            {
-                // ends the game
-                EndLevel();
-            }
-            
-            audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
-            uiController = GameObject.Find("Hud").GetComponent<UIController>();
+          pointsToAdd[i] += 4;
         }
-
-        if (gameIsEnding)
+        foreach (SecretObjective secret in secretObjectives)
         {
-            float timeRatio = 1 - (_timeLoadEndGameScene - Time.time) / endSceneLoadDelay;
-            endGameFadeCanvasGroup.alpha = timeRatio;
-
-            if (Time.time >= _timeLoadEndGameScene)
+          if (secret.completed)
+          {
+            pointsToAdd[secret.player.playerId] += 4;
+            for (int i = 0; i < pointsToAdd.Count; i++)
             {
-                GameController.Instance.LoadEndScene();
-                gameIsEnding = false;
+              pointsToAdd[i] -= 1;
             }
+          }
         }
-    }
-
-    public void AddInformants(Informant informant)
-    {
-        informants.Add(informant);
-    }
-
-    public void addPuzzle(Puzzle puzzle)
-    {
-        puzzles.Add(puzzle);
-        puzzle.SetCompleteCallback(() => onPuzzleComplete(puzzle));
-    }
-
-    private void onPuzzleComplete(Puzzle puzzle)
-    {
-        Debug.Log("Puzzle complete");
-        if (canEndLevel())
+        // Add points to each player's total
+        for (int i = 0; i < pointsToAdd.Count; i++)
         {
-            EndLevel();
+          playerManager.players[i].points += pointsToAdd[i];
         }
+      }
+      else
+      {
+        roundEndText += $"Puzzle {puzzle.name} is not complete. \n";
+      }
     }
+    Debug.Log(roundEndText);
 
-    private bool canEndLevel()
-    {
-        foreach (Puzzle puzzle in puzzles)
-        {
-            if (!puzzle.isComplete)
-            {
-                return false;
-            }
-        }
+    LevelEndEvent levelEndEvent = new LevelEndEvent();
+    levelEndEvent.endMessage = roundEndText;
+    EventManager.Broadcast(levelEndEvent);
 
-        return true;
-    }
+    FadeOut();
+  }
 
-    private void EndLevel()
-    {
-        puzzleStarted = false;
-        string roundEndText = "In this round, ";
-        foreach (var puzzle in puzzles)
-        {
-            if (puzzle.isComplete)
-            {
-                roundEndText += $"Puzzle {puzzle.name} is complete. \n";
-            }
-            else
-            {
-                roundEndText += $"Puzzle {puzzle.name} is not complete. \n";
-            }
-        }
+  private void FadeOut()
+  {
+    // unlocks the cursor before leaving the scene, to be able to click buttons
+    Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
 
-        foreach (var informant in informants)
-        {
-            bool flag = false;
-            foreach (var puzzle in puzzles)
-            {
-                if (informant.CheckSecretGoal(puzzle))
-                {
-                    roundEndText += $"{informant.name} completed secret goal '{informant._goal.description}. '\n";
-                    flag = true;
-                }
-            }
+    // Remember that we need to load the appropriate end scene after a delay
+    gameIsEnding = true;
+    endGameFadeCanvasGroup.gameObject.SetActive(true);
 
-            if (!flag)
-            {
-                roundEndText += $"{informant.name}'s secret goal '{informant._goal.description}' was not complete. \n";
-            }
-        }
-        Debug.Log(roundEndText);
-        
-        LevelEndEvent levelEndEvent = new LevelEndEvent();
-        levelEndEvent.endMessage = roundEndText;
-        EventManager.Broadcast(levelEndEvent);
-
-        FadeOut();
-    }
-
-    private void FadeOut()
-    {
-        // unlocks the cursor before leaving the scene, to be able to click buttons
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        // Remember that we need to load the appropriate end scene after a delay
-        gameIsEnding = true;
-        endGameFadeCanvasGroup.gameObject.SetActive(true);
-
-        _timeLoadEndGameScene = Time.time + endSceneLoadDelay;
-    }
+    _timeLoadEndGameScene = Time.time + endSceneLoadDelay;
+  }
 }
