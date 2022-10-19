@@ -11,65 +11,45 @@ public enum PlayerRole
 public class PlayerController : MonoBehaviour
 {
   private Color[] playerColors = { Color.red, Color.cyan, Color.green, Color.magenta };
-  public GameObject iCursorPrefab;
   public Color color;
-  private int playerId;
+  public int playerId;
 
   public PlayerRole role;
   private GameObject iCursor;
   private PlayerInputHandler _inputHandler;
   private PlayerManager manager;
   private PlayerInput playerInput;
+  private GameController gameController;
+  public int points;
+  public string playerName;
 
-  // Only set when the player is an informant
-  public Informant informant;
-  
   private void Awake()
   {
     DontDestroyOnLoad(this.gameObject);
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelSetupCompleteEvent>(onLevelSetupComplete);
+    gameController = GameController.Instance;
     manager = GameController.Instance.PlayerManager;
     _inputHandler = GetComponent<PlayerInputHandler>();
     playerInput = GetComponent<PlayerInput>();
     playerId = manager.addPlayer(this);
+    points = 0;
+    playerName = "Player " + playerId.ToString();
     color = playerColors[playerId];
     PlayerUpdateEvent e = new PlayerUpdateEvent();
     e.PlayerID = playerId;
     EventManager.Broadcast(e);
   }
 
-  void Start()
-  {
-
-    // // If this is P1, make them the Detective
-    // if (playerId == 0)
-    // {
-    //   //   role = PlayerRole.Detective;
-    //   GameObject.Find("Detective").GetComponent<PlayerMovement>().assignInputHandler(_inputHandler);
-    //   playerInput.SwitchCurrentActionMap("Detective");
-    // }
-    // else
-    // {
-    //   //   role = PlayerRole.Informant;
-    //   // Create an iCursor for this player
-    //   iCursor = Instantiate(iCursorPrefab, GameObject.Find("Hud").transform);
-    //   iCursor.GetComponent<ICursorController>()._inputHandler = _inputHandler;
-    //   iCursor.GetComponent<ICursorController>().color = color;
-    //   playerInput.SwitchCurrentActionMap("Informant");
-    // }
-  }
-
   void onLevelSetupComplete(LevelSetupCompleteEvent e)
   {
-    if (playerId == 0)
+    if (playerId == gameController.detectiveOrder[gameController.currentRound])
     {
       role = PlayerRole.Detective;
     }
     else
     {
       role = PlayerRole.Informant;
-      informant = GameController.Instance.informants[playerId - 1];
     }
   }
   void onGameStart(LevelStartEvent e)
@@ -83,7 +63,7 @@ public class PlayerController : MonoBehaviour
     else
     {
       // Create an iCursor for this player
-      iCursor = Instantiate(iCursorPrefab, GameObject.Find("Hud").transform);
+      iCursor = Instantiate(manager.iCursorPrefab, GameObject.Find("Hud").transform);
       iCursor.GetComponent<ICursorController>()._inputHandler = _inputHandler;
       iCursor.GetComponent<ICursorController>().color = color;
       playerInput.SwitchCurrentActionMap("Informant");

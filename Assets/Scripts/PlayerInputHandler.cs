@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,13 +22,15 @@ public class PlayerInputHandler : MonoBehaviour
   private Vector2 movementInput;
   private Vector2 lookInput;
   private Vector2 cursorMovement;
+  private bool crouch = false;
+  private bool jump = false;
 
 
   void Start()
   {
     EventManager.AddListener<LevelStartEvent>(onGameStart);
   }
-  
+
   private void LockCursor()
   {
     Debug.Log("Locking cursor");
@@ -35,7 +38,7 @@ public class PlayerInputHandler : MonoBehaviour
     Cursor.visible = false;
     lookInput = Vector2.zero;
   }
-  
+
   private void UnlockCursor()
   {
     Cursor.lockState = CursorLockMode.None;
@@ -146,6 +149,28 @@ public class PlayerInputHandler : MonoBehaviour
     }
     return false;
   }
+  
+  public void OnCrouch(InputAction.CallbackContext context)
+  {
+    crouch = context.action.triggered;
+  }
+
+  public void OnJump(InputAction.CallbackContext context)
+  {
+    jump = context.action.triggered;
+  }
+
+  public (bool, bool) GetCrouchAndJump()
+  {
+    if (CanProcessInput())
+    {
+      return (crouch, jump);
+    }
+    else
+    {
+      return (false, false);
+    }
+  }
 
   // public bool GetInteractInputDown()
   // {
@@ -176,12 +201,11 @@ public class PlayerInputHandler : MonoBehaviour
   //   return false;
   // }
 
-
   public bool CanProcessInput()
   {
     return Cursor.lockState == CursorLockMode.Locked && !GameController.Instance.IsGameEnding();
   }
-  
+
   private void onGameStart(LevelStartEvent e)
   {
     Debug.Log("Game started Received by PlayerInputHandler");

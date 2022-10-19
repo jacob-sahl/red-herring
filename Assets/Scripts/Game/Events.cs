@@ -11,6 +11,7 @@ public static class Events
   public static FocusEvent FocusEvent = new FocusEvent();
   public static PlayerJoinedEvent PlayerJoinedEvent = new PlayerJoinedEvent();
   public static PlayerUpdateEvent PlayerUpdateEvent = new PlayerUpdateEvent();
+  public static SecretObjectiveEvent SecretObjectiveEvent = new SecretObjectiveEvent();
 }
 
 
@@ -57,4 +58,10 @@ public class PlayerUpdateEvent : GameEvent
 public class LevelSetupCompleteEvent : GameEvent
 {
   public int PlayerID;
+}
+
+public class SecretObjectiveEvent : GameEvent
+{
+  public SecretObjectiveID id;
+  public bool status;
 }
