@@ -14,6 +14,7 @@ TagManager:
   - ICursor
   - typewriter
   - puzzleObjectPart
+  - window
   layers:
   - Default
   - TransparentFX

@@ -28,6 +28,18 @@ public class PlayerManager : MonoBehaviour
     get { return players.Count; }
   }
 
+  public PlayerController getPlayerByID(int id)
+  {
+    for (int i = 0; i < players.Count; i++)
+    {
+      if (players[i].playerId == id)
+      {
+        return players[i];
+      }
+    }
+    return null;
+  }
+
   void Start()
   {
   }
@@ -42,11 +54,6 @@ public class PlayerManager : MonoBehaviour
       obj.AddComponent<PlayerInputHandler>();
       obj.AddComponent<PlayerInput>();
       obj.AddComponent<PlayerController>();
-      PlayerController newPlayer = obj.GetComponent<PlayerController>();
-      players.Add(newPlayer);
-      PlayerJoinedEvent e = new PlayerJoinedEvent();
-      e.PlayerID = newPlayer.playerId;
-      EventManager.Broadcast(e);
     }
   }
 

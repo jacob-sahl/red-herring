@@ -31,6 +31,11 @@ public class InteractEvent : GameEvent
   public GameObject gameObject;
 }
 
+public class LookEvent : GameEvent
+{
+  public GameObject gameObject;
+}
+
 public class LevelStartEvent : GameEvent
 {
 }

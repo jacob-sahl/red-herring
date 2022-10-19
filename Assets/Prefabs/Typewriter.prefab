@@ -9373,6 +9373,7 @@ GameObject:
   - component: {fileID: 5834561551268112773}
   - component: {fileID: 5834561551268112775}
   - component: {fileID: 5834561551268112772}
+  - component: {fileID: 6669117046621852732}
   m_Layer: 0
   m_Name: Typewriter
   m_TagString: typewriter
@@ -9459,6 +9460,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &6669117046621852732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645605511365619220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f4ea93046c37c4b86b9951d1339af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6735848990890367605
 GameObject:
   m_ObjectHideFlags: 0
