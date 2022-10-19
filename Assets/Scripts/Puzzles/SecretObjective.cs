@@ -7,7 +7,7 @@ public enum SecretObjectiveID
   InvertTypewriter
 }
 
-public struct SecretObjective
+public class SecretObjective
 {
   public SecretObjectiveID id;
   public PlayerController player;

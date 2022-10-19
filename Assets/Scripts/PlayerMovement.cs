@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
   Vector3 cursorPosition;
   GameObject focusedObject;
   GameObject focusedObjectPlaceholder;
+  GameObject lastHit;
   Vector3 focusRotationXAxis;
   Vector3 focusRotationYAxis;
   float cameraHeight;
@@ -179,6 +180,15 @@ public class PlayerMovement : MonoBehaviour
     {
       // Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
       var colliderGameObject = hit.collider.gameObject;
+
+      if (colliderGameObject != lastHit)
+      {
+        LookEvent evt = new LookEvent();
+        evt.gameObject = colliderGameObject;
+        EventManager.Broadcast(evt);
+        lastHit = colliderGameObject;
+      }
+
       // Debug.Log(colliderGameObject);
       var outline = colliderGameObject.GetComponent<Outline>();
       var focus = colliderGameObject.GetComponent<Focus>();
