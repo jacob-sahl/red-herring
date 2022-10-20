@@ -5,12 +5,13 @@ using System.Linq;
 using TMPro;
 using UnityEngine.Serialization;
 
+// NOTE: When adding new button types, you MUST add them to the end of the enum or else the rest will all shift
 public enum ButtonType
 {
   Submit,
   A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
   One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Zero,
-  Space,
+  Space, Backspace,
 }
 
 public class TypeWriterPuzzle : Puzzle
@@ -64,6 +65,7 @@ public class TypeWriterPuzzle : Puzzle
         { ButtonType.Nine, "9" },
         { ButtonType.Zero, "0" },
         { ButtonType.Space, " " },
+        { ButtonType.Backspace, ""},
     };
 
   [SerializeField] public string pressed = "";
@@ -113,6 +115,10 @@ public class TypeWriterPuzzle : Puzzle
     }
     switch (button.buttonType)
     {
+      case ButtonType.Backspace:
+        _answer = _answer.Substring(0, _answer.Length - 1);
+        puzzle_text.text = puzzle_text.text.Substring(0, puzzle_text.text.Length - 1);
+        break;
       case ButtonType.Submit:
         if (CheckAnswer())
         {
