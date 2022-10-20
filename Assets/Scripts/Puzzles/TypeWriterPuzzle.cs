@@ -116,8 +116,11 @@ public class TypeWriterPuzzle : Puzzle
     switch (button.buttonType)
     {
       case ButtonType.Backspace:
-        _answer = _answer.Substring(0, _answer.Length - 1);
-        puzzle_text.text = puzzle_text.text.Substring(0, puzzle_text.text.Length - 1);
+        if (_answer.Length > 0)
+        {
+          _answer = _answer.Substring(0, _answer.Length - 1);
+          puzzle_text.text = puzzle_text.text.Substring(0, puzzle_text.text.Length - 1);
+        }
         break;
       case ButtonType.Submit:
         if (CheckAnswer())
