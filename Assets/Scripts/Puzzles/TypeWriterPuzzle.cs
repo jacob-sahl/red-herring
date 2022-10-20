@@ -71,12 +71,14 @@ public class TypeWriterPuzzle : Puzzle
   [SerializeField] private string _answer = "";
 
   private List<SecretObjectiveID> broadcastedObjectives = new List<SecretObjectiveID>();
+  private TypeWriter typeWriter;
 
   public override void Awake()
   {
     base.Awake();
     puzzleName = "TypeWriter";
     EventManager.AddListener<InteractEvent>(OnButtonPressed);
+    typeWriter = GameObject.Find("Typewriter").GetComponent<TypeWriter>();
   }
 
   void Start()
@@ -104,6 +106,7 @@ public class TypeWriterPuzzle : Puzzle
   public void ButtonPressed(Button button)
   {
     pressed += (ButtonToString[button.buttonType]);
+    typeWriter.playKeydownClip();
     if (_answer.Length == 0)
     {
       puzzle_text.text = "";
