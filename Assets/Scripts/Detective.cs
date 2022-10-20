@@ -15,7 +15,7 @@ public class Detective : MonoBehaviour
 
   [Header("Rotation")]
   [Tooltip("Rotation speed for moving the camera")]
-  public float RotationSpeed = 2f;
+  public float RotationSpeed = 1f;
 
   [Header("Movement")]
   [Tooltip("Max movement speed")]
@@ -25,8 +25,8 @@ public class Detective : MonoBehaviour
   public float jumpHeight = 2f;
 
   [Header("Focused")]
-  public float cursorSpeed = 400f;
-  public float rotateSpeed = 0.5f;
+  public float cursorSpeed = 1f;
+  public float objectRotateSpeed = 0.5f;
 
   [Tooltip(
       "Sharpness for the movement when grounded, a low value will make the player accelerate and decelerate slowly, a high value will do the opposite")]
@@ -91,7 +91,7 @@ public class Detective : MonoBehaviour
     {
       Vector2 lookInput = _inputHandler.GetLookInput();
       // Process the raw lookInput 
-      Vector2 lookProcessed = lookInput * RotationSpeed * Time.deltaTime;
+      Vector2 lookProcessed = lookInput * RotationSpeed;
       cameraRotation.y -= lookProcessed.y;
       // Clamp y-rotation to a range of 180 degrees
       cameraRotation.y = Mathf.Clamp(cameraRotation.y, -89f, 89f);
@@ -181,7 +181,7 @@ public class Detective : MonoBehaviour
     // Observer cursor movement
     {
       Vector2 lookInput = _inputHandler.GetLookInput();
-      Vector2 lookProcessed = lookInput * cursorSpeed * Time.deltaTime;
+      Vector2 lookProcessed = lookInput * cursorSpeed;
       RectTransform rect = cursor.GetComponent<RectTransform>();
       // Move the Rect of the cursor text
       float x = Mathf.Clamp(rect.anchoredPosition.x + lookProcessed.x, -(Screen.width / 2), Screen.width / 2);
@@ -195,7 +195,7 @@ public class Detective : MonoBehaviour
     // Focus object rotation 
     {
       Vector2 moveInput = _inputHandler.GetMoveInput();
-      Vector2 moveProcessed = moveInput * rotateSpeed * -1;
+      Vector2 moveProcessed = moveInput * objectRotateSpeed * -1;
       focusedObject.transform.RotateAround(focusedObject.transform.position, focusRotationYAxis, moveProcessed.x);
       focusedObject.transform.RotateAround(focusedObject.transform.position, focusRotationXAxis, moveProcessed.y);
     }

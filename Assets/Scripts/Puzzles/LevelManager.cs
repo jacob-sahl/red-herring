@@ -18,8 +18,8 @@ public class LevelManager : MonoBehaviour
   [Tooltip("This string has to be the name of the scene you want to load when game ends")]
   public string endSceneName = "End";
 
-  public float puzzleTime = 60f * 3f;
-  [SerializeField] private float _timeLeft = 0f;
+  private float puzzleTime;
+  [SerializeField] private float _timeLeft;
   [SerializeField] private bool puzzleStarted;
   private UIController uiController;
   public AudioController audioController;
@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour
     uiController = GameObject.Find("Hud").GetComponent<UIController>();
     playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
     assignSecretObjectives();
-
+    puzzleTime = GameController.Instance.minutesPerRound * 60f;
     _timeLeft = puzzleTime;
     puzzleStarted = true;
     LevelStartEvent levelStartEvent = new LevelStartEvent();
