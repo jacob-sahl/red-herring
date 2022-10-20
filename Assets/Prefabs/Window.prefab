@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 96be375e4393d4b4bb0507768fd8dbde, type: 3}
+  - {fileID: 2100000, guid: af9b1ea91e41d584baafae0db69a2e22, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -227,7 +227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9d3b4a03fddc4ea4e9b4f4c4ac9fca6e, type: 2}
+  - {fileID: 2100000, guid: 3ef0276886f77d24e86e860e90d21daf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -393,7 +393,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 96be375e4393d4b4bb0507768fd8dbde, type: 3}
+  - {fileID: 2100000, guid: af9b1ea91e41d584baafae0db69a2e22, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -476,7 +476,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 96be375e4393d4b4bb0507768fd8dbde, type: 3}
+  - {fileID: 2100000, guid: 3ef0276886f77d24e86e860e90d21daf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -674,7 +674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5753833177912744887}
   m_Layer: 0
-  m_Name: PR_Window_01
+  m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
