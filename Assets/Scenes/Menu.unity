@@ -748,7 +748,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 233.9443, y: 38.34851}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &120187825
@@ -1364,7 +1364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 188.18, y: 72.00026}
+  m_AnchoredPosition: {x: 195, y: -34}
   m_SizeDelta: {x: 376.37, y: 266.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &295260603
@@ -1387,7 +1387,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Informant Tutorial Text
+  m_text: 'Informant
+
+
+    As an informant, your goal is to help the detective solve
+    the puzzle, but also to complete your secret objective. Scan the QR code to receive
+    your hint and objective. Keep in mind: nobody gets any points unless the puzzle
+    is solved.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -5151,7 +5157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1271110058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8618,7 +8624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188.18, y: 72}
+  m_AnchoredPosition: {x: -195, y: 129}
   m_SizeDelta: {x: 376.36, y: 266.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2009558073
@@ -8641,7 +8647,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Detective Tutorial Text
+  m_text: 'Detective
+
+
+    As the detective, you control the game. Your goal is to
+    use the information from your informants to enter the correct sequence of three
+    words into the typewriter. But beware their ulterior motives.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
