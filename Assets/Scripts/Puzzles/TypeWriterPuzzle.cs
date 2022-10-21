@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,6 +81,11 @@ public class TypeWriterPuzzle : Puzzle
     puzzleName = "TypeWriter";
     EventManager.AddListener<InteractEvent>(OnButtonPressed);
     typeWriter = GameObject.Find("Typewriter").GetComponent<TypeWriter>();
+  }
+
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<InteractEvent>(OnButtonPressed);
   }
 
   void Start()

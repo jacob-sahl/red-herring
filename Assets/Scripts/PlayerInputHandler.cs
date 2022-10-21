@@ -31,6 +31,11 @@ public class PlayerInputHandler : MonoBehaviour
     EventManager.AddListener<LevelStartEvent>(onGameStart);
   }
 
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
+  }
+
   private void LockCursor()
   {
     Debug.Log("Locking cursor");

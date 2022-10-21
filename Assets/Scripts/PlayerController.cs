@@ -41,6 +41,12 @@ public class PlayerController : MonoBehaviour
     EventManager.Broadcast(e);
   }
 
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
+    EventManager.RemoveListener<LevelSetupCompleteEvent>(onLevelSetupComplete);
+  }
+
   void onLevelSetupComplete(LevelSetupCompleteEvent e)
   {
     if (playerId == gameController.detectiveOrder[gameController.currentRound])
