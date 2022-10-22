@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class CameraController : MonoBehaviour
   {
     playerCam = GetComponent<Camera>();
     EventManager.AddListener<FocusEvent>(OnFocus);
+  }
+
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<FocusEvent>(OnFocus);
   }
 
   public void OnFocus(FocusEvent evt)

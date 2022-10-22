@@ -66,6 +66,11 @@ public class Detective : MonoBehaviour
     cameraHeight = playerCamera.transform.localPosition.y;
   }
 
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<FocusEvent>(OnFocus);
+  }
+
   void OnFocus(FocusEvent evt)
   {
     // Calculate vectors relative to the camera to serve as rotational axes
