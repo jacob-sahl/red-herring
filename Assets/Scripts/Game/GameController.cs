@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
   // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
   public int currentRound;
   public List<int> currentSecretObjectiveAssignment = new List<int>();
+  public int minutesPerRound = 3;
   void Awake()
   {
     // Randomized detective order
@@ -51,6 +52,12 @@ public class GameController : MonoBehaviour
     }
   }
 
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
+    EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
+  }
+
   void randomizeSecretObjectives()
   {
     // Randomize
@@ -74,6 +81,11 @@ public class GameController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+  }
+
+  public void updateMinutesPerRound(string value)
+  {
+    minutesPerRound = int.Parse(value);
   }
 
   public void LoadScene(string name)

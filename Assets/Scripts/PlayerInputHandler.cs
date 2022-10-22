@@ -38,9 +38,13 @@ public class PlayerInputHandler : MonoBehaviour
     PauseText = GameObject.Find("PauseText");
     // PauseText.SetActive(false);
     PauseText.GetComponent<UnityEngine.UI.Text>().text = "";
+  }
 
-    }
-  
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
+  }
+
   private void LockCursor()
   {
     Debug.Log("Locking cursor");
@@ -48,7 +52,7 @@ public class PlayerInputHandler : MonoBehaviour
     Cursor.visible = false;
     lookInput = Vector2.zero;
   }
-  
+
   private void UnlockCursor()
   {
     Cursor.lockState = CursorLockMode.None;
@@ -169,42 +173,42 @@ public class PlayerInputHandler : MonoBehaviour
   {
     jump = context.action.triggered;
     //Debug.Log("jump:" + jump);
-    }
+  }
 
   public void OnPause(InputAction.CallbackContext context)
-   {
-        PauseText = GameObject.Find("PauseText");
-        pause = context.action.triggered;
-        //Debug.Log("pause:"+ pause);
-        //GameObject PauseText = GameObject.Find("PauseText");
-        Debug.Log(PauseText);
-        if (!pause)
-        {
-            pauseRelased = true;
-        }
-        if (pause && Time.timeScale == 0.0f && pauseRelased)
-        {
-            Time.timeScale = 1f;
-            
-            pauseRelased = false;
-            Debug.Log("unpaused");
-            PauseText.GetComponent<UnityEngine.UI.Text>().text = "";
-            //PauseText.SetActive(false); //.getComponent<MeshRenderer>().enabled = false;
-        }
-        if (pause && Time.timeScale == 1.0f && pauseRelased)
-        {
-            Time.timeScale = 0f;
-            
-            pauseRelased = false;
-            Debug.Log("paused");
-            PauseText.GetComponent<UnityEngine.UI.Text>().text = "Game Paused";
-            //PauseText.SetActive(true); //.getComponent<MeshRenderer>().enabled = true;
-        }
-       /* if (pause)
-        {
-            _levelManager.Pause(pause);
-        }*/
-   }
+  {
+    PauseText = GameObject.Find("PauseText");
+    pause = context.action.triggered;
+    //Debug.Log("pause:"+ pause);
+    //GameObject PauseText = GameObject.Find("PauseText");
+    Debug.Log(PauseText);
+    if (!pause)
+    {
+      pauseRelased = true;
+    }
+    if (pause && Time.timeScale == 0.0f && pauseRelased)
+    {
+      Time.timeScale = 1f;
+
+      pauseRelased = false;
+      Debug.Log("unpaused");
+      PauseText.GetComponent<UnityEngine.UI.Text>().text = "";
+      //PauseText.SetActive(false); //.getComponent<MeshRenderer>().enabled = false;
+    }
+    if (pause && Time.timeScale == 1.0f && pauseRelased)
+    {
+      Time.timeScale = 0f;
+
+      pauseRelased = false;
+      Debug.Log("paused");
+      PauseText.GetComponent<UnityEngine.UI.Text>().text = "Game Paused";
+      //PauseText.SetActive(true); //.getComponent<MeshRenderer>().enabled = true;
+    }
+    /* if (pause)
+     {
+         _levelManager.Pause(pause);
+     }*/
+  }
 
   public (bool, bool) GetCrouchAndJump()
   {
@@ -252,7 +256,7 @@ public class PlayerInputHandler : MonoBehaviour
   {
     return Cursor.lockState == CursorLockMode.Locked && !GameController.Instance.IsGameEnding();
   }
-  
+
   private void onGameStart(LevelStartEvent e)
   {
     Debug.Log("Game started Received by PlayerInputHandler");

@@ -7,7 +7,7 @@ public enum SecretObjectiveID
   InvertTypewriter
 }
 
-public struct SecretObjective
+public class SecretObjective
 {
   public SecretObjectiveID id;
   public PlayerController player;
@@ -22,6 +22,12 @@ public struct SecretObjective
     this.description = desc;
     EventManager.AddListener<SecretObjectiveEvent>(updateStatus);
   }
+
+  public void Deconstruct()
+  {
+    EventManager.RemoveListener<SecretObjectiveEvent>(updateStatus);
+  }
+
   public void updateStatus(SecretObjectiveEvent evt)
   {
     if (evt.id == this.id)

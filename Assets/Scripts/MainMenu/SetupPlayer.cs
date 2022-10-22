@@ -25,6 +25,12 @@ public class SetupPlayer : MonoBehaviour
         
     }
     
+    void OnDestroy()
+    {
+        EventManager.RemoveListener<PlayerJoinedEvent>(onPlayerJoined);
+        EventManager.RemoveListener<PlayerUpdateEvent>(onPlayerUpdated);
+    }
+    
     private void onPlayerJoined(PlayerJoinedEvent e)
     {
         Debug.Log("SetupPlayer: Player Joined");

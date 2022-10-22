@@ -18,8 +18,8 @@ public class LevelManager : MonoBehaviour
   [Tooltip("This string has to be the name of the scene you want to load when game ends")]
   public string endSceneName = "End";
 
-  public float puzzleTime = 60f * 3f;
-  [SerializeField] private float _timeLeft = 0f;
+  private float puzzleTime;
+  [SerializeField] private float _timeLeft;
   [SerializeField] private bool puzzleStarted;
   private UIController uiController;
   public AudioController audioController;
@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour
     uiController = GameObject.Find("Hud").GetComponent<UIController>();
     playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
     assignSecretObjectives();
-
+    puzzleTime = GameController.Instance.minutesPerRound * 60f;
     _timeLeft = puzzleTime;
     puzzleStarted = true;
     LevelStartEvent levelStartEvent = new LevelStartEvent();
@@ -50,21 +50,26 @@ public class LevelManager : MonoBehaviour
     secretObjectives = new List<SecretObjective>();
     List<int> order = gameController.currentSecretObjectiveAssignment;
     // Hardcoded for now. LATER: secret objectives depend on the puzzle instance
-    secretObjectives.Add(new SecretObjective(
-        playerManager.players[order[0]],
+    SecretObjective so1 = new SecretObjective(
+        playerManager.getPlayerByID(order[0]),
         "Get the detective to look out of the window for three consecutive seconds.",
         SecretObjectiveID.LookThroughWindow
-    ));
-    secretObjectives.Add(new SecretObjective(
-        playerManager.players[order[1]],
+    );
+    secretObjectives.Add(so1);
+
+    SecretObjective so2 = new SecretObjective(
+        playerManager.getPlayerByID(order[1]),
         "Get the detective to turn the typewriter upside-down.",
         SecretObjectiveID.InvertTypewriter
-    ));
-    secretObjectives.Add(new SecretObjective(
-        playerManager.players[order[2]],
+    );
+    secretObjectives.Add(so2);
+
+    SecretObjective so3 = new SecretObjective(
+        playerManager.getPlayerByID(order[2]),
         "Get the detective to type 'FOOL' into the typewriter.",
         SecretObjectiveID.TypeFOOL
-    ));
+    );
+    secretObjectives.Add(so3);
   }
 
   // Update is called once per frame
@@ -162,6 +167,9 @@ public class LevelManager : MonoBehaviour
           if (secret.completed)
           {
             pointsToAdd[secret.player.playerId] += 4;
+            // TEMPORARY:
+            roundEndText += $"Player {secret.player.playerId + 1} completed their secret objective, they win!\n";
+            // TEMP ^
             for (int i = 0; i < pointsToAdd.Count; i++)
             {
               pointsToAdd[i] -= 1;

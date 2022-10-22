@@ -9,7 +9,7 @@ public class ICursorController : MonoBehaviour
   public PlayerInputHandler _inputHandler;
   public bool _dev_handling = true;
   public Color color;
-  public float initCursorSpeed = 400f;
+  public float initCursorSpeed;
   private float cursorSpeed;
 
   void Start()
@@ -21,8 +21,8 @@ public class ICursorController : MonoBehaviour
   private void handleCursorMove()
   {
     Vector2 lookInput = _inputHandler.GetCursorMoveInput();
-    float x = Mathf.Clamp(_rect.anchoredPosition.x + (lookInput.x * cursorSpeed * Time.deltaTime), -(Screen.width / 2), Screen.width / 2);
-    float y = Mathf.Clamp(_rect.anchoredPosition.y + (lookInput.y * cursorSpeed * Time.deltaTime), -(Screen.height / 2), Screen.height / 2);
+    float x = Mathf.Clamp(_rect.anchoredPosition.x + (lookInput.x * cursorSpeed), -(Screen.width / 2), Screen.width / 2);
+    float y = Mathf.Clamp(_rect.anchoredPosition.y + (lookInput.y * cursorSpeed), -(Screen.height / 2), Screen.height / 2);
     _rect.anchoredPosition = new Vector2(x, y);
   }
 
@@ -33,7 +33,6 @@ public class ICursorController : MonoBehaviour
 
   void Update()
   {
-    // if (!_dev_handling) return;
     handleCursorMove();
   }
 }
