@@ -13,6 +13,11 @@ public class Window : MonoBehaviour
     timeLooked = 0f;
   }
 
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<LookEvent>(onLook);
+  }
+
   void onLook(LookEvent evt)
   {
     if (evt.gameObject == gameObject)

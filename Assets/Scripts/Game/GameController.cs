@@ -52,6 +52,12 @@ public class GameController : MonoBehaviour
     }
   }
 
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
+    EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
+  }
+
   void randomizeSecretObjectives()
   {
     // Randomize
