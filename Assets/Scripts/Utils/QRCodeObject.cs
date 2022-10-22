@@ -18,7 +18,7 @@ public class QRCodeObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var dispatcher = Dispatcher.Instance;
+        var dispatcher = Dispatcher.Instance; // Need to initialize the dispatcher
         _qrCodeImage = GetComponent<Image>();
         UpdateQRCode();
     }
