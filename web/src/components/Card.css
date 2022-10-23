@@ -26,9 +26,76 @@
     font-family: "XTypewriter";
     font-size: 1rem;
     font-weight: bold;
-}
-.card-clue {
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: pointer;
+    position: relative;
 }
 
-.card-objective {
+.card-content .tooltip-below {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 10px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    width: 340px;
+    top: 100%;
+    left: 50%;
+    margin-left: -170px;
+    font-family: sans-serif;
+}
+
+.card-content:hover .tooltip-below {
+    visibility: visible;
+}
+
+.content .tooltip-below::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%; /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.card-content .tooltip-above {
+    visibility: hidden;
+    width: 340px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 10px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -170px;
+    font-family: sans-serif;
+}
+
+.card-content:hover .tooltip-above {
+    visibility: visible;
+}
+
+.content .tooltip-above::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
 }
