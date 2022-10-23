@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/red-herring/static/css/main.c2e40ece.css",
-    "main.js": "/red-herring/static/js/main.6bcc9bf8.js",
+    "main.css": "/red-herring/static/css/main.5f1892b4.css",
+    "main.js": "/red-herring/static/js/main.10564291.js",
     "static/js/787.3cb8177e.chunk.js": "/red-herring/static/js/787.3cb8177e.chunk.js",
     "static/media/1.png": "/red-herring/static/media/1.eb72ed0d2591c4defc1f.png",
     "static/media/window.png": "/red-herring/static/media/window.746e00fd1429ff4517e1.png",
     "static/media/XTypewriter-Regular.ttf": "/red-herring/static/media/XTypewriter-Regular.581f6c778beb0d4d99c3.ttf",
     "static/media/XTypewriter-Bold.ttf": "/red-herring/static/media/XTypewriter-Bold.d730df640e3c86b22564.ttf",
     "index.html": "/red-herring/index.html",
-    "main.c2e40ece.css.map": "/red-herring/static/css/main.c2e40ece.css.map",
-    "main.6bcc9bf8.js.map": "/red-herring/static/js/main.6bcc9bf8.js.map",
+    "main.5f1892b4.css.map": "/red-herring/static/css/main.5f1892b4.css.map",
+    "main.10564291.js.map": "/red-herring/static/js/main.10564291.js.map",
     "787.3cb8177e.chunk.js.map": "/red-herring/static/js/787.3cb8177e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c2e40ece.css",
-    "static/js/main.6bcc9bf8.js"
+    "static/css/main.5f1892b4.css",
+    "static/js/main.10564291.js"
   ]
 }
