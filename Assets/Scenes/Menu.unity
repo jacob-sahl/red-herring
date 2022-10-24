@@ -3122,7 +3122,7 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   forceStart: 1
   _roundEndText: 
-  mainSceneName: _pre-playtest
+  mainSceneName: _MAINSCENE
   detectiveOrder: 
   currentRound: 0
   currentSecretObjectiveAssignment: 
