@@ -69,9 +69,9 @@ public class PlayerController : MonoBehaviour
     else
     {
       // Create an iCursor for this player
-      iCursor = Instantiate(manager.iCursorPrefab, GameObject.Find("Hud").transform);
-      iCursor.GetComponent<ICursorController>()._inputHandler = _inputHandler;
-      iCursor.GetComponent<ICursorController>().color = color;
+      // iCursor = Instantiate(manager.iCursorPrefab, GameObject.Find("Hud").transform);
+      // iCursor.GetComponent<ICursorController>()._inputHandler = _inputHandler;
+      // iCursor.GetComponent<ICursorController>().color = color;
       playerInput.SwitchCurrentActionMap("Informant");
     }
   }

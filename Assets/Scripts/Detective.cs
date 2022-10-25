@@ -122,7 +122,6 @@ public class Detective : MonoBehaviour
         {
           if (!playingStepAudio)
           {
-            Debug.Log("Start playing steps");
             audioSource.clip = fastSteps;
             audioSource.Play();
             playingStepAudio = true;
@@ -137,7 +136,6 @@ public class Detective : MonoBehaviour
           timeSinceStep += Time.deltaTime;
           if (timeSinceStep >= stepBuffer)
           {
-            Debug.Log("STOP playing steps");
             audioSource.Stop();
             playingStepAudio = false;
           }
