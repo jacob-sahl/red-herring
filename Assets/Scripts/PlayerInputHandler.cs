@@ -27,17 +27,17 @@ public class PlayerInputHandler : MonoBehaviour
   private bool crouch = false;
   private bool jump = false;
   private bool pause = false;
-  private bool pauseRelased = false;
-  private GameObject PauseText; //= GameObject.Find("PauseText");
+  //private bool pauseRelased = false;
+  //private GameObject PauseText; //= GameObject.Find("PauseText");
 
 
   void Start()
   {
     EventManager.AddListener<LevelStartEvent>(onGameStart);
-    pauseRelased = false;
-    PauseText = GameObject.Find("PauseText");
+    //pauseRelased = false;
+    //PauseText = GameObject.Find("PauseText");
     // PauseText.SetActive(false);
-    PauseText.GetComponent<UnityEngine.UI.Text>().text = "";
+    // PauseText.GetComponent<UnityEngine.UI.Text>().text = "";
   }
 
   private void OnDestroy()
@@ -177,12 +177,12 @@ public class PlayerInputHandler : MonoBehaviour
 
   public void OnPause(InputAction.CallbackContext context)
   {
-    PauseText = GameObject.Find("PauseText");
+    //PauseText = GameObject.Find("PauseText");
     pause = context.action.triggered;
     //Debug.Log("pause:"+ pause);
     //GameObject PauseText = GameObject.Find("PauseText");
-    Debug.Log(PauseText);
-    if (!pause)
+    //Debug.Log(PauseText);
+    /*if (!pause)
     {
       pauseRelased = true;
     }
@@ -203,12 +203,17 @@ public class PlayerInputHandler : MonoBehaviour
       Debug.Log("paused");
       PauseText.GetComponent<UnityEngine.UI.Text>().text = "Game Paused";
       //PauseText.SetActive(true); //.getComponent<MeshRenderer>().enabled = true;
-    }
+    }*/
     /* if (pause)
      {
          _levelManager.Pause(pause);
      }*/
   }
+
+  public bool GetPause()
+    {
+        return pause;
+    }
 
   public (bool, bool) GetCrouchAndJump()
   {

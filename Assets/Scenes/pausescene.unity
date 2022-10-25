@@ -354,6 +354,7 @@ GameObject:
   - component: {fileID: 225889622}
   - component: {fileID: 225889621}
   - component: {fileID: 225889623}
+  - component: {fileID: 225889624}
   m_Layer: 5
   m_Name: PauseText
   m_TagString: Untagged
@@ -438,6 +439,18 @@ MonoBehaviour:
   LookSensitivity: 1
   InvertYAxis: 0
   InvertXAxis: 0
+--- !u!114 &225889624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225889619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5a8e83d06615c4da57cf3b20d092a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &226224344 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 88762f6a174d5e44f99242a5bf387c64, type: 3}
@@ -1679,7 +1692,6 @@ MonoBehaviour:
   endSceneLoadDelay: 3
   endGameFadeCanvasGroup: {fileID: 472583825}
   endSceneName: End
-  puzzleTime: 180
   _timeLeft: 0
   puzzleStarted: 0
   audioController: {fileID: 0}
@@ -2268,8 +2280,10 @@ MonoBehaviour:
   crouchHeight: 0.65
   jumpHeight: 2
   cursorSpeed: 250
-  rotateSpeed: 0.5
+  objectRotateSpeed: 0.5
   MovementSharpness: 15
+  fastSteps: {fileID: 0}
+  slowsteps: {fileID: 0}
 --- !u!23 &1750513527
 MeshRenderer:
   m_ObjectHideFlags: 0
