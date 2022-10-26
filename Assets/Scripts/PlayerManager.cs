@@ -45,10 +45,6 @@ public class PlayerManager : MonoBehaviour
     return null;
   }
 
-  void Start()
-  {
-  }
-
   // For dev purposes, fill the players so we have 4
   public void fillPlayers()
   {

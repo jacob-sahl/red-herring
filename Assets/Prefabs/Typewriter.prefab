@@ -4469,7 +4469,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3401867692927641175, guid: c163e25b65412f243b584c4ebacc6741, type: 3}
 --- !u!1 &3003349434227498519
@@ -9487,6 +9487,7 @@ GameObject:
   - component: {fileID: 5834561551268112772}
   - component: {fileID: 6669117046621852732}
   - component: {fileID: 7158198906351211403}
+  - component: {fileID: 3030969450346481328}
   m_Layer: 0
   m_Name: Typewriter
   m_TagString: typewriter
@@ -9683,6 +9684,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3030969450346481328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645605511365619220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120b812f108429dae8f4a0c8b567643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleName: 
+  levelManager: {fileID: 0}
+  isComplete: 0
+  pressed: 
+  _solution: 
+  _answer: 
 --- !u!1 &6735848990890367605
 GameObject:
   m_ObjectHideFlags: 0
