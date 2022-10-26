@@ -49,16 +49,16 @@ public class LevelManager : MonoBehaviour
     if (puzzleStarted)
     {
       _timeLeft -= Time.deltaTime;
-      uiController.displayTime(_timeLeft);
 
-      if (_timeLeft <= 0)
+      if (_timeLeft > 0)
+      {
+        uiController.displayTime(_timeLeft);
+      }
+      else
       {
         // ends the game
         EndLevel();
       }
-
-      audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
-      uiController = GameObject.Find("Hud").GetComponent<UIController>();
     }
 
     if (gameIsEnding)
@@ -80,23 +80,7 @@ public class LevelManager : MonoBehaviour
     puzzle.SetCompleteCallback(() => onPuzzleComplete(puzzle));
   }
 
-/*    public void Pause(bool pause)
-    {
-        GameObject PauseText = GameObject.Find("PauseText");
-        Debug.Log("checking for pause");
-        if (pause && Time.timeScale == 0.0f)
-        {
-            Time.timeScale = 1f;
-            PauseText.SetActive(false);
-        }
-        if (pause && Time.timeScale == 1.0f)
-        {
-            Time.timeScale = 0f;
-            PauseText.SetActive(true);
-        }
-    }*/
-
-    private void onPuzzleComplete(Puzzle puzzle)
+  private void onPuzzleComplete(Puzzle puzzle)
   {
     Debug.Log("Puzzle complete");
     if (canEndLevel())

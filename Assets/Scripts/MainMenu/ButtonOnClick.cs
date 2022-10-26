@@ -2,9 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using TMPro;
+using UnityEngine.UI;
 
-public class ButtonOnClick : MonoBehaviour
+public class ButtonOnClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public TextMeshProUGUI theText;
+    void Start()
+    {
+        theText = GetComponentInChildren<TextMeshProUGUI>();
+        Debug.Log(theText);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData) // mouse hovers over button
+    {
+        //Debug.Log(theText.text+ " bolded");
+        theText.fontStyle = FontStyles.Bold;
+    }
+
+    public void OnPointerExit(PointerEventData eventData) // mouse hovers off button
+    {
+        theText.fontStyle = FontStyles.Normal;
+    }
+
     public void ExitGame()
     {
         Debug.Log("Quit");
