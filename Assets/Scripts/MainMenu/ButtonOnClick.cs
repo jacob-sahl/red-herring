@@ -17,7 +17,7 @@ public class ButtonOnClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData) // mouse hovers over button
     {
-        Debug.Log(theText.text+ "bolded");
+        //Debug.Log(theText.text+ " bolded");
         theText.fontStyle = FontStyles.Bold;
     }
 
