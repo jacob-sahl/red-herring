@@ -32,7 +32,8 @@ public class Detective : MonoBehaviour
   [Tooltip(
       "Sharpness for the movement when grounded, a low value will make the player accelerate and decelerate slowly, a high value will do the opposite")]
   public float MovementSharpness = 15;
-  private bool canMove;
+  private bool moveEnabled;
+  public bool frozen;
 
   [Header("Audio")]
   private AudioSource audioSource;
@@ -64,7 +65,7 @@ public class Detective : MonoBehaviour
     audioSource = GetComponent<AudioSource>();
     cursor = GameObject.Find("DetectiveCursor");
     cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
-    canMove = true;
+    moveEnabled = true;
     EventManager.AddListener<FocusEvent>(OnFocus);
     cameraHeight = playerCamera.transform.localPosition.y;
   }
@@ -173,7 +174,7 @@ public class Detective : MonoBehaviour
       // Reset cursor to centre and exit focus
       cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
       cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-      canMove = true;
+      moveEnabled = true;
       // Put the object back where it was
       focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
       focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
@@ -212,7 +213,7 @@ public class Detective : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (_inputHandler == null) return;
+    if (_inputHandler == null || frozen) return;
 
     RaycastHit hit;
     Ray ray = playerCamera.ScreenPointToRay(cursorPosition);
@@ -259,7 +260,7 @@ public class Detective : MonoBehaviour
             FocusEvent focusEvent = Events.FocusEvent;
             focusEvent.ObjectTag = colliderGameObject.tag;
             EventManager.Broadcast(focusEvent);
-            canMove = false;
+            moveEnabled = false;
           }
           else
           {
@@ -289,7 +290,7 @@ public class Detective : MonoBehaviour
       }
 
     }
-    if (canMove)
+    if (moveEnabled)
     {
       HandleCharacterMovement();
     }
