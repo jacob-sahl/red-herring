@@ -18,8 +18,8 @@ public class GameController : MonoBehaviour
   public List<int> detectiveOrder;
   // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
   public int currentRound;
-  public List<int> currentSecretObjectiveAssignment = new List<int>();
   public int minutesPerRound = 3;
+  public List<SecretObjective> currentSecretObjectives;
   void Awake()
   {
     // Randomized detective order
@@ -34,10 +34,8 @@ public class GameController : MonoBehaviour
 
     // Deterministic detective order
     detectiveOrder = new List<int> { 0, 1, 2, 3 };
-    randomizeSecretObjectives();
 
     currentRound = 0;
-
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelEndEvent>(onLevelEnd);
 
@@ -52,35 +50,60 @@ public class GameController : MonoBehaviour
     }
   }
 
-  private void OnDestroy()
-  {
-    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
-    EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
-  }
-
-  void randomizeSecretObjectives()
-  {
-    // Randomize
-    List<int> informants = new List<int> { 0, 1, 2, 3 };
-    // remove the current detective
-    informants.Remove(detectiveOrder[currentRound]);
-    for (int i = 0; i < 3; i++)
-    {
-      int index = Mathf.FloorToInt(Random.Range(0, informants.Count));
-      currentSecretObjectiveAssignment.Add(informants[index]);
-      informants.Remove(informants[index]);
-    }
-  }
-
   // Start is called before the first frame update
   void Start()
   {
     PlayerManager = PlayerManager.Instance;
   }
 
-  // Update is called once per frame
-  void Update()
+  private void OnDestroy()
   {
+    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
+    EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
+  }
+
+  private List<int> getRandomSOAssignment()
+  {
+    // Randomize
+    List<int> informants = new List<int> { 0, 1, 2, 3 };
+    // remove the current detective
+    informants.Remove(detectiveOrder[currentRound]);
+    List<int> assignment = new List<int>();
+    for (int i = 0; i < 3; i++)
+    {
+      int index = Mathf.FloorToInt(Random.Range(0, informants.Count));
+      assignment.Add(informants[index]);
+      informants.Remove(informants[index]);
+    }
+    return assignment;
+  }
+
+  void assignSecretObjectives()
+  {
+
+    currentSecretObjectives = new List<SecretObjective>();
+    List<int> order = getRandomSOAssignment();
+    // Hardcoded for now. LATER: secret objectives depend on the puzzle instance
+    SecretObjective so1 = new SecretObjective(
+        PlayerManager.getPlayerByID(order[0]),
+        "Get the detective to look out of the window for three consecutive seconds.",
+        SecretObjectiveID.LookThroughWindow
+    );
+    currentSecretObjectives.Add(so1);
+
+    SecretObjective so2 = new SecretObjective(
+        PlayerManager.getPlayerByID(order[1]),
+        "Get the detective to turn the typewriter upside-down.",
+        SecretObjectiveID.InvertTypewriter
+    );
+    currentSecretObjectives.Add(so2);
+
+    SecretObjective so3 = new SecretObjective(
+        PlayerManager.getPlayerByID(order[2]),
+        "Get the detective to type 'FOOL' into the typewriter.",
+        SecretObjectiveID.TypeFOOL
+    );
+    currentSecretObjectives.Add(so3);
   }
 
   public void updateMinutesPerRound(string value)
