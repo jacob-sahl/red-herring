@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using static System.TimeZoneInfo;
 
 [RequireComponent(typeof(CharacterController))]
 public class Detective : MonoBehaviour
@@ -31,7 +32,8 @@ public class Detective : MonoBehaviour
   [Tooltip(
       "Sharpness for the movement when grounded, a low value will make the player accelerate and decelerate slowly, a high value will do the opposite")]
   public float MovementSharpness = 15;
-  private bool canMove;
+  private bool moveEnabled;
+  public bool frozen;
 
   [Header("Audio")]
   private AudioSource audioSource;
@@ -52,6 +54,8 @@ public class Detective : MonoBehaviour
   Vector3 focusRotationXAxis;
   Vector3 focusRotationYAxis;
   float cameraHeight;
+  private Coroutine jumping = null;
+  private Coroutine crouching = null;
 
   // Start is called before the first frame update
   void Start()
@@ -61,7 +65,7 @@ public class Detective : MonoBehaviour
     audioSource = GetComponent<AudioSource>();
     cursor = GameObject.Find("DetectiveCursor");
     cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
-    canMove = true;
+    moveEnabled = true;
     EventManager.AddListener<FocusEvent>(OnFocus);
     cameraHeight = playerCamera.transform.localPosition.y;
   }
@@ -119,7 +123,6 @@ public class Detective : MonoBehaviour
         {
           if (!playingStepAudio)
           {
-            Debug.Log("Start playing steps");
             audioSource.clip = fastSteps;
             audioSource.Play();
             playingStepAudio = true;
@@ -134,7 +137,6 @@ public class Detective : MonoBehaviour
           timeSinceStep += Time.deltaTime;
           if (timeSinceStep >= stepBuffer)
           {
-            Debug.Log("STOP playing steps");
             audioSource.Stop();
             playingStepAudio = false;
           }
@@ -144,25 +146,22 @@ public class Detective : MonoBehaviour
 
     // Handle crouch and jump
     {
-      float newCameraHeight = cameraHeight;
       (bool crouch, bool jump) = _inputHandler.GetCrouchAndJump();
       if (crouch || jump)
       {
         // check if grounded
         if (_controller.isGrounded)
         {
-
-          if (crouch)
+          if (crouch && crouching == null)
           {
-            newCameraHeight = newCameraHeight - crouchHeight;
+            crouching = StartCoroutine(Crouch());
           }
-          else if (jump)
+          else if (jump && jumping == null)
           {
-            StartCoroutine(Jump());
+            jumping = StartCoroutine(Jump());
           }
         }
       }
-      playerCamera.transform.localPosition = new Vector3(0, newCameraHeight, 0);
     }
   }
 
@@ -175,7 +174,7 @@ public class Detective : MonoBehaviour
       // Reset cursor to centre and exit focus
       cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
       cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-      canMove = true;
+      moveEnabled = true;
       // Put the object back where it was
       focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
       focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
@@ -214,7 +213,7 @@ public class Detective : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (_inputHandler == null) return;
+    if (_inputHandler == null || frozen) return;
 
     RaycastHit hit;
     Ray ray = playerCamera.ScreenPointToRay(cursorPosition);
@@ -261,7 +260,7 @@ public class Detective : MonoBehaviour
             FocusEvent focusEvent = Events.FocusEvent;
             focusEvent.ObjectTag = colliderGameObject.tag;
             EventManager.Broadcast(focusEvent);
-            canMove = false;
+            moveEnabled = false;
           }
           else
           {
@@ -291,7 +290,7 @@ public class Detective : MonoBehaviour
       }
 
     }
-    if (canMove)
+    if (moveEnabled)
     {
       HandleCharacterMovement();
     }
@@ -323,10 +322,40 @@ public class Detective : MonoBehaviour
 
   private IEnumerator Jump()
   {
-    for (int i = 0; i < 5; i++)  // jump force applied over 5 frames
+    float timeElapsed = 0;
+    float jumpTime = 0.25f; // jump over 0.25 seconds
+    while (timeElapsed < jumpTime)
     {
-      transform.Translate(0, jumpHeight / 5, 0); // TODO better jump function
-      yield return new WaitForFixedUpdate();
+      transform.Translate(0, (jumpHeight / jumpTime) * Time.deltaTime * (jumpTime - timeElapsed) / jumpTime, 0); // sigmoid
+      timeElapsed += Time.deltaTime;
+      yield return null;
     }
+    jumping = null;
+  }
+
+  private IEnumerator Crouch()
+  {
+    float timeElapsed = 0;
+    float crouchTime = 0.15f; // crouch over 0.15 seconds
+    while (_inputHandler.GetCrouchAndJump().Item1)
+    {
+      float desiredHeight = Mathf.Lerp(cameraHeight, cameraHeight - crouchHeight, timeElapsed / crouchTime);
+      playerCamera.transform.localPosition = new Vector3(0, desiredHeight, 0);
+      timeElapsed += Time.deltaTime;
+      yield return null;
+    }
+
+    // exit crouch
+    timeElapsed = 0;
+    while (timeElapsed < crouchTime)
+    {
+      float desiredHeight = Mathf.Lerp(cameraHeight - crouchHeight, cameraHeight, timeElapsed / crouchTime);
+      playerCamera.transform.localPosition = new Vector3(0, desiredHeight, 0);
+      timeElapsed += Time.deltaTime;
+      yield return null;
+    }
+
+    playerCamera.transform.localPosition = new Vector3(0, cameraHeight, 0);
+    crouching = null;
   }
 }

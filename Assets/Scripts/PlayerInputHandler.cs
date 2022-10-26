@@ -211,9 +211,9 @@ public class PlayerInputHandler : MonoBehaviour
   }
 
   public bool GetPause()
-    {
-        return pause;
-    }
+  {
+    return pause;
+  }
 
   public (bool, bool) GetCrouchAndJump()
   {
@@ -226,36 +226,6 @@ public class PlayerInputHandler : MonoBehaviour
       return (false, false);
     }
   }
-
-  // public bool GetInteractInputDown()
-  // {
-  //   if (CanProcessInput() && !_interactInputWasHeld)
-  //   {
-  //     if (Input.GetButtonDown(Constants.ButtonNameInteract))
-  //     {
-  //       _interactInputWasHeld = true;
-  //       return true;
-  //     }
-  //   }
-  //   else
-  //   {
-  //     _interactInputWasHeld = false;
-  //   }
-
-  //   return false;
-  // }
-
-  // // TODO: move to New Input System
-  // public bool GetInteractInputHeld()
-  // {
-  //   if (CanProcessInput())
-  //   {
-  //     return Input.GetButton(Constants.ButtonNameInteract);
-  //   }
-
-  //   return false;
-  // }
-
 
   public bool CanProcessInput()
   {
