@@ -80,7 +80,23 @@ public class LevelManager : MonoBehaviour
     puzzle.SetCompleteCallback(() => onPuzzleComplete(puzzle));
   }
 
-  private void onPuzzleComplete(Puzzle puzzle)
+/*    public void Pause(bool pause)
+    {
+        GameObject PauseText = GameObject.Find("PauseText");
+        Debug.Log("checking for pause");
+        if (pause && Time.timeScale == 0.0f)
+        {
+            Time.timeScale = 1f;
+            PauseText.SetActive(false);
+        }
+        if (pause && Time.timeScale == 1.0f)
+        {
+            Time.timeScale = 0f;
+            PauseText.SetActive(true);
+        }
+    }*/
+
+    private void onPuzzleComplete(Puzzle puzzle)
   {
     Debug.Log("Puzzle complete");
     if (canEndLevel())
@@ -163,4 +179,5 @@ public class LevelManager : MonoBehaviour
 
     _timeLoadEndGameScene = Time.time + endSceneLoadDelay;
   }
+
 }
