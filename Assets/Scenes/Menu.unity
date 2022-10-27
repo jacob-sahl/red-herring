@@ -3212,7 +3212,7 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   forceStart: 1
   _roundEndText: 
-  mainSceneName: _ART
+  mainSceneName: _MAINSCENE
   detectiveOrder: 
   currentRound: 0
   minutesPerRound: 3
