@@ -10,10 +10,10 @@ namespace MainMenu
   {
     public List<GameObject> players = new List<GameObject>();
 
-    void Start()
-    {
-      UpdateAllPlayers();
-    }
+    // void Start()
+    // {
+    //   UpdateAllPlayers();
+    // }
 
     private void UpdateAllPlayers()
     {

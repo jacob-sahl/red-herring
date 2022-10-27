@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f4ea93046c37c4b86b9951d1339af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keydownClip: {fileID: 0}
+  keydownClip: {fileID: 8300000, guid: d7ebaeaf8e35d864db4d76169cb1157d, type: 3}
 --- !u!82 &4694812227536290785
 AudioSource:
   m_ObjectHideFlags: 0
