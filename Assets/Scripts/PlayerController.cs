@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
   void onLevelSetupComplete(LevelSetupCompleteEvent e)
   {
-    if (playerId == gameController.detectiveOrder[gameController.currentRound])
+    if (playerId == gameController.getCurrentDetective())
     {
       role = PlayerRole.Detective;
     }
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
   void onGameStart(LevelStartEvent e)
   {
     // If this is P1, make them the Detective
-    if (playerId == 0)
+    if (playerId == gameController.getCurrentDetective())
     {
       GameObject.Find("Detective").GetComponent<Detective>().assignInputHandler(_inputHandler);
       playerInput.SwitchCurrentActionMap("Detective");

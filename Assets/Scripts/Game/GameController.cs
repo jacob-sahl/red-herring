@@ -19,6 +19,34 @@ public class GameController : MonoBehaviour
   // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
   public int currentRound;
   public int minutesPerRound = 3;
+  public List<TypeWriterPuzzleInstance> puzzles = new List<TypeWriterPuzzleInstance> {
+    new TypeWriterPuzzleInstance(
+      "BLUE RED YELLOW",
+      new List<(SecretObjectiveID, string)> {
+        (SecretObjectiveID.LookThroughWindow, "Get the detective to look out of the window for three consecutive seconds."),
+        (SecretObjectiveID.InvertTypewriter, "Get the detective to turn the typewriter upside-down."),
+        (SecretObjectiveID.TypeFOOL, "Get the detective to type 'FOOL' into the typewriter."),
+      },
+      new List<string> {
+        "The solution is in alphabetical order.",
+        "The solution is very colourful.",
+        "The solution is not secondary.",
+      }
+    ),
+    new TypeWriterPuzzleInstance(
+      "ONE 2 THREE",
+      new List<(SecretObjectiveID, string)> {
+        (SecretObjectiveID.LookThroughWindow, "Get the detective to look out of the window for three consecutive seconds."),
+        (SecretObjectiveID.DropCorrect, "Get the detective to drop the typewriter while the correct solution is written out (you must get them to do this before they hit 'submit')."),
+        (SecretObjectiveID.TypeFIVE, "Get the detective to type 'FIVE' into the typewriter."),
+      },
+      new List<string> {
+        "The answer involves counting.",
+        "The second word of the answer is a number.",
+        "... Four!",
+      }
+    ),
+  };
   public List<SecretObjective> currentSecretObjectives;
   public List<string> currentClues;
   void Awake()
@@ -45,7 +73,7 @@ public class GameController : MonoBehaviour
 
     // Deterministic detective order
     detectiveOrder = new List<int> { 0, 1, 2, 3 };
-    currentRound = 0;
+    currentRound = -1;
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelEndEvent>(onLevelEnd);
   }
@@ -60,6 +88,11 @@ public class GameController : MonoBehaviour
   {
     EventManager.RemoveListener<LevelStartEvent>(onGameStart);
     EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
+  }
+
+  public int getCurrentDetective()
+  {
+    return detectiveOrder[currentRound];
   }
 
   private List<int> getRandomSOAssignment()
@@ -80,34 +113,33 @@ public class GameController : MonoBehaviour
 
   void assignSecretObjectives()
   {
+    // Destroy previous secret objectives
+    {
+      while (currentSecretObjectives != null && currentSecretObjectives.Count > 0)
+      {
+        SecretObjective so = currentSecretObjectives[currentSecretObjectives.Count - 1];
+        so.Deconstruct();
+        currentSecretObjectives.Remove(so);
+      }
+    }
+
+    TypeWriterPuzzleInstance puzzle = puzzles[currentRound];
     currentSecretObjectives = new List<SecretObjective>();
     currentClues = new List<string>();
     List<int> order = getRandomSOAssignment();
-    // Hardcoded for now. LATER: secret objectives depend on the puzzle instance
-    SecretObjective so1 = new SecretObjective(
-        PlayerManager.getPlayerByID(order[0]),
-        "Get the detective to look out of the window for three consecutive seconds.",
-        "The answer is in alphabetical order.",
-        SecretObjectiveID.LookThroughWindow
-    );
-    currentSecretObjectives.Add(so1);
-    currentClues.Add("");
 
-    SecretObjective so2 = new SecretObjective(
-        PlayerManager.getPlayerByID(order[1]),
-        "Get the detective to turn the typewriter upside-down.",
-        "The answer is very colourful.",
-        SecretObjectiveID.InvertTypewriter
+    for (int i = 0; i < 3; i++)
+    {
+      SecretObjective so = new SecretObjective(
+        PlayerManager.getPlayerByID(order[i]),
+        puzzle.secrets[i].Item2,
+        puzzle.clues[i],
+        puzzle.secrets[i].Item1
     );
-    currentSecretObjectives.Add(so2);
-
-    SecretObjective so3 = new SecretObjective(
-        PlayerManager.getPlayerByID(order[2]),
-        "Get the detective to type 'FOOL' into the typewriter.",
-        "The answer is not secondary.",
-        SecretObjectiveID.TypeFOOL
-    );
-    currentSecretObjectives.Add(so3);
+      // Are these necessary?
+      currentSecretObjectives.Add(so);
+      currentClues.Add(puzzle.clues[i]);
+    }
   }
 
   public SecretObjective getPlayersSecretObjective(int playerId)
@@ -139,7 +171,7 @@ public class GameController : MonoBehaviour
 
   public void LoadEndScene()
   {
-    LoadScene("End");
+    LoadScene("RoundEnd");
   }
 
   private bool checkCanStartGame()
@@ -180,6 +212,8 @@ public class GameController : MonoBehaviour
   {
     // FOR DEV PURPOSES: (REMOVE ON BUILD)
     PlayerManager.fillPlayers();
+    // ^
+    currentRound++; // Must be done FIRST
     assignSecretObjectives();
     LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
     EventManager.Broadcast(e);

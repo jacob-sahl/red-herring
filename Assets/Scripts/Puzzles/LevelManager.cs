@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
 
   [Header("Ending")]
   [Tooltip("This string has to be the name of the scene you want to load when game ends")]
-  public string endSceneName = "End";
+  public string endSceneName = "RoundEnd";
 
   private float puzzleTime;
   [SerializeField] private float _timeLeft;

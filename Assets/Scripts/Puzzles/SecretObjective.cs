@@ -4,7 +4,9 @@ public enum SecretObjectiveID
 {
   LookThroughWindow,
   TypeFOOL,
-  InvertTypewriter
+  InvertTypewriter,
+  TypeFIVE,
+  DropCorrect,
 }
 
 public class SecretObjective

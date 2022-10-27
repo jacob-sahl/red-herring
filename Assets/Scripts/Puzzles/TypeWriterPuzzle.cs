@@ -20,10 +20,6 @@ public class TypeWriterPuzzle : Puzzle
 
   [Header("Puzzle")]
   [Tooltip("This defines the possible puzzle solutions.")]
-  public static List<string> Solutions = new List<string>
-  {
-    "BLUE RED YELLOW",
-  };
 
   private Dictionary<ButtonType, string> ButtonToString = new Dictionary<ButtonType, string>
     {
@@ -91,14 +87,13 @@ public class TypeWriterPuzzle : Puzzle
   void Start()
   {
     puzzle_text = GameObject.Find("Puzzle_Text").GetComponentInChildren<TextMeshProUGUI>();
-
-    // Demo puzzle ID = 0
-    UpdateSolution(0);
+    string solution = GameController.Instance.puzzles[GameController.Instance.currentRound].solution;
+    UpdateSolution(solution);
   }
 
-  void UpdateSolution(int puzzleId)
+  void UpdateSolution(string solution)
   {
-    _solution = Solutions[puzzleId];
+    _solution = solution;
   }
 
   public void OnButtonPressed(InteractEvent evt)
