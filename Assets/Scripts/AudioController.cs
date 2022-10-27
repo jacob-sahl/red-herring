@@ -13,16 +13,16 @@ public class AudioController : MonoBehaviour
   void Start()
   {
     source = GetComponent<AudioSource>();
-    source.volume = 0.5f;
-    source.clip = backgroundLoop;
-    source.Play();
+    // source.volume = 0.5f;
+    // source.clip = backgroundLoop;
+    // source.Play();
   }
 
   public void timedGameStart()
   {
-    source.Stop();
-    source.clip = gameLoop;
-    source.Play();
+    // source.Stop();
+    // source.clip = gameLoop;
+    // source.Play();
   }
 
   public void playMistake()
