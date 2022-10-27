@@ -222,6 +222,8 @@ public class Detective : MonoBehaviour
       // Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
       var colliderGameObject = hit.collider.gameObject;
 
+      Debug.Log(colliderGameObject.name);
+
       if (colliderGameObject != lastHit)
       {
         LookEvent evt = new LookEvent();
