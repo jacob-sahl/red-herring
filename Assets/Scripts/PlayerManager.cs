@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
   public List<PlayerController> players = new List<PlayerController>();
   public GameObject iCursorPrefab;
+  public GameObject playerPrefab;
   public static PlayerManager Instance { get; private set; }
   void Awake()
   {
@@ -51,10 +52,7 @@ public class PlayerManager : MonoBehaviour
     Debug.Log("Filling Players");
     while (nPlayers < 4)
     {
-      GameObject obj = new GameObject();
-      obj.AddComponent<PlayerInputHandler>();
-      obj.AddComponent<PlayerInput>();
-      obj.AddComponent<PlayerController>();
+      Instantiate(playerPrefab);
     }
   }
 

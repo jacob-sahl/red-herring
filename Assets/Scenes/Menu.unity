@@ -4743,6 +4743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   iCursorPrefab: {fileID: 84580730019488752, guid: c8ab1999cca3e1f498328db062cce577, type: 3}
+  playerPrefab: {fileID: 1578753109667785265, guid: ba940ab6076443745bbc4be8e76336f1, type: 3}
 --- !u!4 &991785555
 Transform:
   m_ObjectHideFlags: 0

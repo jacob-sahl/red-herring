@@ -39,6 +39,8 @@ public class Detective : MonoBehaviour
   private AudioSource audioSource;
   public AudioClip fastSteps;
   public AudioClip slowsteps;
+  [Header("Color")]
+  public Color focusHighlightColor;
   private bool playingStepAudio = false;
   private float stepBuffer = 0.1f;
   private float timeSinceStep = 0f;
@@ -222,7 +224,7 @@ public class Detective : MonoBehaviour
       // Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
       var colliderGameObject = hit.collider.gameObject;
 
-      Debug.Log(colliderGameObject.name);
+      // Debug.Log(colliderGameObject.name);
 
       if (colliderGameObject != lastHit)
       {
@@ -248,7 +250,7 @@ public class Detective : MonoBehaviour
 
         if (focus != null)
         {
-          _lastOutline.OutlineColor = Color.magenta;
+          _lastOutline.OutlineColor = Color.red;
         }
         else
         {

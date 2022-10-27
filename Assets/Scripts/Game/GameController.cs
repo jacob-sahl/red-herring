@@ -150,7 +150,6 @@ public class GameController : MonoBehaviour
   {
     if (checkCanStartGame())
     {
-      currentRound++;
       LoadScene(mainSceneName);
     }
     else
