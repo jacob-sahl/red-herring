@@ -113,6 +113,7 @@ public class TypeWriterPuzzle : Puzzle
   public void ButtonPressed(Button button)
   {
     pressed += (ButtonToString[button.buttonType]);
+    Debug.Log("Pressed: " + pressed);
     typeWriter.playKeydownClip();
     if (_answer.Length == 0)
     {
