@@ -117,7 +117,7 @@ public class Detective : MonoBehaviour
     {
       Vector2 moveInput = _inputHandler.GetMoveInput();
       Vector3 movement = (moveInput.y * transform.forward) + (moveInput.x * transform.right);
-      _controller.SimpleMove(movement * maxSpeed);
+      _controller.SimpleMove(movement * maxSpeed);  // TODO manually add gravity
 
       // Movement audio
       {
@@ -330,7 +330,7 @@ public class Detective : MonoBehaviour
     float jumpTime = 0.25f; // jump over 0.25 seconds
     while (timeElapsed < jumpTime)
     {
-      transform.Translate(0, (jumpHeight / jumpTime) * Time.deltaTime * (jumpTime - timeElapsed) / jumpTime, 0); // sigmoid
+      transform.Translate(0, jumpHeight * Time.deltaTime, 0); // TODO use a better function
       timeElapsed += Time.deltaTime;
       yield return null;
     }
