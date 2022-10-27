@@ -41,6 +41,12 @@ public class PlayerController : MonoBehaviour
     EventManager.Broadcast(e);
   }
 
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
+    EventManager.RemoveListener<LevelSetupCompleteEvent>(onLevelSetupComplete);
+  }
+
   void onLevelSetupComplete(LevelSetupCompleteEvent e)
   {
     if (playerId == gameController.detectiveOrder[gameController.currentRound])
@@ -57,15 +63,16 @@ public class PlayerController : MonoBehaviour
     // If this is P1, make them the Detective
     if (playerId == 0)
     {
-      GameObject.Find("Detective").GetComponent<PlayerMovement>().assignInputHandler(_inputHandler);
+      GameObject.Find("Detective").GetComponent<Detective>().assignInputHandler(_inputHandler);
       playerInput.SwitchCurrentActionMap("Detective");
+      GameObject.Find("PauseText").GetComponent<PauseScreen>().assignInputHandler(_inputHandler);
     }
     else
     {
       // Create an iCursor for this player
-      iCursor = Instantiate(manager.iCursorPrefab, GameObject.Find("Hud").transform);
-      iCursor.GetComponent<ICursorController>()._inputHandler = _inputHandler;
-      iCursor.GetComponent<ICursorController>().color = color;
+      // iCursor = Instantiate(manager.iCursorPrefab, GameObject.Find("Hud").transform);
+      // iCursor.GetComponent<ICursorController>()._inputHandler = _inputHandler;
+      // iCursor.GetComponent<ICursorController>().color = color;
       playerInput.SwitchCurrentActionMap("Informant");
     }
   }

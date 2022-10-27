@@ -18,58 +18,29 @@ public class LevelManager : MonoBehaviour
   [Tooltip("This string has to be the name of the scene you want to load when game ends")]
   public string endSceneName = "End";
 
-  public float puzzleTime = 60f * 3f;
-  [SerializeField] private float _timeLeft = 0f;
+  private float puzzleTime;
+  [SerializeField] private float _timeLeft;
   [SerializeField] private bool puzzleStarted;
   private UIController uiController;
   public AudioController audioController;
   private PlayerManager playerManager;
   private GameController gameController;
-  public List<SecretObjective> secretObjectives;
   public bool gameIsEnding;
   private float _timeLoadEndGameScene;
   public List<Puzzle> puzzles = new List<Puzzle> { };
 
   void Start()
   {
-
     gameController = GameController.Instance;
     audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
     uiController = GameObject.Find("Hud").GetComponent<UIController>();
     playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
-    assignSecretObjectives();
-
+    puzzleTime = GameController.Instance.minutesPerRound * 60f;
     _timeLeft = puzzleTime;
     puzzleStarted = true;
     LevelStartEvent levelStartEvent = new LevelStartEvent();
     EventManager.Broadcast(levelStartEvent);
     Debug.Log("GameStartEvent broadcasted");
-  }
-  void assignSecretObjectives()
-  {
-    secretObjectives = new List<SecretObjective>();
-    List<int> order = gameController.currentSecretObjectiveAssignment;
-    // Hardcoded for now. LATER: secret objectives depend on the puzzle instance
-    SecretObjective so1 = new SecretObjective(
-        playerManager.getPlayerByID(order[0]),
-        "Get the detective to look out of the window for three consecutive seconds.",
-        SecretObjectiveID.LookThroughWindow
-    );
-    secretObjectives.Add(so1);
-
-    SecretObjective so2 = new SecretObjective(
-        playerManager.getPlayerByID(order[1]),
-        "Get the detective to turn the typewriter upside-down.",
-        SecretObjectiveID.InvertTypewriter
-    );
-    secretObjectives.Add(so2);
-
-    SecretObjective so3 = new SecretObjective(
-        playerManager.getPlayerByID(order[2]),
-        "Get the detective to type 'FOOL' into the typewriter.",
-        SecretObjectiveID.TypeFOOL
-    );
-    secretObjectives.Add(so3);
   }
 
   // Update is called once per frame
@@ -78,16 +49,16 @@ public class LevelManager : MonoBehaviour
     if (puzzleStarted)
     {
       _timeLeft -= Time.deltaTime;
-      uiController.displayTime(_timeLeft);
 
-      if (_timeLeft <= 0)
+      if (_timeLeft > 0)
+      {
+        uiController.displayTime(_timeLeft);
+      }
+      else
       {
         // ends the game
         EndLevel();
       }
-
-      audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
-      uiController = GameObject.Find("Hud").GetComponent<UIController>();
     }
 
     if (gameIsEnding)
@@ -146,7 +117,7 @@ public class LevelManager : MonoBehaviour
         {
           pointsToAdd[i] += 4;
         }
-        foreach (SecretObjective secret in secretObjectives)
+        foreach (SecretObjective secret in gameController.currentSecretObjectives)
         {
           if (secret.completed)
           {
@@ -192,4 +163,5 @@ public class LevelManager : MonoBehaviour
 
     _timeLoadEndGameScene = Time.time + endSceneLoadDelay;
   }
+
 }

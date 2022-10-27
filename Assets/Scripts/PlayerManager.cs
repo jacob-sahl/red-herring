@@ -23,6 +23,11 @@ public class PlayerManager : MonoBehaviour
     }
   }
 
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
+  }
+
   private int nPlayers
   {
     get { return players.Count; }
@@ -38,10 +43,6 @@ public class PlayerManager : MonoBehaviour
       }
     }
     return null;
-  }
-
-  void Start()
-  {
   }
 
   // For dev purposes, fill the players so we have 4

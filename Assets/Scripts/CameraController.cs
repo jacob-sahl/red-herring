@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,11 @@ public class CameraController : MonoBehaviour
     EventManager.AddListener<FocusEvent>(OnFocus);
   }
 
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<FocusEvent>(OnFocus);
+  }
+
   public void OnFocus(FocusEvent evt)
   {
     GameObject target = GameObject.FindGameObjectWithTag(evt.ObjectTag);
@@ -20,7 +26,6 @@ public class CameraController : MonoBehaviour
   }
   void Focus(GameObject target)
   {
-    Debug.Log(target);
     playerCam.transform.LookAt(target.transform);
   }
 }

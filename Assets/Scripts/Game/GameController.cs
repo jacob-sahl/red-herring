@@ -18,9 +18,21 @@ public class GameController : MonoBehaviour
   public List<int> detectiveOrder;
   // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
   public int currentRound;
-  public List<int> currentSecretObjectiveAssignment = new List<int>();
+  public int minutesPerRound = 3;
+  public List<SecretObjective> currentSecretObjectives;
+  public List<string> currentClues;
   void Awake()
   {
+    if (Instance != null && Instance != this)
+    {
+      Destroy(this);
+    }
+    else
+    {
+      Instance = this;
+      DontDestroyOnLoad(gameObject);
+    }
+
     // Randomized detective order
     // List<int> players = new List<int> { 0, 1, 2, 3 };
     // detectiveOrder = new List<int>();
@@ -33,36 +45,9 @@ public class GameController : MonoBehaviour
 
     // Deterministic detective order
     detectiveOrder = new List<int> { 0, 1, 2, 3 };
-    randomizeSecretObjectives();
-
     currentRound = 0;
-
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelEndEvent>(onLevelEnd);
-
-    if (Instance != null && Instance != this)
-    {
-      Destroy(this);
-    }
-    else
-    {
-      Instance = this;
-      DontDestroyOnLoad(gameObject);
-    }
-  }
-
-  void randomizeSecretObjectives()
-  {
-    // Randomize
-    List<int> informants = new List<int> { 0, 1, 2, 3 };
-    // remove the current detective
-    informants.Remove(detectiveOrder[currentRound]);
-    for (int i = 0; i < 3; i++)
-    {
-      int index = Mathf.FloorToInt(Random.Range(0, informants.Count));
-      currentSecretObjectiveAssignment.Add(informants[index]);
-      informants.Remove(informants[index]);
-    }
   }
 
   // Start is called before the first frame update
@@ -71,9 +56,75 @@ public class GameController : MonoBehaviour
     PlayerManager = PlayerManager.Instance;
   }
 
-  // Update is called once per frame
-  void Update()
+  private void OnDestroy()
   {
+    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
+    EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
+  }
+
+  private List<int> getRandomSOAssignment()
+  {
+    // Randomize
+    List<int> informants = new List<int> { 0, 1, 2, 3 };
+    // remove the current detective
+    informants.Remove(detectiveOrder[currentRound]);
+    List<int> assignment = new List<int>();
+    for (int i = 0; i < 3; i++)
+    {
+      int index = Mathf.FloorToInt(Random.Range(0, informants.Count));
+      assignment.Add(informants[index]);
+      informants.Remove(informants[index]);
+    }
+    return assignment;
+  }
+
+  void assignSecretObjectives()
+  {
+    currentSecretObjectives = new List<SecretObjective>();
+    currentClues = new List<string>();
+    List<int> order = getRandomSOAssignment();
+    // Hardcoded for now. LATER: secret objectives depend on the puzzle instance
+    SecretObjective so1 = new SecretObjective(
+        PlayerManager.getPlayerByID(order[0]),
+        "Get the detective to look out of the window for three consecutive seconds.",
+        "The answer is in alphabetical order.",
+        SecretObjectiveID.LookThroughWindow
+    );
+    currentSecretObjectives.Add(so1);
+    currentClues.Add("");
+
+    SecretObjective so2 = new SecretObjective(
+        PlayerManager.getPlayerByID(order[1]),
+        "Get the detective to turn the typewriter upside-down.",
+        "The answer is very colourful.",
+        SecretObjectiveID.InvertTypewriter
+    );
+    currentSecretObjectives.Add(so2);
+
+    SecretObjective so3 = new SecretObjective(
+        PlayerManager.getPlayerByID(order[2]),
+        "Get the detective to type 'FOOL' into the typewriter.",
+        "The answer is not secondary.",
+        SecretObjectiveID.TypeFOOL
+    );
+    currentSecretObjectives.Add(so3);
+  }
+
+  public SecretObjective getPlayersSecretObjective(int playerId)
+  {
+    foreach (SecretObjective secret in currentSecretObjectives)
+    {
+      if (secret.player.playerId == playerId)
+      {
+        return secret;
+      }
+    }
+    return null;
+  }
+
+  public void updateMinutesPerRound(string value)
+  {
+    minutesPerRound = int.Parse(value);
   }
 
   public void LoadScene(string name)
@@ -100,8 +151,6 @@ public class GameController : MonoBehaviour
     if (checkCanStartGame())
     {
       currentRound++;
-      // FOR DEV PURPOSES: (REMOVE ON BUILD)
-      PlayerManager.fillPlayers();
       LoadScene(mainSceneName);
     }
     else
@@ -130,6 +179,9 @@ public class GameController : MonoBehaviour
 
   public void SetupLevel()
   {
+    // FOR DEV PURPOSES: (REMOVE ON BUILD)
+    PlayerManager.fillPlayers();
+    assignSecretObjectives();
     LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
     EventManager.Broadcast(e);
   }

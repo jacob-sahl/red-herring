@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,11 @@ public class Focus : MonoBehaviour
   {
     EventManager.AddListener<FocusEvent>(OnFocus);
     rb = GetComponent<Rigidbody>();
+  }
+
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<FocusEvent>(OnFocus);
   }
 
   public void OnFocus(FocusEvent evt)

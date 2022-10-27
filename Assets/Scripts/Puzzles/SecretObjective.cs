@@ -12,16 +12,24 @@ public class SecretObjective
   public SecretObjectiveID id;
   public PlayerController player;
   public string description;
+  public string clue;
   public bool completed;
 
-  public SecretObjective(PlayerController player, string desc, SecretObjectiveID id)
+  public SecretObjective(PlayerController player, string desc, string clue, SecretObjectiveID id)
   {
     this.id = id;
     this.player = player;
     this.completed = false;
     this.description = desc;
+    this.clue = clue;
     EventManager.AddListener<SecretObjectiveEvent>(updateStatus);
   }
+
+  public void Deconstruct()
+  {
+    EventManager.RemoveListener<SecretObjectiveEvent>(updateStatus);
+  }
+
   public void updateStatus(SecretObjectiveEvent evt)
   {
     if (evt.id == this.id)

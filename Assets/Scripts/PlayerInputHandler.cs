@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using UnityEngine.Serialization;
 
 public class PlayerInputHandler : MonoBehaviour
 {
@@ -24,11 +26,16 @@ public class PlayerInputHandler : MonoBehaviour
   private Vector2 cursorMovement;
   private bool crouch = false;
   private bool jump = false;
-
+  private bool pause = false;
 
   void Start()
   {
     EventManager.AddListener<LevelStartEvent>(onGameStart);
+  }
+
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
   }
 
   private void LockCursor()
@@ -149,7 +156,7 @@ public class PlayerInputHandler : MonoBehaviour
     }
     return false;
   }
-  
+
   public void OnCrouch(InputAction.CallbackContext context)
   {
     crouch = context.action.triggered;
@@ -158,6 +165,17 @@ public class PlayerInputHandler : MonoBehaviour
   public void OnJump(InputAction.CallbackContext context)
   {
     jump = context.action.triggered;
+    //Debug.Log("jump:" + jump);
+  }
+
+  public void OnPause(InputAction.CallbackContext context)
+  {
+    pause = context.action.triggered;
+  }
+
+  public bool GetPause()
+  {
+    return pause;
   }
 
   public (bool, bool) GetCrouchAndJump()
@@ -171,35 +189,6 @@ public class PlayerInputHandler : MonoBehaviour
       return (false, false);
     }
   }
-
-  // public bool GetInteractInputDown()
-  // {
-  //   if (CanProcessInput() && !_interactInputWasHeld)
-  //   {
-  //     if (Input.GetButtonDown(Constants.ButtonNameInteract))
-  //     {
-  //       _interactInputWasHeld = true;
-  //       return true;
-  //     }
-  //   }
-  //   else
-  //   {
-  //     _interactInputWasHeld = false;
-  //   }
-
-  //   return false;
-  // }
-
-  // // TODO: move to New Input System
-  // public bool GetInteractInputHeld()
-  // {
-  //   if (CanProcessInput())
-  //   {
-  //     return Input.GetButton(Constants.ButtonNameInteract);
-  //   }
-
-  //   return false;
-  // }
 
   public bool CanProcessInput()
   {
