@@ -13,7 +13,6 @@ public class ICursorRaycast : MonoBehaviour
   {
     _controller = GetComponent<ICursorController>();
     playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-    Debug.Log(playerCamera);
   }
 
   void Update()

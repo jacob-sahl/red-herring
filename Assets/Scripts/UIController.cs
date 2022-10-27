@@ -45,14 +45,14 @@ public class UIController : MonoBehaviour
     time.color = lerpColor;
     // time.fontSize = Mathf.FloorToInt(Mathf.Lerp(80, 30, tRatio));
 
-    if (tRatio < 0.25)
-    {
-      time.fontSize = 60;
-    }
-    else if (tRatio < 0.5)
-    {
-      time.fontSize = 45;
-    }
+    // if (tRatio < 0.25)
+    // {
+    //   time.fontSize = 60;
+    // }
+    // else if (tRatio < 0.5)
+    // {
+    //   time.fontSize = 45;
+    // }
 
   }
   public void displayText(string text)
