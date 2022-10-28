@@ -223,6 +223,7 @@ public class Detective : MonoBehaviour
     {
       // Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
       var colliderGameObject = hit.collider.gameObject;
+      bool interacted = _inputHandler.GetInteractInput();
 
       // Debug.Log(colliderGameObject.name);
 
@@ -257,7 +258,7 @@ public class Detective : MonoBehaviour
           _lastOutline.OutlineColor = Color.white;
         }
 
-        if (_inputHandler.GetInteractInput())
+        if (interacted)
         {
           if (focus != null)
           {
@@ -268,6 +269,7 @@ public class Detective : MonoBehaviour
           }
           else
           {
+            Debug.Log("Interacting without focus");
             _lastOutline.OutlineColor = Color.yellow; // not sure why this isn't working
             InteractEvent interact = Events.InteractEvent;
             interact.gameObject = colliderGameObject;
@@ -284,8 +286,9 @@ public class Detective : MonoBehaviour
         }
       }
 
-      if (_inputHandler.GetInteractInput())
+      if (interacted)
       {
+        Debug.Log("Interact Down, trying drag on " + colliderGameObject.name);
         var draggable = colliderGameObject.GetComponent<Draggable>();
         if (draggable != null)
         {
@@ -306,6 +309,7 @@ public class Detective : MonoBehaviour
 
   private IEnumerator DragObject(GameObject dragObject)
   {
+    Debug.Log("Dragging");
     float initialDistance = Vector3.Distance(dragObject.transform.position, Camera.main.transform.position);
     Rigidbody rb = dragObject.GetComponent<Rigidbody>();
     if (rb != null)
@@ -317,7 +321,7 @@ public class Detective : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(cursorPosition);
         Vector3 direction = ray.GetPoint(initialDistance) - dragObject.transform.position;
         rb.velocity = direction * mouseDragSpeed;
-        //rb.AddForce(direction * mouseDragSpeed);
+        rb.AddForce(direction * mouseDragSpeed);
         yield return new WaitForFixedUpdate();
       }
       RotationSpeed = originalMouseSpeed;
