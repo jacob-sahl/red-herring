@@ -83,7 +83,7 @@ public class Detective : MonoBehaviour
     focusRotationXAxis = Vector3.Cross(playerCamera.transform.forward, Vector3.up);
     focusRotationYAxis = Vector3.Cross(playerCamera.transform.forward, playerCamera.transform.right);
 
-    focusedObject = GameObject.FindGameObjectWithTag(evt.ObjectTag);
+    focusedObject = evt.gameObject;
     focusedObjectPlaceholder.transform.position = focusedObject.transform.position;
     focusedObjectPlaceholder.transform.rotation = focusedObject.transform.rotation;
     focusedObjectPlaceholder.transform.localScale = focusedObject.transform.localScale;
@@ -263,7 +263,7 @@ public class Detective : MonoBehaviour
           if (focus != null)
           {
             FocusEvent focusEvent = Events.FocusEvent;
-            focusEvent.ObjectTag = colliderGameObject.tag;
+            focusEvent.gameObject = colliderGameObject;
             EventManager.Broadcast(focusEvent);
             moveEnabled = false;
           }

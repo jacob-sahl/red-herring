@@ -27,14 +27,14 @@ AnimationClip:
         inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 0.36666667
-        value: {x: 0, y: 188.45844, z: 0}
-        inSlope: {x: 0, y: 1775.3146, z: 0}
-        outSlope: {x: 0, y: 1775.3146, z: 0}
+        time: 0.35
+        value: {x: 0, y: 234.08449, z: 0}
+        inSlope: {x: 0, y: 764.0355, z: 0}
+        outSlope: {x: 0, y: 764.0355, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0, y: 0.08753751, z: 0.33333334}
+        outWeight: {x: 0, y: 0.1209995, z: 0.33333334}
       - serializedVersion: 3
         time: 1
         value: {x: 0, y: 398.3159, z: 0}
@@ -120,14 +120,14 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.36666667
-        value: 188.45844
-        inSlope: 1775.3146
-        outSlope: 1775.3146
+        time: 0.35
+        value: 234.08449
+        inSlope: 764.0355
+        outSlope: 764.0355
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.08753751
+        outWeight: 0.1209995
       - serializedVersion: 3
         time: 1
         value: 398.3159
@@ -196,11 +196,4 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: 
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

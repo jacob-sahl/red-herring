@@ -47,7 +47,7 @@ public class ICursorHoverEvent : GameEvent
 
 public class FocusEvent : GameEvent
 {
-  public string ObjectTag;
+  public GameObject gameObject;
 }
 
 public class PlayerJoinedEvent : GameEvent

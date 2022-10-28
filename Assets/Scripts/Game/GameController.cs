@@ -29,8 +29,8 @@ public class GameController : MonoBehaviour
         (SecretObjectiveID.SpinGlobeThrice, "Get the detective to spin the globe around three times."),
       },
       new List<string> {
-        "The solution is in alphabetical order.",
         "The solution is very colourful.",
+        "There is a clue underneath the skull.",
         "The solution is not secondary.",
       }
     ),

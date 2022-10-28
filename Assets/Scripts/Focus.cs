@@ -23,7 +23,10 @@ public class Focus : MonoBehaviour
 
   public void OnFocus(FocusEvent evt)
   {
-    disablePhysics();
+    if (evt.gameObject == gameObject)
+    {
+      disablePhysics();
+    }
   }
 
   public void disableCollider()
