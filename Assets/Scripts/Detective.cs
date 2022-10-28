@@ -269,8 +269,6 @@ public class Detective : MonoBehaviour
           }
           else
           {
-            Debug.Log("Interacting without focus");
-            _lastOutline.OutlineColor = Color.yellow; // not sure why this isn't working
             InteractEvent interact = Events.InteractEvent;
             interact.gameObject = colliderGameObject;
             EventManager.Broadcast(interact);
@@ -288,7 +286,6 @@ public class Detective : MonoBehaviour
 
       if (interacted)
       {
-        Debug.Log("Interact Down, trying drag on " + colliderGameObject.name);
         var draggable = colliderGameObject.GetComponent<Draggable>();
         if (draggable != null)
         {
@@ -309,7 +306,6 @@ public class Detective : MonoBehaviour
 
   private IEnumerator DragObject(GameObject dragObject)
   {
-    Debug.Log("Dragging");
     float initialDistance = Vector3.Distance(dragObject.transform.position, Camera.main.transform.position);
     Rigidbody rb = dragObject.GetComponent<Rigidbody>();
     if (rb != null)

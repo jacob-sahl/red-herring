@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
     audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
     uiController = GameObject.Find("Hud").GetComponent<UIController>();
     playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
-    puzzleTime = GameController.Instance.minutesPerRound * 60f;
+    puzzleTime = gameController.minutesPerRound * 60f;
     _timeLeft = puzzleTime;
     puzzleStarted = true;
     LevelStartEvent levelStartEvent = new LevelStartEvent();

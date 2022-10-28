@@ -21,11 +21,12 @@ public class GameController : MonoBehaviour
   public int minutesPerRound = 3;
   public List<TypeWriterPuzzleInstance> puzzles = new List<TypeWriterPuzzleInstance> {
     new TypeWriterPuzzleInstance(
+      TypeWriterPuzzleID.BlueRedYellow,
       "BLUE RED YELLOW",
       new List<(SecretObjectiveID, string)> {
         (SecretObjectiveID.LookThroughWindow, "Get the detective to look out of the window for three consecutive seconds."),
         (SecretObjectiveID.InvertTypewriter, "Get the detective to turn the typewriter upside-down."),
-        (SecretObjectiveID.TypeFOOL, "Get the detective to type 'FOOL' into the typewriter."),
+        (SecretObjectiveID.SpinGlobeThrice, "Get the detective to spin the globe around three times."),
       },
       new List<string> {
         "The solution is in alphabetical order.",
@@ -34,11 +35,12 @@ public class GameController : MonoBehaviour
       }
     ),
     new TypeWriterPuzzleInstance(
+      TypeWriterPuzzleID.One2Three,
       "ONE 2 THREE",
       new List<(SecretObjectiveID, string)> {
         (SecretObjectiveID.LookThroughWindow, "Get the detective to look out of the window for three consecutive seconds."),
         (SecretObjectiveID.DropCorrect, "Get the detective to drop the typewriter while the correct solution is written out (you must get them to do this before they hit 'submit')."),
-        (SecretObjectiveID.TypeFIVE, "Get the detective to type 'FIVE' into the typewriter."),
+        (SecretObjectiveID.SkullOffShelf, "Get the detective to throw the skull off of the bookshelf."),
       },
       new List<string> {
         "The answer involves counting.",
@@ -93,6 +95,11 @@ public class GameController : MonoBehaviour
   public int getCurrentDetective()
   {
     return detectiveOrder[currentRound];
+  }
+
+  public TypeWriterPuzzleInstance getCurrentPuzzle()
+  {
+    return puzzles[currentRound];
   }
 
   private List<int> getRandomSOAssignment()
