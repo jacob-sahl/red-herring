@@ -259,17 +259,6 @@
                 },
                 {
                     "name": "",
-                    "id": "fdcfcf9b-4437-4967-baf3-8f2a62848a7d",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Back",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "999345e5-91d0-418a-ad87-13ea7c46204b",
                     "path": "<Keyboard>/ctrl",
                     "interactions": "",

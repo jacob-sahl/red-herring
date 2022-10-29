@@ -11,7 +11,7 @@ public enum ButtonType
   Submit,
   A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
   One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Zero,
-  Space, Backspace,
+  Space, Backspace, Void,
 }
 
 public class TypeWriterPuzzle : Puzzle
@@ -62,6 +62,7 @@ public class TypeWriterPuzzle : Puzzle
         { ButtonType.Zero, "0" },
         { ButtonType.Space, " " },
         { ButtonType.Backspace, ""},
+        { ButtonType.Void, ""},
     };
 
   [SerializeField] public string pressed = "";

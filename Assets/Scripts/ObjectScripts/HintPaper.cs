@@ -11,7 +11,6 @@ public class HintPaper : MonoBehaviour
     TypeWriterPuzzleID activePuzzle = GameController.Instance.getCurrentPuzzle().id;
     if (!puzzles.Contains(activePuzzle))
     {
-      Debug.Log("Hiding hint paper");
       gameObject.SetActive(false);
     }
   }

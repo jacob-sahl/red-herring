@@ -328,19 +328,6 @@ public class Detective : MonoBehaviour
     }
   }
 
-  // private IEnumerator Jump()
-  // {
-  //   float timeElapsed = 0;
-  //   float jumpTime = 0.25f; // jump over 0.25 seconds
-  //   while (timeElapsed < jumpTime)
-  //   {
-  //     transform.Translate(0, jumpHeight * Time.deltaTime, 0); // TODO use a better function
-  //     timeElapsed += Time.deltaTime;
-  //     yield return null;
-  //   }
-  //   jumping = null;
-  // }
-
   private IEnumerator Crouch()
   {
     float timeElapsed = 0;

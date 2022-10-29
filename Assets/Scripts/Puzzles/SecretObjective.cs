@@ -9,6 +9,7 @@ public enum SecretObjectiveID
   SpinGlobeThrice,
   TypeFIVE,
   SkullOffShelf,
+  _PLACEHOLDER
 }
 
 public class SecretObjective
