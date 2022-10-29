@@ -13411,6 +13411,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Detective
       objectReference: {fileID: 0}
+    - target: {fileID: 306560508578251890, guid: 40e6a4bf7abaa5b4a9754ace3a78d6c6, type: 3}
+      propertyPath: jumpHeight
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 306560508578251890, guid: 40e6a4bf7abaa5b4a9754ace3a78d6c6, type: 3}
+      propertyPath: gravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 306560508578251901, guid: 40e6a4bf7abaa5b4a9754ace3a78d6c6, type: 3}
       propertyPath: m_RootOrder
       value: 3
