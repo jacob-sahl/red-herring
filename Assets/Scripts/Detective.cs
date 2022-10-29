@@ -59,7 +59,6 @@ public class Detective : MonoBehaviour
   Vector3 focusRotationXAxis;
   Vector3 focusRotationYAxis;
   float cameraHeight;
-  private Coroutine jumping = null;
   private Coroutine crouching = null;
 
   // Start is called before the first frame update
@@ -329,18 +328,18 @@ public class Detective : MonoBehaviour
     }
   }
 
-  private IEnumerator Jump()
-  {
-    float timeElapsed = 0;
-    float jumpTime = 0.25f; // jump over 0.25 seconds
-    while (timeElapsed < jumpTime)
-    {
-      transform.Translate(0, jumpHeight * Time.deltaTime, 0); // TODO use a better function
-      timeElapsed += Time.deltaTime;
-      yield return null;
-    }
-    jumping = null;
-  }
+  // private IEnumerator Jump()
+  // {
+  //   float timeElapsed = 0;
+  //   float jumpTime = 0.25f; // jump over 0.25 seconds
+  //   while (timeElapsed < jumpTime)
+  //   {
+  //     transform.Translate(0, jumpHeight * Time.deltaTime, 0); // TODO use a better function
+  //     timeElapsed += Time.deltaTime;
+  //     yield return null;
+  //   }
+  //   jumping = null;
+  // }
 
   private IEnumerator Crouch()
   {
