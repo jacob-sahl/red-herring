@@ -48,6 +48,34 @@ public class GameController : MonoBehaviour
         "... Four!",
       }
     ),
+    new TypeWriterPuzzleInstance(
+      TypeWriterPuzzleID.FearOfElephants,
+      "FEAR OF ELEPHANTS",
+      new List<(SecretObjectiveID, string)> {
+        (SecretObjectiveID.LookThroughWindow, "Get the detective to look out of the window for three consecutive seconds."),
+        (SecretObjectiveID.SolveWithThreeOnTimer, "Get the detective to solve the puzzle while there is a '3' on the timer."),
+        (SecretObjectiveID.TypeGIRAFFE, "Get the detective to type the word 'GIRAFFE'."),
+      },
+      new List<string> {
+        "The answer is a phobia.",
+        "The answer involves a large land mammal.",
+        "Pachyderm = Elephant",
+      }
+    ),
+    new TypeWriterPuzzleInstance(
+      TypeWriterPuzzleID.PlantsAndAnimals,
+      "PLANTS AND ANIMALS",
+      new List<(SecretObjectiveID, string)> {
+        (SecretObjectiveID._PLACEHOLDER, ""),
+        (SecretObjectiveID._PLACEHOLDER, ""),
+        (SecretObjectiveID._PLACEHOLDER, ""),
+      },
+      new List<string> {
+        "",
+        "",
+        "",
+      }
+    ),
   };
   public List<SecretObjective> currentSecretObjectives;
   public List<string> currentClues;

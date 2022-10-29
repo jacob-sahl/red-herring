@@ -9,6 +9,8 @@ public enum SecretObjectiveID
   SpinGlobeThrice,
   TypeFIVE,
   SkullOffShelf,
+  SolveWithThreeOnTimer,
+  TypeGIRAFFE,
   _PLACEHOLDER
 }
 

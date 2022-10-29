@@ -7,9 +7,20 @@ public class TypeWriter : MonoBehaviour
   public AudioClip keydownClip;
   private bool broadcasted = false;
   private AudioSource audioSource;
+  private TypeWriterPuzzleID activePuzzle;
   void Awake()
   {
     audioSource = gameObject.GetComponent<AudioSource>();
+  }
+  void Start()
+  {
+    activePuzzle = GameController.Instance.getCurrentPuzzle().id;
+    switch (activePuzzle)
+    {
+      case TypeWriterPuzzleID.BlueRedYellow:
+        colorStrikers();
+        break;
+    }
   }
   void Update()
   {
@@ -25,5 +36,25 @@ public class TypeWriter : MonoBehaviour
   public void playKeydownClip()
   {
     audioSource.PlayOneShot(keydownClip);
+  }
+  void colorStrikers()
+  {
+    GameObject strikerParent = transform.Find("PR_Strikers_low").gameObject;
+    MeshRenderer[] meshes = strikerParent.GetComponentsInChildren<MeshRenderer>();
+    for (int i = 0; i < meshes.Length; i++)
+    {
+      if (i % 3 == 0)
+      {
+        meshes[i].material.color = Color.blue;
+      }
+      else if (i % 3 == 1)
+      {
+        meshes[i].material.color = Color.red;
+      }
+      else
+      {
+        meshes[i].material.color = Color.yellow;
+      }
+    }
   }
 }
