@@ -273,6 +273,7 @@ public class Detective : MonoBehaviour
           }
           else
           {
+            // Debug.Log("Interacting: " + colliderGameObject.name);
             InteractEvent interact = Events.InteractEvent;
             interact.gameObject = colliderGameObject;
             EventManager.Broadcast(interact);
