@@ -165,7 +165,7 @@ public class PlayerInputHandler : MonoBehaviour
   public void OnJump(InputAction.CallbackContext context)
   {
     jump = context.action.triggered;
-    //Debug.Log("jump:" + jump);
+    Debug.Log("jump:" + jump);
   }
 
   public void OnPause(InputAction.CallbackContext context)
@@ -199,5 +199,6 @@ public class PlayerInputHandler : MonoBehaviour
   {
     Debug.Log("Game started Received by PlayerInputHandler");
     LockCursor();
+    jump = false; // Not sure why this is necessary but without it a gamepad player starts the scene jumping
   }
 }

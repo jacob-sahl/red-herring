@@ -23,7 +23,10 @@ public class Detective : MonoBehaviour
   public float maxSpeed = 10f;
   public float mouseDragSpeed = 5f;
   public float crouchHeight = 0.65f;
-  public float jumpHeight = 2f;
+  public float jumpHeight = 0.5f;
+  public float gravity = -9.81f;
+  public float gravityScale = 1;
+  private float velocity;
 
   [Header("Focused")]
   public float cursorSpeed = 1f;
@@ -56,7 +59,6 @@ public class Detective : MonoBehaviour
   Vector3 focusRotationXAxis;
   Vector3 focusRotationYAxis;
   float cameraHeight;
-  private Coroutine jumping = null;
   private Coroutine crouching = null;
 
   // Start is called before the first frame update
@@ -117,7 +119,7 @@ public class Detective : MonoBehaviour
     {
       Vector2 moveInput = _inputHandler.GetMoveInput();
       Vector3 movement = (moveInput.y * transform.forward) + (moveInput.x * transform.right);
-      _controller.SimpleMove(movement * maxSpeed);
+      _controller.SimpleMove(movement * maxSpeed);  // TODO manually add gravity
 
       // Movement audio
       {
@@ -158,13 +160,15 @@ public class Detective : MonoBehaviour
           {
             crouching = StartCoroutine(Crouch());
           }
-          else if (jump && jumping == null)
+          else if (jump)
           {
-            jumping = StartCoroutine(Jump());
+            velocity = Mathf.Sqrt(jumpHeight * -2f * (gravity * gravityScale));
           }
         }
       }
     }
+    velocity += gravity * gravityScale * Time.deltaTime;
+    _controller.Move(new Vector3(0, velocity, 0) * Time.deltaTime);
   }
 
   void HandleFocusMovement()
@@ -324,18 +328,18 @@ public class Detective : MonoBehaviour
     }
   }
 
-  private IEnumerator Jump()
-  {
-    float timeElapsed = 0;
-    float jumpTime = 0.25f; // jump over 0.25 seconds
-    while (timeElapsed < jumpTime)
-    {
-      transform.Translate(0, (jumpHeight / jumpTime) * Time.deltaTime * (jumpTime - timeElapsed) / jumpTime, 0); // sigmoid
-      timeElapsed += Time.deltaTime;
-      yield return null;
-    }
-    jumping = null;
-  }
+  // private IEnumerator Jump()
+  // {
+  //   float timeElapsed = 0;
+  //   float jumpTime = 0.25f; // jump over 0.25 seconds
+  //   while (timeElapsed < jumpTime)
+  //   {
+  //     transform.Translate(0, jumpHeight * Time.deltaTime, 0); // TODO use a better function
+  //     timeElapsed += Time.deltaTime;
+  //     yield return null;
+  //   }
+  //   jumping = null;
+  // }
 
   private IEnumerator Crouch()
   {
