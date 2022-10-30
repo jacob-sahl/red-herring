@@ -11,7 +11,7 @@ public enum ButtonType
   Submit,
   A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
   One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Zero,
-  Space, Backspace, Void,
+  Space, Backspace, Void, Query,
 }
 
 public class TypeWriterPuzzle : Puzzle
@@ -61,8 +61,9 @@ public class TypeWriterPuzzle : Puzzle
       { ButtonType.Nine, "9" },
       { ButtonType.Zero, "0" },
       { ButtonType.Space, " " },
-      { ButtonType.Backspace, ""},
-      { ButtonType.Void, ""},
+      { ButtonType.Backspace, "" },
+      { ButtonType.Void, "" },
+      { ButtonType.Query, "" },
     };
 
   [SerializeField] public string pressed = "";
@@ -137,6 +138,9 @@ public class TypeWriterPuzzle : Puzzle
           levelManager.audioController.playMistake();
         }
         break;
+      case ButtonType.Query:
+        queryString(_answer);
+        break;
       default:
         _answer += ButtonToString[button.buttonType];
         puzzle_text.text += ButtonToString[button.buttonType];
@@ -150,6 +154,22 @@ public class TypeWriterPuzzle : Puzzle
       EventManager.Broadcast(s);
       broadcastedObjectives.Add(SecretObjectiveID.TypeFOOL);
     }
+  }
+
+  private void queryString(string str)
+  {
+    TypeWriterPuzzleInstance puzzle = GameController.Instance.getCurrentPuzzle();
+    string result = "";
+    if (puzzle.query.ContainsKey(str))
+    {
+      result = puzzle.query[str];
+    }
+    else
+    {
+      result = "???";
+    }
+    _answer = "";
+    puzzle_text.text = result;
   }
 
   private bool CheckAnswer()

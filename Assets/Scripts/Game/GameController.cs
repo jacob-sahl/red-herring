@@ -32,6 +32,11 @@ public class GameController : MonoBehaviour
         "The solution is very colourful.",
         "There is a clue underneath the skull.",
         "The solution is not secondary.",
+      },
+      new Dictionary<string, string>() {
+        {"X", "4"},
+        {"Y", "2"},
+        {"Z", "9"},
       }
     ),
     new TypeWriterPuzzleInstance(
@@ -46,7 +51,8 @@ public class GameController : MonoBehaviour
         "The solution might require a few hours' thought.",
         "The second word of the solution is a number.",
         "... Four!",
-      }
+      },
+      new Dictionary<string, string>()
     ),
     new TypeWriterPuzzleInstance(
       TypeWriterPuzzleID.FearOfElephants,
@@ -57,9 +63,14 @@ public class GameController : MonoBehaviour
         (SecretObjectiveID.TypeGIRAFFE, "Get the detective to type the word 'GIRAFFE'."),
       },
       new List<string> {
-        "The solution is a phobia.",
-        "The solution involves a large land mammal.",
-        "Pachyderm = Elephant",
+        "The solution is a feeling of immense apprehension. X = 4.",
+        "Pachyderm = Elephant. Y = 2.",
+        "Books 4 and 10 on the wall shelf are clues to the solution. Z = 9.",
+      },
+      new Dictionary<string, string>() {
+        {"X", "4"},
+        {"Y", "2"},
+        {"Z", "9"},
       }
     ),
     new TypeWriterPuzzleInstance(
@@ -74,7 +85,8 @@ public class GameController : MonoBehaviour
         "",
         "",
         "",
-      }
+      },
+      new Dictionary<string, string>()
     ),
   };
   public List<SecretObjective> currentSecretObjectives;

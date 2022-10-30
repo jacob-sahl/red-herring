@@ -39,7 +39,7 @@ public class WallBooks : MonoBehaviour
       "The Last One Seems Important",
       "Der Katzenprinz",
       "Poisons Most Foul",
-      "A Dull Textbook",
+      "The World's Longest Necks",
       "Modern Wallpaper, Summer Issue 18XX",
       "SCARY DUMBO: An Anachronistic Horror Collecction"
     }},

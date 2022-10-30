@@ -6058,6 +6058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultRotation: {x: 45, y: 0, z: 0}
+  defaultTranslation: {x: 0, y: 0, z: 0}
   focusDistance: 7
 --- !u!114 &8508844437079989342
 MonoBehaviour:
@@ -16776,7 +16777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabaf2390d9e46a4ca3a330acfcb3158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonType: 39
+  buttonType: 40
 --- !u!1 &8864965782566470692
 GameObject:
   m_ObjectHideFlags: 0
