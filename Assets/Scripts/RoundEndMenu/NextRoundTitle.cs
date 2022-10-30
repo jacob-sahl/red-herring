@@ -10,6 +10,10 @@ public class NextRoundTitle : MonoBehaviour
   {
     EventManager.AddListener<LevelSetupCompleteEvent>(onLevelSetupComplete);
   }
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<LevelSetupCompleteEvent>(onLevelSetupComplete);
+  }
   void onLevelSetupComplete(LevelSetupCompleteEvent e)
   {
     updateRoundNum();

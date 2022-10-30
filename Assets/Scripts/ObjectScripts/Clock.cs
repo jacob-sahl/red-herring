@@ -19,6 +19,10 @@ public class Clock : MonoBehaviour
   {
     EventManager.AddListener<InteractEvent>(onInteract);
   }
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<InteractEvent>(onInteract);
+  }
   void Start()
   {
     clockTimeMinutes = 180;

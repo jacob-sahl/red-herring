@@ -12,6 +12,10 @@ public class Globe : MonoBehaviour
     EventManager.AddListener<InteractEvent>(onInteract);
     n_spins = 0;
   }
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<InteractEvent>(onInteract);
+  }
 
   void Start()
   {
