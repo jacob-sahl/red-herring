@@ -11,6 +11,9 @@ public enum SecretObjectiveID
   SkullOffShelf,
   SolveWithThreeOnTimer,
   TypeGIRAFFE,
+  SetClockTo545,
+  StationaryGramophone,
+  SolveQuickly,
   _PLACEHOLDER
 }
 

@@ -14,6 +14,7 @@ public class Clock : MonoBehaviour
   Vector3 pivot;
   Vector3 axis;
   TypeWriterPuzzleInstance puzzle;
+  List<SecretObjectiveID> broadcasted = new List<SecretObjectiveID>();
   void Awake()
   {
     EventManager.AddListener<InteractEvent>(onInteract);
@@ -26,7 +27,6 @@ public class Clock : MonoBehaviour
     minuteHand = transform.Find("head/minuteHand").gameObject;
     hourHand = transform.Find("head/hourHand").gameObject;
     clockHead = transform.Find("head").gameObject;
-    Debug.Log("HEAD: " + clockHead.name);
     setUpRotation();
   }
 
@@ -53,6 +53,15 @@ public class Clock : MonoBehaviour
     minuteHand.transform.RotateAround(pivot, axis, -30f);
     hourHand.transform.RotateAround(pivot, axis, -2.5f);
     clockTimeMinutes += 5;
+
+    if (clockTimeMinutes >= 345 && !broadcasted.Contains(SecretObjectiveID.SetClockTo545))
+    {
+      SecretObjectiveEvent evt = new SecretObjectiveEvent();
+      evt.id = SecretObjectiveID.SetClockTo545;
+      evt.status = true;
+      EventManager.Broadcast(evt);
+      broadcasted.Add(SecretObjectiveID.SetClockTo545);
+    }
 
     if (clockTimeMinutes >= 720)
     {

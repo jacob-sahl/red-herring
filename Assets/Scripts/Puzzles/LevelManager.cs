@@ -103,24 +103,48 @@ public class LevelManager : MonoBehaviour
     return true;
   }
 
-  private void EndLevel()
+  private void checkCompletionTime()
   {
     _completionTime = _timeLeft;
+    // Checking digits of completion time
+    int minutes = Mathf.FloorToInt(_completionTime / 60);
+    int seconds = Mathf.FloorToInt(_completionTime % 60);
+    // Debug.Log("Completion Time, Minutes: " + minutes + " Seconds: " + seconds);
+    if (minutes.ToString().Contains("3") || seconds.ToString().Contains("3"))
     {
-      // Checking digits of completion time
-      string minutes = Mathf.FloorToInt(_completionTime / 60).ToString();
-      string seconds = Mathf.FloorToInt(_completionTime % 60).ToString();
-      Debug.Log("Completion Time, Minutes: " + minutes + " Seconds: " + seconds);
-      if (minutes.Contains("3") || seconds.Contains("3"))
-      {
-        Debug.Log("3 detected");
-        SecretObjectiveEvent e = new SecretObjectiveEvent();
-        e.id = SecretObjectiveID.SolveWithThreeOnTimer;
-        e.status = true;
-        EventManager.Broadcast(e);
-      }
+      SecretObjectiveEvent e = new SecretObjectiveEvent();
+      e.id = SecretObjectiveID.SolveWithThreeOnTimer;
+      e.status = true;
+      EventManager.Broadcast(e);
     }
+    if (minutes >= 3)
+    {
+      SecretObjectiveEvent e = new SecretObjectiveEvent();
+      e.id = SecretObjectiveID.SolveQuickly;
+      e.status = true;
+      EventManager.Broadcast(e);
+    }
+  }
+
+  private void checkObjectMovement()
+  {
+    Debug.Log("Checking object movement");
+    GameObject gramophone = GameObject.Find("Gramophone").gameObject;
+    if (!gramophone.GetComponent<HasMoved>().hasMoved())
+    {
+      Debug.Log("Gramophone has not moved");
+      SecretObjectiveEvent e = new SecretObjectiveEvent();
+      e.id = SecretObjectiveID.StationaryGramophone;
+      e.status = true;
+      EventManager.Broadcast(e);
+    }
+  }
+
+  private void EndLevel()
+  {
     puzzleStarted = false;
+    checkCompletionTime();
+    checkObjectMovement();
     List<int> pointsToAdd = new List<int> { 0, 0, 0, 0 };
     string roundEndText = "In this round, ";
     foreach (var puzzle in puzzles)

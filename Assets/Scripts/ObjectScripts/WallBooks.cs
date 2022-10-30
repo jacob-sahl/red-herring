@@ -66,7 +66,6 @@ public class WallBooks : MonoBehaviour
     string[] titles = PuzzleToBookTitles[puzzleID];
     for (int i = 1; i < 11; i++)
     {
-      Debug.Log("Looking For: " + "wallBooksCanvas/bookText" + i.ToString());
       GameObject text = transform.Find("wallBooksCanvas/bookText" + i.ToString()).gameObject;
       text.GetComponent<TextMeshPro>().text = titles[i - 1];
     }

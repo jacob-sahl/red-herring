@@ -77,14 +77,14 @@ public class GameController : MonoBehaviour
       TypeWriterPuzzleID.PlantsAndAnimals,
       "PLANTS AND ANIMALS",
       new List<(SecretObjectiveID, string)> {
-        (SecretObjectiveID._PLACEHOLDER, ""),
-        (SecretObjectiveID._PLACEHOLDER, ""),
-        (SecretObjectiveID._PLACEHOLDER, ""),
+        (SecretObjectiveID.SolveQuickly, "Ensure that the puzzle is solved with 3 or more minutes remaining."),
+        (SecretObjectiveID.SetClockTo545, "Get the detective to set the clock's time to 5:45 (or later)."),
+        (SecretObjectiveID.StationaryGramophone, "Make sure that the detective does NOT move the gramophone."),
       },
       new List<string> {
-        "",
-        "",
-        "",
+        "The solution can be seen high up in the night sky outside the window.",
+        "There is a clue stuck to the bottom of the gramophone.",
+        "There is a clue on the top of a bookshelf.",
       },
       new Dictionary<string, string>()
     ),
