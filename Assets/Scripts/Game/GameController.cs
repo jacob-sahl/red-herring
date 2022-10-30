@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
   public List<int> detectiveOrder;
   // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
   public int currentRound;
-  public int minutesPerRound = 3;
+  public int minutesPerRound = 5;
   public List<TypeWriterPuzzleInstance> puzzles = new List<TypeWriterPuzzleInstance> {
     new TypeWriterPuzzleInstance(
       TypeWriterPuzzleID.BlueRedYellow,

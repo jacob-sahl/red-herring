@@ -4057,7 +4057,7 @@ MonoBehaviour:
   mainSceneName: _MAINSCENE
   detectiveOrder: 
   currentRound: 0
-  minutesPerRound: 3
+  minutesPerRound: 5
   currentClues: []
 --- !u!4 &666354604
 Transform:

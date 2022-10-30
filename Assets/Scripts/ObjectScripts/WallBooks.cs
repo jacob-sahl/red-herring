@@ -20,16 +20,16 @@ public class WallBooks : MonoBehaviour
       "!"
     }},
     {TypeWriterPuzzleID.One2Three, new string[] {
-      "This is the Second Puzzle",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "T",
+      "I",
+      "C",
+      "K",
+      "T",
+      "O",
+      "C",
+      "K",
+      "Serial No. 123?",
+      "Serial No. OneTwoThree?"
     }},
     {TypeWriterPuzzleID.FearOfElephants, new string[] {
       "Book #1",
@@ -44,16 +44,16 @@ public class WallBooks : MonoBehaviour
       "SCARY DUMBO: An Anachronistic Horror Collecction"
     }},
     {TypeWriterPuzzleID.PlantsAndAnimals, new string[] {
-      "This is the Fourth Puzzle",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "Wisteria & Panthera leo",
+      "Juniperus virginiana & Bos gaurus",
+      "Digitalis & Vulpes vulpes",
+      "Hydrangea & Crocodylus palustris",
+      "Syringa & Equus caballus",
+      "Acer & Canis lupus",
+      "Quercus & Camelus dromedaries",
+      "Pyrus & Giraffa camelopardalis",
+      "Hibiscus & Elephas maximus",
+      "Helleborus & Felis domesticus"
     }},
   };
   void Start()
