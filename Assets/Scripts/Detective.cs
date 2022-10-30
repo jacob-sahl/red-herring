@@ -55,6 +55,7 @@ public class Detective : MonoBehaviour
   Vector3 cursorPosition;
   GameObject focusedObject;
   GameObject focusedObjectPlaceholder;
+  private bool focusActive;
   GameObject lastHit;
   Vector3 focusRotationXAxis;
   Vector3 focusRotationYAxis;
@@ -64,7 +65,7 @@ public class Detective : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    focusedObjectPlaceholder = new GameObject();
+    focusedObjectPlaceholder = new GameObject("focusedObjectPlaceholder");
     _controller = GetComponent<CharacterController>();
     audioSource = GetComponent<AudioSource>();
     cursor = GameObject.Find("DetectiveCursor");
@@ -81,6 +82,17 @@ public class Detective : MonoBehaviour
 
   void OnFocus(FocusEvent evt)
   {
+    if (focusActive)
+    {
+      // Reset cursor to centre
+      cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
+      cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+      // Put the previous object back where it was
+      focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
+      focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
+      focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
+      focusedObject.GetComponent<Focus>().enablePhysics();
+    }
     // Calculate vectors relative to the camera to serve as rotational axes
     focusRotationXAxis = Vector3.Cross(playerCamera.transform.forward, Vector3.up);
     focusRotationYAxis = Vector3.Cross(playerCamera.transform.forward, playerCamera.transform.right);
@@ -94,6 +106,7 @@ public class Detective : MonoBehaviour
     // Reset the object to face the camera
     float distance = Vector3.Distance(focusedObject.transform.position, playerCamera.transform.position);
     focusedObject.transform.LookAt(playerCamera.transform.position);
+    // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.cyan, 120f, false);
 
     // Apply default rotation from focused object
     Focus focus = focusedObject.GetComponent<Focus>();
@@ -102,10 +115,13 @@ public class Detective : MonoBehaviour
     focusedObject.transform.Rotate(playerCamera.transform.forward, focus.defaultRotation.z, Space.World);
 
     focusedObject.transform.Translate((distance - focus.focusDistance) * -1 * playerCamera.transform.forward, Space.World);
+    // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.green, 120f, false);
 
     // Apply default translation from focused object
     focusedObject.transform.Translate(focus.defaultTranslation);
+    // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.red, 120f, false);
 
+    focusActive = true;
   }
 
   void HandleCharacterMovement()
@@ -191,6 +207,7 @@ public class Detective : MonoBehaviour
       cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
       cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
       moveEnabled = true;
+      focusActive = false;
       // Put the object back where it was
       focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
       focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
