@@ -117,30 +117,38 @@ public class LevelManager : MonoBehaviour
         {
           pointsToAdd[i] += 4;
         }
-        foreach (SecretObjective secret in gameController.currentSecretObjectives)
-        {
-          if (secret.completed)
-          {
-            pointsToAdd[secret.player.playerId] += 4;
-            // TEMPORARY:
-            roundEndText += $"Player {secret.player.playerId + 1} completed their secret objective, they win!\n";
-            // TEMP ^
-            for (int i = 0; i < pointsToAdd.Count; i++)
-            {
-              pointsToAdd[i] -= 1;
-            }
-          }
-        }
-        // Add points to each player's total
-        for (int i = 0; i < pointsToAdd.Count; i++)
-        {
-          playerManager.players[i].points += pointsToAdd[i];
-        }
       }
       else
       {
         roundEndText += $"Puzzle {puzzle.name} is not complete. \n";
       }
+      foreach (SecretObjective secret in gameController.currentSecretObjectives)
+      {
+        roundEndText += $"Player {secret.player.playerId + 1} had the secret objective to {secret.description}\n";
+        if (secret.completed)
+        {
+          pointsToAdd[secret.player.playerId] += 4;
+          // TEMPORARY:
+          roundEndText += $"Player {secret.player.playerId + 1} completed their secret objective, they win!\n";
+          // TEMP ^
+          for (int i = 0; i < pointsToAdd.Count; i++)
+          {
+            pointsToAdd[i] -= 1;
+          }
+        }
+        else
+        {
+          roundEndText += "It was not completed.\n";
+        }
+      }
+      if (puzzle.isComplete) // TODO split up the text
+      {
+        // Add points to each player's total
+        for (int i = 0; i < pointsToAdd.Count; i++)
+        {
+          playerManager.players[i].points += pointsToAdd[i];
+        }
+      }      
     }
     Debug.Log(roundEndText);
 
