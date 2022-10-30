@@ -8,19 +8,19 @@ public class WallBooks : MonoBehaviour
   private Dictionary<TypeWriterPuzzleID, string[]> PuzzleToBookTitles = new Dictionary<TypeWriterPuzzleID, string[]>()
   {
     {TypeWriterPuzzleID.BlueRedYellow, new string[] {
-      "First Puzzle",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "Hey, this is the First Puzzle!",
+      "Look Alikes & Dopplegangers Among Us",
+      "At Giovanni's",
+      "The Curse of Erring Manor",
+      "Colours and Sounds",
+      "Of Ghosts and Ghouls",
+      "The Other Curse of Erring Manor",
+      "Left Behind",
+      "Bookshelf Arrangement Ettiquette",
+      "!"
     }},
     {TypeWriterPuzzleID.One2Three, new string[] {
-      "Second Puzzle",
+      "This is the Second Puzzle",
       "",
       "",
       "",
@@ -44,7 +44,7 @@ public class WallBooks : MonoBehaviour
       "SCARY DUMBO: An Anachronistic Horror Collecction"
     }},
     {TypeWriterPuzzleID.PlantsAndAnimals, new string[] {
-      "Fourth Puzzle",
+      "This is the Fourth Puzzle",
       "",
       "",
       "",

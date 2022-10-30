@@ -154,6 +154,14 @@ public class TypeWriterPuzzle : Puzzle
       EventManager.Broadcast(s);
       broadcastedObjectives.Add(SecretObjectiveID.TypeFOOL);
     }
+    if (pressed.Contains("GIRAFFE") && !broadcastedObjectives.Contains(SecretObjectiveID.TypeGIRAFFE))
+    {
+      SecretObjectiveEvent s = new SecretObjectiveEvent();
+      s.id = SecretObjectiveID.TypeGIRAFFE;
+      s.status = true;
+      EventManager.Broadcast(s);
+      broadcastedObjectives.Add(SecretObjectiveID.TypeGIRAFFE);
+    }
   }
 
   private void queryString(string str)

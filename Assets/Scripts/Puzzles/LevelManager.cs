@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
   public string endSceneName = "RoundEnd";
 
   private float puzzleTime;
+  private float _completionTime;
   [SerializeField] private float _timeLeft;
   [SerializeField] private bool puzzleStarted;
   private UIController uiController;
@@ -104,6 +105,21 @@ public class LevelManager : MonoBehaviour
 
   private void EndLevel()
   {
+    _completionTime = _timeLeft;
+    {
+      // Checking digits of completion time
+      string minutes = Mathf.FloorToInt(_completionTime / 60).ToString();
+      string seconds = Mathf.FloorToInt(_completionTime % 60).ToString();
+      Debug.Log("Completion Time, Minutes: " + minutes + " Seconds: " + seconds);
+      if (minutes.Contains("3") || seconds.Contains("3"))
+      {
+        Debug.Log("3 detected");
+        SecretObjectiveEvent e = new SecretObjectiveEvent();
+        e.id = SecretObjectiveID.SolveWithThreeOnTimer;
+        e.status = true;
+        EventManager.Broadcast(e);
+      }
+    }
     puzzleStarted = false;
     List<int> pointsToAdd = new List<int> { 0, 0, 0, 0 };
     string roundEndText = "In this round, ";
