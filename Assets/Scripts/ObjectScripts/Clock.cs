@@ -8,11 +8,12 @@ public class Clock : MonoBehaviour
   GameObject minuteHand;
   GameObject hourHand;
   GameObject clockHead;
-  public float rotationY = 12.765f;
+  public float rotationVerticalOffset = 12.765f;
   public GameObject debugSpherePrefab;
   public int clockTimeMinutes;
   Vector3 pivot;
   Vector3 axis;
+  TypeWriterPuzzleInstance puzzle;
   void Awake()
   {
     EventManager.AddListener<InteractEvent>(onInteract);
@@ -20,6 +21,7 @@ public class Clock : MonoBehaviour
   void Start()
   {
     clockTimeMinutes = 180;
+    puzzle = GameController.Instance.getCurrentPuzzle();
     handCentre = transform.Find("head/handCentre").gameObject;
     minuteHand = transform.Find("head/minuteHand").gameObject;
     hourHand = transform.Find("head/hourHand").gameObject;
@@ -31,7 +33,7 @@ public class Clock : MonoBehaviour
   void setUpRotation()
   {
     pivot = handCentre.transform.position;
-    pivot += new Vector3(0, rotationY, 0);
+    pivot += new Vector3(0, rotationVerticalOffset, 0);
     // GameObject sphere = Instantiate(debugSpherePrefab);
     // sphere.transform.position = pivot;
     // sphere.name = "DEBUG SPHERE";
@@ -51,13 +53,43 @@ public class Clock : MonoBehaviour
     minuteHand.transform.RotateAround(pivot, axis, -30f);
     hourHand.transform.RotateAround(pivot, axis, -2.5f);
     clockTimeMinutes += 5;
+
     if (clockTimeMinutes >= 720)
     {
       clockTimeMinutes = 0;
     }
+    ClockTimeChangeEvent e = new ClockTimeChangeEvent();
+    e.minutes = clockTimeMinutes;
+    EventManager.Broadcast(e);
+
+    // Reveal clues for Puzzle #2
+    if (puzzle.id == TypeWriterPuzzleID.One2Three)
+    {
+      if (clockTimeMinutes >= 6 * 60)
+      {
+        GameObject text = transform.Find("head/clockCanvas/III").gameObject;
+        if (text != null)
+        {
+          text.GetComponent<Renderer>().enabled = true;
+        }
+      }
+      else if (clockTimeMinutes >= 5 * 60)
+      {
+        GameObject text = transform.Find("head/clockCanvas/II").gameObject;
+        if (text != null)
+        {
+          text.GetComponent<Renderer>().enabled = true;
+        }
+
+      }
+      else if (clockTimeMinutes >= 4 * 60)
+      {
+        GameObject text = transform.Find("head/clockCanvas/I").gameObject;
+        if (text != null)
+        {
+          text.GetComponent<Renderer>().enabled = true;
+        }
+      }
+    }
   }
-  // void rotateHourHand()
-  // {
-  //   hourHand.transform.RotateAround(pivot, axis, 30);
-  // }
 }

@@ -8,6 +8,7 @@ public class Focus : MonoBehaviour
 {
   [Tooltip("The rotation that this object will start out with when inspected.")]
   public Vector3 defaultRotation;
+  public Vector3 defaultTranslation;
   public float focusDistance;
   private Rigidbody rb;
   void Start()

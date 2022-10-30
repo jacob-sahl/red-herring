@@ -94,8 +94,18 @@ public class Detective : MonoBehaviour
     // Reset the object to face the camera
     float distance = Vector3.Distance(focusedObject.transform.position, playerCamera.transform.position);
     focusedObject.transform.LookAt(playerCamera.transform.position);
-    focusedObject.transform.Rotate(focusRotationXAxis, focusedObject.GetComponent<Focus>().defaultRotation.x, Space.World);
-    focusedObject.transform.Translate((distance - focusedObject.GetComponent<Focus>().focusDistance) * -1 * playerCamera.transform.forward, Space.World);
+
+    // Apply default rotation from focused object
+    Focus focus = focusedObject.GetComponent<Focus>();
+    focusedObject.transform.Rotate(focusRotationXAxis, focus.defaultRotation.x, Space.World);
+    focusedObject.transform.Rotate(focusRotationYAxis, focus.defaultRotation.y, Space.World);
+    focusedObject.transform.Rotate(playerCamera.transform.forward, focus.defaultRotation.z, Space.World);
+
+    focusedObject.transform.Translate((distance - focus.focusDistance) * -1 * playerCamera.transform.forward, Space.World);
+
+    // Apply default translation from focused object
+    focusedObject.transform.Translate(focus.defaultTranslation);
+
   }
 
   void HandleCharacterMovement()

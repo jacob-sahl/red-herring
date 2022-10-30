@@ -43,8 +43,8 @@ public class GameController : MonoBehaviour
         (SecretObjectiveID.SkullOffShelf, "Get the detective to throw the skull off of the bookshelf."),
       },
       new List<string> {
-        "The answer involves counting.",
-        "The second word of the answer is a number.",
+        "The solution might require a few hours' thought.",
+        "The second word of the solution is a number.",
         "... Four!",
       }
     ),
@@ -57,8 +57,8 @@ public class GameController : MonoBehaviour
         (SecretObjectiveID.TypeGIRAFFE, "Get the detective to type the word 'GIRAFFE'."),
       },
       new List<string> {
-        "The answer is a phobia.",
-        "The answer involves a large land mammal.",
+        "The solution is a phobia.",
+        "The solution involves a large land mammal.",
         "Pachyderm = Elephant",
       }
     ),
