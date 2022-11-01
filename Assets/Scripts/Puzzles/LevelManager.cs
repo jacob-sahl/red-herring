@@ -212,4 +212,17 @@ public class LevelManager : MonoBehaviour
     _timeLoadEndGameScene = Time.time + endSceneLoadDelay;
   }
 
+  private void EndGame()
+  {
+    string gameEndText = "In this game,\n";
+    for (int i = 0; i < playerManager.players.Count; i++)
+    {
+      gameEndText += $"Player {i} earned {playerManager.players[i].points} points\n";
+    }
+    gameEndText += "Thanks for playing!";
+    GameEndEvent gameEndEvent = new GameEndEvent();
+    gameEndEvent.endMessage = gameEndText;
+    EventManager.Broadcast(gameEndEvent);
+  }
+
 }
