@@ -269,6 +269,7 @@ public class Detective : MonoBehaviour
       // Debug.Log(colliderGameObject);
       var outline = colliderGameObject.GetComponent<Outline>();
       var focus = colliderGameObject.GetComponent<Focus>();
+      var draggable = colliderGameObject.GetComponent<Draggable>();
 
       if (outline != null)
       {
@@ -284,9 +285,13 @@ public class Detective : MonoBehaviour
         {
           _lastOutline.OutlineColor = Color.red;
         }
+        else if (draggable != null)
+        {
+          _lastOutline.OutlineColor = Color.gray;
+        }
         else
         {
-          _lastOutline.OutlineColor = Color.white;
+          _lastOutline.OutlineColor = Color.yellow;
         }
 
         if (interacted)
@@ -318,7 +323,6 @@ public class Detective : MonoBehaviour
 
       if (interacted)
       {
-        var draggable = colliderGameObject.GetComponent<Draggable>();
         if (draggable != null)
         {
           StartCoroutine(DragObject(colliderGameObject));

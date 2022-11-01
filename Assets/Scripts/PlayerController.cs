@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
   private GameObject iCursor;
   private PlayerInputHandler _inputHandler;
   private PlayerManager manager;
-  private PlayerInput playerInput;
+  public PlayerInput playerInput;
   private GameController gameController;
   public int points;
   public string playerName;

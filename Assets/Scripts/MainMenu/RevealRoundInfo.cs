@@ -39,6 +39,8 @@ namespace MainMenu
         if (playerController.role == PlayerRole.Detective)
         {
           player.transform.Find("Role").GetComponent<TMP_Text>().text = "Detective";
+          var qrCode = player.transform.Find("QRCode").gameObject;
+          qrCode.SetActive(false);
         }
         else
         {

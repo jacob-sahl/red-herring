@@ -91,6 +91,7 @@ public class GameController : MonoBehaviour
   };
   public List<SecretObjective> currentSecretObjectives;
   public List<string> currentClues;
+  private bool _readyToSetUpLevel;
   void Awake()
   {
     if (Instance != null && Instance != this)
@@ -124,6 +125,7 @@ public class GameController : MonoBehaviour
   void Start()
   {
     PlayerManager = PlayerManager.Instance;
+    _readyToSetUpLevel = true;
   }
 
   private void OnDestroy()
@@ -257,17 +259,22 @@ public class GameController : MonoBehaviour
 
   public void SetupLevel()
   {
-    // FOR DEV PURPOSES: (REMOVE ON BUILD)
-    PlayerManager.fillPlayers();
-    // ^
-    currentRound++; // Must be done FIRST
-    assignSecretObjectives();
-    LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
-    EventManager.Broadcast(e);
+    if (_readyToSetUpLevel)
+    {
+      // FOR DEV PURPOSES: (REMOVE ON BUILD)
+      PlayerManager.fillPlayers();
+      // ^
+      currentRound++; // Must be done FIRST
+      assignSecretObjectives();
+      LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
+      EventManager.Broadcast(e);
+      _readyToSetUpLevel = false;
+    }
   }
 
   void onLevelEnd(LevelEndEvent e)
   {
+    _readyToSetUpLevel = true;
     _roundEndText = e.endMessage;
   }
 }

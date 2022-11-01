@@ -8,9 +8,9 @@ public class WallBooks : MonoBehaviour
   private Dictionary<TypeWriterPuzzleID, string[]> PuzzleToBookTitles = new Dictionary<TypeWriterPuzzleID, string[]>()
   {
     {TypeWriterPuzzleID.BlueRedYellow, new string[] {
-      "Hey, this is the First Puzzle!",
-      "Look Alikes & Dopplegangers Among Us",
-      "At Giovanni's",
+      "The First Room",
+      "Solution, Mixtures & Cures",
+      "Is the Mystery Apparent?",
       "The Curse of Erring Manor",
       "Colours and Sounds",
       "Of Ghosts and Ghouls",
