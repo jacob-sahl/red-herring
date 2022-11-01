@@ -84,14 +84,7 @@ public class Detective : MonoBehaviour
   {
     if (focusActive)
     {
-      // Reset cursor to centre
-      cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
-      cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-      // Put the previous object back where it was
-      focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
-      focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
-      focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
-      focusedObject.GetComponent<Focus>().enablePhysics();
+      defocus();
     }
     // Calculate vectors relative to the camera to serve as rotational axes
     focusRotationXAxis = Vector3.Cross(playerCamera.transform.forward, Vector3.up);
@@ -122,6 +115,26 @@ public class Detective : MonoBehaviour
     // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.red, 120f, false);
 
     focusActive = true;
+    moveEnabled = false;
+  }
+
+  void defocus()
+  {
+    // Reset cursor to centre and exit focus
+    cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
+    cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+    // exit focus
+    moveEnabled = true;
+    focusActive = false;
+    // Put the object back where it was
+    focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
+    focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
+    focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
+    focusedObject.GetComponent<Focus>().enablePhysics();
+    // Send event
+    DefocusEvent e = new DefocusEvent();
+    e.gameObject = focusedObject;
+    EventManager.Broadcast(e);
   }
 
   void HandleCharacterMovement()
@@ -203,16 +216,7 @@ public class Detective : MonoBehaviour
     bool exited = _inputHandler.GetBackInput();
     if (exited)
     {
-      // Reset cursor to centre and exit focus
-      cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
-      cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-      moveEnabled = true;
-      focusActive = false;
-      // Put the object back where it was
-      focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
-      focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
-      focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
-      focusedObject.GetComponent<Focus>().enablePhysics();
+      defocus();
       return;
     }
     // Observer cursor movement
@@ -301,7 +305,6 @@ public class Detective : MonoBehaviour
             FocusEvent focusEvent = Events.FocusEvent;
             focusEvent.gameObject = colliderGameObject;
             EventManager.Broadcast(focusEvent);
-            moveEnabled = false;
           }
           else
           {

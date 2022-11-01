@@ -9,6 +9,7 @@ public static class Events
   public static InteractEvent InteractEvent = new InteractEvent();
   public static ICursorHoverEvent ICursorHoverEvent = new ICursorHoverEvent();
   public static FocusEvent FocusEvent = new FocusEvent();
+  public static DefocusEvent DefocusEvent = new DefocusEvent();
   public static PlayerJoinedEvent PlayerJoinedEvent = new PlayerJoinedEvent();
   public static PlayerUpdateEvent PlayerUpdateEvent = new PlayerUpdateEvent();
   public static SecretObjectiveEvent SecretObjectiveEvent = new SecretObjectiveEvent();
@@ -47,6 +48,11 @@ public class ICursorHoverEvent : GameEvent
 }
 
 public class FocusEvent : GameEvent
+{
+  public GameObject gameObject;
+}
+
+public class DefocusEvent : GameEvent
 {
   public GameObject gameObject;
 }

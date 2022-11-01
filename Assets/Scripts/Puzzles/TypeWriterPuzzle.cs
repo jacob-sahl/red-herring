@@ -180,7 +180,7 @@ public class TypeWriterPuzzle : Puzzle
     puzzle_text.text = result;
   }
 
-  private bool CheckAnswer()
+  public bool CheckAnswer()
   {
     return _answer == _solution;
   }
