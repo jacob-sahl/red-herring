@@ -55,6 +55,7 @@ public class Detective : MonoBehaviour
   Vector3 cursorPosition;
   GameObject focusedObject;
   GameObject focusedObjectPlaceholder;
+  private bool focusActive;
   GameObject lastHit;
   Vector3 focusRotationXAxis;
   Vector3 focusRotationYAxis;
@@ -64,7 +65,7 @@ public class Detective : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    focusedObjectPlaceholder = new GameObject();
+    focusedObjectPlaceholder = new GameObject("focusedObjectPlaceholder");
     _controller = GetComponent<CharacterController>();
     audioSource = GetComponent<AudioSource>();
     cursor = GameObject.Find("DetectiveCursor");
@@ -81,11 +82,15 @@ public class Detective : MonoBehaviour
 
   void OnFocus(FocusEvent evt)
   {
+    if (focusActive)
+    {
+      defocus();
+    }
     // Calculate vectors relative to the camera to serve as rotational axes
     focusRotationXAxis = Vector3.Cross(playerCamera.transform.forward, Vector3.up);
     focusRotationYAxis = Vector3.Cross(playerCamera.transform.forward, playerCamera.transform.right);
 
-    focusedObject = GameObject.FindGameObjectWithTag(evt.ObjectTag);
+    focusedObject = evt.gameObject;
     focusedObjectPlaceholder.transform.position = focusedObject.transform.position;
     focusedObjectPlaceholder.transform.rotation = focusedObject.transform.rotation;
     focusedObjectPlaceholder.transform.localScale = focusedObject.transform.localScale;
@@ -94,8 +99,42 @@ public class Detective : MonoBehaviour
     // Reset the object to face the camera
     float distance = Vector3.Distance(focusedObject.transform.position, playerCamera.transform.position);
     focusedObject.transform.LookAt(playerCamera.transform.position);
-    focusedObject.transform.Rotate(focusRotationXAxis, focusedObject.GetComponent<Focus>().defaultRotation.x, Space.World);
-    focusedObject.transform.Translate((distance - focusedObject.GetComponent<Focus>().focusDistance) * -1 * playerCamera.transform.forward, Space.World);
+    // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.cyan, 120f, false);
+
+    // Apply default rotation from focused object
+    Focus focus = focusedObject.GetComponent<Focus>();
+    focusedObject.transform.Rotate(focusRotationXAxis, focus.defaultRotation.x, Space.World);
+    focusedObject.transform.Rotate(focusRotationYAxis, focus.defaultRotation.y, Space.World);
+    focusedObject.transform.Rotate(playerCamera.transform.forward, focus.defaultRotation.z, Space.World);
+
+    focusedObject.transform.Translate((distance - focus.focusDistance) * -1 * playerCamera.transform.forward, Space.World);
+    // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.green, 120f, false);
+
+    // Apply default translation from focused object
+    focusedObject.transform.Translate(focus.defaultTranslation);
+    // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.red, 120f, false);
+
+    focusActive = true;
+    moveEnabled = false;
+  }
+
+  void defocus()
+  {
+    // Reset cursor to centre and exit focus
+    cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
+    cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+    // exit focus
+    moveEnabled = true;
+    focusActive = false;
+    // Put the object back where it was
+    focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
+    focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
+    focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
+    focusedObject.GetComponent<Focus>().enablePhysics();
+    // Send event
+    DefocusEvent e = new DefocusEvent();
+    e.gameObject = focusedObject;
+    EventManager.Broadcast(e);
   }
 
   void HandleCharacterMovement()
@@ -177,15 +216,7 @@ public class Detective : MonoBehaviour
     bool exited = _inputHandler.GetBackInput();
     if (exited)
     {
-      // Reset cursor to centre and exit focus
-      cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
-      cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-      moveEnabled = true;
-      // Put the object back where it was
-      focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
-      focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
-      focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
-      focusedObject.GetComponent<Focus>().enablePhysics();
+      defocus();
       return;
     }
     // Observer cursor movement
@@ -227,6 +258,7 @@ public class Detective : MonoBehaviour
     {
       // Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
       var colliderGameObject = hit.collider.gameObject;
+      bool interacted = _inputHandler.GetInteractInput();
 
       // Debug.Log(colliderGameObject.name);
 
@@ -241,6 +273,7 @@ public class Detective : MonoBehaviour
       // Debug.Log(colliderGameObject);
       var outline = colliderGameObject.GetComponent<Outline>();
       var focus = colliderGameObject.GetComponent<Focus>();
+      var draggable = colliderGameObject.GetComponent<Draggable>();
 
       if (outline != null)
       {
@@ -256,23 +289,26 @@ public class Detective : MonoBehaviour
         {
           _lastOutline.OutlineColor = Color.red;
         }
+        else if (draggable != null)
+        {
+          _lastOutline.OutlineColor = Color.gray;
+        }
         else
         {
-          _lastOutline.OutlineColor = Color.white;
+          _lastOutline.OutlineColor = Color.yellow;
         }
 
-        if (_inputHandler.GetInteractInput())
+        if (interacted)
         {
           if (focus != null)
           {
             FocusEvent focusEvent = Events.FocusEvent;
-            focusEvent.ObjectTag = colliderGameObject.tag;
+            focusEvent.gameObject = colliderGameObject;
             EventManager.Broadcast(focusEvent);
-            moveEnabled = false;
           }
           else
           {
-            _lastOutline.OutlineColor = Color.yellow; // not sure why this isn't working
+            // Debug.Log("Interacting: " + colliderGameObject.name);
             InteractEvent interact = Events.InteractEvent;
             interact.gameObject = colliderGameObject;
             EventManager.Broadcast(interact);
@@ -288,9 +324,8 @@ public class Detective : MonoBehaviour
         }
       }
 
-      if (_inputHandler.GetInteractInput())
+      if (interacted)
       {
-        var draggable = colliderGameObject.GetComponent<Draggable>();
         if (draggable != null)
         {
           StartCoroutine(DragObject(colliderGameObject));
@@ -321,25 +356,12 @@ public class Detective : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(cursorPosition);
         Vector3 direction = ray.GetPoint(initialDistance) - dragObject.transform.position;
         rb.velocity = direction * mouseDragSpeed;
-        //rb.AddForce(direction * mouseDragSpeed);
+        rb.AddForce(direction * mouseDragSpeed);
         yield return new WaitForFixedUpdate();
       }
       RotationSpeed = originalMouseSpeed;
     }
   }
-
-  // private IEnumerator Jump()
-  // {
-  //   float timeElapsed = 0;
-  //   float jumpTime = 0.25f; // jump over 0.25 seconds
-  //   while (timeElapsed < jumpTime)
-  //   {
-  //     transform.Translate(0, jumpHeight * Time.deltaTime, 0); // TODO use a better function
-  //     timeElapsed += Time.deltaTime;
-  //     yield return null;
-  //   }
-  //   jumping = null;
-  // }
 
   private IEnumerator Crouch()
   {

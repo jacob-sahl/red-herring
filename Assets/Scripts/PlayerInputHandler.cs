@@ -165,7 +165,6 @@ public class PlayerInputHandler : MonoBehaviour
   public void OnJump(InputAction.CallbackContext context)
   {
     jump = context.action.triggered;
-    Debug.Log("jump:" + jump);
   }
 
   public void OnPause(InputAction.CallbackContext context)

@@ -18,9 +18,80 @@ public class GameController : MonoBehaviour
   public List<int> detectiveOrder;
   // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
   public int currentRound;
-  public int minutesPerRound = 3;
+  public int minutesPerRound = 5;
+  public List<TypeWriterPuzzleInstance> puzzles = new List<TypeWriterPuzzleInstance> {
+    new TypeWriterPuzzleInstance(
+      TypeWriterPuzzleID.BlueRedYellow,
+      "BLUE RED YELLOW",
+      new List<(SecretObjectiveID, string)> {
+        (SecretObjectiveID.LookThroughWindow, "Get the detective to look out of the window for three consecutive seconds."),
+        (SecretObjectiveID.InvertTypewriter, "Get the detective to turn the typewriter upside-down."),
+        (SecretObjectiveID.SpinGlobeThrice, "Get the detective to spin the globe around three times."),
+      },
+      new List<string> {
+        "The solution is very colourful.",
+        "There is a clue underneath the skull.",
+        "The solution is not secondary.",
+      },
+      new Dictionary<string, string>() {
+        {"X", "4"},
+        {"Y", "2"},
+        {"Z", "9"},
+      }
+    ),
+    new TypeWriterPuzzleInstance(
+      TypeWriterPuzzleID.One2Three,
+      "ONE 2 THREE",
+      new List<(SecretObjectiveID, string)> {
+        (SecretObjectiveID.LookThroughWindow, "Get the detective to look out of the window for three consecutive seconds."),
+        (SecretObjectiveID.DropCorrect, "Get the detective to drop the typewriter while the correct solution is written out (you must get them to do this before they hit 'submit')."),
+        (SecretObjectiveID.SkullOffShelf, "Get the detective to throw the skull off of the bookshelf."),
+      },
+      new List<string> {
+        "The solution might require a few hours' thought.",
+        "The second word of the solution is a number.",
+        "... Four!",
+      },
+      new Dictionary<string, string>()
+    ),
+    new TypeWriterPuzzleInstance(
+      TypeWriterPuzzleID.FearOfElephants,
+      "FEAR OF ELEPHANTS",
+      new List<(SecretObjectiveID, string)> {
+        (SecretObjectiveID.LookThroughWindow, "Get the detective to look out of the window for three consecutive seconds."),
+        (SecretObjectiveID.SolveWithThreeOnTimer, "Get the detective to solve the puzzle while there is a '3' on the timer."),
+        (SecretObjectiveID.TypeGIRAFFE, "Get the detective to type the word 'GIRAFFE'."),
+      },
+      new List<string> {
+        "The solution is a feeling of immense apprehension. X = 4.",
+        "Pachyderm = Elephant. Y = 2.",
+        "Books 4 and 10 on the wall shelf are clues to the solution. Z = 9.",
+      },
+      new Dictionary<string, string>() {
+        {"X", "4"},
+        {"Y", "2"},
+        {"Z", "9"},
+      }
+    ),
+    new TypeWriterPuzzleInstance(
+      TypeWriterPuzzleID.PlantsAndAnimals,
+      "PLANTS AND ANIMALS",
+      new List<(SecretObjectiveID, string)> {
+        (SecretObjectiveID.SolveQuickly, "Ensure that the puzzle is solved with 3 or more minutes remaining."),
+        (SecretObjectiveID.SetClockTo545, "Get the detective to set the clock's time to 5:45 (or later)."),
+        (SecretObjectiveID.StationaryGramophone, "Make sure that the detective does NOT move the gramophone."),
+      },
+      new List<string> {
+        "The solution can be seen high up in the night sky outside the window.",
+        "There is a clue stuck to the bottom of the gramophone.",
+        "There is a clue on the top of a bookshelf.",
+      },
+      new Dictionary<string, string>()
+    ),
+  };
   public List<SecretObjective> currentSecretObjectives;
   public List<string> currentClues;
+  private bool _readyToSetUpLevel;
   void Awake()
   {
     if (Instance != null && Instance != this)
@@ -45,7 +116,7 @@ public class GameController : MonoBehaviour
 
     // Deterministic detective order
     detectiveOrder = new List<int> { 0, 1, 2, 3 };
-    currentRound = 0;
+    currentRound = -1;
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelEndEvent>(onLevelEnd);
   }
@@ -54,12 +125,23 @@ public class GameController : MonoBehaviour
   void Start()
   {
     PlayerManager = PlayerManager.Instance;
+    _readyToSetUpLevel = true;
   }
 
   private void OnDestroy()
   {
     EventManager.RemoveListener<LevelStartEvent>(onGameStart);
     EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
+  }
+
+  public int getCurrentDetective()
+  {
+    return detectiveOrder[currentRound];
+  }
+
+  public TypeWriterPuzzleInstance getCurrentPuzzle()
+  {
+    return puzzles[currentRound];
   }
 
   private List<int> getRandomSOAssignment()
@@ -80,34 +162,33 @@ public class GameController : MonoBehaviour
 
   void assignSecretObjectives()
   {
+    // Destroy previous secret objectives
+    {
+      while (currentSecretObjectives != null && currentSecretObjectives.Count > 0)
+      {
+        SecretObjective so = currentSecretObjectives[currentSecretObjectives.Count - 1];
+        so.Deconstruct();
+        currentSecretObjectives.Remove(so);
+      }
+    }
+
+    TypeWriterPuzzleInstance puzzle = puzzles[currentRound];
     currentSecretObjectives = new List<SecretObjective>();
     currentClues = new List<string>();
     List<int> order = getRandomSOAssignment();
-    // Hardcoded for now. LATER: secret objectives depend on the puzzle instance
-    SecretObjective so1 = new SecretObjective(
-        PlayerManager.getPlayerByID(order[0]),
-        "Get the detective to look out of the window for three consecutive seconds.",
-        "The answer is in alphabetical order.",
-        SecretObjectiveID.LookThroughWindow
-    );
-    currentSecretObjectives.Add(so1);
-    currentClues.Add("");
 
-    SecretObjective so2 = new SecretObjective(
-        PlayerManager.getPlayerByID(order[1]),
-        "Get the detective to turn the typewriter upside-down.",
-        "The answer is very colourful.",
-        SecretObjectiveID.InvertTypewriter
+    for (int i = 0; i < 3; i++)
+    {
+      SecretObjective so = new SecretObjective(
+        PlayerManager.getPlayerByID(order[i]),
+        puzzle.secrets[i].Item2,
+        puzzle.clues[i],
+        puzzle.secrets[i].Item1
     );
-    currentSecretObjectives.Add(so2);
-
-    SecretObjective so3 = new SecretObjective(
-        PlayerManager.getPlayerByID(order[2]),
-        "Get the detective to type 'FOOL' into the typewriter.",
-        "The answer is not secondary.",
-        SecretObjectiveID.TypeFOOL
-    );
-    currentSecretObjectives.Add(so3);
+      // Are these necessary?
+      currentSecretObjectives.Add(so);
+      currentClues.Add(puzzle.clues[i]);
+    }
   }
 
   public SecretObjective getPlayersSecretObjective(int playerId)
@@ -139,7 +220,7 @@ public class GameController : MonoBehaviour
 
   public void LoadEndScene()
   {
-    LoadScene("End");
+    LoadScene("RoundEnd");
   }
 
   private bool checkCanStartGame()
@@ -178,15 +259,22 @@ public class GameController : MonoBehaviour
 
   public void SetupLevel()
   {
-    // FOR DEV PURPOSES: (REMOVE ON BUILD)
-    PlayerManager.fillPlayers();
-    assignSecretObjectives();
-    LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
-    EventManager.Broadcast(e);
+    if (_readyToSetUpLevel)
+    {
+      // FOR DEV PURPOSES: (REMOVE ON BUILD)
+      PlayerManager.fillPlayers();
+      // ^
+      currentRound++; // Must be done FIRST
+      assignSecretObjectives();
+      LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
+      EventManager.Broadcast(e);
+      _readyToSetUpLevel = false;
+    }
   }
 
   void onLevelEnd(LevelEndEvent e)
   {
+    _readyToSetUpLevel = true;
     _roundEndText = e.endMessage;
   }
 }

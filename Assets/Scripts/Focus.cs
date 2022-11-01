@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(BoxCollider))]
 public class Focus : MonoBehaviour
 {
   [Tooltip("The rotation that this object will start out with when inspected.")]
   public Vector3 defaultRotation;
+  public Vector3 defaultTranslation;
   public float focusDistance;
   private Rigidbody rb;
   void Start()
@@ -23,7 +24,10 @@ public class Focus : MonoBehaviour
 
   public void OnFocus(FocusEvent evt)
   {
-    disablePhysics();
+    if (evt.gameObject == gameObject)
+    {
+      disablePhysics();
+    }
   }
 
   public void disableCollider()
@@ -38,13 +42,13 @@ public class Focus : MonoBehaviour
 
   public void disablePhysics()
   {
-    rb.isKinematic = true;
+    if (rb != null) rb.isKinematic = true;
     disableCollider();
   }
 
   public void enablePhysics()
   {
-    rb.isKinematic = false;
+    if (rb != null) rb.isKinematic = false;
     enableCollider();
   }
 }
