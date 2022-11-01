@@ -29,15 +29,21 @@ namespace Utils
 
         void Update()
         {
-            while (ExecuteOnMainThread.Count > 0)
+            lock (ExecuteOnMainThread)
             {
-                ExecuteOnMainThread.Dequeue().Invoke();
+                while (ExecuteOnMainThread.Count > 0)
+                {
+                    ExecuteOnMainThread.Dequeue().Invoke();
+                }
             }
         }
         
         public void RunInMainThread(Action action)
         {
-            ExecuteOnMainThread.Enqueue(action);
+            lock (ExecuteOnMainThread)
+            {
+                ExecuteOnMainThread.Enqueue(action);
+            }
         }
     }
 }
