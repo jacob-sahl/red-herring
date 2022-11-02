@@ -20,7 +20,8 @@ public class GameController : MonoBehaviour
   // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
   public int currentRound;
   public int minutesPerRound = 5;
-  public float mouseSensitivity = 1;
+  public float mouseSensitivity = 1f;
+  public float objectRotationSpeed = 0.3f;
   public List<TypeWriterPuzzleInstance> puzzles = new List<TypeWriterPuzzleInstance> {
     new TypeWriterPuzzleInstance(
       TypeWriterPuzzleID.BlueRedYellow,
@@ -220,7 +221,12 @@ public class GameController : MonoBehaviour
     mouseSensitivity = value;
   }
 
-  public void LoadScene(string name)
+    public void updateObjectRotationSpeed(float value)
+    {
+        objectRotationSpeed = value;
+    }
+
+    public void LoadScene(string name)
   {
     SceneManager.LoadScene(name);
   }
