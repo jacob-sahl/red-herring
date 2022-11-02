@@ -35,7 +35,11 @@ public class GameController : MonoBehaviour
         "There is a clue underneath the skull.",
         "The solution is not secondary.",
       },
-      new Dictionary<string, string>()
+      new Dictionary<string, string>() {
+        {"1", "BLUE"},
+        {"2", "RED"},
+        {"3", "Figure that one out yourself."}
+      }
     ),
     new TypeWriterPuzzleInstance(
       TypeWriterPuzzleID.One2Three,
