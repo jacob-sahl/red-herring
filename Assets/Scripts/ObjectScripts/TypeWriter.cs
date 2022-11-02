@@ -30,12 +30,15 @@ public class TypeWriter : MonoBehaviour
         colorStrikers();
         break;
     }
-    rightSetCarriage();
+    // rightSetCarriage();
   }
-  void rightSetCarriage()
-  {
-    carriageGroup.transform.Translate(new Vector3(-1.5f, 0f, 0f));
-  }
+  // void rightSetCarriage()
+  // {
+  //   carriageGroup.transform.Translate(new Vector3(-1.5f, 0f, 0f));
+  // }
+  // void bumpCarriageLeft() {
+
+  // }
   void Update()
   {
     if (Vector3.Dot(transform.up, Vector3.down) > 0 && !broadcasted.Contains(SecretObjectiveID.InvertTypewriter))
