@@ -17,6 +17,8 @@ TagManager:
   - window
   - 'DEBUG: test1'
   - 'DEBUG: test2'
+  - Books
+  - ShelfContent
   layers:
   - Default
   - TransparentFX

@@ -10,10 +10,10 @@ namespace MainMenu
   {
     public List<GameObject> players = new List<GameObject>();
 
-    // void Start()
-    // {
-    //   UpdateAllPlayers();
-    // }
+    void Start()
+    {
+      UpdateAllPlayers();
+    }
 
     private void UpdateAllPlayers()
     {
@@ -35,10 +35,12 @@ namespace MainMenu
         var avatar = player.transform.Find("Avatar");
         PlayerController playerController = PlayerManager.Instance.getPlayer(playerID);
         avatar.GetComponent<Image>().color = playerController.color;
-        Debug.Log("Role: " + playerController.role);
+        Debug.Log("Player: " + playerID + " Role: " + playerController.role);
         if (playerController.role == PlayerRole.Detective)
         {
           player.transform.Find("Role").GetComponent<TMP_Text>().text = "Detective";
+          var qrCode = player.transform.Find("QRCode").gameObject;
+          qrCode.SetActive(false);
         }
         else
         {
@@ -48,6 +50,7 @@ namespace MainMenu
           qrCode.SetActive(true);
           qrCode.GetComponent<QRCodeObject>().QRCodeContent = CardURLGenerator.GetCardURL("1", "window",
               secret.clue, secret.description);
+          Debug.Log("Secret: " + secret.description);
         }
       }
     }

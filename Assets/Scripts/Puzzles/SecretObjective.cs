@@ -4,7 +4,17 @@ public enum SecretObjectiveID
 {
   LookThroughWindow,
   TypeFOOL,
-  InvertTypewriter
+  InvertTypewriter,
+  DropCorrect,
+  SpinGlobeThrice,
+  TypeFIVE,
+  SkullOffShelf,
+  SolveWithThreeOnTimer,
+  TypeGIRAFFE,
+  SetClockTo545,
+  StationaryGramophone,
+  SolveQuickly,
+  _PLACEHOLDER
 }
 
 public class SecretObjective
