@@ -1636,7 +1636,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2090729565}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3409,11 +3409,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<b>Detective</b>\n\nAs the detective, you are in control of the game.
-    Your goal is to solve the puzzle by entering the correct seqeunce of 3 words
+    Your goal is to solve the puzzle by entering the correct sequence of 3 words
     into the typewriter. Solving the puzzle is the only way for you to earn points
     as the detective. \n\nErring Manor is full of secrets, and puzzles always have
-    many more clues available than are needed to solve them. Many of them will be
-    hidden around the environment. Informants are also each given a clue at the beginning
+    many more clues available than are needed to solve them. Many clues will be hidden
+    around the environment. Informants are also each given a clue at the beginning
     of the round, along with their secret objective."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -4244,10 +4244,10 @@ MonoBehaviour:
   m_text: "<b>Informant</b>\n\nAs an informant, your goal is to help the detective
     solve the puzzle by communicating verbally with them, while also trying to manipulate
     them into completing your <b>secret objective</b>. \n\nScan the QR code in the
-    round preview screen in order to receive your objective, along with a <b>hint</b>
-    to the puzzle's solution. <i>You only get points when the puzzle is solved</i>,
-    and you get additional points for completing your secret objective, so be careful
-    about when and how you reveal the information given in your hint."
+    round preview screen in order to receive your objective, along with a clue to
+    the puzzle's solution. <i>You only get points when the puzzle is solved</i>,
+    but you get additional points for completing your secret objective, so be careful
+    about when and how you reveal the information given in your clue."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -4647,8 +4647,8 @@ MonoBehaviour:
   mainSceneName: _MAINSCENE
   detectiveOrder: 
   currentRound: 0
-  mouseSensitivity: 1
   minutesPerRound: 5
+  mouseSensitivity: 1
   currentClues: []
 --- !u!4 &666354604
 Transform:
@@ -5489,8 +5489,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 275848469}
+  m_Children: []
   m_Father: {fileID: 1259618598}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6652,7 +6651,7 @@ RectTransform:
   - {fileID: 1402301679}
   - {fileID: 1259618598}
   m_Father: {fileID: 1011026913}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8094,7 +8093,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 184575494}
-  m_FillRect: {fileID: 275848469}
+  m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 184575493}
   m_Direction: 0
   m_MinValue: 0.01
@@ -12348,7 +12347,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Both roles lose points whenever another player completes a secret objective.
+  m_text: <b>Both</b> roles lose points whenever another player completes a secret
+    objective, so be on the lookout for suspicious behaviour!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -13415,6 +13415,7 @@ RectTransform:
   m_Children:
   - {fileID: 1604231978}
   - {fileID: 1512646976}
+  - {fileID: 163482750}
   m_Father: {fileID: 1011026913}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
