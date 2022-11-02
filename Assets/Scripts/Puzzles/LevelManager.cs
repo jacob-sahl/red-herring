@@ -16,9 +16,10 @@ public class LevelManager : MonoBehaviour
 
   [Header("Ending")]
   [Tooltip("This string has to be the name of the scene you want to load when game ends")]
-  public string endSceneName = "End";
+  public string endSceneName = "RoundEnd";
 
   private float puzzleTime;
+  private float _completionTime;
   [SerializeField] private float _timeLeft;
   [SerializeField] private bool puzzleStarted;
   private UIController uiController;
@@ -35,7 +36,7 @@ public class LevelManager : MonoBehaviour
     audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
     uiController = GameObject.Find("Hud").GetComponent<UIController>();
     playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
-    puzzleTime = GameController.Instance.minutesPerRound * 60f;
+    puzzleTime = gameController.minutesPerRound * 60f;
     _timeLeft = puzzleTime;
     puzzleStarted = true;
     LevelStartEvent levelStartEvent = new LevelStartEvent();
@@ -102,9 +103,48 @@ public class LevelManager : MonoBehaviour
     return true;
   }
 
+  private void checkCompletionTime()
+  {
+    _completionTime = _timeLeft;
+    // Checking digits of completion time
+    int minutes = Mathf.FloorToInt(_completionTime / 60);
+    int seconds = Mathf.FloorToInt(_completionTime % 60);
+    // Debug.Log("Completion Time, Minutes: " + minutes + " Seconds: " + seconds);
+    if (minutes.ToString().Contains("3") || seconds.ToString().Contains("3"))
+    {
+      SecretObjectiveEvent e = new SecretObjectiveEvent();
+      e.id = SecretObjectiveID.SolveWithThreeOnTimer;
+      e.status = true;
+      EventManager.Broadcast(e);
+    }
+    if (minutes >= 3)
+    {
+      SecretObjectiveEvent e = new SecretObjectiveEvent();
+      e.id = SecretObjectiveID.SolveQuickly;
+      e.status = true;
+      EventManager.Broadcast(e);
+    }
+  }
+
+  private void checkObjectMovement()
+  {
+    Debug.Log("Checking object movement");
+    GameObject gramophone = GameObject.Find("Gramophone").gameObject;
+    if (!gramophone.GetComponent<HasMoved>().hasMoved())
+    {
+      Debug.Log("Gramophone has not moved");
+      SecretObjectiveEvent e = new SecretObjectiveEvent();
+      e.id = SecretObjectiveID.StationaryGramophone;
+      e.status = true;
+      EventManager.Broadcast(e);
+    }
+  }
+
   private void EndLevel()
   {
     puzzleStarted = false;
+    checkCompletionTime();
+    checkObjectMovement();
     List<int> pointsToAdd = new List<int> { 0, 0, 0, 0 };
     string roundEndText = "In this round, ";
     foreach (var puzzle in puzzles)

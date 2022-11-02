@@ -12,6 +12,7 @@ public static class Events
   public static PlayerJoinedEvent PlayerJoinedEvent = new PlayerJoinedEvent();
   public static PlayerUpdateEvent PlayerUpdateEvent = new PlayerUpdateEvent();
   public static SecretObjectiveEvent SecretObjectiveEvent = new SecretObjectiveEvent();
+  public static ClockTimeChangeEvent ClockTimeChangeEvent = new ClockTimeChangeEvent();
 }
 
 
@@ -47,7 +48,7 @@ public class ICursorHoverEvent : GameEvent
 
 public class FocusEvent : GameEvent
 {
-  public string ObjectTag;
+  public GameObject gameObject;
 }
 
 public class PlayerJoinedEvent : GameEvent
@@ -69,4 +70,9 @@ public class SecretObjectiveEvent : GameEvent
 {
   public SecretObjectiveID id;
   public bool status;
+}
+
+public class ClockTimeChangeEvent : GameEvent
+{
+  public int minutes;
 }
