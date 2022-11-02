@@ -5,22 +5,28 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using TMPro;
 
 public class PauseScreen : MonoBehaviour
 {
   [Header("Parameters")]
   private bool pauseRelased = false;
   private PlayerInputHandler _inputHandler;
-  private GameObject PauseText; //= GameObject.Find("PauseText");
-                                // Start is called before the first frame update
   private Detective detective;
   void Start()
   {
     pauseRelased = false;
     //_inputHandler = GetComponent<PlayerInputHandler>();
-    PauseText = GameObject.Find("PauseText");
-    PauseText.GetComponent<UnityEngine.UI.Text>().text = "";
     detective = GameObject.Find("Detective").GetComponent<Detective>();
+    setPauseScreenChildrenActive(false);
+  }
+
+  void setPauseScreenChildrenActive(bool state)
+  {
+    for (int i = 0; i < transform.childCount; i++)
+    {
+      transform.GetChild(i).gameObject.SetActive(state);
+    }
   }
 
   // Update is called once per frame
@@ -50,8 +56,9 @@ public class PauseScreen : MonoBehaviour
       detective.frozen = false;
       pauseRelased = false;
       Debug.Log("unpaused");
-      PauseText.GetComponent<UnityEngine.UI.Text>().text = "";
-      //PauseText.SetActive(false); //.getComponent<MeshRenderer>().enabled = false;
+      setPauseScreenChildrenActive(false);
+      Cursor.visible = false;
+      Cursor.lockState = CursorLockMode.Locked;
     }
     if (Time.timeScale == 1.0f && pauseRelased)
     {
@@ -59,8 +66,9 @@ public class PauseScreen : MonoBehaviour
       detective.frozen = true;
       pauseRelased = false;
       Debug.Log("paused");
-      PauseText.GetComponent<UnityEngine.UI.Text>().text = "Game Paused";
-      //PauseText.SetActive(true); //.getComponent<MeshRenderer>().enabled = true;
+      setPauseScreenChildrenActive(true);
+      Cursor.visible = true;
+      Cursor.lockState = CursorLockMode.None;
     }
   }
 

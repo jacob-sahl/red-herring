@@ -75,6 +75,7 @@ public class Detective : MonoBehaviour
     cameraHeight = playerCamera.transform.localPosition.y;
     cursorSpeed = GameController.Instance.mouseSensitivity;
     focusControls = FindObjectOfType<FocusControls>().gameObject;
+    focusControls.SetActive(false);
   }
 
   private void OnDestroy()
