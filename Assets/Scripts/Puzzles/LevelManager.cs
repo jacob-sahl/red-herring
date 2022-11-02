@@ -29,7 +29,6 @@ public class LevelManager : MonoBehaviour
   public bool gameIsEnding;
   private float _timeLoadEndGameScene;
   public List<Puzzle> puzzles = new List<Puzzle> { };
-  private int puzzlesCompleted = 0;
 
   void Start()
   {
@@ -70,7 +69,14 @@ public class LevelManager : MonoBehaviour
 
       if (Time.time >= _timeLoadEndGameScene)
       {
-        GameController.Instance.LoadEndScene();
+        if (GameController.Instance.currentRound == 3)
+        {
+          GameController.Instance.LoadGameEndScene();
+        }
+        else
+        {
+          GameController.Instance.LoadEndScene();
+        }
         gameIsEnding = false;
       }
     }
@@ -143,7 +149,6 @@ public class LevelManager : MonoBehaviour
 
   private void EndLevel()
   {
-    puzzlesCompleted++;
     puzzleStarted = false;
     checkCompletionTime();
     checkObjectMovement();
@@ -197,6 +202,11 @@ public class LevelManager : MonoBehaviour
     LevelEndEvent levelEndEvent = new LevelEndEvent();
     levelEndEvent.endMessage = roundEndText;
     EventManager.Broadcast(levelEndEvent);
+
+    if (GameController.Instance.currentRound == 3)
+    {
+      EndGame();
+    }
     
     FadeOut();
   }

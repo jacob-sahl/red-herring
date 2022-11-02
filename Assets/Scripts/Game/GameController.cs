@@ -118,6 +118,7 @@ public class GameController : MonoBehaviour
     currentRound = -1;
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelEndEvent>(onLevelEnd);
+    EventManager.AddListener<GameEndEvent>(onGameEnd);
     LoadPrefereces();
   }
 
@@ -138,6 +139,7 @@ public class GameController : MonoBehaviour
   {
     EventManager.RemoveListener<LevelStartEvent>(onGameStart);
     EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
+    EventManager.RemoveListener<GameEndEvent>(onGameEnd);
   }
 
   public int getCurrentDetective()
