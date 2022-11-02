@@ -8770,34 +8770,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Jade Bertanicz (VFX)
-
-    Juan Testa (Lighting)
-
-    Mateo Valencia (Prop)
-
-    Megha
-    Panchal (Animation)
-
-    Michelle Lin (Producer)
-
-    Mimi Ye (Audio)
-
-    Rozhin
-    Yadegari (Character)
-
-    SalomeZ (Audio)
-
-    Syed Daniyal Ali (Character)
-
-    Tongkun
-    Zhang (Developer)
-
-    Vika Oblapenko (2D Artist)
-
-    Zachary Kaufman (Developer)
-
-'
+  m_text: "Juan Testa (Lighting)\r\nMateo Valencia (Prop)\r\nMegha Panchal (Animation)\r\nMichelle
+    Lin (Producer)\r\nMimi Ye (Audio)\r\nRozhin Yadegari (Character)\r\nSalomeZ (Audio)\r\nSyed
+    Daniyal Ali (Character)\r\nTongkun Zhang (Developer)\r\nVika Oblapenko (2D Artist)\r\nZachary
+    Kaufman (Developer)\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -11896,9 +11872,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Allen Li (Developer)\r\nAlmark Laoag (Environment)\r\nAndrei Yonemoto
     (Rigging)\r\nAndres Lopez (Lead Environment)\r\nDoreen Haristya (Animation)\r\nFinn
-    Warrener (Lead Character)\r\nLina Smiryagina (Lead Prop)\r\nGryffin McKenzie
-    (Art Director)\r\nHeather Campbell (CG Supervisor, Environment)\r\nHeejin Kim
-    (Prop)\r\nJacob Sahlmueller (Author, Developer)\r"
+    Warrener (Lead Character)\r\nLina Smiryagina (Art Director, Lead Prop)\r\nHeather
+    Campbell (CG Supervisor, Environment)\r\nHeejin Kim (Prop)\r\nJacob Sahlmueller
+    (Author, Lead Developer)\r\nJade Bertanicz (VFX)\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
