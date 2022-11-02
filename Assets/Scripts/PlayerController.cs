@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     {
       GameObject.Find("Detective").GetComponent<Detective>().assignInputHandler(_inputHandler);
       playerInput.SwitchCurrentActionMap("Detective");
-      GameObject.Find("PauseText").GetComponent<PauseScreen>().assignInputHandler(_inputHandler);
+      GameObject.Find("PauseScreen").GetComponent<PauseScreen>().assignInputHandler(_inputHandler);
     }
     else
     {
