@@ -30,7 +30,7 @@ public class Detective : MonoBehaviour
 
   [Header("Focused")]
   public float cursorSpeed = 1;
-  public float objectRotateSpeed = 0.5f;
+  public float objectRotateSpeed = 0.3f;
 
   [Tooltip(
       "Sharpness for the movement when grounded, a low value will make the player accelerate and decelerate slowly, a high value will do the opposite")]
@@ -74,6 +74,7 @@ public class Detective : MonoBehaviour
     EventManager.AddListener<FocusEvent>(OnFocus);
     cameraHeight = playerCamera.transform.localPosition.y;
     cursorSpeed = GameController.Instance.mouseSensitivity;
+    objectRotateSpeed = GameController.Instance.objectRotationSpeed;
     focusControls = FindObjectOfType<FocusControls>().gameObject;
     focusControls.SetActive(false);
   }

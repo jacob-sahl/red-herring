@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
   public LevelManager levelManager;
   [SerializeField] public bool forceStart = false;
   public string _roundEndText;
+  public string _gameEndText;
 
   [Header("Main Scene")]
   [Tooltip("This string has to be the name of the scene you want to load when starting a round")]
@@ -20,7 +21,8 @@ public class GameController : MonoBehaviour
   // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
   public int currentRound;
   public int minutesPerRound = 5;
-  public float mouseSensitivity = 1;
+  public float mouseSensitivity = 1f;
+  public float objectRotationSpeed = 0.3f;
   public List<TypeWriterPuzzleInstance> puzzles = new List<TypeWriterPuzzleInstance> {
     new TypeWriterPuzzleInstance(
       TypeWriterPuzzleID.BlueRedYellow,
@@ -121,6 +123,7 @@ public class GameController : MonoBehaviour
     currentRound = -1;
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelEndEvent>(onLevelEnd);
+    EventManager.AddListener<GameEndEvent>(onGameEnd);
     LoadPrefereces();
   }
 
@@ -141,6 +144,7 @@ public class GameController : MonoBehaviour
   {
     EventManager.RemoveListener<LevelStartEvent>(onGameStart);
     EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
+    EventManager.RemoveListener<GameEndEvent>(onGameEnd);
   }
 
   public int getCurrentDetective()
@@ -224,7 +228,12 @@ public class GameController : MonoBehaviour
     mouseSensitivity = value;
   }
 
-  public void LoadScene(string name)
+    public void updateObjectRotationSpeed(float value)
+    {
+        objectRotationSpeed = value;
+    }
+
+    public void LoadScene(string name)
   {
     SceneManager.LoadScene(name);
   }
@@ -292,5 +301,15 @@ public class GameController : MonoBehaviour
   {
     _readyToSetUpLevel = true;
     _roundEndText = e.endMessage;
+  }
+
+  public void LoadGameEndScene()
+  {
+    Debug.Log("Game End");
+    LoadScene("GameEnd");
+  }
+  void onGameEnd(GameEndEvent e)
+  {
+    _gameEndText = e.endMessage;
   }
 }
