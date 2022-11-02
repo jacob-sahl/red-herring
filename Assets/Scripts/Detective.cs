@@ -55,6 +55,7 @@ public class Detective : MonoBehaviour
   Vector3 cursorPosition;
   GameObject focusedObject;
   GameObject focusedObjectPlaceholder;
+  GameObject focusControls;
   private bool focusActive;
   GameObject lastHit;
   Vector3 focusRotationXAxis;
@@ -62,7 +63,6 @@ public class Detective : MonoBehaviour
   float cameraHeight;
   private Coroutine crouching = null;
 
-  // Start is called before the first frame update
   void Start()
   {
     focusedObjectPlaceholder = new GameObject("focusedObjectPlaceholder");
@@ -73,6 +73,7 @@ public class Detective : MonoBehaviour
     moveEnabled = true;
     EventManager.AddListener<FocusEvent>(OnFocus);
     cameraHeight = playerCamera.transform.localPosition.y;
+    focusControls = FindObjectOfType<FocusControls>().gameObject;
   }
 
   private void OnDestroy()
@@ -86,6 +87,9 @@ public class Detective : MonoBehaviour
     {
       defocus();
     }
+    // Show focus controls on-screen
+    focusControls.SetActive(true);
+
     // Calculate vectors relative to the camera to serve as rotational axes
     focusRotationXAxis = Vector3.Cross(playerCamera.transform.forward, Vector3.up);
     focusRotationYAxis = Vector3.Cross(playerCamera.transform.forward, playerCamera.transform.right);
@@ -120,6 +124,8 @@ public class Detective : MonoBehaviour
 
   void defocus()
   {
+    // Hide focus controls
+    focusControls.SetActive(false);
     // Reset cursor to centre and exit focus
     cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
     cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);

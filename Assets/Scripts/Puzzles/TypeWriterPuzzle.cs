@@ -134,7 +134,7 @@ public class TypeWriterPuzzle : Puzzle
         else
         {
           _answer = "";
-          puzzle_text.text = "Mistake!";
+          puzzle_text.text = "Incorrect.";
           levelManager.audioController.playMistake();
         }
         break;

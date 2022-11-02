@@ -9,10 +9,12 @@ public class TypeWriter : MonoBehaviour
   private TypeWriterPuzzleID activePuzzle;
   private TypeWriterPuzzle _typeWriterPuzzle;
   private List<SecretObjectiveID> broadcasted = new List<SecretObjectiveID>();
+  private GameObject carriageGroup;
   void Awake()
   {
     audioSource = gameObject.GetComponent<AudioSource>();
     EventManager.AddListener<DefocusEvent>(onDefocus);
+    carriageGroup = transform.Find("CarriageGroup").gameObject;
   }
   private void OnDestroy()
   {
@@ -28,6 +30,11 @@ public class TypeWriter : MonoBehaviour
         colorStrikers();
         break;
     }
+    rightSetCarriage();
+  }
+  void rightSetCarriage()
+  {
+    carriageGroup.transform.Translate(new Vector3(-1.5f, 0f, 0f));
   }
   void Update()
   {
@@ -53,6 +60,10 @@ public class TypeWriter : MonoBehaviour
         broadcasted.Add(e.id);
       }
     }
+  }
+  public void moveCarriageGroup()
+  {
+
   }
   public void playKeydownClip()
   {

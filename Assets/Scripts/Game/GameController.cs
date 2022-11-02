@@ -33,11 +33,7 @@ public class GameController : MonoBehaviour
         "There is a clue underneath the skull.",
         "The solution is not secondary.",
       },
-      new Dictionary<string, string>() {
-        {"X", "4"},
-        {"Y", "2"},
-        {"Z", "9"},
-      }
+      new Dictionary<string, string>()
     ),
     new TypeWriterPuzzleInstance(
       TypeWriterPuzzleID.One2Three,
@@ -78,7 +74,7 @@ public class GameController : MonoBehaviour
       "PLANTS AND ANIMALS",
       new List<(SecretObjectiveID, string)> {
         (SecretObjectiveID.SolveQuickly, "Ensure that the puzzle is solved with 3 or more minutes remaining."),
-        (SecretObjectiveID.SetClockTo545, "Get the detective to set the clock's time to 5:45 (or later)."),
+        (SecretObjectiveID.SetClockTo545, "Get the detective to set the grandfather clock's time to 5:45 (or later)."),
         (SecretObjectiveID.StationaryGramophone, "Make sure that the detective does NOT move the gramophone."),
       },
       new List<string> {

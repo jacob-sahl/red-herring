@@ -912,8 +912,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 124689527}
   - {fileID: 592472098}
+  - {fileID: 124689527}
   - {fileID: 1498193051}
   - {fileID: 1281802399}
   m_Father: {fileID: 1636854473}
@@ -1326,11 +1326,11 @@ RectTransform:
   m_Children:
   - {fileID: 2113323367}
   m_Father: {fileID: 116828395}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 233.9443, y: 38.34851}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &124689528
@@ -3197,16 +3197,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Detective (Keyboard Player)
-
-
-
-    As the detective, you control the game.
-    Use whatever information you can get from your informants as well as clues hidden
-    around the room to figure out the solution. Your goal is to solve the puzzle.
-    This is the only way for you to get points.
-
-'
+  m_text: "<b>Detective</b>\n\nAs the detective, you are in control of the game.
+    Your goal is to solve the puzzle by entering the correct seqeunce of 3 words
+    into the typewriter. Solving the puzzle is the only way for you to earn points
+    as the detective. \n\nErring Manor is full of secrets, and puzzles always have
+    many more clues available than are needed to solve them. Many of them will be
+    hidden around the environment. Informants are also each given a clue at the beginning
+    of the round, along with their secret objective."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -3572,7 +3569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6812618066405640711, guid: d4ffa95520af04b41955be7745b54443, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6812618066405640711, guid: d4ffa95520af04b41955be7745b54443, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3894,8 +3891,8 @@ MonoBehaviour:
     points for that round.
 
 
-    At the end of the 4 rounds, point totals are revealed,
-    the player with the highest score is the winner.
+    At the end of 4 rounds, point totals are revealed
+    and the player with the highest score is the winner.
 
 
     Good Luck!'
@@ -4033,14 +4030,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Informant (Gamepad Players)
-
-
-
-    As an informant, your goal is to help
-    the detective solve the puzzle, but also to complete your secret objective. Scan
-    the QR code to receive your hint and objective. You get points when the puzzle
-    is solvved, and get additional points for completing your secret objective.'
+  m_text: "<b>Informant</b>\n\nAs an informant, your goal is to help the detective
+    solve the puzzle by communicating verbally with them, while also trying to manipulate
+    them into completing your <b>secret objective</b>. \n\nScan the QR code in the
+    round preview screen in order to receive your objective, along with a <b>hint</b>
+    to the puzzle's solution. <i>You only get points when the puzzle is solved</i>,
+    and you get additional points for completing your secret objective, so be careful
+    about when and how you reveal the information given in your hint."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -6446,7 +6442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6812618066405640711, guid: d4ffa95520af04b41955be7745b54443, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6812618066405640711, guid: d4ffa95520af04b41955be7745b54443, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7626,7 +7622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 350, y: 25}
+  m_AnchoredPosition: {x: 350, y: -50}
   m_SizeDelta: {x: 233.9443, y: 38.34851}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1281802400
@@ -8119,8 +8115,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1735788185}
   - {fileID: 1077142323}
+  - {fileID: 1735788185}
   - {fileID: 915778105}
   - {fileID: 123169953}
   m_Father: {fileID: 1636854473}
@@ -9240,7 +9236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 37}
+  m_AnchoredPosition: {x: 0, y: 90}
   m_SizeDelta: {x: 752.7378, y: 266.662}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &1502394642
@@ -10830,7 +10826,7 @@ RectTransform:
   m_Children:
   - {fileID: 1542996780}
   m_Father: {fileID: 1321306008}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -11378,7 +11374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 41}
+  m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 376.36, y: 266.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1826574585
@@ -12024,17 +12020,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome to Red Herring!
+  m_text: 'Welcome to RED HERRING!
 
 
-    Red Herring is a game about co-operation
-    and deception. Each round there is 1 detective and 3 informants. There will be
-    4 rounds, each of you will get a chance to be the detective.
+    RED HERRING! is a game about co-operation
+    and deception. Each round, one player will be the <b>detective</b> and the other
+    three will be <b>informants</b>. There will be 4 rounds, so every player will
+    get a chance to be the detective.
 
 
-    The objective
-    is to solve the puzzle: to enter the correct sequence of 3 words is intered into
-    the typewriter in the center of the room.'
+    The objective of every round is to enter
+    the correct sequence of 3 words into the <b>typewriter</b> in the center of the
+    room.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
