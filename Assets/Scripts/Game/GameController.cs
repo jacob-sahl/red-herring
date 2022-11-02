@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -33,11 +34,7 @@ public class GameController : MonoBehaviour
         "There is a clue underneath the skull.",
         "The solution is not secondary.",
       },
-      new Dictionary<string, string>() {
-        {"X", "4"},
-        {"Y", "2"},
-        {"Z", "9"},
-      }
+      new Dictionary<string, string>()
     ),
     new TypeWriterPuzzleInstance(
       TypeWriterPuzzleID.One2Three,
@@ -78,7 +75,7 @@ public class GameController : MonoBehaviour
       "PLANTS AND ANIMALS",
       new List<(SecretObjectiveID, string)> {
         (SecretObjectiveID.SolveQuickly, "Ensure that the puzzle is solved with 3 or more minutes remaining."),
-        (SecretObjectiveID.SetClockTo545, "Get the detective to set the clock's time to 5:45 (or later)."),
+        (SecretObjectiveID.SetClockTo545, "Get the detective to set the grandfather clock's time to 5:45 (or later)."),
         (SecretObjectiveID.StationaryGramophone, "Make sure that the detective does NOT move the gramophone."),
       },
       new List<string> {
@@ -91,6 +88,7 @@ public class GameController : MonoBehaviour
   };
   public List<SecretObjective> currentSecretObjectives;
   public List<string> currentClues;
+  private bool _readyToSetUpLevel;
   void Awake()
   {
     if (Instance != null && Instance != this)
@@ -118,12 +116,20 @@ public class GameController : MonoBehaviour
     currentRound = -1;
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelEndEvent>(onLevelEnd);
+    LoadPrefereces();
+  }
+  
+  void LoadPrefereces()
+  {
+    GamePreferences.Load();
+    minutesPerRound = GamePreferences.MinutesPerRound;
   }
 
   // Start is called before the first frame update
   void Start()
   {
     PlayerManager = PlayerManager.Instance;
+    _readyToSetUpLevel = true;
   }
 
   private void OnDestroy()
@@ -204,6 +210,8 @@ public class GameController : MonoBehaviour
   public void updateMinutesPerRound(string value)
   {
     minutesPerRound = int.Parse(value);
+    GamePreferences.MinutesPerRound = minutesPerRound;
+    GamePreferences.Save();
   }
 
   public void LoadScene(string name)
@@ -257,17 +265,22 @@ public class GameController : MonoBehaviour
 
   public void SetupLevel()
   {
-    // FOR DEV PURPOSES: (REMOVE ON BUILD)
-    PlayerManager.fillPlayers();
-    // ^
-    currentRound++; // Must be done FIRST
-    assignSecretObjectives();
-    LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
-    EventManager.Broadcast(e);
+    if (_readyToSetUpLevel)
+    {
+      // FOR DEV PURPOSES: (REMOVE ON BUILD)
+      PlayerManager.fillPlayers();
+      // ^
+      currentRound++; // Must be done FIRST
+      assignSecretObjectives();
+      LevelSetupCompleteEvent e = new LevelSetupCompleteEvent();
+      EventManager.Broadcast(e);
+      _readyToSetUpLevel = false;
+    }
   }
 
   void onLevelEnd(LevelEndEvent e)
   {
+    _readyToSetUpLevel = true;
     _roundEndText = e.endMessage;
   }
 }

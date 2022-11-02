@@ -126,9 +126,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
-                    "id": "beccc07e-5abd-4d30-ad1b-3d886fdd441e",
-                    "path": "<Keyboard>/s",
+                    "name": "left",
+                    "id": "ae7b1fbd-0466-48da-a3c7-4023b9ffbb13",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -137,9 +137,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
-                    "id": "ae7b1fbd-0466-48da-a3c7-4023b9ffbb13",
-                    "path": "<Keyboard>/a",
+                    "name": "down",
+                    "id": "beccc07e-5abd-4d30-ad1b-3d886fdd441e",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -181,9 +181,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
-                    "id": "f86820f1-89bf-46f0-9c44-2ad2fa667ef3",
-                    "path": "<Keyboard>/downArrow",
+                    "name": "left",
+                    "id": "06e60d81-93fc-4e61-8f85-64813c777d3f",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -192,9 +192,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
-                    "id": "06e60d81-93fc-4e61-8f85-64813c777d3f",
-                    "path": "<Keyboard>/leftArrow",
+                    "name": "down",
+                    "id": "f86820f1-89bf-46f0-9c44-2ad2fa667ef3",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

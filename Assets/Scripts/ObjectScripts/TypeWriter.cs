@@ -5,33 +5,65 @@ using UnityEngine;
 public class TypeWriter : MonoBehaviour
 {
   public AudioClip keydownClip;
-  private bool broadcasted = false;
   private AudioSource audioSource;
   private TypeWriterPuzzleID activePuzzle;
+  private TypeWriterPuzzle _typeWriterPuzzle;
+  private List<SecretObjectiveID> broadcasted = new List<SecretObjectiveID>();
+  private GameObject carriageGroup;
   void Awake()
   {
     audioSource = gameObject.GetComponent<AudioSource>();
+    EventManager.AddListener<DefocusEvent>(onDefocus);
+    carriageGroup = transform.Find("CarriageGroup").gameObject;
+  }
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<DefocusEvent>(onDefocus);
   }
   void Start()
   {
     activePuzzle = GameController.Instance.getCurrentPuzzle().id;
+    _typeWriterPuzzle = gameObject.GetComponent<TypeWriterPuzzle>();
     switch (activePuzzle)
     {
       case TypeWriterPuzzleID.BlueRedYellow:
         colorStrikers();
         break;
     }
+    rightSetCarriage();
+  }
+  void rightSetCarriage()
+  {
+    carriageGroup.transform.Translate(new Vector3(-1.5f, 0f, 0f));
   }
   void Update()
   {
-    if (Vector3.Dot(transform.up, Vector3.down) > 0 && !broadcasted)
+    if (Vector3.Dot(transform.up, Vector3.down) > 0 && !broadcasted.Contains(SecretObjectiveID.InvertTypewriter))
     {
       SecretObjectiveEvent evt = new SecretObjectiveEvent();
       evt.id = SecretObjectiveID.InvertTypewriter;
       evt.status = true;
       EventManager.Broadcast(evt);
-      broadcasted = true;
+      broadcasted.Add(evt.id);
     }
+  }
+  void onDefocus(DefocusEvent evt)
+  {
+    if (evt.gameObject == gameObject)
+    {
+      if (_typeWriterPuzzle.CheckAnswer() && !broadcasted.Contains(SecretObjectiveID.DropCorrect))
+      {
+        SecretObjectiveEvent e = new SecretObjectiveEvent();
+        e.id = SecretObjectiveID.DropCorrect;
+        e.status = true;
+        EventManager.Broadcast(e);
+        broadcasted.Add(e.id);
+      }
+    }
+  }
+  public void moveCarriageGroup()
+  {
+
   }
   public void playKeydownClip()
   {

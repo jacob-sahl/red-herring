@@ -52,7 +52,20 @@ public class PlayerManager : MonoBehaviour
     Debug.Log("Filling Players");
     while (nPlayers < 4)
     {
-      Instantiate(playerPrefab);
+      GameObject newPlayer = Instantiate(playerPrefab);
+      PlayerInput input = newPlayer.GetComponent<PlayerInput>();
+      PlayerController p1 = getPlayerByID(0);
+      if (p1.playerInput.devices.Count > 1)
+      {
+        // Hacky way to check if p1 is using keyboard + mouse
+        input.SwitchCurrentControlScheme(new InputDevice[] { Keyboard.current, Mouse.current });
+      }
+      else
+      {
+        input.SwitchCurrentControlScheme(new InputDevice[] { Gamepad.all[0] });
+      }
+
+      Debug.Log("Devices: " + input.devices.Count + " First: " + input.devices[0].name);
     }
   }
 

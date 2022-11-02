@@ -134,7 +134,7 @@ public class TypeWriterPuzzle : Puzzle
         else
         {
           _answer = "";
-          puzzle_text.text = "Mistake!";
+          puzzle_text.text = "Incorrect.";
           levelManager.audioController.playMistake();
         }
         break;
@@ -180,7 +180,7 @@ public class TypeWriterPuzzle : Puzzle
     puzzle_text.text = result;
   }
 
-  private bool CheckAnswer()
+  public bool CheckAnswer()
   {
     return _answer == _solution;
   }

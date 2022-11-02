@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Threading;
 using QRCoder;
@@ -7,6 +8,8 @@ using UnityEngine;
 using Utils;
 using Color = UnityEngine.Color;
 using Image = UnityEngine.UI.Image;
+
+using SysImage = System.Drawing.Image;
 
 public class QRCodeObject : MonoBehaviour
 {
@@ -35,7 +38,7 @@ public class QRCodeObject : MonoBehaviour
         {
             return;
         }
-
+        
         Thread thread = new Thread(_generateQRCode);
         thread.Start();
         _lastQrCodeContent = QRCodeContent;
@@ -47,22 +50,22 @@ public class QRCodeObject : MonoBehaviour
         QRCodeData qrCodeData = qrGenerator.CreateQrCode(QRCodeContent, QRCodeGenerator.ECCLevel.Q);
         QRCode qrCode = new QRCode(qrCodeData);
         Bitmap qrCodeBitmap = qrCode.GetGraphic(20, System.Drawing.Color.Black, System.Drawing.Color.White, true);
+        
         Dispatcher.Instance.RunInMainThread(() =>
         {
             Debug.Log("Updating QR Code");
-            Texture2D qrCodeTexture = new Texture2D(qrCodeBitmap.Width, qrCodeBitmap.Height);
-        
-            for (int i = 0; i < qrCodeBitmap.Width; i++)
-            {
-                for (int j = 0; j < qrCodeBitmap.Height; j++)
-                {
-                    Color color = new Color(qrCodeBitmap.GetPixel(i, j).R / 255.0f, qrCodeBitmap.GetPixel(i, j).G / 255.0f, qrCodeBitmap.GetPixel(i, j).B /255.0f);
-                    qrCodeTexture.SetPixel(i, qrCodeBitmap.Height - j, color);
-                }
-            }
-            qrCodeTexture.Apply();
-            _qrCodeImage.sprite = Sprite.Create(qrCodeTexture,
-                new Rect(0, 0, qrCodeTexture.width, qrCodeTexture.height), new Vector2(0.5f, 0.5f));
+            Texture2D texture = new Texture2D(qrCodeBitmap.Width, qrCodeBitmap.Height);
+            texture.LoadImage(ImageToByte2(qrCodeBitmap));
+            _qrCodeImage.sprite = Sprite.Create(texture, new Rect(0, 0, qrCodeBitmap.Width, qrCodeBitmap.Height), new Vector2(0.5f, 0.5f));
         });
+    }
+
+    public byte[] ImageToByte2(SysImage img)
+    {
+        using (var stream = new MemoryStream())
+        {
+            img.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+            return stream.ToArray();
+        }
     }
 }

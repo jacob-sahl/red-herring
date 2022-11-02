@@ -163,7 +163,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.76575375, y: 0.7332627, z: -0.20816019, w: -0.08610788}
+  m_margin: {x: -0.74103916, y: 0.76571375, z: -0.20816019, w: -0.05394742}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.5800725, y: 0.70056456, z: -0.29983708, w: -0.012637585}
+  m_margin: {x: -0.5604225, y: 0.7166235, z: -0.29983708, w: -0.0073917806}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.76575375, y: 0.7332627, z: -0.20816019, w: -0.08610788}
+  m_margin: {x: -0.72623515, y: 0.7548603, z: -0.20816019, w: -0.064674765}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.45055616, y: 0.71407235, z: -0.29983708, w: 0.005857438}
+  m_margin: {x: -0.41475075, y: 0.7361547, z: -0.29983708, w: 0.049767286}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.5585925, y: 0.71407235, z: -0.29983708, w: -0.027344465}
+  m_margin: {x: -0.53443265, y: 0.7270334, z: -0.29983708, w: -0.014401734}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.39960694, y: 0.7332627, z: -0.29983708, w: 0.005340904}
+  m_margin: {x: -0.35848558, y: 0.7499334, z: -0.29983708, w: 0.005340904}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -1341,7 +1341,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.76575375, y: 0.7332627, z: -0.20816019, w: -0.08610788}
+  m_margin: {x: -0.7254958, y: 0.7769602, z: -0.20816019, w: -0.06134054}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.76575375, y: 0.7332627, z: -0.20816019, w: -0.08610788}
+  m_margin: {x: -0.7257938, y: 0.7441914, z: -0.20816019, w: -0.048133105}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -1753,7 +1753,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.8281996, y: 0.7332627, z: -0.31103343, w: -0.08610788}
+  m_margin: {x: -0.82259595, y: 0.7702248, z: -0.31103343, w: -0.08610788}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -1925,7 +1925,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.76575375, y: 0.7332627, z: -0.20816019, w: -0.08610788}
+  m_margin: {x: -0.72653586, y: 0.7578106, z: -0.20816019, w: -0.08610788}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
