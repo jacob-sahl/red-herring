@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
   public LevelManager levelManager;
   [SerializeField] public bool forceStart = false;
   public string _roundEndText;
+  public string _gameEndText;
 
   [Header("Main Scene")]
   [Tooltip("This string has to be the name of the scene you want to load when starting a round")]
@@ -288,5 +289,15 @@ public class GameController : MonoBehaviour
   {
     _readyToSetUpLevel = true;
     _roundEndText = e.endMessage;
+  }
+
+  public void LoadGameEndScene()
+  {
+    Debug.Log("Game End");
+    LoadScene("GameEnd");
+  }
+  void onGameEnd(GameEndEvent e)
+  {
+    _gameEndText = e.endMessage;
   }
 }
