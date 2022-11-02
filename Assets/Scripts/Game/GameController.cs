@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     public int currentRound;
     public int minutesPerRound = 3;
     public float mouseSensitivity = 1f;
-    public float objectRotateSpeed = 0.5f;
+    public float objectRotateSpeed = 0.3f;
     public List<SecretObjective> currentSecretObjectives;
     public List<string> currentClues;
     void Awake()
