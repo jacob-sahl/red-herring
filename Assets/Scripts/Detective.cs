@@ -29,7 +29,7 @@ public class Detective : MonoBehaviour
   private float velocity;
 
   [Header("Focused")]
-  public float cursorSpeed = 1f;
+  public float cursorSpeed = 1;
   public float objectRotateSpeed = 0.5f;
 
   [Tooltip(
@@ -72,7 +72,8 @@ public class Detective : MonoBehaviour
     moveEnabled = true;
     EventManager.AddListener<FocusEvent>(OnFocus);
     cameraHeight = playerCamera.transform.localPosition.y;
-  }
+    cursorSpeed = GameController.Instance.mouseSensitivity;
+    }
 
   private void OnDestroy()
   {
