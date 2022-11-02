@@ -4549,6 +4549,7 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   forceStart: 1
   _roundEndText: 
+  _gameEndText: 
   mainSceneName: _MAINSCENE
   detectiveOrder: 
   currentRound: 0

@@ -69,7 +69,14 @@ public class LevelManager : MonoBehaviour
 
       if (Time.time >= _timeLoadEndGameScene)
       {
-        GameController.Instance.LoadEndScene();
+        if (GameController.Instance.currentRound == 3)
+        {
+          GameController.Instance.LoadGameEndScene();
+        }
+        else
+        {
+          GameController.Instance.LoadEndScene();
+        }
         gameIsEnding = false;
       }
     }
@@ -157,37 +164,50 @@ public class LevelManager : MonoBehaviour
         {
           pointsToAdd[i] += 4;
         }
-        foreach (SecretObjective secret in gameController.currentSecretObjectives)
-        {
-          if (secret.completed)
-          {
-            pointsToAdd[secret.player.playerId] += 4;
-            // TEMPORARY:
-            roundEndText += $"Player {secret.player.playerId + 1} completed their secret objective, they win!\n";
-            // TEMP ^
-            for (int i = 0; i < pointsToAdd.Count; i++)
-            {
-              pointsToAdd[i] -= 1;
-            }
-          }
-        }
-        // Add points to each player's total
-        for (int i = 0; i < pointsToAdd.Count; i++)
-        {
-          playerManager.players[i].points += pointsToAdd[i];
-        }
       }
       else
       {
         roundEndText += $"Puzzle {puzzle.name} is not complete. \n";
       }
+      foreach (SecretObjective secret in gameController.currentSecretObjectives)
+      {
+        roundEndText += $"Player {secret.player.playerId + 1} had the secret objective to {secret.description}\n";
+        if (secret.completed)
+        {
+          pointsToAdd[secret.player.playerId] += 4;
+          // TEMPORARY:
+          roundEndText += $"Player {secret.player.playerId + 1} completed their secret objective, they win!\n";
+          // TEMP ^
+          for (int i = 0; i < pointsToAdd.Count; i++)
+          {
+            pointsToAdd[i] -= 1;
+          }
+        }
+        else
+        {
+          roundEndText += "It was not completed.\n";
+        }
+      }
+      if (puzzle.isComplete) // TODO split up the text
+      {
+        // Add points to each player's total
+        for (int i = 0; i < pointsToAdd.Count; i++)
+        {
+          playerManager.players[i].points += pointsToAdd[i];
+        }
+      }      
     }
     Debug.Log(roundEndText);
-
+        
     LevelEndEvent levelEndEvent = new LevelEndEvent();
     levelEndEvent.endMessage = roundEndText;
     EventManager.Broadcast(levelEndEvent);
 
+    if (GameController.Instance.currentRound == 3)
+    {
+      EndGame();
+    }
+    
     FadeOut();
   }
 
@@ -204,4 +224,16 @@ public class LevelManager : MonoBehaviour
     _timeLoadEndGameScene = Time.time + endSceneLoadDelay;
   }
 
+  private void EndGame()
+  {
+    string gameEndText = "In this game,\n";
+    for (int i = 0; i < playerManager.players.Count; i++)
+    {
+      gameEndText += $"Player {i} earned {playerManager.players[i].points} points\n";
+    }
+    gameEndText += "Thanks for playing!";
+    GameEndEvent gameEndEvent = new GameEndEvent();
+    gameEndEvent.endMessage = gameEndText;
+    EventManager.Broadcast(gameEndEvent);
+  }
 }
