@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
 
   public void OnFocus(FocusEvent evt)
   {
-    GameObject target = GameObject.FindGameObjectWithTag(evt.ObjectTag);
+    GameObject target = evt.gameObject;
     Focus(target);
   }
   void Focus(GameObject target)

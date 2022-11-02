@@ -126,9 +126,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
-                    "id": "beccc07e-5abd-4d30-ad1b-3d886fdd441e",
-                    "path": "<Keyboard>/s",
+                    "name": "left",
+                    "id": "ae7b1fbd-0466-48da-a3c7-4023b9ffbb13",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -137,9 +137,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
-                    "id": "ae7b1fbd-0466-48da-a3c7-4023b9ffbb13",
-                    "path": "<Keyboard>/a",
+                    "name": "down",
+                    "id": "beccc07e-5abd-4d30-ad1b-3d886fdd441e",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -181,9 +181,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
-                    "id": "f86820f1-89bf-46f0-9c44-2ad2fa667ef3",
-                    "path": "<Keyboard>/downArrow",
+                    "name": "left",
+                    "id": "06e60d81-93fc-4e61-8f85-64813c777d3f",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -192,9 +192,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
-                    "id": "06e60d81-93fc-4e61-8f85-64813c777d3f",
-                    "path": "<Keyboard>/leftArrow",
+                    "name": "down",
+                    "id": "f86820f1-89bf-46f0-9c44-2ad2fa667ef3",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -237,6 +237,28 @@
                 },
                 {
                     "name": "",
+                    "id": "a3fb27b3-1e30-4177-983a-05e451ed88c7",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ba72e18-c304-4645-9499-41078b31357f",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8011b67a-16f9-4738-a1e8-1e4e5dc0a824",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -253,17 +275,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Back",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fdcfcf9b-4437-4967-baf3-8f2a62848a7d",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
                     "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
