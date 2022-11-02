@@ -14,6 +14,7 @@ public static class Events
   public static PlayerUpdateEvent PlayerUpdateEvent = new PlayerUpdateEvent();
   public static SecretObjectiveEvent SecretObjectiveEvent = new SecretObjectiveEvent();
   public static ClockTimeChangeEvent ClockTimeChangeEvent = new ClockTimeChangeEvent();
+  public static GamePreferenceChangeEvent GamePreferenceChangeEvent = new GamePreferenceChangeEvent();
 }
 
 
@@ -81,4 +82,8 @@ public class SecretObjectiveEvent : GameEvent
 public class ClockTimeChangeEvent : GameEvent
 {
   public int minutes;
+}
+
+public class GamePreferenceChangeEvent : GameEvent
+{
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -119,6 +120,13 @@ public class GameController : MonoBehaviour
     currentRound = -1;
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelEndEvent>(onLevelEnd);
+    LoadPrefereces();
+  }
+  
+  void LoadPrefereces()
+  {
+    GamePreferences.Load();
+    minutesPerRound = GamePreferences.MinutesPerRound;
   }
 
   // Start is called before the first frame update
@@ -206,6 +214,8 @@ public class GameController : MonoBehaviour
   public void updateMinutesPerRound(string value)
   {
     minutesPerRound = int.Parse(value);
+    GamePreferences.MinutesPerRound = minutesPerRound;
+    GamePreferences.Save();
   }
 
   public void LoadScene(string name)
