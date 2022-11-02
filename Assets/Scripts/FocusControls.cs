@@ -45,6 +45,6 @@ public class FocusControls : MonoBehaviour
       rotateText.text += "Left Stick";
     }
     // BANDAID ^
-    gameObject.SetActive(false);
+    // gameObject.SetActive(false);
   }
 }
