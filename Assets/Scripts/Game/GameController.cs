@@ -19,7 +19,8 @@ public class GameController : MonoBehaviour
     // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
     public int currentRound;
     public int minutesPerRound = 3;
-    public float mouseSensitivity = 1;
+    public float mouseSensitivity = 1f;
+    public float objectRotateSpeed = 0.5f;
     public List<SecretObjective> currentSecretObjectives;
     public List<string> currentClues;
     void Awake()
@@ -131,6 +132,11 @@ public class GameController : MonoBehaviour
     public void updateMouseSensitivity(float value)
     {
         mouseSensitivity = value;
+    }
+
+    public void updateObjectRotateSpeed(float value)
+    {
+        objectRotateSpeed = value;
     }
 
     public void LoadScene(string name)
