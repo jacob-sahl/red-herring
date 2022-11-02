@@ -158,7 +158,7 @@ public class LevelManager : MonoBehaviour
     {
       if (puzzle.isComplete)
       {
-        roundEndText += $"Puzzle {puzzle.name} is complete. \n";
+        roundEndText += $"the puzzle was completed. \n";
         // Calculate points each player earned this round
         for (int i = 0; i < pointsToAdd.Count; i++)
         {
@@ -167,16 +167,16 @@ public class LevelManager : MonoBehaviour
       }
       else
       {
-        roundEndText += $"Puzzle {puzzle.name} is not complete. \n";
+        roundEndText += $"the puzzle was not completed. \n";
       }
       foreach (SecretObjective secret in gameController.currentSecretObjectives)
       {
-        roundEndText += $"Player {secret.player.playerId + 1} had the secret objective to {secret.description}\n";
+        roundEndText += $"\n<b>Player {secret.player.playerId + 1}'s Secrect Objective:</b> {secret.description}\n";
         if (secret.completed)
         {
           pointsToAdd[secret.player.playerId] += 4;
           // TEMPORARY:
-          roundEndText += $"Player {secret.player.playerId + 1} completed their secret objective, they win!\n";
+          roundEndText += $"<b>Status:</b> Complete!\n";
           // TEMP ^
           for (int i = 0; i < pointsToAdd.Count; i++)
           {
@@ -185,20 +185,20 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-          roundEndText += "It was not completed.\n";
+          roundEndText += "<b>Status:</b> Incomplete!\n";
         }
       }
-      if (puzzle.isComplete) // TODO split up the text
+      if (puzzle.isComplete)
       {
         // Add points to each player's total
         for (int i = 0; i < pointsToAdd.Count; i++)
         {
           playerManager.players[i].points += pointsToAdd[i];
         }
-      }      
+      }
     }
     Debug.Log(roundEndText);
-        
+
     LevelEndEvent levelEndEvent = new LevelEndEvent();
     levelEndEvent.endMessage = roundEndText;
     EventManager.Broadcast(levelEndEvent);
@@ -207,7 +207,7 @@ public class LevelManager : MonoBehaviour
     {
       EndGame();
     }
-    
+
     FadeOut();
   }
 
@@ -229,9 +229,8 @@ public class LevelManager : MonoBehaviour
     string gameEndText = "In this game,\n";
     for (int i = 0; i < playerManager.players.Count; i++)
     {
-      gameEndText += $"Player {i} earned {playerManager.players[i].points} points\n";
+      gameEndText += $"Player {i + 1} earned {playerManager.players[i].points} points\n";
     }
-    gameEndText += "Thanks for playing!";
     GameEndEvent gameEndEvent = new GameEndEvent();
     gameEndEvent.endMessage = gameEndText;
     EventManager.Broadcast(gameEndEvent);
