@@ -171,7 +171,7 @@ public class LevelManager : MonoBehaviour
       }
       foreach (SecretObjective secret in gameController.currentSecretObjectives)
       {
-        roundEndText += $"\n<b>Player {secret.player.playerId + 1}'s Secrect Objective:</b> {secret.description}\n";
+        roundEndText += $"\n<b>Player {secret.player.playerId + 1}'s Secret Objective:</b> {secret.description}\n";
         if (secret.completed)
         {
           pointsToAdd[secret.player.playerId] += 4;
