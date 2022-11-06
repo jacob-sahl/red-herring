@@ -16,6 +16,8 @@ public static class Events
   public static ClockTimeChangeEvent ClockTimeChangeEvent = new ClockTimeChangeEvent();
   public static GamePreferenceChangeEvent GamePreferenceChangeEvent = new GamePreferenceChangeEvent();
   public static GameEndEvent GameEndEvent = new GameEndEvent();
+  public static UIAnimationEndEvent UIAnimationEndEvent = new UIAnimationEndEvent();
+  public static UIAnimationStartEvent UIAnimationStartEvent = new UIAnimationStartEvent();
 }
 
 
@@ -90,7 +92,17 @@ public class GamePreferenceChangeEvent : GameEvent
 
 }
 
-public class GameEndEvent: GameEvent
+public class GameEndEvent : GameEvent
 {
   public string endMessage;
+}
+
+public class UIAnimationStartEvent : GameEvent
+{
+  public string name;
+}
+
+public class UIAnimationEndEvent : GameEvent
+{
+  public string name;
 }
