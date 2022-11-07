@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenuAnimation : MonoBehaviour
+public class MenuAnimationController : MonoBehaviour
 {
   private List<List<string>> animationGroups;
   void Awake()
@@ -35,15 +35,17 @@ public class MainMenuAnimation : MonoBehaviour
     startAnimation(animations[0]);
   }
 
-  // BANDAID (because functions with List parameters don't show up in-editor)
+  // BANDAID 
+  // Ideally thse would be set in-editor but functions with List parameters don't show up in-editor
+
   public void playStartGameAnimation()
   {
-    startAnimationGroup(new List<string> { "fadeMainMenuContentOut", "expandBackdrop", "fadeIntro1In" });
+    startAnimationGroup(new List<string> { "fadeMainMenuContentOut", "expandBackdrop", "fadeIntro1In", "textReveal1-1" });
   }
 
   public void returnToTitleScreen()
   {
-    startAnimationGroup(new List<string> { "fadeIntro1Out", "collapseBackdrop", "fadeMainMenuContentIn" });
+    startAnimationGroup(new List<string> { "textHide1-1", "fadeIntro1Out", "collapseBackdrop", "fadeMainMenuContentIn" });
   }
 
   // ^^
