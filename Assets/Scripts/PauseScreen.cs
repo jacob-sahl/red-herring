@@ -10,12 +10,14 @@ using TMPro;
 public class PauseScreen : MonoBehaviour
 {
   [Header("Parameters")]
-  private bool pauseRelased = false;
+  private bool pauseReleased = false;
   private PlayerInputHandler _inputHandler;
   private Detective detective;
-  void Start()
+    [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _optionsMenu;
+    void Start()
   {
-    pauseRelased = false;
+    pauseReleased = false;
     //_inputHandler = GetComponent<PlayerInputHandler>();
     detective = GameObject.Find("Detective").GetComponent<Detective>();
     setPauseScreenChildrenActive(false);
@@ -38,39 +40,48 @@ public class PauseScreen : MonoBehaviour
     }
     else
     {
-      pauseRelased = true;
+      pauseReleased = true;
     }
   }
 
   public bool gamePaused()
   {
-    return !pauseRelased;
+    return !pauseReleased;
   }
 
   void Pause()
   {
 
-    if (Time.timeScale == 0.0f && pauseRelased)
+    if (Time.timeScale == 0.0f && pauseReleased)
     {
       Time.timeScale = 1f;
       detective.frozen = false;
-      pauseRelased = false;
+      pauseReleased = false;
       Debug.Log("unpaused");
       setPauseScreenChildrenActive(false);
       Cursor.visible = false;
       Cursor.lockState = CursorLockMode.Locked;
     }
-    if (Time.timeScale == 1.0f && pauseRelased)
+    if (Time.timeScale == 1.0f && pauseReleased)
     {
       Time.timeScale = 0f;
       detective.frozen = true;
-      pauseRelased = false;
+      pauseReleased = false;
       Debug.Log("paused");
       setPauseScreenChildrenActive(true);
       Cursor.visible = true;
       Cursor.lockState = CursorLockMode.None;
     }
   }
+
+    public void ResumeButton()
+    {
+        Time.timeScale = 1f;
+        pauseReleased = false;
+        _pauseMenu.SetActive(false);
+        _optionsMenu.SetActive(false);
+        Debug.Log("unpaused");
+    }
 
   public void assignInputHandler(PlayerInputHandler handler)
   {
