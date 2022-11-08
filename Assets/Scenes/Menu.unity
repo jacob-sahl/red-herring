@@ -1836,7 +1836,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal4-1
-  duration: 1
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &328296539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2583,7 +2585,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal2-5
-  duration: 2
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &440942465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3606,7 +3610,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal4-2
-  duration: 2
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &602722100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4253,7 +4259,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal1-2
-  duration: 2
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &651073901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4411,7 +4419,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal4-4
-  duration: 2
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &664374763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5085,7 +5095,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal4-3
-  duration: 2
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &721150401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5464,7 +5476,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal2-3
-  duration: 2
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &743918962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5959,7 +5973,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal3-3
-  duration: 2
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &864603273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6433,7 +6449,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal2-4
-  duration: 2
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &909693151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7255,7 +7273,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal3-1
-  duration: 1
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &1046281620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10290,7 +10310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal2-2
-  duration: 2
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &1419045776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11224,7 +11246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal3-2
-  duration: 2
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &1539629300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11907,7 +11931,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal1-1
-  duration: 6
+  duration: 15
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 100
 --- !u!114 &1592790169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14926,7 +14952,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal2-1
-  duration: 1
+  duration: 4
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
 --- !u!114 &2048989118
 MonoBehaviour:
   m_ObjectHideFlags: 0

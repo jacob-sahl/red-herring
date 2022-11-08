@@ -7,14 +7,14 @@ public class TextHide : MonoBehaviour
 {
   public string animationName;
   public float duration;
-  //   bool animating;
-  //   float time;
+  bool animating;
+  float time;
   TextMeshProUGUI mesh;
   string fullText;
   void Awake()
   {
-    // animating = false;
-    // time = 0f;
+    animating = false;
+    time = 0f;
     EventManager.AddListener<UIAnimationStartEvent>(onAnimationStart);
   }
   private void Start()
@@ -32,9 +32,7 @@ public class TextHide : MonoBehaviour
   {
     if (e.name == animationName)
     {
-      //   animating = true;
-      mesh.text = "";
-      endAnimation();
+      animating = true;
     }
   }
 
@@ -43,22 +41,31 @@ public class TextHide : MonoBehaviour
     UIAnimationEndEvent e = new UIAnimationEndEvent();
     e.name = animationName;
     EventManager.Broadcast(e);
-    // animating = false;
-    // time = 0f;
+    animating = false;
+    time = 0f;
   }
 
   void Update()
   {
-    // if (animating)
-    // {
-    //   time += Time.deltaTime;
-    //   float proportion = time / duration;
-    //   int charsToReveal = Mathf.Min(Mathf.RoundToInt(fullText.Length * proportion), fullText.Length);
-    //   mesh.text = fullText.Substring(0, charsToReveal);
-    //   if (time >= duration)
-    //   {
-    //     endAnimation();
-    //   }
-    // }
+    if (animating)
+    {
+      mesh.ForceMeshUpdate();
+      Mesh newMesh = mesh.mesh;
+      Color[] colors = newMesh.colors;
+      for (int i = 0; i < mesh.textInfo.characterCount; i++)
+      {
+        TMP_CharacterInfo c = mesh.textInfo.characterInfo[i];
+
+        int index = c.vertexIndex;
+
+        colors[index] = Color.clear;
+        colors[index + 1] = Color.clear;
+        colors[index + 2] = Color.clear;
+        colors[index + 3] = Color.clear;
+      }
+      newMesh.colors = colors;
+      mesh.canvasRenderer.SetMesh(newMesh);
+      endAnimation();
+    }
   }
 }
