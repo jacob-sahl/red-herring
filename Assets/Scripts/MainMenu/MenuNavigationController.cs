@@ -19,9 +19,10 @@ public class MenuNavigationController : MonoBehaviour
   }
   void Start()
   {
-    navEnabled = true;
+    navEnabled = false;
     position = 0;
     animationController = GameObject.Find("MenuAnimator").GetComponent<MenuAnimationController>();
+    waitingFor = "textReveal1-1";
   }
 
   void onAnimationFinished(UIAnimationEndEvent e)

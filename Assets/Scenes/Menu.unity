@@ -5485,7 +5485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The other players are INFORMANTS. An informants goal is to help the detective
+  m_text: The other players are INFORMANTS. An informant's goal is to help the detective
     solve the puzzle, while also completing their individual SECRET OBJECTIVE.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
