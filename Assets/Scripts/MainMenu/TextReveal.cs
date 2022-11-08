@@ -6,10 +6,14 @@ using TMPro;
 public class TextReveal : MonoBehaviour
 {
   public string animationName;
+  [Tooltip("Number of seconds the animation should take.")]
   public float duration;
+  [Tooltip("The color to fade to (alpha is ignored).")]
   public Color targetTextColour;
+  [Tooltip("The number of characters to 'fade in' over smoothly.")]
   public int fadeLength = 10;
   bool animating;
+  TextWobble wobble;
   float time;
   TextMeshProUGUI mesh;
   string fullText;
@@ -21,6 +25,7 @@ public class TextReveal : MonoBehaviour
   void Awake()
   {
     animating = false;
+    wobble = GetComponent<TextWobble>();
     time = 0f;
     EventManager.AddListener<UIAnimationStartEvent>(onAnimationStart);
   }
@@ -47,6 +52,7 @@ public class TextReveal : MonoBehaviour
       time = 0f;
       previousStep = 0;
       animating = true;
+      if (wobble != null) wobble.setWobbling(false);
     }
   }
 
@@ -56,6 +62,7 @@ public class TextReveal : MonoBehaviour
     e.name = animationName;
     EventManager.Broadcast(e);
     animating = false;
+    if (wobble != null) wobble.setWobbling(true);
     time = 0f;
   }
 
@@ -126,6 +133,24 @@ public class TextReveal : MonoBehaviour
     }
 
     newMesh.colors = colors;
+
+    // Wobble:
+    Vector3[] vertices = newMesh.vertices;
+    for (int i = 0; i < mesh.textInfo.characterCount; i++)
+    {
+      TMP_CharacterInfo c = mesh.textInfo.characterInfo[i];
+
+      int index = c.vertexIndex;
+
+      Vector3 offset = Wobble(Time.time + i);
+      vertices[index] += offset;
+      vertices[index + 1] += offset;
+      vertices[index + 2] += offset;
+      vertices[index + 3] += offset;
+
+    }
+    newMesh.vertices = vertices;
+
     mesh.canvasRenderer.SetMesh(newMesh);
   }
 
@@ -157,7 +182,6 @@ public class TextReveal : MonoBehaviour
       time += Time.deltaTime;
       float proportion = time / duration;
       int step = Mathf.RoundToInt((mesh.textInfo.characterCount + fadeLength) * proportion);
-      // int characterLimit
       if (step > previousStep)
       {
         UpdateTextColours(step);
@@ -169,27 +193,27 @@ public class TextReveal : MonoBehaviour
         endAnimation();
       }
     }
-    else
+    else if (wobble != null && wobble.getWobbling())
     {
       // Wobble:
-      // mesh.ForceMeshUpdate();
-      // Mesh newMesh = mesh.mesh;
-      // Vector3[] vertices = newMesh.vertices;
-      // for (int i = 0; i < mesh.textInfo.characterCount; i++)
-      // {
-      //   TMP_CharacterInfo c = mesh.textInfo.characterInfo[i];
+      mesh.ForceMeshUpdate();
+      Mesh newMesh = mesh.mesh;
+      Vector3[] vertices = newMesh.vertices;
+      for (int i = 0; i < mesh.textInfo.characterCount; i++)
+      {
+        TMP_CharacterInfo c = mesh.textInfo.characterInfo[i];
 
-      //   int index = c.vertexIndex;
+        int index = c.vertexIndex;
 
-      //   Vector3 offset = Wobble(Time.time + i);
-      //   vertices[index] += offset;
-      //   vertices[index + 1] += offset;
-      //   vertices[index + 2] += offset;
-      //   vertices[index + 3] += offset;
+        Vector3 offset = Wobble(Time.time + i);
+        vertices[index] += offset;
+        vertices[index + 1] += offset;
+        vertices[index + 2] += offset;
+        vertices[index + 3] += offset;
 
-      // }
-      // newMesh.vertices = vertices;
-      // mesh.canvasRenderer.SetMesh(newMesh);
+      }
+      newMesh.vertices = vertices;
+      mesh.canvasRenderer.SetMesh(newMesh);
     }
   }
 }

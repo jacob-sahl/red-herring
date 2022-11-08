@@ -8,18 +8,19 @@ public class TextHide : MonoBehaviour
   public string animationName;
   public float duration;
   bool animating;
-  float time;
+  TextWobble wobble;
   TextMeshProUGUI mesh;
   string fullText;
   void Awake()
   {
     animating = false;
-    time = 0f;
+    // time = 0f;
     EventManager.AddListener<UIAnimationStartEvent>(onAnimationStart);
   }
   private void Start()
   {
     mesh = GetComponent<TextMeshProUGUI>();
+    wobble = GetComponent<TextWobble>();
     fullText = mesh.text;
   }
 
@@ -32,6 +33,7 @@ public class TextHide : MonoBehaviour
   {
     if (e.name == animationName)
     {
+      if (wobble != null) wobble.setWobbling(false);
       animating = true;
     }
   }
@@ -42,7 +44,7 @@ public class TextHide : MonoBehaviour
     e.name = animationName;
     EventManager.Broadcast(e);
     animating = false;
-    time = 0f;
+    // time = 0f;
   }
 
   void Update()

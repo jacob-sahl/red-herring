@@ -1782,6 +1782,7 @@ GameObject:
   - component: {fileID: 328296539}
   - component: {fileID: 328296538}
   - component: {fileID: 328296537}
+  - component: {fileID: 328296541}
   m_Layer: 5
   m_Name: Paragraph#1
   m_TagString: Untagged
@@ -1895,12 +1896,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1938,6 +1939,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328296535}
   m_CullTransparentMesh: 1
+--- !u!114 &328296541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328296535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &329650232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2428,7 +2441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &425302597
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2531,6 +2544,7 @@ GameObject:
   - component: {fileID: 440942465}
   - component: {fileID: 440942464}
   - component: {fileID: 440942463}
+  - component: {fileID: 440942467}
   m_Layer: 5
   m_Name: Paragraph#5
   m_TagString: Untagged
@@ -2643,12 +2657,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -2686,6 +2700,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440942461}
   m_CullTransparentMesh: 1
+--- !u!114 &440942467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440942461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &446981586
 GameObject:
   m_ObjectHideFlags: 0
@@ -3556,6 +3582,7 @@ GameObject:
   - component: {fileID: 602722100}
   - component: {fileID: 602722099}
   - component: {fileID: 602722098}
+  - component: {fileID: 602722102}
   m_Layer: 5
   m_Name: Paragraph#2
   m_TagString: Untagged
@@ -3669,12 +3696,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -3712,6 +3739,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602722096}
   m_CullTransparentMesh: 1
+--- !u!114 &602722102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602722096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &607844010
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,6 +4155,7 @@ GameObject:
   - component: {fileID: 651073898}
   - component: {fileID: 651073900}
   - component: {fileID: 651073901}
+  - component: {fileID: 651073902}
   m_Layer: 5
   m_Name: Paragraph#2
   m_TagString: Untagged
@@ -4203,12 +4243,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -4276,6 +4316,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: textHide1-2
   duration: 0
+--- !u!114 &651073902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651073896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &651860814
 GameObject:
   m_ObjectHideFlags: 0
@@ -4365,6 +4417,7 @@ GameObject:
   - component: {fileID: 664374763}
   - component: {fileID: 664374762}
   - component: {fileID: 664374761}
+  - component: {fileID: 664374765}
   m_Layer: 5
   m_Name: Paragraph#4
   m_TagString: Untagged
@@ -4482,12 +4535,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -4525,6 +4578,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664374759}
   m_CullTransparentMesh: 1
+--- !u!114 &664374765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664374759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &666354602
 GameObject:
   m_ObjectHideFlags: 0
@@ -5041,6 +5106,7 @@ GameObject:
   - component: {fileID: 721150401}
   - component: {fileID: 721150400}
   - component: {fileID: 721150399}
+  - component: {fileID: 721150403}
   m_Layer: 5
   m_Name: Paragraph#3
   m_TagString: Untagged
@@ -5153,12 +5219,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -5196,6 +5262,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721150397}
   m_CullTransparentMesh: 1
+--- !u!114 &721150403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721150397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &724758104
 GameObject:
   m_ObjectHideFlags: 0
@@ -5422,6 +5500,7 @@ GameObject:
   - component: {fileID: 743918962}
   - component: {fileID: 743918961}
   - component: {fileID: 743918960}
+  - component: {fileID: 743918964}
   m_Layer: 5
   m_Name: Paragraph#3
   m_TagString: Untagged
@@ -5534,12 +5613,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -5577,6 +5656,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743918958}
   m_CullTransparentMesh: 1
+--- !u!114 &743918964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743918958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &771236983
 GameObject:
   m_ObjectHideFlags: 0
@@ -5919,6 +6010,7 @@ GameObject:
   - component: {fileID: 864603273}
   - component: {fileID: 864603272}
   - component: {fileID: 864603271}
+  - component: {fileID: 864603275}
   m_Layer: 5
   m_Name: Paragraph#3
   m_TagString: Untagged
@@ -6031,12 +6123,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -6074,6 +6166,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864603269}
   m_CullTransparentMesh: 1
+--- !u!114 &864603275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864603269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &875668530
 GameObject:
   m_ObjectHideFlags: 0
@@ -6395,6 +6499,7 @@ GameObject:
   - component: {fileID: 909693151}
   - component: {fileID: 909693150}
   - component: {fileID: 909693149}
+  - component: {fileID: 909693153}
   m_Layer: 5
   m_Name: Paragraph#4
   m_TagString: Untagged
@@ -6508,12 +6613,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -6551,6 +6656,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909693147}
   m_CullTransparentMesh: 1
+--- !u!114 &909693153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909693147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &920229064
 GameObject:
   m_ObjectHideFlags: 0
@@ -7219,6 +7336,7 @@ GameObject:
   - component: {fileID: 1046281620}
   - component: {fileID: 1046281619}
   - component: {fileID: 1046281618}
+  - component: {fileID: 1046281622}
   m_Layer: 5
   m_Name: Paragraph#1
   m_TagString: Untagged
@@ -7331,12 +7449,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -7374,6 +7492,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046281616}
   m_CullTransparentMesh: 1
+--- !u!114 &1046281622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046281616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1059201399
 GameObject:
   m_ObjectHideFlags: 0
@@ -10256,6 +10386,7 @@ GameObject:
   - component: {fileID: 1419045776}
   - component: {fileID: 1419045775}
   - component: {fileID: 1419045774}
+  - component: {fileID: 1419045778}
   m_Layer: 5
   m_Name: Paragraph#2
   m_TagString: Untagged
@@ -10368,12 +10499,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -10411,6 +10542,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419045772}
   m_CullTransparentMesh: 1
+--- !u!114 &1419045778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419045772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1433119047
 GameObject:
   m_ObjectHideFlags: 0
@@ -11192,6 +11335,7 @@ GameObject:
   - component: {fileID: 1539629300}
   - component: {fileID: 1539629299}
   - component: {fileID: 1539629298}
+  - component: {fileID: 1539629302}
   m_Layer: 5
   m_Name: Paragraph#2
   m_TagString: Untagged
@@ -11304,12 +11448,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -11347,6 +11491,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539629296}
   m_CullTransparentMesh: 1
+--- !u!114 &1539629302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539629296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1546942093
 GameObject:
   m_ObjectHideFlags: 0
@@ -11791,6 +11947,7 @@ GameObject:
   - component: {fileID: 1592790166}
   - component: {fileID: 1592790168}
   - component: {fileID: 1592790169}
+  - component: {fileID: 1592790170}
   m_Layer: 5
   m_Name: Paragraph#1
   m_TagString: Untagged
@@ -11878,9 +12035,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -11931,9 +12088,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textReveal1-1
-  duration: 15
+  duration: 10
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
-  fadeLength: 100
+  fadeLength: 20
 --- !u!114 &1592790169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11948,6 +12105,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: textHide1-1
   duration: 0
+--- !u!114 &1592790170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592790164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1599214508
 GameObject:
   m_ObjectHideFlags: 0
@@ -14898,6 +15067,7 @@ GameObject:
   - component: {fileID: 2048989118}
   - component: {fileID: 2048989117}
   - component: {fileID: 2048989116}
+  - component: {fileID: 2048989120}
   m_Layer: 5
   m_Name: Paragraph#1
   m_TagString: Untagged
@@ -15010,12 +15180,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -15053,6 +15223,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048989114}
   m_CullTransparentMesh: 1
+--- !u!114 &2048989120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048989114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2060148717
 GameObject:
   m_ObjectHideFlags: 0
