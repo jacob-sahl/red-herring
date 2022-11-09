@@ -85,6 +85,9 @@ public class MenuNavigationController : MonoBehaviour
       case 12:
         animations = new List<string> { "textHide4-3", "textReveal4-4" };
         break;
+      case 13:
+        animations = new List<string> { "textHide4-4", "textReveal4-5" };
+        break;
       default:
         return;
     }
@@ -151,6 +154,9 @@ public class MenuNavigationController : MonoBehaviour
         break;
       case 13:
         animations = new List<string> { "textHide4-4", "textReveal4-3" };
+        break;
+      case 14:
+        animations = new List<string> { "textHide4-5", "textReveal4-4" };
         break;
     }
 

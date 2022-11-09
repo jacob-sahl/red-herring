@@ -12,6 +12,7 @@ public class TextReveal : MonoBehaviour
   public Color targetTextColour;
   [Tooltip("The number of characters to 'fade in' over smoothly.")]
   public int fadeLength = 10;
+  public int wordFadeLength = 4;
   bool animating;
   TextWobble wobble;
   float time;
@@ -78,6 +79,7 @@ public class TextReveal : MonoBehaviour
     Color[] colors = newMesh.colors;
 
     int charIndex = 0;
+    // mesh.textInfo.wordInfo[0].firstCharacterIndex
 
     while (charIndex < step && charIndex < mesh.textInfo.characterCount)
     {

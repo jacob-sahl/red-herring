@@ -10,11 +10,12 @@ public class TextHide : MonoBehaviour
   bool animating;
   TextWobble wobble;
   TextMeshProUGUI mesh;
+  float time;
   string fullText;
   void Awake()
   {
     animating = false;
-    // time = 0f;
+    time = 0f;
     EventManager.AddListener<UIAnimationStartEvent>(onAnimationStart);
   }
   private void Start()
@@ -40,17 +41,25 @@ public class TextHide : MonoBehaviour
 
   void endAnimation()
   {
+
     UIAnimationEndEvent e = new UIAnimationEndEvent();
     e.name = animationName;
     EventManager.Broadcast(e);
     animating = false;
-    // time = 0f;
+    time = 0f;
+  }
+
+  Vector2 Wobble(float time)
+  {
+    return new Vector2(Mathf.Sin(time * 3.3f), Mathf.Cos(time * 2.5f)) * 0.5f;
   }
 
   void Update()
   {
     if (animating)
     {
+      time += Time.deltaTime;
+      float proportion = time / duration;
       mesh.ForceMeshUpdate();
       Mesh newMesh = mesh.mesh;
       Color[] colors = newMesh.colors;
@@ -59,15 +68,37 @@ public class TextHide : MonoBehaviour
         TMP_CharacterInfo c = mesh.textInfo.characterInfo[i];
 
         int index = c.vertexIndex;
+        Color newColor = new Color(colors[0].r, colors[0].g, colors[0].b, 1f - proportion);
 
-        colors[index] = Color.clear;
-        colors[index + 1] = Color.clear;
-        colors[index + 2] = Color.clear;
-        colors[index + 3] = Color.clear;
+        colors[index] = newColor;
+        colors[index + 1] = newColor;
+        colors[index + 2] = newColor;
+        colors[index + 3] = newColor;
       }
       newMesh.colors = colors;
+
+      // Wobble:
+      Vector3[] vertices = newMesh.vertices;
+      for (int i = 0; i < mesh.textInfo.characterCount; i++)
+      {
+        TMP_CharacterInfo c = mesh.textInfo.characterInfo[i];
+
+        int index = c.vertexIndex;
+
+        Vector3 offset = Wobble(Time.time + i);
+        vertices[index] += offset;
+        vertices[index + 1] += offset;
+        vertices[index + 2] += offset;
+        vertices[index + 3] += offset;
+
+      }
+      newMesh.vertices = vertices;
+
       mesh.canvasRenderer.SetMesh(newMesh);
-      endAnimation();
+      if (time >= duration)
+      {
+        endAnimation();
+      }
     }
   }
 }

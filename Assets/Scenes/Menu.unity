@@ -1591,6 +1591,187 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2430508588576015588, guid: 0ff878c2880eef142a3b7761d7983aa3, type: 3}
   m_PrefabInstance: {fileID: 225858801}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &244003532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 244003533}
+  - component: {fileID: 244003538}
+  - component: {fileID: 244003537}
+  - component: {fileID: 244003536}
+  - component: {fileID: 244003535}
+  - component: {fileID: 244003534}
+  m_Layer: 5
+  m_Name: Paragraph#5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &244003533
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244003532}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1663938170}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_SizeDelta: {x: 600, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &244003534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244003532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130b468ac0c065d46b64b085c50626ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &244003535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244003532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a448455ed3a3e44ba7e4f975ddd4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: textHide4-5
+  duration: 0.5
+--- !u!114 &244003536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244003532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c46c508995df24889ff5e3239a9a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: textReveal4-5
+  duration: 2
+  targetTextColour: {r: 1, g: 1, b: 1, a: 1}
+  fadeLength: 20
+  wordFadeLength: 4
+--- !u!114 &244003537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244003532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Are you all ready to begin?
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
+  m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 22
+  m_fontSizeBase: 22
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 8
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 1
+  m_wordSpacing: 1
+  m_lineSpacing: 1
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &244003538
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244003532}
+  m_CullTransparentMesh: 1
 --- !u!1 &279388542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,7 +2004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide4-1
-  duration: 0
+  duration: 0.5
 --- !u!114 &328296538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1840,6 +2021,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &328296539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2441,7 +2623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &425302597
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2585,7 +2767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide2-5
-  duration: 0
+  duration: 0.5
 --- !u!114 &440942464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2602,6 +2784,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &440942465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3154,6 +3337,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1227246683}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1204141985}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1276078434}
+        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
+        m_MethodName: SetSelectedGameObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 446981586}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &513746478
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3623,7 +3842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide4-2
-  duration: 0
+  duration: 0.5
 --- !u!114 &602722099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3640,6 +3859,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &602722100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4302,6 +4522,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &651073901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4315,7 +4536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide1-2
-  duration: 0
+  duration: 0.5
 --- !u!114 &651073902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4458,7 +4679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide4-4
-  duration: 0
+  duration: 0.5
 --- !u!114 &664374762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4475,6 +4696,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &664374763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5147,7 +5369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide4-3
-  duration: 0
+  duration: 0.5
 --- !u!114 &721150400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5164,6 +5386,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &721150401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5541,7 +5764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide2-3
-  duration: 0
+  duration: 0.5
 --- !u!114 &743918961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5558,6 +5781,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &743918962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6051,7 +6275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide3-3
-  duration: 0
+  duration: 0.5
 --- !u!114 &864603272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6068,6 +6292,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &864603273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6540,7 +6765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide2-4
-  duration: 0
+  duration: 0.5
 --- !u!114 &909693150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6557,6 +6782,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &909693151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7377,7 +7603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide3-1
-  duration: 0
+  duration: 0.5
 --- !u!114 &1046281619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7394,6 +7620,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &1046281620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10427,7 +10654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide2-2
-  duration: 0
+  duration: 0.5
 --- !u!114 &1419045775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10444,6 +10671,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &1419045776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11376,7 +11604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide3-2
-  duration: 0
+  duration: 0.5
 --- !u!114 &1539629299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11393,6 +11621,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &1539629300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12091,6 +12320,7 @@ MonoBehaviour:
   duration: 10
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &1592790169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12104,7 +12334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide1-1
-  duration: 0
+  duration: 0.5
 --- !u!114 &1592790170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12488,6 +12718,7 @@ RectTransform:
   - {fileID: 602722097}
   - {fileID: 721150398}
   - {fileID: 664374760}
+  - {fileID: 244003533}
   m_Father: {fileID: 1525574530}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15108,7 +15339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: textHide2-1
-  duration: 0
+  duration: 0.5
 --- !u!114 &2048989117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15125,6 +15356,7 @@ MonoBehaviour:
   duration: 4
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 20
+  wordFadeLength: 4
 --- !u!114 &2048989118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16181,6 +16413,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 825026359}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 976218890}
+        m_TargetAssemblyTypeName: MenuAnimationController, Assembly-CSharp
+        m_MethodName: returnToTitleScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
