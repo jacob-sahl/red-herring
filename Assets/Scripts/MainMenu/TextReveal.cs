@@ -22,13 +22,22 @@ public class TextReveal : MonoBehaviour
   bool hideText;
   int previousStep;
   float[] alphas;
+  bool interrupted;
 
   void Awake()
   {
     animating = false;
+    interrupted = false;
     wobble = GetComponent<TextWobble>();
     time = 0f;
     EventManager.AddListener<UIAnimationStartEvent>(onAnimationStart);
+    EventManager.AddListener<UIAnimationInterruptAllEvent>(onInterrupt);
+  }
+
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<UIAnimationStartEvent>(onAnimationStart);
+    EventManager.RemoveListener<UIAnimationInterruptAllEvent>(onInterrupt);
   }
   private void Start()
   {
@@ -40,9 +49,12 @@ public class TextReveal : MonoBehaviour
     hideText = true;
   }
 
-  private void OnDestroy()
+  void onInterrupt(UIAnimationInterruptAllEvent e)
   {
-    EventManager.RemoveListener<UIAnimationStartEvent>(onAnimationStart);
+    if (animating)
+    {
+      interrupted = true;
+    }
   }
 
   void onAnimationStart(UIAnimationStartEvent e)
@@ -70,6 +82,27 @@ public class TextReveal : MonoBehaviour
   Vector2 Wobble(float time)
   {
     return new Vector2(Mathf.Sin(time * 3.3f), Mathf.Cos(time * 2.5f)) * 0.5f;
+  }
+
+  void interruptTextAnimation()
+  {
+    mesh.ForceMeshUpdate();
+    Mesh newMesh = mesh.mesh;
+    Color[] colors = newMesh.colors;
+    for (int i = 0; i < mesh.textInfo.characterCount; i++)
+    {
+      TMP_CharacterInfo c = mesh.textInfo.characterInfo[i];
+
+      int index = c.vertexIndex;
+
+      colors[index] = targetTextColour;
+      colors[index + 1] = targetTextColour;
+      colors[index + 2] = targetTextColour;
+      colors[index + 3] = targetTextColour;
+    }
+    newMesh.colors = colors;
+    mesh.canvasRenderer.SetMesh(newMesh);
+    interrupted = false;
   }
 
   void UpdateTextColours(int step)
@@ -184,6 +217,14 @@ public class TextReveal : MonoBehaviour
       time += Time.deltaTime;
       float proportion = time / duration;
       int step = Mathf.RoundToInt((mesh.textInfo.characterCount + fadeLength) * proportion);
+
+      if (interrupted)
+      {
+        interruptTextAnimation();
+        endAnimation();
+        return;
+      }
+
       if (step > previousStep)
       {
         UpdateTextColours(step);

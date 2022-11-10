@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class MenuNavigationController : MonoBehaviour
 {
+  public EventSystem eventSystem;
+  public GameObject mainMenuObject;
+  public GameObject puzzleSetupObject;
+  public GameObject objectToSelectOnPuzzleSetup;
+  public GameObject nextButtonText;
   MenuAnimationController animationController;
   private int position;
   private bool navEnabled;
@@ -36,7 +43,13 @@ public class MenuNavigationController : MonoBehaviour
 
   public void moveForward()
   {
-    if (!navEnabled) return;
+    if (!navEnabled)
+    {
+      UIAnimationInterruptAllEvent evt = new UIAnimationInterruptAllEvent();
+      evt.name = "test";
+      EventManager.Broadcast(evt);
+      return;
+    }
     List<string> animations = new List<string>();
     switch (position)
     {
@@ -88,6 +101,17 @@ public class MenuNavigationController : MonoBehaviour
       case 13:
         animations = new List<string> { "textHide4-4", "textReveal4-5" };
         break;
+      case 14:
+        animations = new List<string> { "textHide4-5", "textReveal4-6" };
+        nextButtonText.GetComponent<TextMeshProUGUI>().text = "Begin";
+        break;
+      case 15:
+        animations = new List<string> { "textHide4-6" };
+        mainMenuObject.SetActive(false);
+        puzzleSetupObject.SetActive(true);
+        eventSystem.SetSelectedGameObject(objectToSelectOnPuzzleSetup);
+        hideAllText();
+        break;
       default:
         return;
     }
@@ -103,7 +127,13 @@ public class MenuNavigationController : MonoBehaviour
 
   public void moveBackward()
   {
-    if (!navEnabled) return;
+    if (!navEnabled)
+    {
+      UIAnimationInterruptAllEvent evt = new UIAnimationInterruptAllEvent();
+      evt.name = "test";
+      EventManager.Broadcast(evt);
+      return;
+    }
     List<string> animations = new List<string>();
     switch (position)
     {
@@ -158,6 +188,10 @@ public class MenuNavigationController : MonoBehaviour
       case 14:
         animations = new List<string> { "textHide4-5", "textReveal4-4" };
         break;
+      case 15:
+        animations = new List<string> { "textHide4-6", "textReveal4-5" };
+        nextButtonText.GetComponent<TextMeshProUGUI>().text = "Next";
+        break;
     }
 
     animationController.startAnimationGroup(animations);
@@ -167,5 +201,28 @@ public class MenuNavigationController : MonoBehaviour
     navEnabled = false;
 
     position--;
+  }
+
+  public void hideAllText()
+  {
+    List<string> animations = new List<string> {
+      "textHide1-1",
+      "textHide1-2",
+      "textHide2-1",
+      "textHide2-2",
+      "textHide2-3",
+      "textHide2-4",
+      "textHide2-5",
+      "textHide3-1",
+      "textHide3-2",
+      "textHide3-3",
+      "textHide4-1",
+      "textHide4-2",
+      "textHide4-3",
+      "textHide4-4",
+      "textHide4-5",
+      "textHide4-6",
+    };
+    animationController.startAnimationGroup(animations);
   }
 }

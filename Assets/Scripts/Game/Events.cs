@@ -18,6 +18,7 @@ public static class Events
   public static GameEndEvent GameEndEvent = new GameEndEvent();
   public static UIAnimationEndEvent UIAnimationEndEvent = new UIAnimationEndEvent();
   public static UIAnimationStartEvent UIAnimationStartEvent = new UIAnimationStartEvent();
+  public static UIAnimationInterruptAllEvent UIAnimationInterruptAllEvent = new UIAnimationInterruptAllEvent();
 }
 
 
@@ -103,6 +104,11 @@ public class UIAnimationStartEvent : GameEvent
 }
 
 public class UIAnimationEndEvent : GameEvent
+{
+  public string name;
+}
+
+public class UIAnimationInterruptAllEvent : GameEvent
 {
   public string name;
 }

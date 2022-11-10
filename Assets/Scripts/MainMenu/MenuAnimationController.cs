@@ -45,7 +45,7 @@ public class MenuAnimationController : MonoBehaviour
 
   public void returnToTitleScreen()
   {
-    startAnimationGroup(new List<string> { "textHide1-1", "fadeIntro1Out", "collapseBackdrop", "fadeMainMenuContentIn" });
+    startAnimationGroup(new List<string> { "collapseBackdrop", "fadeMainMenuContentIn" });
   }
 
   // ^^
@@ -58,16 +58,13 @@ public class MenuAnimationController : MonoBehaviour
       if (animationGroup.Contains(e.name))
       {
         animationGroup.RemoveAll(name => name == e.name);
-        startAnimation(animationGroup[0]);
+        if (animationGroup.Count > 0)
+        {
+          startAnimation(animationGroup[0]);
+        }
       }
     }
     // Remove completed animation groups
-    foreach (var animationGroup in animationGroups)
-    {
-      if (animationGroup.Count == 0)
-      {
-        animationGroups.Remove(animationGroup);
-      }
-    }
+    animationGroups.RemoveAll(group => group.Count == 0);
   }
 }
