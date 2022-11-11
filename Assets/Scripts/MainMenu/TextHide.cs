@@ -7,6 +7,7 @@ public class TextHide : MonoBehaviour
 {
   public string animationName;
   public float duration;
+  string animationInstantName;
   bool animating;
   TextWobble wobble;
   TextMeshProUGUI mesh;
@@ -23,6 +24,7 @@ public class TextHide : MonoBehaviour
     mesh = GetComponent<TextMeshProUGUI>();
     wobble = GetComponent<TextWobble>();
     fullText = mesh.text;
+    animationInstantName = animationName + "instant";
   }
 
   private void OnDestroy()
@@ -37,11 +39,43 @@ public class TextHide : MonoBehaviour
       if (wobble != null) wobble.setWobbling(false);
       animating = true;
     }
+    else if (e.name == animationInstantName)
+    {
+      instantHide();
+      endInstantAnimation();
+    }
+  }
+
+  void instantHide()
+  {
+    mesh.ForceMeshUpdate();
+    Mesh newMesh = mesh.mesh;
+    Color[] colors = newMesh.colors;
+    for (int i = 0; i < mesh.textInfo.characterCount; i++)
+    {
+      TMP_CharacterInfo c = mesh.textInfo.characterInfo[i];
+
+      int index = c.vertexIndex;
+      Color newColor = new Color(colors[0].r, colors[0].g, colors[0].b, 0f);
+
+      colors[index] = newColor;
+      colors[index + 1] = newColor;
+      colors[index + 2] = newColor;
+      colors[index + 3] = newColor;
+    }
+    newMesh.colors = colors;
+    mesh.canvasRenderer.SetMesh(newMesh);
+  }
+
+  void endInstantAnimation()
+  {
+    UIAnimationEndEvent e = new UIAnimationEndEvent();
+    e.name = animationInstantName;
+    EventManager.Broadcast(e);
   }
 
   void endAnimation()
   {
-
     UIAnimationEndEvent e = new UIAnimationEndEvent();
     e.name = animationName;
     EventManager.Broadcast(e);

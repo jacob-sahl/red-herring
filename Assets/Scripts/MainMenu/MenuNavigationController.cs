@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
@@ -11,6 +12,10 @@ public class MenuNavigationController : MonoBehaviour
   public GameObject puzzleSetupObject;
   public GameObject objectToSelectOnPuzzleSetup;
   public GameObject nextButtonText;
+  public GameObject skipButtonObject;
+  Button skipButton;
+  public GameObject menuButtonObject;
+  Button menuButton;
   MenuAnimationController animationController;
   private int position;
   private bool navEnabled;
@@ -29,6 +34,10 @@ public class MenuNavigationController : MonoBehaviour
     navEnabled = false;
     position = 0;
     animationController = GameObject.Find("MenuAnimator").GetComponent<MenuAnimationController>();
+    skipButton = skipButtonObject.GetComponent<Button>();
+    skipButton.interactable = false;
+    menuButton = menuButtonObject.GetComponent<Button>();
+    menuButton.interactable = false;
     waitingFor = "textReveal1-1";
   }
 
@@ -36,6 +45,8 @@ public class MenuNavigationController : MonoBehaviour
   {
     if (e.name == waitingFor)
     {
+      skipButton.interactable = true;
+      menuButton.interactable = true;
       waitingFor = "";
       navEnabled = true;
     }
@@ -110,7 +121,7 @@ public class MenuNavigationController : MonoBehaviour
         mainMenuObject.SetActive(false);
         puzzleSetupObject.SetActive(true);
         eventSystem.SetSelectedGameObject(objectToSelectOnPuzzleSetup);
-        hideAllText();
+        resetIntro();
         break;
       default:
         return;
@@ -121,6 +132,8 @@ public class MenuNavigationController : MonoBehaviour
     // Wait for the last animation to finish before allowing more navigation
     waitingFor = animations[animations.Count - 1];
     navEnabled = false;
+    skipButton.interactable = false;
+    menuButton.interactable = false;
 
     position++;
   }
@@ -199,30 +212,20 @@ public class MenuNavigationController : MonoBehaviour
     // Wait for the last animation to finish before allowing more navigation
     waitingFor = animations[animations.Count - 1];
     navEnabled = false;
+    skipButton.interactable = false;
+    menuButton.interactable = false;
 
     position--;
   }
 
-  public void hideAllText()
+  public void resetIntro()
   {
-    List<string> animations = new List<string> {
-      "textHide1-1",
-      "textHide1-2",
-      "textHide2-1",
-      "textHide2-2",
-      "textHide2-3",
-      "textHide2-4",
-      "textHide2-5",
-      "textHide3-1",
-      "textHide3-2",
-      "textHide3-3",
-      "textHide4-1",
-      "textHide4-2",
-      "textHide4-3",
-      "textHide4-4",
-      "textHide4-5",
-      "textHide4-6",
-    };
-    animationController.startAnimationGroup(animations);
+    resetPosition();
+    animationController.resetAllIntroContent();
+  }
+
+  public void resetPosition()
+  {
+    position = 0;
   }
 }

@@ -100,14 +100,14 @@ public class TypeWriterPuzzle : Puzzle
 
   public void OnButtonPressed(InteractEvent evt)
   {
-    Button button = evt.gameObject.GetComponent<Button>();
+    TypewriterButton button = evt.gameObject.GetComponent<TypewriterButton>();
     if (button)
     {
       ButtonPressed(button);
     }
   }
 
-  public void ButtonPressed(Button button)
+  public void ButtonPressed(TypewriterButton button)
   {
     pressed += (ButtonToString[button.buttonType]);
     // Debug.Log("Pressed: " + pressed);

@@ -1729,7 +1729,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 4
@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4e7a47172b930db47814886e3de4ef15, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f696b88895fc8b04ab8d3361a79626d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1878,6 +1878,7 @@ GameObject:
   - component: {fileID: 279388543}
   - component: {fileID: 279388545}
   - component: {fileID: 279388544}
+  - component: {fileID: 279388546}
   m_Layer: 5
   m_Name: MainLogo
   m_TagString: Untagged
@@ -1903,7 +1904,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 500}
+  m_SizeDelta: {x: 750, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &279388544
 MonoBehaviour:
@@ -1925,7 +1926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5075429a82a468a45a51008e690afa24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb51c2d40bdc2fd4abfdbc27642484d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1943,6 +1944,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279388542}
   m_CullTransparentMesh: 1
+--- !u!114 &279388546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279388542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c7595cec534394d93c8615af39d082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeInAnimationName: mainLogoFadeIn
+  fadeOutAnimationName: mainLogoFadeOut
+  durationIn: 2.5
+  durationOut: 0
+  delayIn: 0
+  delayOut: 0
 --- !u!1001 &306175907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2718,7 +2737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &425302597
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3470,7 +3489,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1525574534}
         m_TargetAssemblyTypeName: MenuNavigationController, Assembly-CSharp
-        m_MethodName: hideAllText
+        m_MethodName: resetIntro
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3987,11 +4006,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: If an informant can convince, trick, or otherwise manipulate the detective
-    into completing their secret objective, they will receive much higher favour
-    with us spirits, making them far more likely to recieve the reward at the end
-    of the game. Additionally, every other player will appear a tad duller in comparison,
-    and thus will be less favoured.
+  m_text: If an informant can manipulate the detective into completing their secret
+    objective, they will receive much higher favour with us spirits, making them
+    far more likely to recieve the reward at the end of the game. Additionally, every
+    other player will appear a tad duller in comparison, and thus will be less favoured.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -4532,13 +4550,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The Lady had quite the penchant for puzzles, you see, and conjured <i>us</i>
+  m_text: "The Lady had quite the penchant for puzzles, you see, and conjured <i>us</i>
     to safeguard her most valuable possessions, ensuring only the most cunning confolk
-    could keep the cache.
-
-
-    You will all prove your worth by solving a series
-    of puzzles and manipulating one another as you do so. <i>How fun!</i>'
+    could keep the cache.\n\nYou will all prove your worth by solving a series of
+    puzzles and manipulating one another as you do so in order to earn our FAVOUR.
+    \n\n<i>H O W  F U N !</i>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -4866,7 +4882,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 4
@@ -5014,7 +5030,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 200, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701031972
 MonoBehaviour:
@@ -5054,7 +5070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5075429a82a468a45a51008e690afa24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb51c2d40bdc2fd4abfdbc27642484d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7188,9 +7204,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The detective interacts with the game using their controller or mouse and
-    keyboard. The informants interact with the game using their phones and by communicating
-    verbally (or non-verbally) with the detective.
+  m_text: "The detective interacts with the game using their CONTROLLER (or MOUSE
+    and KEYBOARD). \n\nThe informants interact with the game using their PHONES and
+    by COMMUNICATING verbally (or non-verbally) with the detective."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -7708,7 +7724,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &990607164
 MonoBehaviour:
@@ -7748,7 +7764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5075429a82a468a45a51008e690afa24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb51c2d40bdc2fd4abfdbc27642484d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9949,6 +9965,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1525574534}
+        m_TargetAssemblyTypeName: MenuNavigationController, Assembly-CSharp
+        m_MethodName: resetPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1229953678
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12038,6 +12066,8 @@ MonoBehaviour:
   puzzleSetupObject: {fileID: 1227246683}
   objectToSelectOnPuzzleSetup: {fileID: 446981586}
   nextButtonText: {fileID: 1829132484}
+  skipButtonObject: {fileID: 513746474}
+  menuButtonObject: {fileID: 1229953674}
 --- !u!1 &1539629296
 GameObject:
   m_ObjectHideFlags: 0
@@ -12714,8 +12744,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'We, the ghosts and spirits lingering within Erring Manor, welcome you
     four intrepid explorers to our recently-abandoned abode. We wish you well in
-    your search for the treasures and secrets of the late Lady Erring, but be warned:
-    only one of you may exit the Manor with the riches you seek...'
+    your search for the secrets of the late Lady Erring, but be warned: only one
+    of you may exit the Manor with the riches you seek...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -13247,7 +13277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e10164379cdcbb408a25d41006cc0e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5764315afb8e7a4f8c742c51f391836, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15467,7 +15497,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960043192}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -15830,7 +15860,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -249.99994}
-  m_SizeDelta: {x: 75, y: 75}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041711720
 MonoBehaviour:
@@ -15852,7 +15882,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5075429a82a468a45a51008e690afa24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb51c2d40bdc2fd4abfdbc27642484d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17017,7 +17047,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1525574534}
         m_TargetAssemblyTypeName: MenuNavigationController, Assembly-CSharp
-        m_MethodName: hideAllText
+        m_MethodName: resetPosition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

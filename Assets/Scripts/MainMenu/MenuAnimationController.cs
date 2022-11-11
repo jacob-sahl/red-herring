@@ -14,6 +14,7 @@ public class MenuAnimationController : MonoBehaviour
   private void Start()
   {
     animationGroups = new List<List<string>>();
+    startAnimation("mainLogoFadeIn");
     startAnimation("colourBackgroundFade");
   }
   private void OnDestroy()
@@ -37,17 +38,45 @@ public class MenuAnimationController : MonoBehaviour
 
   // BANDAID 
   // Ideally thse would be set in-editor but functions with List parameters don't show up in-editor
-
   public void playStartGameAnimation()
   {
-    startAnimationGroup(new List<string> { "fadeMainMenuContentOut", "expandBackdrop", "fadeIntro1In", "textReveal1-1" });
+    startAnimationGroup(new List<string> {
+      "fadeMainMenuContentOut", "expandBackdrop", "fadeIntro1In", "fadeInWelcome", "textReveal1-1"
+      });
   }
 
   public void returnToTitleScreen()
   {
-    startAnimationGroup(new List<string> { "collapseBackdrop", "fadeMainMenuContentIn" });
+    resetAllIntroContent();
+    startAnimationGroup(new List<string> { "fadeIntro1Out", "collapseBackdrop", "fadeMainMenuContentIn" });
   }
 
+  public void resetAllIntroContent()
+  {
+    List<string> animations = new List<string> {
+      "textHide1-1instant",
+      "textHide1-2instant",
+      "textHide2-1instant",
+      "textHide2-2instant",
+      "textHide2-3instant",
+      "textHide2-4instant",
+      "textHide2-5instant",
+      "textHide3-1instant",
+      "textHide3-2instant",
+      "textHide3-3instant",
+      "textHide4-1instant",
+      "textHide4-2instant",
+      "textHide4-3instant",
+      "textHide4-4instant",
+      "textHide4-5instant",
+      "textHide4-6instant",
+      "fadeOutSO",
+      "fadeOutPuzzle",
+      "fadeOutD&I",
+      "fadeOutWelcome",
+    };
+    startAnimationGroup(animations);
+  }
   // ^^
 
   void onAnimationFinished(UIAnimationEndEvent e)
