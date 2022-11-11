@@ -2895,6 +2895,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1583117511461861355, guid: 386f1a28e8523474aad114afda241743, type: 3}
+      propertyPath: m_text
+      value: THREE WORDS HERE
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583117511461861355, guid: 386f1a28e8523474aad114afda241743, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281545523
+      objectReference: {fileID: 0}
     - target: {fileID: 2731550451111424018, guid: 386f1a28e8523474aad114afda241743, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2913,7 +2921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731550451111424018, guid: 386f1a28e8523474aad114afda241743, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -6.57
       objectReference: {fileID: 0}
     - target: {fileID: 2731550451111424018, guid: 386f1a28e8523474aad114afda241743, type: 3}
       propertyPath: m_LocalPosition.y

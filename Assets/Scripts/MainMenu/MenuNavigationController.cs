@@ -75,22 +75,22 @@ public class MenuNavigationController : MonoBehaviour
         break;
       case 6:
         animations = new List<string> {
-          "fadeOutD&I", "textHide2-5", "fadeInPuzzle", "textReveal3-1"
+          "fadeOutD&I", "textHide2-5", "fadeInPuzzle","typewriterImageFadeIn", "textReveal3-1"
         };
         break;
       case 7:
-        animations = new List<string> { "textHide3-1", "textReveal3-2" };
+        animations = new List<string> { "typewriterImageFadeOut", "textHide3-1", "hintImageFadeIn", "textReveal3-2" };
         break;
       case 8:
-        animations = new List<string> { "textHide3-2", "textReveal3-3" };
+        animations = new List<string> { "hintImageFadeOut", "textHide3-2", "clueImageFadeIn", "textReveal3-3" };
         break;
       case 9:
         animations = new List<string> {
-          "fadeOutPuzzle", "textHide3-3", "fadeInSO", "textReveal4-1"
+          "clueImageFadeOut", "fadeOutPuzzle", "textHide3-3", "fadeInSO", "fullCardImageFadeIn", "textReveal4-1"
         };
         break;
       case 10:
-        animations = new List<string> { "textHide4-1", "textReveal4-2" };
+        animations = new List<string> { "fullCardImageFadeOut", "textHide4-1", "textReveal4-2" };
         break;
       case 11:
         animations = new List<string> { "textHide4-2", "textReveal4-3" };
@@ -162,22 +162,22 @@ public class MenuNavigationController : MonoBehaviour
         break;
       case 7:
         animations = new List<string> {
-          "fadeOutPuzzle", "textHide3-1", "fadeInD&I", "textReveal2-5"
+          "typewriterImageFadeOut", "fadeOutPuzzle", "textHide3-1", "fadeInD&I", "textReveal2-5"
           };
         break;
       case 8:
-        animations = new List<string> { "textHide3-2", "textReveal3-1" };
+        animations = new List<string> { "hintImageFadeOut", "textHide3-2", "typewriterImageFadeIn", "textReveal3-1" };
         break;
       case 9:
-        animations = new List<string> { "textHide3-3", "textReveal3-2" };
+        animations = new List<string> { "clueImageFadeOut", "textHide3-3", "hintImageFadeIn", "textReveal3-2" };
         break;
       case 10:
         animations = new List<string> {
-          "fadeOutSO", "textHide4-1", "fadeInPuzzle", "textReveal3-3"
+          "fullCardImageFadeOut", "fadeOutSO", "textHide4-1", "fadeInPuzzle", "clueImageFadeIn", "textReveal3-3"
           };
         break;
       case 11:
-        animations = new List<string> { "textHide4-2", "textReveal4-1" };
+        animations = new List<string> { "textHide4-2", "fullCardImageFadeIn", "textReveal4-1" };
         break;
       case 12:
         animations = new List<string> { "textHide4-3", "textReveal4-2" };
