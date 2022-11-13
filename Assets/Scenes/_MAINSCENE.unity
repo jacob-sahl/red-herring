@@ -18268,6 +18268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallBooksAndShelf
       objectReference: {fileID: 0}
+    - target: {fileID: 5370552354029242298, guid: d3d310b9318214b46a2b902a4af45720, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3d310b9318214b46a2b902a4af45720, type: 3}
 --- !u!4 &6528545826528148549
