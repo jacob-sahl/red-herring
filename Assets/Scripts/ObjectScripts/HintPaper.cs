@@ -1,17 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HintPaper : MonoBehaviour
 {
-  [Tooltip("The puzzle(s) this object should appear within.")]
-  public List<TypeWriterPuzzleID> puzzles;
-  void Start()
-  {
-    TypeWriterPuzzleID activePuzzle = GameController.Instance.getCurrentPuzzle().id;
-    if (!puzzles.Contains(activePuzzle))
+    [Tooltip("The puzzle(s) this object should appear within.")]
+    public List<TypeWriterPuzzleID> puzzles;
+
+    private void Start()
     {
-      gameObject.SetActive(false);
+        var activePuzzle = GameController.Instance.getCurrentPuzzle().id;
+        if (!puzzles.Contains(activePuzzle)) gameObject.SetActive(false);
     }
-  }
 }

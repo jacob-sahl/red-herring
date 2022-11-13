@@ -1,42 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LeftShelf : MonoBehaviour
 {
-  private Books[] books;
-  void Start()
-  {
-    books = gameObject.GetComponentsInChildren<Books>();
-    setUpBooks();
-  }
+    private Books[] books;
 
-  void setUpBooks()
-  {
-    TypeWriterPuzzleID puzzle = GameController.Instance.getCurrentPuzzle().id;
-    switch (puzzle)
+    private void Start()
     {
-      case TypeWriterPuzzleID.BlueRedYellow:
-        showObject(books[0].gameObject);
-        books[0].gameObject.GetComponent<MeshRenderer>().materials[1].color = new Color(0f, 0f, 1f, 0.05f); // Blue
-        books[1].gameObject.GetComponent<MeshRenderer>().materials[1].color = new Color(1f, 0f, 0f, 0.05f); // Red
-        books[2].gameObject.GetComponent<MeshRenderer>().materials[1].color = new Color(1f, 1f, 0f, 0.05f); // Yellow
-        break;
+        books = gameObject.GetComponentsInChildren<Books>();
+        setUpBooks();
     }
-  }
 
-  void showObject(GameObject obj)
-  {
-    Renderer renderer = obj.GetComponent<Renderer>();
-    if (renderer != null) renderer.enabled = true;
-    Collider collider = obj.GetComponent<Collider>();
-    if (collider != null) collider.enabled = true;
-  }
-  void hideObject(GameObject obj)
-  {
-    Renderer renderer = obj.GetComponent<Renderer>();
-    if (renderer != null) renderer.enabled = false;
-    Collider collider = obj.GetComponent<Collider>();
-    if (collider != null) collider.enabled = false;
-  }
+    private void setUpBooks()
+    {
+        var puzzle = GameController.Instance.getCurrentPuzzle().id;
+        switch (puzzle)
+        {
+            case TypeWriterPuzzleID.BlueRedYellow:
+                showObject(books[0].gameObject);
+                books[0].gameObject.GetComponent<MeshRenderer>().materials[1].color =
+                    new Color(0f, 0f, 1f, 0.05f); // Blue
+                books[1].gameObject.GetComponent<MeshRenderer>().materials[1].color =
+                    new Color(1f, 0f, 0f, 0.05f); // Red
+                books[2].gameObject.GetComponent<MeshRenderer>().materials[1].color =
+                    new Color(1f, 1f, 0f, 0.05f); // Yellow
+                break;
+        }
+    }
+
+    private void showObject(GameObject obj)
+    {
+        var renderer = obj.GetComponent<Renderer>();
+        if (renderer != null) renderer.enabled = true;
+        var collider = obj.GetComponent<Collider>();
+        if (collider != null) collider.enabled = true;
+    }
+
+    private void hideObject(GameObject obj)
+    {
+        var renderer = obj.GetComponent<Renderer>();
+        if (renderer != null) renderer.enabled = false;
+        var collider = obj.GetComponent<Collider>();
+        if (collider != null) collider.enabled = false;
+    }
 }
