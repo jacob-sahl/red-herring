@@ -142,6 +142,7 @@ public class MenuNavigationController : MonoBehaviour
   {
     if (!navEnabled)
     {
+      Debug.Log("Blocked. Waiting for: " + waitingFor);
       UIAnimationInterruptAllEvent evt = new UIAnimationInterruptAllEvent();
       evt.name = "test";
       EventManager.Broadcast(evt);
@@ -221,6 +222,9 @@ public class MenuNavigationController : MonoBehaviour
   public void resetIntro()
   {
     resetPosition();
+    nextButtonText.GetComponent<TextMeshProUGUI>().text = "Next";
+    waitingFor = "textReveal1-1";
+    navEnabled = false;
     animationController.resetAllIntroContent();
   }
 
