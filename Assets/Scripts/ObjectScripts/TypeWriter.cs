@@ -9,12 +9,14 @@ public class TypeWriter : MonoBehaviour
   private TypeWriterPuzzleID activePuzzle;
   private TypeWriterPuzzle _typeWriterPuzzle;
   private List<SecretObjectiveID> broadcasted = new List<SecretObjectiveID>();
-  private GameObject carriageGroup;
+  // private GameObject carriageGroup;
+  private Animator animator;
+  float time;
   void Awake()
   {
     audioSource = gameObject.GetComponent<AudioSource>();
     EventManager.AddListener<DefocusEvent>(onDefocus);
-    carriageGroup = transform.Find("CarriageGroup").gameObject;
+    // carriageGroup = transform.Find("CarriageGroup").gameObject;
   }
   private void OnDestroy()
   {
@@ -22,6 +24,9 @@ public class TypeWriter : MonoBehaviour
   }
   void Start()
   {
+    time = 0f;
+    animator = GetComponent<Animator>();
+    animator.SetTrigger("IncorrectInput");
     activePuzzle = GameController.Instance.getCurrentPuzzle().id;
     _typeWriterPuzzle = gameObject.GetComponent<TypeWriterPuzzle>();
     switch (activePuzzle)
@@ -41,6 +46,13 @@ public class TypeWriter : MonoBehaviour
   // }
   void Update()
   {
+    time += Time.deltaTime;
+    if (time > 3)
+    {
+      Debug.Log("Animating TW");
+      animator.SetTrigger("IncorrectInput");
+      time = 0f;
+    }
     if (Vector3.Dot(transform.up, Vector3.down) > 0 && !broadcasted.Contains(SecretObjectiveID.InvertTypewriter))
     {
       SecretObjectiveEvent evt = new SecretObjectiveEvent();

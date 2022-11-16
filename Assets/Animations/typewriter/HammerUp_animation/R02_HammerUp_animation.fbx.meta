@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: aacfddb9e9459ef4ca80acd6cca4f29e
+guid: 6e760a35492851a43829c6aa4c5b8a72
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -6892023814137679441
+    second: R02_HammerUp_animation
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -32,7 +35,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1

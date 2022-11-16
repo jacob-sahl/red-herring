@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: aacfddb9e9459ef4ca80acd6cca4f29e
+guid: c6a490acbd83545438b6e7623696ee3b
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -748269085697537746
+    second: Failure_Combined_anim
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -32,7 +35,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
