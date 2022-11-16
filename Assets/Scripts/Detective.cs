@@ -4,8 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Detective : MonoBehaviour
 {
-    [Header("References")] [Tooltip("Reference to the main camera used for the player")]
-    public Camera playerCamera;
+  [Header("References")]
+  [Tooltip("Reference to the main camera used for the player")]
+  public Camera playerCamera;
+  [Tooltip("Reference to the light used for focus illumination")]
+  public GameObject focusLight;
 
     [Header("Rotation")] [Tooltip("Rotation speed for moving the camera")]
     public float RotationSpeed = 1f;
@@ -108,29 +111,35 @@ public class Detective : MonoBehaviour
                 _lastOutline.OutlineMode = Outline.Mode.OutlineAll;
                 _lastOutline.OutlineWidth = 5;
 
-                if (focus != null)
-                    _lastOutline.OutlineColor = Color.red;
-                else if (draggable != null)
-                    _lastOutline.OutlineColor = Color.gray;
-                else
-                    _lastOutline.OutlineColor = Color.yellow;
+    // Turn on focus light
+    focusLight.SetActive(true);
 
-                if (interacted)
-                {
-                    if (focus != null)
-                    {
-                        var focusEvent = Events.FocusEvent;
-                        focusEvent.gameObject = colliderGameObject;
-                        EventManager.Broadcast(focusEvent);
-                    }
-                    else
-                    {
-                        // Debug.Log("Interacting: " + colliderGameObject.name);
-                        var interact = Events.InteractEvent;
-                        interact.gameObject = colliderGameObject;
-                        EventManager.Broadcast(interact);
-                    }
-                }
+    focusActive = true;
+    moveEnabled = false;
+  }
+
+  void defocus()
+  {
+    // Hide focus controls
+    focusControls.SetActive(false);
+    // Reset cursor to centre and exit focus
+    cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
+    cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+    // exit focus
+    moveEnabled = true;
+    focusActive = false;
+    // Put the object back where it was
+    focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
+    focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
+    focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
+    focusedObject.GetComponent<Focus>().enablePhysics();
+    // Turn off focus light
+    focusLight.SetActive(false);
+    // Send event
+    DefocusEvent e = new DefocusEvent();
+    e.gameObject = focusedObject;
+    EventManager.Broadcast(e);
+  }
 
                 _lastOutline.enabled = true;
             }

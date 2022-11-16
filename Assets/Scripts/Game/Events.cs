@@ -19,6 +19,9 @@ public static class Events
     public static GameEndEvent GameEndEvent = new();
     public static GameCreatedEvent GameCreatedEvent = new();
     public static GameInstanceUpdatedEvent GameInstanceUpdatedEvent = new();
+    public static UIAnimationEndEvent UIAnimationEndEvent = new UIAnimationEndEvent();
+    public static UIAnimationStartEvent UIAnimationStartEvent = new UIAnimationStartEvent();
+    public static UIAnimationInterruptAllEvent UIAnimationInterruptAllEvent = new UIAnimationInterruptAllEvent();
 }
 
 public class GameCreatedEvent : GameEvent
@@ -104,4 +107,18 @@ public class GameEndEvent : GameEvent
 public class GameInstanceUpdatedEvent : GameEvent
 {
     public GameInstance gameInstance;
+}
+public class UIAnimationStartEvent : GameEvent
+{
+  public string name;
+}
+
+public class UIAnimationEndEvent : GameEvent
+{
+  public string name;
+}
+
+public class UIAnimationInterruptAllEvent : GameEvent
+{
+  public string name;
 }

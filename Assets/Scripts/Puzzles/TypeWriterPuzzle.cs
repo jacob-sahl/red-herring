@@ -125,12 +125,32 @@ public class TypeWriterPuzzle : Puzzle
         EventManager.RemoveListener<InteractEvent>(OnButtonPressed);
     }
 
-    private void UpdateSolution(string solution)
+  void Start()
+  {
+    puzzle_text = GameObject.Find("Puzzle_Text").GetComponentInChildren<TextMeshProUGUI>();
+    string solution = GameController.Instance.puzzles[GameController.Instance.currentRound].solution;
+    UpdateSolution(solution);
+  }
+
+  void UpdateSolution(string solution)
+  {
+    _solution = solution;
+  }
+
+  public void OnButtonPressed(InteractEvent evt)
+  {
+    TypewriterButton button = evt.gameObject.GetComponent<TypewriterButton>();
+    if (button)
     {
         _solution = solution;
     }
 
-    public void OnButtonPressed(InteractEvent evt)
+  public void ButtonPressed(TypewriterButton button)
+  {
+    pressed += (ButtonToString[button.buttonType]);
+    // Debug.Log("Pressed: " + pressed);
+    typeWriter.playKeydownClip();
+    if (_answer.Length == 0)
     {
         var button = evt.gameObject.GetComponent<Button>();
         if (button) ButtonPressed(button);
