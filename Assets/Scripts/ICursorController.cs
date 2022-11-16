@@ -36,6 +36,7 @@ public class ICursorController : MonoBehaviour
 
     void Update()
     {
+        cursorSpeed = GameController.Instance.mouseSensitivity;
         handleCursorMove();
     }
 }

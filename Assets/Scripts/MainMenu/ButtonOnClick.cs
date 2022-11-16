@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
@@ -18,11 +19,13 @@ public class ButtonOnClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
   {
     //Debug.Log(theText.text+ " bolded");
     theText.fontStyle = FontStyles.Bold;
+    theText.color = new Color(128, 44, 4, 255);
   }
 
   public void OnPointerExit(PointerEventData eventData) // mouse hovers off button
   {
     theText.fontStyle = FontStyles.Normal;
+    theText.color = new Color(255, 255, 255, 255);
   }
 
   public void ExitGame()

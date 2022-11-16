@@ -259,6 +259,9 @@ public class Detective : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    cursorSpeed = GameController.Instance.mouseSensitivity;
+    objectRotateSpeed = GameController.Instance.objectRotationSpeed;
+
     if (_inputHandler == null || frozen) return;
 
     RaycastHit hit;

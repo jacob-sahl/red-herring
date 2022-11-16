@@ -13,14 +13,19 @@ public class PauseScreen : MonoBehaviour
   private bool pauseReleased = false;
   private PlayerInputHandler _inputHandler;
   private Detective detective;
+    private GameController gamecontroller;
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _optionsMenu;
+    //private LevelManager _levelManager;
+
     void Start()
   {
     pauseReleased = false;
     //_inputHandler = GetComponent<PlayerInputHandler>();
     detective = GameObject.Find("Detective").GetComponent<Detective>();
-    setPauseScreenChildrenActive(false);
+    //levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        setPauseScreenChildrenActive(false);
+    gamecontroller = GameController.Instance;
   }
 
   void setPauseScreenChildrenActive(bool state)
@@ -84,7 +89,27 @@ public class PauseScreen : MonoBehaviour
         Debug.Log("unpaused");
     }
 
-  public void assignInputHandler(PlayerInputHandler handler)
+    /*public void QuitButton()
+    {
+        levelManager.EndLevel();
+    }*/
+
+    public void ChangeMouseSensitivity(float value)
+    {
+        gamecontroller.updateMouseSensitivity(value);
+    }
+
+    public void ChangeRotationSpeed(float value)
+    {
+        gamecontroller.updateObjectRotationSpeed(value);
+    }
+
+    public void ChangeRoundDuration(string value)
+    {
+        gamecontroller.updateMinutesPerRound(value);
+    }
+
+    public void assignInputHandler(PlayerInputHandler handler)
   {
     _inputHandler = handler;
   }

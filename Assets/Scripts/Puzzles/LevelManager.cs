@@ -147,7 +147,7 @@ public class LevelManager : MonoBehaviour
     }
   }
 
-  private void EndLevel()
+  public void EndLevel()
   {
     puzzleStarted = false;
     checkCompletionTime();
