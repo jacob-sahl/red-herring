@@ -59,6 +59,7 @@ public class PauseScreen : MonoBehaviour
       pauseReleased = false;
       Debug.Log("unpaused");
       setPauseScreenChildrenActive(false);
+      _optionsMenu.SetActive(false);
       Cursor.visible = false;
       Cursor.lockState = CursorLockMode.Locked;
     }
@@ -76,9 +77,9 @@ public class PauseScreen : MonoBehaviour
 
     public void ResumeButton()
     {
-        Time.timeScale = 1f;
-        pauseReleased = false;
-        _pauseMenu.SetActive(false);
+        pauseReleased = true;
+        Pause();
+        /*_pauseMenu.SetActive(false);*/
         _optionsMenu.SetActive(false);
         Debug.Log("unpaused");
     }
