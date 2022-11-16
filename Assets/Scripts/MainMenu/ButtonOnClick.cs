@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using Utils;
 
 public class ButtonOnClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -75,6 +76,12 @@ public class ButtonOnClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void CreateGame()
     {
+        APIClient.APIClient.Instance.CreateGameInstance().Then(instance =>
+        {
+            Events.GameCreatedEvent.gameInstance = instance;
+            EventManager.Broadcast(Events.GameCreatedEvent);
+            Dispatcher.Instance.RunInMainThread(() => { GameController.Instance.gameInstance = instance; GameController.Instance.PlayerManager.ClearPlayers(); });
+        });
         Debug.Log("Create");
     }
 }

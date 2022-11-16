@@ -147,6 +147,7 @@ public class GameController : MonoBehaviour
         // Deterministic detective order
         detectiveOrder = new List<int> { 0, 1, 2, 3 };
         currentRound = -1;
+        gameInstance = null;
         _apiInterval = new Interval(1);
         EventManager.AddListener<LevelStartEvent>(onGameStart);
         EventManager.AddListener<LevelEndEvent>(onLevelEnd);
@@ -159,12 +160,6 @@ public class GameController : MonoBehaviour
     {
         PlayerManager = PlayerManager.Instance;
         _readyToSetUpLevel = true;
-        APIClient.APIClient.Instance.CreateGameInstance().Then(instance =>
-        {
-            Events.GameCreatedEvent.gameInstance = instance;
-            EventManager.Broadcast(Events.GameCreatedEvent);
-            Dispatcher.Instance.RunInMainThread(() => { gameInstance = instance; });
-        });
     }
 
     private void Update()
@@ -328,7 +323,7 @@ public class GameController : MonoBehaviour
         if (_readyToSetUpLevel)
         {
             // FOR DEV PURPOSES: (REMOVE ON BUILD)
-            // PlayerManager.fillPlayers();
+            PlayerManager.fillPlayers(gameInstance);
             // ^
             currentRound++; // Must be done FIRST
             assignSecretObjectives();

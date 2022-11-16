@@ -23,9 +23,16 @@ public class PlayerInputHandler : MonoBehaviour
     private Vector2 lookInput;
     private Vector2 movementInput;
     private bool pause;
+    private PlayerInput Input;
 
+    private void OnDisable()
+    {
+        Input.actions = null;
+    }
+    
     private void Start()
     {
+        Input = GetComponent<PlayerInput>();
         EventManager.AddListener<LevelStartEvent>(onGameStart);
     }
 

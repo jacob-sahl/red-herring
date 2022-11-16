@@ -10,6 +10,10 @@ namespace MainMenu
 
         private void Awake()
         {
+            if (GameController.Instance.gameInstance != null)
+            {
+                PopulateGameInfo(GameController.Instance.gameInstance);
+            }
             EventManager.AddListener<GameCreatedEvent>(onGameCreated);
         }
 

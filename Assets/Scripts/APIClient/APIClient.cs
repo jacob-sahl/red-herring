@@ -1,4 +1,5 @@
-﻿using FullSerializer;
+﻿using System;
+using FullSerializer;
 using JetBrains.Annotations;
 using Proyecto26;
 using RSG;
@@ -74,6 +75,23 @@ namespace APIClient
         public Promise<GameInstance> GetGameInstance(string id)
         {
             return Get<GameInstance>($"admin/games/{id}", null);
+        }
+
+        [Serializable]
+        public class JoinUserRequest
+        {
+            public string joinCode;
+            public string playerName;
+        }
+
+        public Promise<bool> JoinPlayer(string joinCode, string playerName)
+        {
+            var promise = new Promise<bool>();
+
+            Post<Object>("games/join", new JoinUserRequest {joinCode = joinCode, playerName = playerName}).Then(
+                response => { promise.Resolve(true); }).Catch(
+                error => { promise.Reject(error); });
+            return promise;
         }
     }
 }
