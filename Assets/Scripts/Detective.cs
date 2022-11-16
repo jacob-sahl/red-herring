@@ -13,6 +13,8 @@ public class Detective : MonoBehaviour
   [Header("References")]
   [Tooltip("Reference to the main camera used for the player")]
   public Camera playerCamera;
+  [Tooltip("Reference to the light used for focus illumination")]
+  public GameObject focusLight;
 
   [Header("Rotation")]
   [Tooltip("Rotation speed for moving the camera")]
@@ -121,6 +123,9 @@ public class Detective : MonoBehaviour
     focusedObject.transform.Translate(focus.defaultTranslation);
     // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.red, 120f, false);
 
+    // Turn on focus light
+    focusLight.SetActive(true);
+
     focusActive = true;
     moveEnabled = false;
   }
@@ -140,6 +145,8 @@ public class Detective : MonoBehaviour
     focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
     focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
     focusedObject.GetComponent<Focus>().enablePhysics();
+    // Turn off focus light
+    focusLight.SetActive(false);
     // Send event
     DefocusEvent e = new DefocusEvent();
     e.gameObject = focusedObject;
