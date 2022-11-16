@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class FocusControls : MonoBehaviour
 {
   TextMeshProUGUI rotateText;
   TextMeshProUGUI dropText;
+  public float hidePosition = -300;
+  public float displayPosition = 0;
+  public float transitionTime = 1.5f;
+
   void Start()
   {
     rotateText = transform.Find("RotateText").GetComponent<TextMeshProUGUI>();
-    rotateText.text = "Rotate Object: ";
     dropText = transform.Find("DropText").GetComponent<TextMeshProUGUI>();
-    dropText.text = "Drop Object: ";
     int detectiveID = GameController.Instance.getCurrentDetective();
     PlayerController detective = PlayerManager.Instance.getPlayerByID(detectiveID);
 
@@ -36,15 +39,13 @@ public class FocusControls : MonoBehaviour
     // BANDAID
     if (controls == "Keyboard")
     {
-      dropText.text += "E";
-      rotateText.text += "WASD or Arrow Keys";
+      dropText.text = "E";
+      rotateText.text = "WASD / \n Arrow Keys";
     }
     else
     {
-      dropText.text += "Right Button (B)";
-      rotateText.text += "Left Stick";
+      dropText.text = "East Button ( B / O )";
+      rotateText.text = "Left Stick";
     }
-    // BANDAID ^
-    // gameObject.SetActive(false);
   }
 }
