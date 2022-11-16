@@ -49,6 +49,11 @@ public class TextReveal : MonoBehaviour
     hideText = true;
   }
 
+  private void OnEnable()
+  {
+    hideText = true;
+  }
+
   void onInterrupt(UIAnimationInterruptAllEvent e)
   {
     if (animating)
