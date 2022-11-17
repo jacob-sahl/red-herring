@@ -1,6 +1,8 @@
 import { Database } from '@firebase/database-types';
 import * as admin from 'firebase-admin'
 import GameInstance from './modals/gameInstance';
+import Player from './modals/player';
+import Round, { CurrentGameState } from './modals/round';
 
 class NodeApp {
 
@@ -30,11 +32,11 @@ class NodeApp {
     }
 
     private async SubscribeAllGameInstances() {
-        const allGameInstancesObj = (await this.db?.ref('games').once('value'))?.val() as {[key:string]: GameInstance};
+        const allGameInstancesObj = (await this.db?.ref('games').once('value'))?.val() as { [key: string]: GameInstance };
         this.allGameInstances = Object.values(allGameInstancesObj);
 
         this.db?.ref('games').on('value', (snapshot) => {
-            this.allGameInstances = Object.values(snapshot.val() as {[key:string]: GameInstance});
+            this.allGameInstances = Object.values(snapshot.val() as { [key: string]: GameInstance });
         });
     }
 
@@ -73,6 +75,75 @@ class NodeApp {
 
     public async deleteGameInstance(gameInstance: GameInstance) {
         await this.db?.ref('games').child(gameInstance.id).remove();
+    }
+
+    public async addPlayerToGameInstance(gameInstance: GameInstance, player: Player) {
+        gameInstance.players === undefined ? gameInstance.players = [player] : gameInstance.players.push(player);
+        await this.updateGameInstance(gameInstance);
+    }
+
+    public async getGameInstanceByJoinCode(joinCode: string) {
+        return this.allGameInstances.find((game) => game.joinCode === joinCode);
+    }
+
+    public validatePlayer(gameId: string, playerId: number, session: string) {
+        const gameInstance = this.getGameInstanceById(gameId);
+        if (!gameInstance) {
+            return false;
+        }
+        const player = gameInstance.players.find((player) => player.id === playerId);
+        if (!player) {
+            return false;
+        }
+        return player.session === session;
+    }
+
+    public getAllScores(gameId: string): { playerId: number; score: number; }[][] {
+        const gameInstance = this.getGameInstanceById(gameId);
+        if (!gameInstance) {
+            return [];
+        }
+        if (!gameInstance.rounds) {
+            return [];
+        }
+        return gameInstance.rounds.map((round) => round.scores);
+    }
+
+    public async getPlayerRoundInfo(gameId: string, playerId: number) {
+        const gameInstance = this.getGameInstanceById(gameId);
+        if (!gameInstance) {
+            return null;
+        }
+        const player = gameInstance.players.find((player) => player.id === playerId);
+        if (!player) {
+            return null;
+        }
+
+        const round: Round | null = gameInstance.rounds ? gameInstance.rounds[gameInstance.currentRound] : null;
+
+        const informantCard = round?.informants.find((informant) => informant.playerId === playerId);
+        const playerRoundInfo: CurrentGameState = {
+            isDetective: player.isDetective,
+            gameId: gameInstance.id,
+            playerId: player.id,
+            currentRound: gameInstance.currentRound,
+            players: gameInstance.players.map((player) => ({ id: player.id, name: player.name })),
+            scores: this.getAllScores(gameId),
+            currentInformantCard: informantCard ? informantCard : null,
+        }
+        return playerRoundInfo;
+    }
+
+    public async getPlayerName(gameId: string, playerId: number) {
+        const gameInstance = this.getGameInstanceById(gameId);
+        if (!gameInstance) {
+            return null;
+        }
+        const player = gameInstance.players.find((player) => player.id === playerId);
+        if (!player) {
+            return null;
+        }
+        return player.name;
     }
 }
 

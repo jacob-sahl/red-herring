@@ -1,61 +1,106 @@
-import type { InferGetServerSidePropsType, NextPage } from 'next'
+import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import NodeAppInstance from '../firebase/nodeApp'
+import NodeAppInstance from '../firebase/nodeApp';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from 'react';
+import { CurrentGameState } from '../firebase/modals/round';
+import APIClient from '../utils/APIClient';
+import Cookies from 'universal-cookie';
+import ScoreBoard from '../components/scoreBoard';
+import GameNotStart from '../components/gameNotStart';
+import GameEnded from '../components/gameEnded';
+import DectectiveHint from '../components/detectiveHint';
+import InformantHint from '../components/informantHint';
 
-const Home: NextPage = ( props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const cookies = new Cookies();
 
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+const GamePage: NextPage<{ initialGameState: CurrentGameState }> = ({ initialGameState }) => {
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+    const [roundInfo, setRoundInfo] = useState(initialGameState);
+    const [scoreBoardVisible, setScoreBoardVisible] = useState(false);
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
 
-        <p>
-          {JSON.stringify(props.gameInstance)}
-        </p>
-
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
-    </div>
-  )
-}
-
-export async function getServerSideProps() {
-  const gameInstance = NodeAppInstance.getGameInstanceById("4fc7d935-0952-4903-ac42-452630cae765");
-
-  return {
-    props: {
-      gameInstance: gameInstance,
+    if (roundInfo.currentRound <= 3) {
+        useEffect(() => {
+            toast.success(`Joined as ${initialGameState.players[initialGameState.playerId].name}`, { toastId: 'join' });
+            const interval = setInterval(() => {
+                APIClient.getInstance().post<CurrentGameState>(`/games/${roundInfo.gameId}`,
+                    { gameId: cookies.get("gameId"), playerId: cookies.get("playerId"), session: cookies.get("session") }
+                ).then((response) => {
+                    setRoundInfo(response.data);
+                }
+                ).catch((error) => {
+                    toast(error.response.data.error || error.response.data.message);
+                }
+                );
+            }, 5000);
+            return () => clearInterval(interval);
+        }, []);
     }
-  }
+
+    let body = <></>
+    if (roundInfo.currentRound === 0) {
+        body = <GameNotStart roundInfo={roundInfo} />
+    } else if (roundInfo.currentRound > 3) {
+        body = <GameEnded roundInfo={roundInfo} />
+    } else {
+        if (roundInfo.isDetective) {
+            body = <DectectiveHint roundInfo={roundInfo} />
+        } else {
+            body = <InformantHint roundInfo={roundInfo} />
+        }
+    }
+
+    return (
+        <div className="flex min-h-screen flex-col items-center justify-center py-2">
+            <Head>
+                <title>Red Herring</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+
+            <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+
+                <h1>
+                    {JSON.stringify(roundInfo)}
+                </h1>
+                {body}
+                {/* <button className='bg-red-900 text-white rounded-md p-2 m-4 uppercase shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out' onClick={() => setScoreBoardVisible(!scoreBoardVisible)}>Scoreboard</button> */}
+                {/* <ScoreBoard visible={scoreBoardVisible} players={roundInfo.players} scores={roundInfo.scores} /> */}
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+                />
+            </main>
+        </div>
+    )
 }
 
-export default Home
+export default GamePage
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const { gameId, playerId, session } = context.req.cookies;
+    if (gameId && playerId && session) {
+
+        if (NodeAppInstance.validatePlayer(gameId, Number(playerId), session)) {
+            return {
+                props: {
+                    initialGameState: await NodeAppInstance.getPlayerRoundInfo(gameId, Number(playerId))
+                }
+            }
+        }
+    }
+    return {
+        redirect: {
+            destination: '/join',
+            permanent: false,
+        },
+    }
+}
