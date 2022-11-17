@@ -1,5 +1,11 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
+using static System.TimeZoneInfo;
 
 [RequireComponent(typeof(CharacterController))]
 public class Detective : MonoBehaviour
@@ -10,106 +16,112 @@ public class Detective : MonoBehaviour
   [Tooltip("Reference to the light used for focus illumination")]
   public GameObject focusLight;
 
-    [Header("Rotation")] [Tooltip("Rotation speed for moving the camera")]
-    public float RotationSpeed = 1f;
+  [Header("Rotation")]
+  [Tooltip("Rotation speed for moving the camera")]
+  public float RotationSpeed = 1f;
 
-    [Header("Movement")] [Tooltip("Max movement speed")]
-    public float maxSpeed = 10f;
+  [Header("Movement")]
+  [Tooltip("Max movement speed")]
+  public float maxSpeed = 10f;
+  public float mouseDragSpeed = 5f;
+  public float crouchHeight = 0.65f;
+  public float jumpHeight = 0.5f;
+  public float gravity = -9.81f;
+  public float gravityScale = 1;
+  private float velocity;
 
-    public float mouseDragSpeed = 5f;
-    public float crouchHeight = 0.65f;
-    public float jumpHeight = 0.5f;
-    public float gravity = -9.81f;
-    public float gravityScale = 1;
+  [Header("Focused")]
+  public float cursorSpeed = 1;
+  public float objectRotateSpeed = 0.3f;
 
-    [Header("Focused")] public float cursorSpeed = 1;
+  [Tooltip(
+      "Sharpness for the movement when grounded, a low value will make the player accelerate and decelerate slowly, a high value will do the opposite")]
+  public float MovementSharpness = 15;
+  private bool moveEnabled;
+  public bool frozen;
 
-    public float objectRotateSpeed = 0.3f;
+  [Header("Audio")]
+  private AudioSource audioSource;
+  public AudioClip fastSteps;
+  public AudioClip slowsteps;
+  [Header("Color")]
+  public Color focusHighlightColor;
+  private bool playingStepAudio = false;
+  private float stepBuffer = 0.1f;
+  private float timeSinceStep = 0f;
+  PlayerInputHandler _inputHandler;
+  Vector2 cameraRotation = new Vector2(0, 0);
+  CharacterController _controller;
+  Outline _lastOutline;
+  GameObject cursor;
+  Vector3 cursorPosition;
+  GameObject focusedObject;
+  GameObject focusedObjectPlaceholder;
+  GameObject focusControls;
+  private bool focusActive;
+  GameObject lastHit;
+  Vector3 focusRotationXAxis;
+  Vector3 focusRotationYAxis;
+  float cameraHeight;
+  private Coroutine crouching = null;
 
-    [Tooltip(
-        "Sharpness for the movement when grounded, a low value will make the player accelerate and decelerate slowly, a high value will do the opposite")]
-    public float MovementSharpness = 15;
+  void Start()
+  {
+    focusedObjectPlaceholder = new GameObject("focusedObjectPlaceholder");
+    _controller = GetComponent<CharacterController>();
+    audioSource = GetComponent<AudioSource>();
+    cursor = GameObject.Find("DetectiveCursor");
+    cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
+    moveEnabled = true;
+    EventManager.AddListener<FocusEvent>(OnFocus);
+    cameraHeight = playerCamera.transform.localPosition.y;
+    cursorSpeed = GameController.Instance.mouseSensitivity;
+    objectRotateSpeed = GameController.Instance.objectRotationSpeed;
+    focusControls = FindObjectOfType<FocusControls>().gameObject;
+    focusControls.SetActive(false);
+  }
 
-    public bool frozen;
-    public AudioClip fastSteps;
-    public AudioClip slowsteps;
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<FocusEvent>(OnFocus);
+  }
 
-    [Header("Color")] public Color focusHighlightColor;
-
-    private CharacterController _controller;
-    private PlayerInputHandler _inputHandler;
-    private Outline _lastOutline;
-
-    [Header("Audio")] private AudioSource audioSource;
-
-    private float cameraHeight;
-    private Vector2 cameraRotation = new(0, 0);
-    private Coroutine crouching;
-    private GameObject cursor;
-    private Vector3 cursorPosition;
-    private bool focusActive;
-    private GameObject focusControls;
-    private GameObject focusedObject;
-    private GameObject focusedObjectPlaceholder;
-    private Vector3 focusRotationXAxis;
-    private Vector3 focusRotationYAxis;
-    private GameObject lastHit;
-    private bool moveEnabled;
-    private bool playingStepAudio;
-    private readonly float stepBuffer = 0.1f;
-    private float timeSinceStep;
-    private float velocity;
-
-    private void Start()
+  void OnFocus(FocusEvent evt)
+  {
+    if (focusActive)
     {
-        focusedObjectPlaceholder = new GameObject("focusedObjectPlaceholder");
-        _controller = GetComponent<CharacterController>();
-        audioSource = GetComponent<AudioSource>();
-        cursor = GameObject.Find("DetectiveCursor");
-        cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
-        moveEnabled = true;
-        EventManager.AddListener<FocusEvent>(OnFocus);
-        cameraHeight = playerCamera.transform.localPosition.y;
-        cursorSpeed = GameController.Instance.mouseSensitivity;
-        objectRotateSpeed = GameController.Instance.objectRotationSpeed;
-        focusControls = FindObjectOfType<FocusControls>().gameObject;
-        focusControls.SetActive(false);
+      defocus();
     }
+    // Show focus controls on-screen
+    focusControls.SetActive(true);
 
-    // Update is called once per frame
-    private void Update()
-    {
-        if (_inputHandler == null || frozen) return;
+    // Calculate vectors relative to the camera to serve as rotational axes
+    focusRotationXAxis = Vector3.Cross(playerCamera.transform.forward, Vector3.up);
+    focusRotationYAxis = Vector3.Cross(playerCamera.transform.forward, playerCamera.transform.right);
 
-        RaycastHit hit;
-        var ray = playerCamera.ScreenPointToRay(cursorPosition);
-        if (Physics.Raycast(ray, out hit))
-        {
-            // Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
-            var colliderGameObject = hit.collider.gameObject;
-            var interacted = _inputHandler.GetInteractInput();
+    focusedObject = evt.gameObject;
+    focusedObjectPlaceholder.transform.position = focusedObject.transform.position;
+    focusedObjectPlaceholder.transform.rotation = focusedObject.transform.rotation;
+    focusedObjectPlaceholder.transform.localScale = focusedObject.transform.localScale;
+    Debug.Log("Focusing: " + focusedObject);
 
-            // Debug.Log(colliderGameObject.name);
+    // Reset the object to face the camera
+    float distance = Vector3.Distance(focusedObject.transform.position, playerCamera.transform.position);
+    focusedObject.transform.LookAt(playerCamera.transform.position);
+    // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.cyan, 120f, false);
 
-            if (colliderGameObject != lastHit)
-            {
-                var evt = new LookEvent();
-                evt.gameObject = colliderGameObject;
-                EventManager.Broadcast(evt);
-                lastHit = colliderGameObject;
-            }
+    // Apply default rotation from focused object
+    Focus focus = focusedObject.GetComponent<Focus>();
+    focusedObject.transform.Rotate(focusRotationXAxis, focus.defaultRotation.x, Space.World);
+    focusedObject.transform.Rotate(focusRotationYAxis, focus.defaultRotation.y, Space.World);
+    focusedObject.transform.Rotate(playerCamera.transform.forward, focus.defaultRotation.z, Space.World);
 
-            // Debug.Log(colliderGameObject);
-            var outline = colliderGameObject.GetComponent<Outline>();
-            var focus = colliderGameObject.GetComponent<Focus>();
-            var draggable = colliderGameObject.GetComponent<Draggable>();
+    focusedObject.transform.Translate((distance - focus.focusDistance) * -1 * playerCamera.transform.forward, Space.World);
+    // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.green, 120f, false);
 
-            if (outline != null)
-            {
-                if (_lastOutline != null && _lastOutline != outline) _lastOutline.enabled = false;
-                _lastOutline = outline;
-                _lastOutline.OutlineMode = Outline.Mode.OutlineAll;
-                _lastOutline.OutlineWidth = 5;
+    // Apply default translation from focused object
+    focusedObject.transform.Translate(focus.defaultTranslation);
+    // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.red, 120f, false);
 
     // Turn on focus light
     focusLight.SetActive(true);
@@ -141,235 +153,255 @@ public class Detective : MonoBehaviour
     EventManager.Broadcast(e);
   }
 
-                _lastOutline.enabled = true;
-            }
-            else
-            {
-                if (_lastOutline != null) _lastOutline.enabled = false;
-            }
+  void HandleCharacterMovement()
+  {
+    // Handle looking
+    {
+      Vector2 lookInput = _inputHandler.GetLookInput();
+      // Process the raw lookInput 
+      Vector2 lookProcessed = lookInput * RotationSpeed;
+      cameraRotation.y -= lookProcessed.y;
+      // Clamp y-rotation to a range of 180 degrees
+      cameraRotation.y = Mathf.Clamp(cameraRotation.y, -89f, 89f);
+      cameraRotation.x += lookProcessed.x;
+      // Apply only x rotation to player
+      transform.localRotation = Quaternion.Euler(0f, cameraRotation.x, 0f);
+      // Apply both x and y rotation to camera
+      playerCamera.transform.rotation = Quaternion.Euler(cameraRotation.y, cameraRotation.x, 0f);
+    }
 
-            if (interacted)
-                if (draggable != null)
-                    StartCoroutine(DragObject(colliderGameObject));
+    // Handle movement
+    {
+      Vector2 moveInput = _inputHandler.GetMoveInput();
+      Vector3 movement = (moveInput.y * transform.forward) + (moveInput.x * transform.right);
+      _controller.SimpleMove(movement * maxSpeed);  // TODO manually add gravity
+
+      // Movement audio
+      {
+        if (moveInput != Vector2.zero)
+        {
+          if (!playingStepAudio)
+          {
+            audioSource.clip = fastSteps;
+            audioSource.Play();
+            playingStepAudio = true;
+          }
+          if (timeSinceStep != 0f)
+          {
+            timeSinceStep = 0f;
+          }
         }
+        else if (playingStepAudio)
+        {
+          timeSinceStep += Time.deltaTime;
+          if (timeSinceStep >= stepBuffer)
+          {
+            audioSource.Stop();
+            playingStepAudio = false;
+          }
+        }
+      }
+    }
 
-        if (moveEnabled)
-            HandleCharacterMovement();
+    // Handle crouch and jump
+    {
+      (bool crouch, bool jump) = _inputHandler.GetCrouchAndJump();
+      if (crouch || jump)
+      {
+        // check if grounded
+        if (_controller.isGrounded)
+        {
+          if (crouch && crouching == null)
+          {
+            crouching = StartCoroutine(Crouch());
+          }
+          else if (jump)
+          {
+            velocity = Mathf.Sqrt(jumpHeight * -2f * (gravity * gravityScale));
+          }
+        }
+      }
+    }
+    velocity += gravity * gravityScale * Time.deltaTime;
+    _controller.Move(new Vector3(0, velocity, 0) * Time.deltaTime);
+  }
+
+  void HandleFocusMovement()
+  {
+    // Check for exit/back
+    bool exited = _inputHandler.GetBackInput();
+    if (exited)
+    {
+      defocus();
+      return;
+    }
+    // Observer cursor movement
+    {
+      Vector2 lookInput = _inputHandler.GetLookInput();
+      Vector2 lookProcessed = lookInput * cursorSpeed;
+      RectTransform rect = cursor.GetComponent<RectTransform>();
+      // Move the Rect of the cursor text
+      float x = Mathf.Clamp(rect.anchoredPosition.x + lookProcessed.x, -(Screen.width / 2), Screen.width / 2);
+      float y = Mathf.Clamp(rect.anchoredPosition.y + lookProcessed.y, -(Screen.height / 2), Screen.height / 2);
+      rect.anchoredPosition = new Vector2(x, y);
+      // Rect positions behave differently, so recalculate for cursor
+      float cx = Mathf.Clamp(cursorPosition.x + lookProcessed.x, 0, Screen.width);
+      float cy = Mathf.Clamp(cursorPosition.y + lookProcessed.y, 0, Screen.height);
+      cursorPosition = new Vector2(cx, cy);
+    }
+    // Focus object rotation 
+    {
+      Vector2 moveInput = _inputHandler.GetMoveInput();
+      Vector2 moveProcessed = moveInput * objectRotateSpeed * -1;
+      focusedObject.transform.RotateAround(focusedObject.transform.position, focusRotationYAxis, moveProcessed.x);
+      focusedObject.transform.RotateAround(focusedObject.transform.position, focusRotationXAxis, moveProcessed.y);
+    }
+  }
+
+  public void assignInputHandler(PlayerInputHandler handler)
+  {
+    _inputHandler = handler;
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+    if (_inputHandler == null || frozen) return;
+
+    RaycastHit hit;
+    Ray ray = playerCamera.ScreenPointToRay(cursorPosition);
+    if (Physics.Raycast(ray, out hit))
+    {
+      // Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
+      var colliderGameObject = hit.collider.gameObject;
+      bool interacted = _inputHandler.GetInteractInput();
+
+      // Debug.Log(colliderGameObject.name);
+
+      if (colliderGameObject != lastHit)
+      {
+        LookEvent evt = new LookEvent();
+        evt.gameObject = colliderGameObject;
+        EventManager.Broadcast(evt);
+        lastHit = colliderGameObject;
+      }
+
+      // Debug.Log(colliderGameObject);
+      var outline = colliderGameObject.GetComponent<Outline>();
+      var focus = colliderGameObject.GetComponent<Focus>();
+      var draggable = colliderGameObject.GetComponent<Draggable>();
+
+      if (outline != null)
+      {
+        if (_lastOutline != null && _lastOutline != outline)
+        {
+          _lastOutline.enabled = false;
+        }
+        _lastOutline = outline;
+        _lastOutline.OutlineMode = Outline.Mode.OutlineAll;
+        _lastOutline.OutlineWidth = 5;
+
+        if (focus != null)
+        {
+          _lastOutline.OutlineColor = Color.red;
+        }
+        else if (draggable != null)
+        {
+          _lastOutline.OutlineColor = Color.gray;
+        }
         else
-            HandleFocusMovement();
-    }
+        {
+          _lastOutline.OutlineColor = Color.yellow;
+        }
 
-    private void OnDestroy()
+        if (interacted)
+        {
+          if (focus != null)
+          {
+            FocusEvent focusEvent = Events.FocusEvent;
+            focusEvent.gameObject = colliderGameObject;
+            EventManager.Broadcast(focusEvent);
+          }
+          else
+          {
+            // Debug.Log("Interacting: " + colliderGameObject.name);
+            InteractEvent interact = Events.InteractEvent;
+            interact.gameObject = colliderGameObject;
+            EventManager.Broadcast(interact);
+          }
+        }
+        _lastOutline.enabled = true;
+      }
+      else
+      {
+        if (_lastOutline != null)
+        {
+          _lastOutline.enabled = false;
+        }
+      }
+
+      if (interacted)
+      {
+        if (draggable != null)
+        {
+          StartCoroutine(DragObject(colliderGameObject));
+        }
+      }
+
+    }
+    if (moveEnabled)
     {
-        EventManager.RemoveListener<FocusEvent>(OnFocus);
+      HandleCharacterMovement();
     }
-
-    private void OnFocus(FocusEvent evt)
+    else
     {
-        if (focusActive) defocus();
-        // Show focus controls on-screen
-        focusControls.SetActive(true);
-
-        // Calculate vectors relative to the camera to serve as rotational axes
-        focusRotationXAxis = Vector3.Cross(playerCamera.transform.forward, Vector3.up);
-        focusRotationYAxis = Vector3.Cross(playerCamera.transform.forward, playerCamera.transform.right);
-
-        focusedObject = evt.gameObject;
-        focusedObjectPlaceholder.transform.position = focusedObject.transform.position;
-        focusedObjectPlaceholder.transform.rotation = focusedObject.transform.rotation;
-        focusedObjectPlaceholder.transform.localScale = focusedObject.transform.localScale;
-        Debug.Log("Focusing: " + focusedObject);
-
-        // Reset the object to face the camera
-        var distance = Vector3.Distance(focusedObject.transform.position, playerCamera.transform.position);
-        focusedObject.transform.LookAt(playerCamera.transform.position);
-        // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.cyan, 120f, false);
-
-        // Apply default rotation from focused object
-        var focus = focusedObject.GetComponent<Focus>();
-        focusedObject.transform.Rotate(focusRotationXAxis, focus.defaultRotation.x, Space.World);
-        focusedObject.transform.Rotate(focusRotationYAxis, focus.defaultRotation.y, Space.World);
-        focusedObject.transform.Rotate(playerCamera.transform.forward, focus.defaultRotation.z, Space.World);
-
-        focusedObject.transform.Translate((distance - focus.focusDistance) * -1 * playerCamera.transform.forward,
-            Space.World);
-        // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.green, 120f, false);
-
-        // Apply default translation from focused object
-        focusedObject.transform.Translate(focus.defaultTranslation);
-        // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.red, 120f, false);
-
-        focusActive = true;
-        moveEnabled = false;
+      HandleFocusMovement();
     }
+  }
 
-    private void defocus()
+  private IEnumerator DragObject(GameObject dragObject)
+  {
+    float initialDistance = Vector3.Distance(dragObject.transform.position, Camera.main.transform.position);
+    Rigidbody rb = dragObject.GetComponent<Rigidbody>();
+    if (rb != null)
     {
-        // Hide focus controls
-        focusControls.SetActive(false);
-        // Reset cursor to centre and exit focus
-        cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
-        cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-        // exit focus
-        moveEnabled = true;
-        focusActive = false;
-        // Put the object back where it was
-        focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
-        focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
-        focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
-        focusedObject.GetComponent<Focus>().enablePhysics();
-        // Send event
-        var e = new DefocusEvent();
-        e.gameObject = focusedObject;
-        EventManager.Broadcast(e);
+      float originalMouseSpeed = RotationSpeed;
+      while (_inputHandler.GetInteractHeld())
+      {
+        RotationSpeed = originalMouseSpeed * (1 / (1 + rb.mass));
+        Ray ray = Camera.main.ScreenPointToRay(cursorPosition);
+        Vector3 direction = ray.GetPoint(initialDistance) - dragObject.transform.position;
+        rb.velocity = direction * mouseDragSpeed;
+        rb.AddForce(direction * mouseDragSpeed);
+        yield return new WaitForFixedUpdate();
+      }
+      RotationSpeed = originalMouseSpeed;
     }
+  }
 
-    private void HandleCharacterMovement()
+  private IEnumerator Crouch()
+  {
+    float timeElapsed = 0;
+    float crouchTime = 0.15f; // crouch over 0.15 seconds
+    while (_inputHandler.GetCrouchAndJump().Item1)
     {
-        // Handle looking
-        {
-            var lookInput = _inputHandler.GetLookInput();
-            // Process the raw lookInput 
-            var lookProcessed = lookInput * RotationSpeed;
-            cameraRotation.y -= lookProcessed.y;
-            // Clamp y-rotation to a range of 180 degrees
-            cameraRotation.y = Mathf.Clamp(cameraRotation.y, -89f, 89f);
-            cameraRotation.x += lookProcessed.x;
-            // Apply only x rotation to player
-            transform.localRotation = Quaternion.Euler(0f, cameraRotation.x, 0f);
-            // Apply both x and y rotation to camera
-            playerCamera.transform.rotation = Quaternion.Euler(cameraRotation.y, cameraRotation.x, 0f);
-        }
-
-        // Handle movement
-        {
-            var moveInput = _inputHandler.GetMoveInput();
-            var movement = moveInput.y * transform.forward + moveInput.x * transform.right;
-            _controller.SimpleMove(movement * maxSpeed); // TODO manually add gravity
-
-            // Movement audio
-            {
-                if (moveInput != Vector2.zero)
-                {
-                    if (!playingStepAudio)
-                    {
-                        audioSource.clip = fastSteps;
-                        audioSource.Play();
-                        playingStepAudio = true;
-                    }
-
-                    if (timeSinceStep != 0f) timeSinceStep = 0f;
-                }
-                else if (playingStepAudio)
-                {
-                    timeSinceStep += Time.deltaTime;
-                    if (timeSinceStep >= stepBuffer)
-                    {
-                        audioSource.Stop();
-                        playingStepAudio = false;
-                    }
-                }
-            }
-        }
-
-        // Handle crouch and jump
-        {
-            (var crouch, var jump) = _inputHandler.GetCrouchAndJump();
-            if (crouch || jump)
-                // check if grounded
-                if (_controller.isGrounded)
-                {
-                    if (crouch && crouching == null)
-                        crouching = StartCoroutine(Crouch());
-                    else if (jump) velocity = Mathf.Sqrt(jumpHeight * -2f * (gravity * gravityScale));
-                }
-        }
-        velocity += gravity * gravityScale * Time.deltaTime;
-        _controller.Move(new Vector3(0, velocity, 0) * Time.deltaTime);
+      float desiredHeight = Mathf.Lerp(cameraHeight, cameraHeight - crouchHeight, timeElapsed / crouchTime);
+      playerCamera.transform.localPosition = new Vector3(0, desiredHeight, 0);
+      timeElapsed += Time.deltaTime;
+      yield return null;
     }
 
-    private void HandleFocusMovement()
+    // exit crouch
+    timeElapsed = 0;
+    while (timeElapsed < crouchTime)
     {
-        // Check for exit/back
-        var exited = _inputHandler.GetBackInput();
-        if (exited)
-        {
-            defocus();
-            return;
-        }
-
-        // Observer cursor movement
-        {
-            var lookInput = _inputHandler.GetLookInput();
-            var lookProcessed = lookInput * cursorSpeed;
-            var rect = cursor.GetComponent<RectTransform>();
-            // Move the Rect of the cursor text
-            var x = Mathf.Clamp(rect.anchoredPosition.x + lookProcessed.x, -(Screen.width / 2), Screen.width / 2);
-            var y = Mathf.Clamp(rect.anchoredPosition.y + lookProcessed.y, -(Screen.height / 2), Screen.height / 2);
-            rect.anchoredPosition = new Vector2(x, y);
-            // Rect positions behave differently, so recalculate for cursor
-            var cx = Mathf.Clamp(cursorPosition.x + lookProcessed.x, 0, Screen.width);
-            var cy = Mathf.Clamp(cursorPosition.y + lookProcessed.y, 0, Screen.height);
-            cursorPosition = new Vector2(cx, cy);
-        }
-        // Focus object rotation 
-        {
-            var moveInput = _inputHandler.GetMoveInput();
-            var moveProcessed = moveInput * objectRotateSpeed * -1;
-            focusedObject.transform.RotateAround(focusedObject.transform.position, focusRotationYAxis, moveProcessed.x);
-            focusedObject.transform.RotateAround(focusedObject.transform.position, focusRotationXAxis, moveProcessed.y);
-        }
+      float desiredHeight = Mathf.Lerp(cameraHeight - crouchHeight, cameraHeight, timeElapsed / crouchTime);
+      playerCamera.transform.localPosition = new Vector3(0, desiredHeight, 0);
+      timeElapsed += Time.deltaTime;
+      yield return null;
     }
 
-    public void assignInputHandler(PlayerInputHandler handler)
-    {
-        _inputHandler = handler;
-    }
-
-    private IEnumerator DragObject(GameObject dragObject)
-    {
-        var initialDistance = Vector3.Distance(dragObject.transform.position, Camera.main.transform.position);
-        var rb = dragObject.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            var originalMouseSpeed = RotationSpeed;
-            while (_inputHandler.GetInteractHeld())
-            {
-                RotationSpeed = originalMouseSpeed * (1 / (1 + rb.mass));
-                var ray = Camera.main.ScreenPointToRay(cursorPosition);
-                var direction = ray.GetPoint(initialDistance) - dragObject.transform.position;
-                rb.velocity = direction * mouseDragSpeed;
-                rb.AddForce(direction * mouseDragSpeed);
-                yield return new WaitForFixedUpdate();
-            }
-
-            RotationSpeed = originalMouseSpeed;
-        }
-    }
-
-    private IEnumerator Crouch()
-    {
-        float timeElapsed = 0;
-        var crouchTime = 0.15f; // crouch over 0.15 seconds
-        while (_inputHandler.GetCrouchAndJump().Item1)
-        {
-            var desiredHeight = Mathf.Lerp(cameraHeight, cameraHeight - crouchHeight, timeElapsed / crouchTime);
-            playerCamera.transform.localPosition = new Vector3(0, desiredHeight, 0);
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        // exit crouch
-        timeElapsed = 0;
-        while (timeElapsed < crouchTime)
-        {
-            var desiredHeight = Mathf.Lerp(cameraHeight - crouchHeight, cameraHeight, timeElapsed / crouchTime);
-            playerCamera.transform.localPosition = new Vector3(0, desiredHeight, 0);
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        playerCamera.transform.localPosition = new Vector3(0, cameraHeight, 0);
-        crouching = null;
-    }
+    playerCamera.transform.localPosition = new Vector3(0, cameraHeight, 0);
+    crouching = null;
+  }
 }
