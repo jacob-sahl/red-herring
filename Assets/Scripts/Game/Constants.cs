@@ -6,6 +6,6 @@ public class Constants
     public const string MouseAxisNameHorizontal = "Mouse X";
     public const string AxisNameJoystickLookVertical = "Look Y";
     public const string AxisNameJoystickLookHorizontal = "Look X";
-        
+
     public const string ButtonNameInteract = "Interact";
 }

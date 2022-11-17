@@ -1,54 +1,50 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
 public class Focus : MonoBehaviour
 {
-  [Tooltip("The rotation that this object will start out with when inspected.")]
-  public Vector3 defaultRotation;
-  public Vector3 defaultTranslation;
-  public float focusDistance;
-  private Rigidbody rb;
-  void Start()
-  {
-    EventManager.AddListener<FocusEvent>(OnFocus);
-    rb = GetComponent<Rigidbody>();
-  }
+    [Tooltip("The rotation that this object will start out with when inspected.")]
+    public Vector3 defaultRotation;
 
-  private void OnDestroy()
-  {
-    EventManager.RemoveListener<FocusEvent>(OnFocus);
-  }
+    public Vector3 defaultTranslation;
+    public float focusDistance;
+    private Rigidbody rb;
 
-  public void OnFocus(FocusEvent evt)
-  {
-    if (evt.gameObject == gameObject)
+    private void Start()
     {
-      disablePhysics();
+        EventManager.AddListener<FocusEvent>(OnFocus);
+        rb = GetComponent<Rigidbody>();
     }
-  }
 
-  public void disableCollider()
-  {
-    GetComponent<BoxCollider>().enabled = false;
-  }
+    private void OnDestroy()
+    {
+        EventManager.RemoveListener<FocusEvent>(OnFocus);
+    }
 
-  public void enableCollider()
-  {
-    GetComponent<BoxCollider>().enabled = true;
-  }
+    public void OnFocus(FocusEvent evt)
+    {
+        if (evt.gameObject == gameObject) disablePhysics();
+    }
 
-  public void disablePhysics()
-  {
-    if (rb != null) rb.isKinematic = true;
-    disableCollider();
-  }
+    public void disableCollider()
+    {
+        GetComponent<BoxCollider>().enabled = false;
+    }
 
-  public void enablePhysics()
-  {
-    if (rb != null) rb.isKinematic = false;
-    enableCollider();
-  }
+    public void enableCollider()
+    {
+        GetComponent<BoxCollider>().enabled = true;
+    }
+
+    public void disablePhysics()
+    {
+        if (rb != null) rb.isKinematic = true;
+        disableCollider();
+    }
+
+    public void enablePhysics()
+    {
+        if (rb != null) rb.isKinematic = false;
+        enableCollider();
+    }
 }

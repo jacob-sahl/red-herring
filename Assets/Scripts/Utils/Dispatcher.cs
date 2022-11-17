@@ -4,40 +4,33 @@ using UnityEngine;
 
 namespace Utils
 {
-    
-    public class Dispatcher: MonoBehaviour
+    public class Dispatcher : MonoBehaviour
     {
         private static Dispatcher _instance;
+
+        private readonly Queue<Action> ExecuteOnMainThread = new();
+
         public static Dispatcher Instance
         {
             get
             {
-                if (_instance == null)
-                {
-                    _instance = new GameObject("Dispatcher").AddComponent<Dispatcher>();
-                }
+                if (_instance == null) _instance = new GameObject("Dispatcher").AddComponent<Dispatcher>();
                 return _instance;
             }
         }
-    
-        private readonly Queue<Action> ExecuteOnMainThread = new Queue<Action>();
-        
-        void Awake()
+
+        private void Awake()
         {
-            
         }
 
-        void Update()
+        private void Update()
         {
             lock (ExecuteOnMainThread)
             {
-                while (ExecuteOnMainThread.Count > 0)
-                {
-                    ExecuteOnMainThread.Dequeue().Invoke();
-                }
+                while (ExecuteOnMainThread.Count > 0) ExecuteOnMainThread.Dequeue().Invoke();
             }
         }
-        
+
         public void RunInMainThread(Action action)
         {
             lock (ExecuteOnMainThread)

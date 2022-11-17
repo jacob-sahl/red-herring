@@ -1,24 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+
 public class SkyCanvas : MonoBehaviour
 {
-  TextMeshProUGUI text;
-  TypeWriterPuzzleInstance puzzle;
-  void Start()
-  {
-    text = transform.Find("SkyText").gameObject.GetComponent<TextMeshProUGUI>();
-    puzzle = GameController.Instance.getCurrentPuzzle();
-    switch (puzzle.id)
-    {
-      case TypeWriterPuzzleID.PlantsAndAnimals:
-        text.text = "PLANTS AND ANIMALS";
-        break;
-      default:
-        text.text = "";
-        break;
-    }
-  }
+    private TypeWriterPuzzleInstance puzzle;
+    private TextMeshProUGUI text;
 
+    private void Start()
+    {
+        text = transform.Find("SkyText").gameObject.GetComponent<TextMeshProUGUI>();
+        puzzle = GameController.Instance.getCurrentPuzzle();
+        switch (puzzle.id)
+        {
+            case TypeWriterPuzzleID.PlantsAndAnimals:
+                text.text = "PLANTS AND ANIMALS";
+                break;
+            default:
+                text.text = "";
+                break;
+        }
+    }
 }
