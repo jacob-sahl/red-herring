@@ -30,7 +30,7 @@ const JoinPage: NextPage<{joinCodeProp: string}> = ( {joinCodeProp } ) => {
 
       window.location.href = `/`;
     }).catch((error) => {
-      toast(error.response.data.error || error.response.data.message);
+      toast(error.response?.data?.error || error.response?.data?.message);
     });
   }
 
