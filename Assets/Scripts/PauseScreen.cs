@@ -84,7 +84,7 @@ public class PauseScreen : MonoBehaviour
     {
         pauseReleased = true;
         Pause();
-        /*_pauseMenu.SetActive(false);*/
+        //_pauseMenu.SetActive(false);
         _optionsMenu.SetActive(false);
         Debug.Log("unpaused");
     }

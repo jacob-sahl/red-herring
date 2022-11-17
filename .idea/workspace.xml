@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cc755e66-5675-4186-8c32-7bdec2dd5307" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/CardFrame with logo 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/CardFrame with logo 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/Logo (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/Logo (1).png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/Logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/Logo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/LogoPNG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/LogoPNG.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/LogoTif.tif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/LogoTif.tif.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/tutorial.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/tutorial/hintPaper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/tutorial/hintPaper.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/tutorial/hint_paper_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/tutorial/hint_paper_transparent.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/tutorial/typewriter_words.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/tutorial/typewriter_words.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/tutorial/typewriter_words_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Art/tutorial/typewriter_words_transparent.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier_shorter.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Couch/CouchFinal.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/M_Pillow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/pillow and blanket_pillow_AlbedoTransparency_Utility - sRGB - Texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/pillow and blanket_pillow_AlbedoTransparency_Utility - sRGB - Texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/pillow and blanket_pillow_MetallicSmoothness_Utility - Raw 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/pillow and blanket_pillow_MetallicSmoothness_Utility - Raw 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/pillow and blanket_pillow_Normal_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Fireplace.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Fireplace/PR_Fireplace_v02_withLogs.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Fireplace/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Fireplace/Textures/M_Fireplace.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Fireplace/Textures/M_Fireplace.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Fireplace/Textures/PR_Fireplace_v02_AlbedoTransparency.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Fireplace/Textures/PR_Fireplace_v02_AlbedoTransparency.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Fireplace/Textures/PR_Fireplace_v02_MetallicSmoothness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Fireplace/Textures/PR_Fireplace_v02_MetallicSmoothness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Fireplace/Textures/PR_Fireplace_v02_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/PR_Hourglass.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/PR_Hourglass.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/M_Hourglass.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/M_Hourglass.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/M_HourglassGlass.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/M_HourglassGlass.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/PR_Hourglass_M_HourglassGlass_AlbedoTransparency_Utility - sRGB - Texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/PR_Hourglass_M_HourglassGlass_AlbedoTransparency_Utility - sRGB - Texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/PR_Hourglass_M_HourglassGlass_MetallicSmoothness_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/PR_Hourglass_M_HourglassGlass_MetallicSmoothness_Utility - Raw.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/PR_Hourglass_M_Hourglass_AlbedoTransparency_Utility - sRGB - Texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/PR_Hourglass_M_Hourglass_AlbedoTransparency_Utility - sRGB - Texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/PR_Hourglass_M_Hourglass_MetallicSmoothness_Utility - Raw 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/PR_Hourglass_M_Hourglass_MetallicSmoothness_Utility - Raw 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/PR_Hourglass_M_Hourglass_Normal_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Hourglass/Textures/PR_Hourglass_M_Hourglass_Normal_Utility - Raw.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/PR_box 1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/PR_box 1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_AlbedoTransparency_Utility - sRGB - Texture 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_AlbedoTransparency_Utility - sRGB - Texture 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_AlbedoTransparency_Utility - sRGB - Texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_AlbedoTransparency_Utility - sRGB - Texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_MetallicSmoothness_Utility - Raw 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_MetallicSmoothness_Utility - Raw 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_MetallicSmoothness_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_MetallicSmoothness_Utility - Raw.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_Normal_Utility - Raw 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_Normal_Utility - Raw 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_Normal_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/BoxForTextures_lambert1_Normal_Utility - Raw.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/M_Box.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/M_Box.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/M_Box2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Jewelry box/Textures/M_Box2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Logo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Logo/LogoPNG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Logo/LogoPNG.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Logo/LogoTif.tif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Logo/LogoTif.tif.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Logo/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Vases.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Vases/PR_Vase1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Vases/PR_Vase1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Vases/PT_Vase2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Vases/PT_Vase2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Vases/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Vases/Textures/M_Vases.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Vases/Textures/vasesMerged_M_Vases_AlbedoTransparency_Utility - sRGB - Texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Vases/Textures/vasesMerged_M_Vases_AlbedoTransparency_Utility - sRGB - Texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Vases/Textures/vasesMerged_M_Vases_MetallicSmoothness_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Vases/Textures/vasesMerged_M_Vases_MetallicSmoothness_Utility - Raw.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light/Textures/Lamp_Low_lambert1_AlbedoTransparency.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light/Textures/Lamp_Low_lambert1_AlbedoTransparency.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light/Textures/Lamp_Low_lambert1_MetallicSmoothness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light/Textures/Lamp_Low_lambert1_MetallicSmoothness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light/Textures/Lamp_Low_lambert1_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light/Textures/Lamp_Low_lambert1_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light/Textures/M_WallLight.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light/Textures/M_WallLight.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light/WallLight.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall light/WallLight.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/PR_plates.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/PR_plates.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/M_WallPlates1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/M_WallPlates1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/M_WallPlates2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/M_WallPlates2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/plates_M_Plates1_AlbedoTransparency_Utility - sRGB - Texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/plates_M_Plates1_AlbedoTransparency_Utility - sRGB - Texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/plates_M_Plates1_MetallicSmoothness_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/plates_M_Plates1_MetallicSmoothness_Utility - Raw.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/plates_M_Plates2_AlbedoTransparency_Utility - sRGB - Texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/plates_M_Plates2_AlbedoTransparency_Utility - sRGB - Texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/plates_M_Plates2_MetallicSmoothness_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Wall plates/textures/plates_M_Plates2_MetallicSmoothness_Utility - Raw.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/M_BooksAtlas2Var1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/M_BooksAtlas2Var1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/M_BooksAtlas2Var2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/M_BooksAtlas2Var2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/M_BooksAtlas2Var3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/M_BooksAtlas2Var3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/PR_Books1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/PR_Books2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/PR_Books2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/PR_Books3.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/PR_Books3.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/PR_Books4.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/PR_Books4.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/T_BookAtlas_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/T_BookAtlas_01.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/T_BookAtlas_02Var1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/T_BookAtlas_02Var1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/T_BookAtlas_02Var2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/T_BookAtlas_02Var2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/T_BookAtlas_02Var3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/T_BookAtlas_02Var3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/PR_Bookshelf1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/PR_Bookshelf1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/PR_Bookshelf2 1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/PR_Bookshelf2 1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/PR_Bookshelf2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/PR_Bookshelf2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Shelf.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Shelf.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve02_Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve02_Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve02_Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve02_Roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve_Low_lambert1_BaseColor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve_Low_lambert1_BaseColor.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve_Low_lambert1_Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve_Low_lambert1_Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve_Low_lambert1_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve_Low_lambert1_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair old.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair old/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair/Chair.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair/Chair.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair/Materials/Chair_Chair_BaseMap.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair/Materials/Chair_Chair_BaseMap.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair/textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair/textures/Chair_Chair_BaseMap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair/textures/Chair_Chair_BaseMap.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair/textures/Chair_Chair_MaskMap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair/textures/Chair_Chair_MaskMap.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair/textures/Chair_Chair_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/chair/textures/Chair_Chair_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_BC 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_BC 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_MetalSmooth 1.tif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_MetalSmooth 1.tif.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_N 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_N 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_Drawers_AlbedoTransparency.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_Drawers_AlbedoTransparency.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_Drawers_MetallicSmoothness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_Drawers_MetallicSmoothness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_Drawers_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_Drawers_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_MainDesk_AlbedoTransparency.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_MainDesk_AlbedoTransparency.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_MainDesk_MetallicSmoothness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_MainDesk_MetallicSmoothness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_MainDesk_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Desk_MainDesk_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Drawers.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/desk/Drawers.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/doily.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/doily/DoilyDetailsAlpha.tif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/doily/DoilyDetailsAlpha.tif.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/doily/DoilyNormals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/doily/DoilyNormals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/doily/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/doily/Materials/DoilyDetails.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/doily/Materials/DoilyDetails.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/doily/doily.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/doily/doily.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/door.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/door/door_grain.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/door/door_grain.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/PR_Frame01_low.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/PR_Frame01_low.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/PR_Frame02_low.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/PR_Frame02_low.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/PR_Frame03_low.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/PR_Frame03_low.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/PR_Herring.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/PR_Herring.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/M_Frame1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/M_Frame1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/M_Frame2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/M_Frame2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/M_Frame3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/M_Frame3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/M_Herring.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/M_Herring.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame01_BC.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame01_BC.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame01_Maskmap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame01_Maskmap.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame01_N.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame01_N.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame02_BC.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame02_BC.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame02_BC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame02_BC.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame02_MaskMap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame02_MaskMap.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame02_N.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame02_N.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame03_BC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame03_BC.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame03_MaskMap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame03_MaskMap.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame03_N.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Frame03_N.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Herring_01_BC.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Herring_01_BC.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Herring_BC.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/herring and frames/textures/T_Herring_BC.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/round table.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/round table/RoundTable.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/round table/RoundTable.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/Materials/trunk_v01_AlbedoTransparency.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/Materials/trunk_v01_AlbedoTransparency.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/textures/trunk_v01_AlbedoTransparency.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/textures/trunk_v01_AlbedoTransparency.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/textures/trunk_v01_MetallicSmoothness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/textures/trunk_v01_MetallicSmoothness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/textures/trunk_v01_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/textures/trunk_v01_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/trunk_v01.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/trunk/trunk_v01.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Curtain material.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Curtain material/M_Curtain.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Curtain material/M_Curtain.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Curtain material/PR_Window_01_curtain_AlbedoTransparency_Utility - sRGB - Texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Curtain material/PR_Window_01_curtain_AlbedoTransparency_Utility - sRGB - Texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Curtain material/PR_Window_01_curtain_MetallicSmoothness_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Curtain material/PR_Window_01_curtain_MetallicSmoothness_Utility - Raw.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Curtain material/PR_Window_01_curtain_Normal_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Curtain material/PR_Window_01_curtain_Normal_Utility - Raw.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Materials/windowGlass_Material.001_AlbedoTransparency_Utility - sRGB - Texture.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/Materials/windowGlass_Material.001_AlbedoTransparency_Utility - sRGB - Texture.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/windowGlass.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/windowGlass.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/windowGlass_Material.001_AlbedoTransparency_Utility - sRGB - Texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/windowGlass_Material.001_AlbedoTransparency_Utility - sRGB - Texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/windowGlass_Material.001_MetallicSmoothness_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/windowGlass_Material.001_MetallicSmoothness_Utility - Raw.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/windowGlass_Material.001_Normal_Utility - Raw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/window/windowGlass_Material.001_Normal_Utility - Raw.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/GamepadControls.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/GamepadControls.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeyboardControls.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KeyboardControls.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/OldMenuCopy.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/OldMenuCopy.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/ColourBackgroundAnimation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/ColourBackgroundAnimation.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/FadeElementsIn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/FadeElementsIn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/FadeElementsOut.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/FadeElementsOut.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/ImageFade.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/ImageFade.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuAnimationController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuAnimationController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuNavigationController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuNavigationController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuNavigationGroup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuNavigationGroup.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/ModifyRectSize.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/ModifyRectSize.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/TextHide.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/TextHide.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/TextReveal.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/TextReveal.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/TextWobble.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/TextWobble.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier PBR Textures/PR_ChandelierExtruded_01.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier PBR Textures/PR_ChandelierExtruded_01.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier PBR Textures/PR_Chandelier_03_Chandelier_Metallic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier PBR Textures/PR_Chandelier_03_Chandelier_Metallic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Art/CardFrame with logo 2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier PBR Textures/PR_Chandelier_03_Chandelier_Normal_Utility - sRGB - Texture.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Art/CardFrame with logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier PBR Textures/PR_Chandelier_03_Chandelier_Normal_Utility - sRGB - Texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Art/CardFrame with logo.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier PBR Textures/PR_Chandelier_03_Chandelier_Opacity_Utility - Raw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier PBR Textures/PR_Chandelier_03_Chandelier_Opacity_Utility - Raw.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Art/CardFrame with logo 1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier PBR Textures/PR_Chandelier_BCwithAlpha.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Art/CardFrame with logo 1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier PBR Textures/PR_Chandelier_BCwithAlpha.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Art/CardFrame with logo 3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Couch/couchCombined_low.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Couch/couchCombined_low.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Fireplace/PR_Fireplace_v02_withLogs.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Couch/textures/M_Couch.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/M_Couch.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_BC.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_BC.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_BC.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_BC.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_M.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_M.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_M.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_M.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_N.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_N.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_N.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/T_Couch_N.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Globe/globe_v01_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Globe/globe_v01_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Room/PR_Room_02.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Room/PR_Room_02.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Room/PR_Window_01 1.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/window/PR_Window_01 1.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Room/PR_Window_01 1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/window/PR_Window_01 1.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Room/PR_Window_01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Room/PR_Window_01.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/PR_Books1.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Room/T_Wallpaper_BC.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Room/T_Wallpaper_BC.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Victorian column/VictorianColumn.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Victorian column/VictorianColumn.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Victorian column/victorianWindow.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Victorian column/victorianWindow.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Victoriandoor/VictorianDoor.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Victoriandoor/VictorianDoor.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookself.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/BookShelf.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/BookShelf.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/BookShelf.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/BookShelf.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Books.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Books/Books.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/Books.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Books/Books.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/Books.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Books/Books_BC.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/Books_BC.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Books/Books_BC.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/Books_BC.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Books/M_Books.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/M_Books.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Books/M_Books.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Books/M_Books.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Shelve01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Shelve01.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Chandelier/Chandelier_shorter.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Shelve02.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Shelve02.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Shelve02.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/Shelve02.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Shelve_Books.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/Shelve_Books.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Couch/CouchFinal.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve01_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve01_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve01_MetalSmooth.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve01_MetalSmooth.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve01_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve01_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/pillow and blanket_pillow_Normal_Utility - Raw.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve02_BaseColor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve02_BaseColor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve02_BaseColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/BookShelve02_BaseColor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve02_MetalSmooth.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve02_MetalSmooth.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve_Books_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve_Books_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve_Books_Height.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/BookShelve_Books_Height.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/M_HangingShelf.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Vases/Textures/M_Vases.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/M_HangingShelf.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Couch/textures/M_Pillow.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/M_Shelf_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/M_Shelf_01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/M_Shelf_01.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/M_Shelf_01.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/M_Shelf_02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/M_Shelf_02.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/bookself/textures/M_Shelf_02.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/bookshelf/textures/M_Shelf_02.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/Chair.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/Chair.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/Chair.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/Chair.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/Materials.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair/Materials.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/Materials/chair_DefaultMaterial_AlbedoTransparency.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/Materials/chair_DefaultMaterial_AlbedoTransparency.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/Materials/chair_DefaultMaterial_AlbedoTransparency.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/Materials/chair_DefaultMaterial_AlbedoTransparency.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/chair (2) Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/chair (2) Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/chair (2) Variant.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/chair (2) Variant.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/chair.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/chair.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/chair.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/chair.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/chair_DefaultMaterial_AlbedoTransparency.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/chair_DefaultMaterial_AlbedoTransparency.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/chair_DefaultMaterial_AlbedoTransparency.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/chair_DefaultMaterial_AlbedoTransparency.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/chair_DefaultMaterial_MetallicSmoothness.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/chair_DefaultMaterial_MetallicSmoothness.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/chair_DefaultMaterial_MetallicSmoothness.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/chair_DefaultMaterial_MetallicSmoothness.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/chair_DefaultMaterial_Normal.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/chair_DefaultMaterial_Normal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/chair/chair_DefaultMaterial_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/chair old/chair_DefaultMaterial_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/clock/clock textures/M_atlas.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/clock/clock textures/M_atlas.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_BC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_BC.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_M.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_M.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_N.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/clock/clock textures/T_BrassBronze_N.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Fireplace/Textures/PR_Fireplace_v02_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/table/table01.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/table/table01.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/HintPaper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/HintPaper.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/_ART.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/_ART.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/_MAINSCENE.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/_MAINSCENE.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TypewriterButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Button.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TypewriterButton.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Detective.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Detective.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FocusControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FocusControls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Events.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Events.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzles/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzles/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzles/TypeWriterPuzzle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzles/TypeWriterPuzzle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2HfFhhJmFBmoQShEZEIDCnLs480" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc755e66-5675-4186-8c32-7bdec2dd5307" name="Changes" comment="" />
+      <created>1668668352468</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668668352468</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
