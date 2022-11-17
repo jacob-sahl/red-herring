@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class APIClient {
     private static instance: APIClient;
-    private static endpoint = 'http://localhost:3000/api/';
+    private static endpoint = 'https://rh.tongkun.io/api/';
     
     private constructor() {}
     
