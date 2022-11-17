@@ -36,17 +36,17 @@ namespace MainMenu
                 if (playerController.role == PlayerRole.Detective)
                 {
                     player.transform.Find("Role").GetComponent<TMP_Text>().text = "Detective";
-                    var qrCode = player.transform.Find("QRCode").gameObject;
-                    qrCode.SetActive(false);
+                    // var qrCode = player.transform.Find("QRCode").gameObject;
+                    // qrCode.SetActive(false);
                 }
                 else
                 {
                     var secret = GameController.Instance.getPlayersSecretObjective(playerID);
                     player.transform.Find("Role").GetComponent<TMP_Text>().text = "Informant";
-                    var qrCode = player.transform.Find("QRCode").gameObject;
-                    qrCode.SetActive(true);
-                    qrCode.GetComponent<QRCodeObject>().QRCodeContent = CardURLGenerator.GetCardURL("1", "window",
-                        secret.clue, secret.description);
+                    // var qrCode = player.transform.Find("QRCode").gameObject;
+                    // qrCode.SetActive(true);
+                    // qrCode.GetComponent<QRCodeObject>().QRCodeContent = CardURLGenerator.GetCardURL("1", "window",
+                        // secret.clue, secret.description);
                     Debug.Log("Secret: " + secret.description);
                 }
             }

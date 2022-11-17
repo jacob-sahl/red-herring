@@ -48,6 +48,18 @@ public class PlayerManager : MonoBehaviour
         }
     }
     
+    public int GetDetectiveId()
+    {
+        foreach (var player in players)
+        {
+            if (player.role == PlayerRole.Detective)
+            {
+                return player.playerId;
+            }
+        }
+        return -1;
+    }
+
     public PlayerController getPlayerByID(int id)
     {
         for (var i = 0; i < players.Count; i++)
@@ -60,9 +72,23 @@ public class PlayerManager : MonoBehaviour
     public void fillPlayers(GameInstance gameInstance)
     {
         Debug.Log("Filling Players");
-        for (var i = nPlayers + 1; i <= 4; i++)
+        while (nPlayers < 4)
         {
-            APIClient.APIClient.Instance.JoinPlayer(gameInstance.joinCode, $"Player {i}");
+            GameObject newPlayer = Instantiate(playerPrefab);
+            PlayerInput input = newPlayer.GetComponent<PlayerInput>();
+            PlayerController p1 = getPlayerByID(0);
+            if (p1.playerInput.devices.Count > 1)
+            {
+                // Hacky way to check if p1 is using keyboard + mouse
+                input.SwitchCurrentControlScheme(new InputDevice[] { Keyboard.current, Mouse.current });
+            }
+            else
+            {
+                input.SwitchCurrentControlScheme(new InputDevice[] { Gamepad.all[0] });
+            }
+
+            Debug.Log("Devices: " + input.devices.Count + " First: " + input.devices[0].name);
+            GameController.Instance.gameInstance.players.Add(new Player(gameInstance.players.Count, "Player " + gameInstance.players.Count, gameInstance.id));
         }
     }
     

@@ -1,4 +1,5 @@
-﻿using APIClient;
+﻿using System;
+using APIClient;
 using TMPro;
 using UnityEngine;
 
@@ -10,11 +11,24 @@ namespace MainMenu
 
         private void Awake()
         {
+            EventManager.AddListener<GameCreatedEvent>(onGameCreated);
+        }
+
+        private void Start()
+        {
             if (GameController.Instance.gameInstance != null)
             {
                 PopulateGameInfo(GameController.Instance.gameInstance);
             }
-            EventManager.AddListener<GameCreatedEvent>(onGameCreated);
+        }
+
+        private void Update()
+        {
+            if (!ready && GameController.Instance.gameInstance != null)
+            {
+                PopulateGameInfo(GameController.Instance.gameInstance);
+                ready = true;
+            }
         }
 
         private void OnDestroy()
@@ -29,8 +43,9 @@ namespace MainMenu
 
         private void PopulateGameInfo(GameInstance gameInstance)
         {
-            transform.Find("GameID").GetComponent<TMP_Text>().text = gameInstance.id;
+            transform.Find("GameId").GetComponent<TMP_Text>().text = gameInstance.id;
             transform.Find("JoinCode").GetComponent<TMP_Text>().text = gameInstance.joinCode;
+            transform.Find("QRCode").GetComponent<QRCodeObject>().QRCodeContent = $"https://rh.tongkun.io/join?joinCode={gameInstance.joinCode}";
             ready = true;
         }
     }

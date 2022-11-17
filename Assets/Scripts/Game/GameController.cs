@@ -119,6 +119,7 @@ public class GameController : MonoBehaviour
     public List<string> currentClues;
 
     private Interval _apiInterval;
+    private bool _readFromAPI = true;
     private bool _readyToSetUpLevel;
     public static GameController Instance { get; private set; }
 
@@ -153,6 +154,15 @@ public class GameController : MonoBehaviour
         EventManager.AddListener<LevelEndEvent>(onLevelEnd);
         EventManager.AddListener<GameEndEvent>(onGameEnd);
         LoadPrefereces();
+        
+        APIClient.APIClient.Instance.CreateGameInstance().Then(instance =>
+        {
+            Dispatcher.Instance.RunInMainThread(() => {
+                GameController.Instance.PlayerManager.ClearPlayers();
+                GameController.Instance.gameInstance = instance;
+                Events.GameCreatedEvent.gameInstance = instance;
+                EventManager.Broadcast(Events.GameCreatedEvent);});
+        });
     }
 
     // Start is called before the first frame update
@@ -164,7 +174,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (gameInstance != null && _apiInterval.ExpireReset())
+        if (_readFromAPI && gameInstance != null && _apiInterval.ExpireReset())
         {
             var oldGameInstance = gameInstance;
             APIClient.APIClient.Instance.GetGameInstance(gameInstance.id).Then(instance =>
@@ -177,6 +187,9 @@ public class GameController : MonoBehaviour
                         EventManager.Broadcast(Events.GameInstanceUpdatedEvent);
                         Debug.Log("Game instance updated");
                     });
+            }).Catch(error =>
+            {
+                Debug.Log("Error getting game instance: " + error);
             });
         }
     }
@@ -322,15 +335,46 @@ public class GameController : MonoBehaviour
     {
         if (_readyToSetUpLevel)
         {
+            _readFromAPI = false;
             // FOR DEV PURPOSES: (REMOVE ON BUILD)
             PlayerManager.fillPlayers(gameInstance);
             // ^
             currentRound++; // Must be done FIRST
+            gameInstance.currentRound = currentRound;
             assignSecretObjectives();
+            
+            
+            gameInstance.rounds.Add(new Round(currentRound, PlayerManager.GetDetectiveId(), GetInformantCards(), new List<RoundScore>()));
+            foreach (var player in gameInstance.players)
+            {
+                if (player.id == PlayerManager.GetDetectiveId())
+                    player.isDetective = true;
+                else
+                    player.isDetective = false;
+            }
+            
+            APIClient.APIClient.Instance.UpdateGameInstance(gameInstance);
             var e = new LevelSetupCompleteEvent();
             EventManager.Broadcast(e);
             _readyToSetUpLevel = false;
         }
+    }
+    
+    private List<InformantCard> GetInformantCards()
+    {
+        List<InformantCard> informantCards = new List<InformantCard>();
+        for (int i = 0; i < 4; i++)
+        {
+            if (i != PlayerManager.GetDetectiveId())
+            {
+                var secret = getPlayersSecretObjective(i);
+                if (secret != null)
+                {
+                    informantCards.Add(new InformantCard{playerId = i, clue = secret.clue, secretGoal =secret.description});
+                }
+            }
+        }
+        return informantCards;
     }
 
     private void onLevelEnd(LevelEndEvent e)

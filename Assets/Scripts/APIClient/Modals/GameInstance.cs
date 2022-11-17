@@ -11,11 +11,21 @@ namespace APIClient
         public string name;
         public int score;
         public string session;
-        public bool isDectective;
+        public bool isDetective;
         public string gameId;
         public void AddScore(int score)
         {
             this.score += score;
+        }
+        
+        public Player(int id, string name, string gameId)
+        {
+            this.name = name;
+            this.session = "DEBUG";
+            this.gameId = gameId;
+            this.id = id;
+            this.score = 0;
+            this.isDetective = false;
         }
         
     }

@@ -3,6 +3,8 @@ using FullSerializer;
 using JetBrains.Annotations;
 using Proyecto26;
 using RSG;
+using UnityEngine;
+using Object = System.Object;
 
 namespace APIClient
 {
@@ -10,7 +12,7 @@ namespace APIClient
     {
         private static APIClient _instance;
 
-        private static readonly string endpoint = "http://localhost:3000/api/";
+        private static readonly string endpoint = "https://rh.tongkun.io/api/";
         private static readonly string APIKey = "WbyRAZEDyxXvb3N4QETCWidCd3b3T";
         private readonly fsSerializer serializer = new();
 
@@ -91,6 +93,18 @@ namespace APIClient
             Post<Object>("games/join", new JoinUserRequest {joinCode = joinCode, playerName = playerName}).Then(
                 response => { promise.Resolve(true); }).Catch(
                 error => { promise.Reject(error); });
+            return promise;
+        }
+        
+        public Promise<bool> UpdateGameInstance(GameInstance gameInstance)
+        {
+            var promise = new Promise<bool>();
+            var uri = GetUri($"admin/games");
+            RestClient.Put(uri, gameInstance).Then(response =>
+            {
+                promise.Resolve(true);
+                Debug.Log(response.Text);
+            }).Catch(error => { promise.Reject(error); Debug.LogWarning(error);});
             return promise;
         }
     }
