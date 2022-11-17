@@ -88,7 +88,7 @@ public class TypeWriterPuzzle : Puzzle
 
   void Start()
   {
-    puzzle_text = GameObject.Find("Puzzle_Text").GetComponentInChildren<TextMeshProUGUI>();
+    puzzle_text = GameObject.Find("PlayerText").GetComponent<TextMeshProUGUI>();
     string solution = GameController.Instance.puzzles[GameController.Instance.currentRound].solution;
     UpdateSolution(solution);
   }

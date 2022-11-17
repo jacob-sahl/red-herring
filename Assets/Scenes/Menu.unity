@@ -3121,7 +3121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &440942462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3193,8 +3193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A single excursion into the manor consists of four rounds, so each player
-    will take on the role of the detective once.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -6394,7 +6393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The one with the most favour at the end of four rounds shall be crowned
+  m_text: The one with the most FAVOUR at the end of four rounds shall be crowned
     the victor, and will emerge from Erring Manor with all manner of treasure, as
     well as the satisfaction of having thoroughly outwitted your companions.
   m_isRightToLeft: 0
@@ -6790,8 +6789,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The other players are INFORMANTS. An informant's goal is to help the detective
-    solve the puzzle, while also completing their individual SECRET OBJECTIVE.
+  m_text: 'The other players are INFORMANTS. An informant''s goal is to help the
+    detective solve the puzzle, while also completing their individual SECRET OBJECTIVE.
+
+
+    The
+    informants interact with the game using their PHONES and by COMMUNICATING verbally
+    (or non-verbally) with the detective.
+
+
+    Both the DETECTIVE and INFORMANTS
+    gain FAVOUR when the puzzle is solved.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -7135,7 +7143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: However, nobody recieves any favour at all unless the puzzle is solved!
+  m_text: 'But remember: nobody recieves any FAVOUR at all unless the puzzle is solved!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -7938,7 +7946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &909693148
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8010,9 +8018,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The detective interacts with the game using their CONTROLLER (or MOUSE
-    and KEYBOARD). \n\nThe informants interact with the game using their PHONES and
-    by COMMUNICATING verbally (or non-verbally) with the detective."
+  m_text: '
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -12083,7 +12092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1398595557
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12416,8 +12425,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The player controlling the game is the DETECTIVE. The detective's only
-    goal for the round is to solve the puzzle.\r"
+  m_text: 'The player controlling the game is the DETECTIVE. The detective''s only
+    goal for the round is to solve the puzzle.
+
+
+    The detective interacts with
+    the game using their CONTROLLER (or MOUSE and KEYBOARD). Each of you will have
+    a chance to be the detective once.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -17983,7 +17997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Secret Objectives
+  m_text: Favour & Secret Objectives
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}

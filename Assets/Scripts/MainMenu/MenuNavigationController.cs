@@ -79,44 +79,27 @@ public class MenuNavigationController : MonoBehaviour
         animations = new List<string> { "textHide2-2", "textReveal2-3" };
         break;
       case 4:
-        animations = new List<string> { "textHide2-3", "textReveal2-4" };
+        animations = new List<string> {
+          "fadeOutD&I", "textHide2-3", "fadeInSO", "fullCardImageFadeIn", "textReveal4-1"
+        };
         break;
       case 5:
-        animations = new List<string> { "textHide2-4", "textReveal2-5" };
-        break;
-      case 6:
-        animations = new List<string> {
-          "fadeOutD&I", "textHide2-5", "fadeInPuzzle","typewriterImageFadeIn", "textReveal3-1"
-        };
-        break;
-      case 7:
-        animations = new List<string> { "typewriterImageFadeOut", "textHide3-1", "hintImageFadeIn", "textReveal3-2" };
-        break;
-      case 8:
-        animations = new List<string> { "hintImageFadeOut", "textHide3-2", "clueImageFadeIn", "textReveal3-3" };
-        break;
-      case 9:
-        animations = new List<string> {
-          "clueImageFadeOut", "fadeOutPuzzle", "textHide3-3", "fadeInSO", "fullCardImageFadeIn", "textReveal4-1"
-        };
-        break;
-      case 10:
         animations = new List<string> { "fullCardImageFadeOut", "textHide4-1", "textReveal4-2" };
         break;
-      case 11:
+      case 6:
         animations = new List<string> { "textHide4-2", "textReveal4-3" };
         break;
-      case 12:
+      case 7:
         animations = new List<string> { "textHide4-3", "textReveal4-4" };
         break;
-      case 13:
+      case 8:
         animations = new List<string> { "textHide4-4", "textReveal4-5" };
         break;
-      case 14:
+      case 9:
         animations = new List<string> { "textHide4-5", "textReveal4-6" };
         nextButtonText.GetComponent<TextMeshProUGUI>().text = "Begin";
         break;
-      case 15:
+      case 10:
         animations = new List<string> { "textHide4-6" };
         mainMenuObject.SetActive(false);
         puzzleSetupObject.SetActive(true);
@@ -169,40 +152,23 @@ public class MenuNavigationController : MonoBehaviour
         animations = new List<string> { "textHide2-3", "textReveal2-2" };
         break;
       case 5:
-        animations = new List<string> { "textHide2-4", "textReveal2-3" };
+        animations = new List<string> {
+          "fullCardImageFadeOut", "fadeOutSO", "textHide4-1", "fadeInD&I", "textReveal2-3"
+          };
         break;
       case 6:
-        animations = new List<string> { "textHide2-5", "textReveal2-4" };
-        break;
-      case 7:
-        animations = new List<string> {
-          "typewriterImageFadeOut", "fadeOutPuzzle", "textHide3-1", "fadeInD&I", "textReveal2-5"
-          };
-        break;
-      case 8:
-        animations = new List<string> { "hintImageFadeOut", "textHide3-2", "typewriterImageFadeIn", "textReveal3-1" };
-        break;
-      case 9:
-        animations = new List<string> { "clueImageFadeOut", "textHide3-3", "hintImageFadeIn", "textReveal3-2" };
-        break;
-      case 10:
-        animations = new List<string> {
-          "fullCardImageFadeOut", "fadeOutSO", "textHide4-1", "fadeInPuzzle", "clueImageFadeIn", "textReveal3-3"
-          };
-        break;
-      case 11:
         animations = new List<string> { "textHide4-2", "fullCardImageFadeIn", "textReveal4-1" };
         break;
-      case 12:
+      case 7:
         animations = new List<string> { "textHide4-3", "textReveal4-2" };
         break;
-      case 13:
+      case 8:
         animations = new List<string> { "textHide4-4", "textReveal4-3" };
         break;
-      case 14:
+      case 9:
         animations = new List<string> { "textHide4-5", "textReveal4-4" };
         break;
-      case 15:
+      case 10:
         animations = new List<string> { "textHide4-6", "textReveal4-5" };
         nextButtonText.GetComponent<TextMeshProUGUI>().text = "Next";
         break;
