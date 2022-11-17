@@ -40,7 +40,7 @@ const GamePage: NextPage<{ initialGameState: CurrentGameState }> = ({ initialGam
     }
 
     let body = <></>
-    if (roundInfo.currentRound === 0) {
+    if (roundInfo.currentRound === -1) {
         body = <GameNotStart roundInfo={roundInfo} />
     } else if (roundInfo.currentRound > 3) {
         body = <GameEnded roundInfo={roundInfo} />
