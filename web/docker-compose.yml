@@ -11,7 +11,7 @@ services:
         NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
     restart: always
     ports:
-      - 3000:3000
+      - 80:3000
     networks:
       - red_herring_network
 
