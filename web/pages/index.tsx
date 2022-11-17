@@ -40,7 +40,7 @@ const GamePage: NextPage<{ initialGameState: CurrentGameState }> = ({ initialGam
     }
 
     let body = <></>
-    if (roundInfo.currentRound === 0) {
+    if (roundInfo.currentRound === -1) {
         body = <GameNotStart roundInfo={roundInfo} />
     } else if (roundInfo.currentRound > 3) {
         body = <GameEnded roundInfo={roundInfo} />
@@ -59,11 +59,11 @@ const GamePage: NextPage<{ initialGameState: CurrentGameState }> = ({ initialGam
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-
+            <main className="flex w-full flex-col items-center justify-center text-center">
+{/* 
                 <h1>
                     {JSON.stringify(roundInfo)}
-                </h1>
+                </h1> */}
                 {body}
                 {/* <button className='bg-red-900 text-white rounded-md p-2 m-4 uppercase shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out' onClick={() => setScoreBoardVisible(!scoreBoardVisible)}>Scoreboard</button> */}
                 {/* <ScoreBoard visible={scoreBoardVisible} players={roundInfo.players} scores={roundInfo.scores} /> */}

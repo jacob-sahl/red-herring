@@ -48,7 +48,7 @@ class NodeApp {
         const gameInstance = {
             createdTime: new Date().toISOString(),
             id: this.db?.ref('games').push().key,
-            currentRound: 0,
+            currentRound: -1,
             joinCode: this.generateJoinCode(),
             players: [],
             rounds: [],
@@ -106,7 +106,7 @@ class NodeApp {
         if (!gameInstance.rounds) {
             return [];
         }
-        return gameInstance.rounds.map((round) => round.scores);
+        return gameInstance.rounds.map((round) => round.scores).filter((scores) => scores !== undefined);
     }
 
     public async getPlayerRoundInfo(gameId: string, playerId: number) {
@@ -123,7 +123,7 @@ class NodeApp {
 
         const informantCard = round?.informants.find((informant) => informant.playerId === playerId);
         const playerRoundInfo: CurrentGameState = {
-            isDetective: player.isDetective,
+            isDetective: player.isDetective ? player.isDetective : false,
             gameId: gameInstance.id,
             playerId: player.id,
             currentRound: gameInstance.currentRound,

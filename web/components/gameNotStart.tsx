@@ -9,10 +9,22 @@ interface GameNotStart {
 
 export default function GameNotStart({ roundInfo }: GameNotStart) {
     return (
-        <div className={styles["game-not-start"]}>
-            <div className={styles["game-not-start__title"]}>
-                Game Not Started
-            </div>
+        <div>
+            <p>Waiting for the game to start...</p>
+            <p>Joined as {roundInfo.players[roundInfo.playerId].name}</p>
+
+            <p>Joined Players:</p>
+            {roundInfo.players.map((player, index) => {
+                if (index !== roundInfo.playerId) {
+                    return (
+                        <p key={index}>
+                            {player.name}
+                        </p>
+                    )
+                } else {
+                    return <></>
+                }
+            })}
         </div>
     )
 }
