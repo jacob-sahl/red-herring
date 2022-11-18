@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using System.Text;
 using Newtonsoft.Json;
-using UnityEngine;
 
 public class CardURLGenerator
 {
@@ -16,16 +15,16 @@ public class CardURLGenerator
             c = clue,
             o = secretObjective
         };
-        
+
         // convert the json object to a string
-        string json = JsonConvert.SerializeObject(card);
-        
+        var json = JsonConvert.SerializeObject(card);
+
         // convert the string to a byte array
-        byte[] bytes = System.Text.Encoding.UTF8.GetBytes(json);
-        
+        var bytes = Encoding.UTF8.GetBytes(json);
+
         // convert the byte array to a base64 string
-        string base64 = System.Convert.ToBase64String(bytes);
-        
+        var base64 = Convert.ToBase64String(bytes);
+
         // return the base64 string
         return BaseURL + base64;
     }

@@ -1,47 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Globe : MonoBehaviour
 {
-  private int n_spins;
-  private Animator _anim;
-  private bool spinsBroadcasted = false;
-  void Awake()
-  {
-    EventManager.AddListener<InteractEvent>(onInteract);
-    n_spins = 0;
-  }
-  private void OnDestroy()
-  {
-    EventManager.RemoveListener<InteractEvent>(onInteract);
-  }
+    private Animator _anim;
+    private int n_spins;
+    private bool spinsBroadcasted;
 
-  void Start()
-  {
-    _anim = GetComponent<Animator>();
-  }
-
-  void onInteract(InteractEvent e)
-  {
-    if (e.gameObject == gameObject)
+    private void Awake()
     {
-      spin();
+        EventManager.AddListener<InteractEvent>(onInteract);
+        n_spins = 0;
     }
-  }
 
-  void spin()
-  {
-    _anim.SetTrigger("SpinOnce");
-    n_spins++;
-    if (n_spins >= 3 && !spinsBroadcasted)
+    private void Start()
     {
-      SecretObjectiveEvent e = new SecretObjectiveEvent();
-      e.id = SecretObjectiveID.SpinGlobeThrice;
-      e.status = true;
-      EventManager.Broadcast(e);
-      spinsBroadcasted = true;
+        _anim = GetComponent<Animator>();
     }
-  }
 
+    private void OnDestroy()
+    {
+        EventManager.RemoveListener<InteractEvent>(onInteract);
+    }
+
+    private void onInteract(InteractEvent e)
+    {
+        if (e.gameObject == gameObject) spin();
+    }
+
+    private void spin()
+    {
+        _anim.SetTrigger("SpinOnce");
+        n_spins++;
+        if (n_spins >= 3 && !spinsBroadcasted)
+        {
+            var e = new SecretObjectiveEvent();
+            e.id = SecretObjectiveID.SpinGlobeThrice;
+            e.status = true;
+            EventManager.Broadcast(e);
+            spinsBroadcasted = true;
+        }
+    }
 }

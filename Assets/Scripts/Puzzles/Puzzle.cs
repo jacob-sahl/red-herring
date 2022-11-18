@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class Puzzle : MonoBehaviour
 {
+    public delegate void completeCallback();
+
     public string puzzleName;
     public LevelManager levelManager;
-    public delegate void completeCallback();
+    public bool isComplete;
     private completeCallback _complete_callback;
-    public bool isComplete = false;
 
     public virtual void Awake()
     {
@@ -20,13 +19,10 @@ public abstract class Puzzle : MonoBehaviour
     {
         _complete_callback = callback;
     }
-    
+
     public void Complete()
     {
         isComplete = true;
-        if (_complete_callback != null)
-        {
-            _complete_callback();
-        }
+        if (_complete_callback != null) _complete_callback();
     }
 }
