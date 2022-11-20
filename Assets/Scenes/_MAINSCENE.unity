@@ -3447,6 +3447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TypewriterAnimated
       objectReference: {fileID: 0}
+    - target: {fileID: 6024795534294218270, guid: 2962dc45456e48b49a52c13a5c2510b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7656843533991004152, guid: 2962dc45456e48b49a52c13a5c2510b2, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -18971,23 +18975,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eec42da8885e0da4ba73dcac1ceade0f, type: 3}
---- !u!1 &5033091572634172605 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2909197908914398108, guid: eec42da8885e0da4ba73dcac1ceade0f, type: 3}
-  m_PrefabInstance: {fileID: 5033091572634172604}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5033091572634172606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5033091572634172605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a9e2f17054a4b54f86fd4b3ed8bab78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5064686152003744283
 PrefabInstance:
   m_ObjectHideFlags: 0
