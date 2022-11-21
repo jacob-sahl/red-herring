@@ -9,9 +9,6 @@ public class FocusControls : MonoBehaviour
 {
     TextMeshProUGUI rotateText;
     TextMeshProUGUI dropText;
-    public float hidePosition = -300;
-    public float displayPosition = 0;
-    public float transitionTime = 1.5f;
 
     void Start()
     {
