@@ -19,30 +19,15 @@ public class FocusControls : MonoBehaviour
 
         string controls = detective.playerInput.currentControlScheme;
 
-        // foreach (var binding in detective.playerInput.currentActionMap.bindings)
-        // {
-        //   if (binding.path.Contains(controls))
-        //   {
-        //     if (binding.action == "Back")
-        //     {
-        //       dropText.text += binding.ToDisplayString();
-        //     }
-        //     // if (binding.action == "Move")
-        //     // {
-        //     //   rotateText.text += binding.ToDisplayString();
-        //     // }
-        //   }
-        // }
-        // BANDAID
         if (controls == "Keyboard")
         {
-            dropText.text = "E";
-            rotateText.text = "WASD / \n Arrow Keys";
-        }
+            dropText.text = Constants.keyboardControls["Drop Object"];
+            rotateText.text = Constants.keyboardControls["Movement"];
+    }
         else
         {
-            dropText.text = "East Button ( B / O )";
-            rotateText.text = "Left Stick";
+            dropText.text = Constants.gamepadControls["Drop Object"];
+            rotateText.text = Constants.gamepadControls["Movement"];
         }
     }
 }

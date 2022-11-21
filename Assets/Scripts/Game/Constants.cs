@@ -15,8 +15,8 @@ public static class Constants
   {
     {"Look", "Mouse"},
     {"Movement", "WASD / Arrow Keys"},
-    {"Interact", "Left Click"},
-    {"Unfocus Object", "E"},
+    {"Interact Object", "Left Click"},
+    {"Drop Object", "E"},
     {"Crouch", "Ctrl"},
     {"Jump", "Space"},
     {"Pause", "Tab"}
@@ -25,8 +25,8 @@ public static class Constants
   {
     {"Look", "Right Stick"},
     {"Movement", "Left Stick"},
-    {"Interact", "West Button ( X / □ )"},
-    {"Unfocus Object", "East Button ( B / O )"},
+    {"Interact Object", "West Button ( X / □ )"},
+    {"Drop Object", "East Button ( B / O )"},
     {"Crouch", "Press Left Stick"},
     {"Jump", "South Button ( A / X )"},
     {"Pause", "Start"}

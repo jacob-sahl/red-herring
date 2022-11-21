@@ -6,12 +6,12 @@ using System.Collections.Generic;
 public class ControlsDisplay : MonoBehaviour
 {
   TextMeshProUGUI controlsText;
-  public string controlScheme;
+  public string controlScheme = "";
   void Start()
   {
     controlsText = transform.Find("ControlsText").GetComponent<TextMeshProUGUI>();
 
-    if (controlScheme == null)
+    if (controlScheme == "")
     {
       int detectiveID = GameController.Instance.getCurrentDetective();
       PlayerController detective = PlayerManager.Instance.getPlayerByID(detectiveID);
