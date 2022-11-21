@@ -126,7 +126,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -343,10 +343,11 @@ GameObject:
   - component: {fileID: 2388118752525418847}
   - component: {fileID: 3996523237044261299}
   - component: {fileID: 4561049664564259246}
-  - component: {fileID: 2320539474494204007}
   - component: {fileID: 7532256592131600484}
+  - component: {fileID: 7296707332203145697}
+  - component: {fileID: 8449345244285498083}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book2
+  m_Name: Book1-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -452,18 +453,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2320539474494204007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113680440025123077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &7532256592131600484
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -478,6 +467,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5429082772209467225, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &7296707332203145697
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113680440025123077}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.066347405, y: 0.3333153, z: 0.24620125}
+  m_Center: {x: -0.033173464, y: 0.16665766, z: -0.116483495}
+--- !u!114 &8449345244285498083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113680440025123077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &1230411995232296535
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,10 +508,11 @@ GameObject:
   - component: {fileID: 338829396447017546}
   - component: {fileID: 9027446332537458243}
   - component: {fileID: 5069896975557061267}
-  - component: {fileID: 5843092301905995594}
   - component: {fileID: 6063803137626027384}
+  - component: {fileID: 4676132670229202676}
+  - component: {fileID: 7494650878182545986}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book7
+  m_Name: Book1-8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -600,18 +618,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5843092301905995594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230411995232296535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &6063803137626027384
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -626,6 +632,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1727614297962128222, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &4676132670229202676
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230411995232296535}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.069285244, y: 0.31687176, z: 0.24620125}
+  m_Center: {x: -0.034642622, y: 0.15843588, z: -0.116483495}
+--- !u!114 &7494650878182545986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230411995232296535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &1283877931722558023
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,10 +733,11 @@ GameObject:
   - component: {fileID: 7080273768834062198}
   - component: {fileID: 7516965956994210500}
   - component: {fileID: 2842072369210425153}
-  - component: {fileID: 7893749052474753983}
   - component: {fileID: 8504521049087164610}
+  - component: {fileID: 6971536814839050184}
+  - component: {fileID: 8811575690895595270}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book11
+  m_Name: Book1-12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -808,18 +843,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7893749052474753983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284191265382089782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &8504521049087164610
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -834,6 +857,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7911648950699119720, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &6971536814839050184
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284191265382089782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.051596116, y: 0.35599178, z: 0.24620125}
+  m_Center: {x: -0.02579807, y: 0.17799589, z: -0.116483495}
+--- !u!114 &8811575690895595270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284191265382089782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &1496181066265388103
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -1035,7 +1086,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -1230,7 +1281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -1312,10 +1363,11 @@ GameObject:
   - component: {fileID: 1905599606182688403}
   - component: {fileID: 9214874302927373403}
   - component: {fileID: 1192496145442214561}
-  - component: {fileID: 7561998760369730263}
   - component: {fileID: 4748333931453344453}
+  - component: {fileID: 4128676660507054792}
+  - component: {fileID: 2768022976010572543}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book4
+  m_Name: Book1-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1421,18 +1473,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7561998760369730263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042111919060610415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &4748333931453344453
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1447,6 +1487,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6638493835862070390, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &4128676660507054792
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042111919060610415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.038334053, y: 0.35207972, z: 0.24620125}
+  m_Center: {x: -0.019167023, y: 0.17603986, z: -0.116483495}
+--- !u!114 &2768022976010572543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042111919060610415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &2136172834600814368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,7 +1581,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -1648,7 +1716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -1730,10 +1798,11 @@ GameObject:
   - component: {fileID: 3815842336569928465}
   - component: {fileID: 940172340272294275}
   - component: {fileID: 5064700140953257221}
-  - component: {fileID: 6290861943362983168}
   - component: {fileID: 7488314636175701752}
+  - component: {fileID: 3790701111719562514}
+  - component: {fileID: 931441774872212533}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book8
+  m_Name: Book1-9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1839,18 +1908,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6290861943362983168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2491854613173464527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &7488314636175701752
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1865,6 +1922,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4454247264939805462, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &3790701111719562514
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491854613173464527}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08006293, y: 0.31687176, z: 0.24620125}
+  m_Center: {x: -0.040031474, y: 0.15843588, z: -0.116483495}
+--- !u!114 &931441774872212533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491854613173464527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &2596346719467343028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,7 +2016,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -2126,7 +2211,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -2261,7 +2346,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -2456,7 +2541,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -2538,10 +2623,11 @@ GameObject:
   - component: {fileID: 3020048191324625286}
   - component: {fileID: 7272651908997519642}
   - component: {fileID: 5086410650500870112}
-  - component: {fileID: 3245208244305429190}
   - component: {fileID: 8713515752036786985}
+  - component: {fileID: 7468300597428940296}
+  - component: {fileID: 8520424465615186634}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book
+  m_Name: Book1-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2647,18 +2733,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3245208244305429190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3425597454066065244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &8713515752036786985
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2673,6 +2747,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3302345789280250193, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &7468300597428940296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425597454066065244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.084070526, y: 0.32994103, z: 0.24620125}
+  m_Center: {x: 0.00000047124922, y: -0.00000013411045, z: 0.005871331}
+--- !u!114 &8520424465615186634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425597454066065244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: 0, z: 0}
+  focusDistance: 2
 --- !u!1 &3442990341162214649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2698,17 +2800,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3442990341162214649}
-  m_LocalRotation: {x: 0.014752031, y: -0, z: -0, w: 0.9998912}
-  m_LocalPosition: {x: 0, y: 0, z: -0.013100043}
+  m_LocalRotation: {x: 0.034924176, y: -0, z: -0, w: 0.99939}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5327377929804063866}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 1.691, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.003, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.050600156, y: 0.021199971}
+  m_AnchoredPosition: {x: -0.0506, y: 0.0213}
   m_SizeDelta: {x: 0.5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3519419169726571289
@@ -2739,7 +2841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -2881,10 +2983,11 @@ GameObject:
   - component: {fileID: 3290556487197418199}
   - component: {fileID: 7207829997894627673}
   - component: {fileID: 8868380991691673457}
-  - component: {fileID: 2890128163939455779}
   - component: {fileID: 8971040391944130998}
+  - component: {fileID: 8735900108032861557}
+  - component: {fileID: 181588955723434473}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book9
+  m_Name: Book1-10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2990,18 +3093,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2890128163939455779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3564402533094244321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &8971040391944130998
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3016,6 +3107,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7051513176312311375, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &8735900108032861557
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3564402533094244321}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04003148, y: 0.32039255, z: 0.24620125}
+  m_Center: {x: -0.020015737, y: 0.16019627, z: -0.116483495}
+--- !u!114 &181588955723434473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3564402533094244321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &3584129570137291937
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,7 +3261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -3224,10 +3343,11 @@ GameObject:
   - component: {fileID: 7287780003701213094}
   - component: {fileID: 1514724805673304249}
   - component: {fileID: 8860461900751180733}
-  - component: {fileID: 5945332109028238956}
   - component: {fileID: 4941782439033534891}
+  - component: {fileID: 9025643240035947195}
+  - component: {fileID: 1025424633471657717}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book12
+  m_Name: Book1-13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3333,18 +3453,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5945332109028238956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4142132218592468032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &4941782439033534891
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3359,6 +3467,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7976486562415300194, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &9025643240035947195
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4142132218592468032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06535509, y: 0.35599178, z: 0.24620125}
+  m_Center: {x: -0.03267753, y: 0.17799589, z: -0.116483495}
+--- !u!114 &1025424633471657717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4142132218592468032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &4351551308971336922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3432,10 +3568,11 @@ GameObject:
   - component: {fileID: 3923343666743076692}
   - component: {fileID: 5076963104350420242}
   - component: {fileID: 2350928232296198296}
-  - component: {fileID: 7142299417684562086}
   - component: {fileID: 7072256736131148377}
+  - component: {fileID: 9014009538819421935}
+  - component: {fileID: 7027731948365208940}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book1
+  m_Name: Book1-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3541,18 +3678,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7142299417684562086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4448280334871843413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &7072256736131148377
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3567,6 +3692,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4501192042962124676, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &9014009538819421935
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448280334871843413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05237954, y: 0.3488184, z: 0.24620125}
+  m_Center: {x: -0.026189767, y: 0.1744092, z: -0.116483495}
+--- !u!114 &7027731948365208940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448280334871843413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &4460435514881883908
 GameObject:
   m_ObjectHideFlags: 0
@@ -3640,10 +3793,11 @@ GameObject:
   - component: {fileID: 538755579760625736}
   - component: {fileID: 5442029068877649628}
   - component: {fileID: 1532067374939707689}
-  - component: {fileID: 7141143840968716661}
   - component: {fileID: 748628383817282958}
+  - component: {fileID: 1900993494183170678}
+  - component: {fileID: 1487803537721538002}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book10
+  m_Name: Book1-11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3749,18 +3903,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7141143840968716661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4516010024552871068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &748628383817282958
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3775,6 +3917,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5819421972490724893, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &1900993494183170678
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516010024552871068}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.051596116, y: 0.32039255, z: 0.24620125}
+  m_Center: {x: -0.025798054, y: 0.16019627, z: -0.116483495}
+--- !u!114 &1487803537721538002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516010024552871068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &4685605608455767163
 GameObject:
   m_ObjectHideFlags: 0
@@ -3841,7 +4011,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -3976,7 +4146,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -4118,10 +4288,11 @@ GameObject:
   - component: {fileID: 5262150495203063463}
   - component: {fileID: 2862088119919917499}
   - component: {fileID: 2789511543431097817}
-  - component: {fileID: 4989649421528223307}
   - component: {fileID: 5499785251593790845}
+  - component: {fileID: 7964699473758719017}
+  - component: {fileID: 8338418660433179441}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book3
+  m_Name: Book1-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4227,18 +4398,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4989649421528223307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5566837514143642325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &5499785251593790845
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4253,6 +4412,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6126812650638149938, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &7964699473758719017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566837514143642325}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.047917567, y: 0.34442586, z: 0.24620125}
+  m_Center: {x: -0.023958541, y: 0.17221293, z: -0.116483614}
+--- !u!114 &8338418660433179441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566837514143642325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &5720287938015092109
 GameObject:
   m_ObjectHideFlags: 0
@@ -4266,10 +4453,11 @@ GameObject:
   - component: {fileID: 1633819638467806434}
   - component: {fileID: 6626937120004510710}
   - component: {fileID: 9098364720476530967}
-  - component: {fileID: 8611508378847392667}
   - component: {fileID: 6845380613191331337}
+  - component: {fileID: 2943992401036316924}
+  - component: {fileID: 1490068277084418731}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book5
+  m_Name: Book1-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4375,18 +4563,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8611508378847392667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5720287938015092109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &6845380613191331337
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4401,6 +4577,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6535140096629492253, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &2943992401036316924
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720287938015092109}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.051963933, y: 0.35207972, z: 0.24620125}
+  m_Center: {x: -0.02598197, y: 0.17603986, z: -0.116483495}
+--- !u!114 &1490068277084418731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720287938015092109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &5926296241496616036
 GameObject:
   m_ObjectHideFlags: 0
@@ -4467,7 +4671,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -4602,7 +4806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -4737,7 +4941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -4932,7 +5136,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -5127,7 +5331,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -5205,6 +5409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7922912725662603524}
+  - component: {fileID: 6232917131627546236}
   m_Layer: 0
   m_Name: Books1
   m_TagString: Untagged
@@ -5240,6 +5445,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &6232917131627546236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401674273065714622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0932d768021c1e64cb78f50bee4370ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7561657131420233620
 GameObject:
   m_ObjectHideFlags: 0
@@ -5306,7 +5523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -5388,10 +5605,11 @@ GameObject:
   - component: {fileID: 5147061148595839599}
   - component: {fileID: 5532957211115593819}
   - component: {fileID: 2582456031194195609}
-  - component: {fileID: 8625176769707104199}
   - component: {fileID: 6005084631573062602}
+  - component: {fileID: 7570167031666110691}
+  - component: {fileID: 7187830630063593037}
   m_Layer: 0
-  m_Name: PR_BooksShelf_With_UV_Layout_Book6
+  m_Name: Book1-7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5497,18 +5715,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8625176769707104199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7724167920955317698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb5be770dced5f4ca431af3e0a06d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &6005084631573062602
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5523,6 +5729,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5428112981579720886, guid: 7172cfa1223c4e74dae36af16e7e63c8, type: 3}
+--- !u!65 &7570167031666110691
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7724167920955317698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05706826, y: 0.34580052, z: 0.24620125}
+  m_Center: {x: -0.0060344306, y: 0.17290026, z: -0.116483495}
+--- !u!114 &7187830630063593037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7724167920955317698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba8a5ddbd89a24ba0439c6a7d1102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRotation: {x: 0, y: 75, z: 0}
+  defaultTranslation: {x: 1, y: -1, z: 0}
+  focusDistance: 2
 --- !u!1 &8362565584994448825
 GameObject:
   m_ObjectHideFlags: 0
@@ -5589,7 +5823,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -5724,7 +5958,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -5919,7 +6153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cover Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -6054,7 +6288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -6189,7 +6423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spine Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}

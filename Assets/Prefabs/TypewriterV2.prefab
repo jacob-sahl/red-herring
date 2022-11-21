@@ -6048,7 +6048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultRotation: {x: 45, y: 0, z: 0}
   defaultTranslation: {x: 0, y: 0, z: 0}
-  focusDistance: 6
+  focusDistance: 5
 --- !u!114 &8508844437079989342
 MonoBehaviour:
   m_ObjectHideFlags: 0
