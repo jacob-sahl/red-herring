@@ -7,6 +7,7 @@ public class ControlsDisplay : MonoBehaviour
 {
   TextMeshProUGUI controlsText;
   public string controlScheme = "";
+
   void Start()
   {
     controlsText = transform.Find("ControlsText").GetComponent<TextMeshProUGUI>();
