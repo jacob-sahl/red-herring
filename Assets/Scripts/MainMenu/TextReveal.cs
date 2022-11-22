@@ -66,6 +66,8 @@ public class TextReveal : MonoBehaviour
   {
     if (e.name == animationName)
     {
+      Debug.Log("Starting WITHIN anim. Char count: " + mesh.textInfo.characterCount);
+      Debug.Log("Text: " + mesh.text);
       alphas = new float[mesh.textInfo.characterCount];
       time = 0f;
       previousStep = 0;
@@ -122,9 +124,9 @@ public class TextReveal : MonoBehaviour
     while (charIndex < step && charIndex < mesh.textInfo.characterCount)
     {
       TMP_CharacterInfo c = mesh.textInfo.characterInfo[charIndex];
+      // Debug.Log("CharIndex: " + charIndex + " of " + step);
 
       int index = c.vertexIndex;
-
       float currentAlpha = alphas[charIndex];
       float targetAlpha = targetTextColour.a;
       // New alpha is 1/fadeLength more than previous, capped at 1

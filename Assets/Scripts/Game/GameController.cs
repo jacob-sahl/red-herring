@@ -7,27 +7,29 @@ using Utils;
 
 public class GameController : MonoBehaviour
 {
-    public PlayerManager PlayerManager;
-    public LevelManager levelManager;
-    [SerializeField] public bool forceStart;
-    public string _roundEndText;
-    public string _gameEndText;
+  public PlayerManager PlayerManager;
+  public LevelManager levelManager;
+  [SerializeField] public bool forceStart;
+  public List<string> _roundEndMessages;
+  public List<List<int>> _roundEndPointStages;
+  public bool _roundEndPuzzleComplete;
+  public string _gameEndText;
 
-    public GameInstance gameInstance;
+  public GameInstance gameInstance;
 
-    [Header("Main Scene")]
-    [Tooltip("This string has to be the name of the scene you want to load when starting a round")]
-    public string mainSceneName;
+  [Header("Main Scene")]
+  [Tooltip("This string has to be the name of the scene you want to load when starting a round")]
+  public string mainSceneName;
 
-    public List<int> detectiveOrder;
+  public List<int> detectiveOrder;
 
-    // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
-    public int currentRound;
-    public int minutesPerRound = 5;
-    public float mouseSensitivity = 1f;
-    public float objectRotationSpeed = 0.3f;
+  // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
+  public int currentRound;
+  public int minutesPerRound = 5;
+  public float mouseSensitivity = 1f;
+  public float objectRotationSpeed = 0.3f;
 
-    public List<TypeWriterPuzzleInstance> puzzles = new()
+  public List<TypeWriterPuzzleInstance> puzzles = new()
     {
         new(
             TypeWriterPuzzleID.BlueRedYellow,
@@ -115,286 +117,300 @@ public class GameController : MonoBehaviour
         )
     };
 
-    public List<SecretObjective> currentSecretObjectives;
-    public List<string> currentClues;
+  public List<SecretObjective> currentSecretObjectives;
+  public List<string> currentClues;
 
-    private Interval _apiInterval;
-    private bool _readFromAPI = true;
-    private bool _readyToSetUpLevel;
-    public static GameController Instance { get; private set; }
+  private Interval _apiInterval;
+  private bool _readFromAPI = true;
+  private bool _readyToSetUpLevel;
+  public static GameController Instance { get; private set; }
 
-    private void Awake()
+  private void Awake()
+  {
+    if (Instance != null && Instance != this)
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-
-        // Randomized detective order
-        // List<int> players = new List<int> { 0, 1, 2, 3 };
-        // detectiveOrder = new List<int>();
-        // for (int i = 0; i < players.Count; i++)
-        // {
-        //   int index = Mathf.FloorToInt(Random.Range(0, players.Count));
-        //   detectiveOrder.Add(players[index]);
-        //   players.Remove(players[index]);
-        // }
-
-        // Deterministic detective order
-        detectiveOrder = new List<int> { 0, 1, 2, 3 };
-        currentRound = -1;
-        gameInstance = null;
-        _apiInterval = new Interval(1);
-        EventManager.AddListener<LevelStartEvent>(onGameStart);
-        EventManager.AddListener<LevelEndEvent>(onLevelEnd);
-        EventManager.AddListener<GameEndEvent>(onGameEnd);
-        LoadPrefereces();
-        
-        APIClient.APIClient.Instance.CreateGameInstance().Then(instance =>
-        {
-            Dispatcher.Instance.RunInMainThread(() => {
-                GameController.Instance.PlayerManager.ClearPlayers();
-                GameController.Instance.gameInstance = instance;
-                Events.GameCreatedEvent.gameInstance = instance;
-                EventManager.Broadcast(Events.GameCreatedEvent);});
-        });
+      Destroy(this);
+    }
+    else
+    {
+      Instance = this;
+      DontDestroyOnLoad(gameObject);
     }
 
-    // Start is called before the first frame update
-    private void Start()
+    // Randomized detective order
+    // List<int> players = new List<int> { 0, 1, 2, 3 };
+    // detectiveOrder = new List<int>();
+    // for (int i = 0; i < players.Count; i++)
+    // {
+    //   int index = Mathf.FloorToInt(Random.Range(0, players.Count));
+    //   detectiveOrder.Add(players[index]);
+    //   players.Remove(players[index]);
+    // }
+
+    // Deterministic detective order
+    detectiveOrder = new List<int> { 0, 1, 2, 3 };
+    currentRound = -1;
+    gameInstance = null;
+    _apiInterval = new Interval(1);
+    EventManager.AddListener<LevelStartEvent>(onGameStart);
+    EventManager.AddListener<LevelEndEvent>(onLevelEnd);
+    EventManager.AddListener<GameEndEvent>(onGameEnd);
+    LoadPrefereces();
+
+    APIClient.APIClient.Instance.CreateGameInstance().Then(instance =>
     {
-        PlayerManager = PlayerManager.Instance;
-        _readyToSetUpLevel = true;
-    }
+      Dispatcher.Instance.RunInMainThread(() =>
+      {
+        GameController.Instance.PlayerManager.ClearPlayers();
+        GameController.Instance.gameInstance = instance;
+        Events.GameCreatedEvent.gameInstance = instance;
+        EventManager.Broadcast(Events.GameCreatedEvent);
+      });
+    });
+  }
 
-    private void Update()
+  // Start is called before the first frame update
+  private void Start()
+  {
+    PlayerManager = PlayerManager.Instance;
+    _readyToSetUpLevel = true;
+  }
+
+  private void Update()
+  {
+    if (_readFromAPI && gameInstance != null && _apiInterval.ExpireReset())
     {
-        if (_readFromAPI && gameInstance != null && _apiInterval.ExpireReset())
-        {
-            var oldGameInstance = gameInstance;
-            APIClient.APIClient.Instance.GetGameInstance(gameInstance.id).Then(instance =>
-            {
-                if (!oldGameInstance.Equals(instance))
-                    Dispatcher.Instance.RunInMainThread(() =>
-                    {
-                        gameInstance = instance;
-                        Events.GameInstanceUpdatedEvent.gameInstance = instance;
-                        EventManager.Broadcast(Events.GameInstanceUpdatedEvent);
-                        Debug.Log("Game instance updated");
-                    });
-            }).Catch(error =>
-            {
-                Debug.Log("Error getting game instance: " + error);
-            });
-        }
-    }
-
-    private void OnDestroy()
-    {
-        EventManager.RemoveListener<LevelStartEvent>(onGameStart);
-        EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
-        EventManager.RemoveListener<GameEndEvent>(onGameEnd);
-        if (gameInstance != null)
-        {
-            APIClient.APIClient.Instance.DestroyGameInstance(gameInstance);
-        }
-    }
-
-    private void LoadPrefereces()
-    {
-        GamePreferences.Load();
-        minutesPerRound = GamePreferences.MinutesPerRound;
-    }
-
-    public int getCurrentDetective()
-    {
-        return detectiveOrder[currentRound];
-    }
-
-    public TypeWriterPuzzleInstance getCurrentPuzzle()
-    {
-        return puzzles[currentRound];
-    }
-
-    private List<int> getRandomSOAssignment()
-    {
-        // Randomize
-        var informants = new List<int> { 0, 1, 2, 3 };
-        // remove the current detective
-        informants.Remove(detectiveOrder[currentRound]);
-        var assignment = new List<int>();
-        for (var i = 0; i < 3; i++)
-        {
-            var index = Mathf.FloorToInt(Random.Range(0, informants.Count));
-            assignment.Add(informants[index]);
-            informants.Remove(informants[index]);
-        }
-
-        return assignment;
-    }
-
-    private void assignSecretObjectives()
-    {
-        // Destroy previous secret objectives
-        {
-            while (currentSecretObjectives != null && currentSecretObjectives.Count > 0)
-            {
-                var so = currentSecretObjectives[currentSecretObjectives.Count - 1];
-                so.Deconstruct();
-                currentSecretObjectives.Remove(so);
-            }
-        }
-
-        var puzzle = puzzles[currentRound];
-        currentSecretObjectives = new List<SecretObjective>();
-        currentClues = new List<string>();
-        var order = getRandomSOAssignment();
-
-        for (var i = 0; i < 3; i++)
-        {
-            var so = new SecretObjective(
-                PlayerManager.getPlayerByID(order[i]),
-                puzzle.secrets[i].Item2,
-                puzzle.clues[i],
-                puzzle.secrets[i].Item1
-            );
-            // Are these necessary?
-            currentSecretObjectives.Add(so);
-            currentClues.Add(puzzle.clues[i]);
-        }
-    }
-
-    public SecretObjective getPlayersSecretObjective(int playerId)
-    {
-        foreach (var secret in currentSecretObjectives)
-            if (secret.player.playerId == playerId)
-                return secret;
-        return null;
-    }
-
-    public void updateMinutesPerRound(string value)
-    {
-        minutesPerRound = int.Parse(value);
-        GamePreferences.MinutesPerRound = minutesPerRound;
-        GamePreferences.Save();
-    }
-
-    public void updateMouseSensitivity(float value)
-    {
-        mouseSensitivity = value;
-    }
-
-    public void updateObjectRotationSpeed(float value)
-    {
-        objectRotationSpeed = value;
-    }
-
-    public void LoadScene(string name)
-    {
-        SceneManager.LoadScene(name);
-    }
-
-    public void LoadMenuScene()
-    {
-        LoadScene("Menu");
-    }
-
-    public void LoadEndScene()
-    {
-        LoadScene("RoundEnd");
-    }
-
-    private bool checkCanStartGame()
-    {
-        return forceStart || PlayerManager.players.Count == 4;
-    }
-
-    public void LoadLevel()
-    {
-        if (checkCanStartGame())
-            LoadScene(mainSceneName);
-        else
-            Debug.Log("Not enough players");
-    }
-
-    public bool IsGameEnding()
-    {
-        if (levelManager == null)
-            return false;
-        return levelManager.gameIsEnding;
-    }
-
-    private void onGameStart(LevelStartEvent e)
-    {
-        Debug.Log("Game Start received by GameController");
-        levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-    }
-
-    public void SetupLevel()
-    {
-        if (_readyToSetUpLevel)
-        {
-            _readFromAPI = false;
-            // FOR DEV PURPOSES: (REMOVE ON BUILD)
-            PlayerManager.fillPlayers(gameInstance);
-            // ^
-            currentRound++; // Must be done FIRST
-            gameInstance.currentRound = currentRound;
-            assignSecretObjectives();
-            
-            int detectiveId = detectiveOrder[currentRound];
-            gameInstance.rounds.Add(new Round(currentRound, detectiveId, GetInformantCards(), new List<RoundScore>()));
-            foreach (var player in gameInstance.players)
-            {
-                if (player.id == detectiveId)
-                    player.isDetective = true;
-                else
-                    player.isDetective = false;
-            }
-            
-            APIClient.APIClient.Instance.UpdateGameInstance(gameInstance);
-            var e = new LevelSetupCompleteEvent();
-            EventManager.Broadcast(e);
-            _readyToSetUpLevel = false;
-        }
-    }
-    
-    private List<InformantCard> GetInformantCards()
-    {
-        List<InformantCard> informantCards = new List<InformantCard>();
-        for (int i = 0; i < 4; i++)
-        {
-            if (i != detectiveOrder[currentRound])
-            {
-                var secret = getPlayersSecretObjective(i);
-                if (secret != null)
+      var oldGameInstance = gameInstance;
+      APIClient.APIClient.Instance.GetGameInstance(gameInstance.id).Then(instance =>
+      {
+        if (!oldGameInstance.Equals(instance))
+          Dispatcher.Instance.RunInMainThread(() =>
                 {
-                    informantCards.Add(new InformantCard{playerId = i, clue = secret.clue, secretGoal =secret.description});
-                }
-            }
+                  gameInstance = instance;
+                  Events.GameInstanceUpdatedEvent.gameInstance = instance;
+                  EventManager.Broadcast(Events.GameInstanceUpdatedEvent);
+                  Debug.Log("Game instance updated");
+                });
+      }).Catch(error =>
+      {
+        Debug.Log("Error getting game instance: " + error);
+      });
+    }
+  }
+
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<LevelStartEvent>(onGameStart);
+    EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
+    EventManager.RemoveListener<GameEndEvent>(onGameEnd);
+    if (gameInstance != null)
+    {
+      APIClient.APIClient.Instance.DestroyGameInstance(gameInstance);
+    }
+  }
+
+  private void LoadPrefereces()
+  {
+    GamePreferences.Load();
+    minutesPerRound = GamePreferences.MinutesPerRound;
+  }
+
+  public int getCurrentDetective()
+  {
+    return detectiveOrder[currentRound];
+  }
+
+  public TypeWriterPuzzleInstance getCurrentPuzzle()
+  {
+    return puzzles[currentRound];
+  }
+
+  private List<int> getRandomSOAssignment()
+  {
+    // Randomize
+    var informants = new List<int> { 0, 1, 2, 3 };
+    // remove the current detective
+    informants.Remove(detectiveOrder[currentRound]);
+    var assignment = new List<int>();
+    for (var i = 0; i < 3; i++)
+    {
+      var index = Mathf.FloorToInt(Random.Range(0, informants.Count));
+      assignment.Add(informants[index]);
+      informants.Remove(informants[index]);
+    }
+
+    return assignment;
+  }
+
+  private void assignSecretObjectives()
+  {
+    // Destroy previous secret objectives
+    {
+      while (currentSecretObjectives != null && currentSecretObjectives.Count > 0)
+      {
+        var so = currentSecretObjectives[currentSecretObjectives.Count - 1];
+        so.Deconstruct();
+        currentSecretObjectives.Remove(so);
+      }
+    }
+
+    var puzzle = puzzles[currentRound];
+    currentSecretObjectives = new List<SecretObjective>();
+    currentClues = new List<string>();
+    var order = getRandomSOAssignment();
+
+    for (var i = 0; i < 3; i++)
+    {
+      var so = new SecretObjective(
+          PlayerManager.getPlayerByID(order[i]),
+          puzzle.secrets[i].Item2,
+          puzzle.clues[i],
+          puzzle.secrets[i].Item1
+      );
+      // Are these necessary?
+      currentSecretObjectives.Add(so);
+      currentClues.Add(puzzle.clues[i]);
+    }
+  }
+
+  public SecretObjective getPlayersSecretObjective(int playerId)
+  {
+    foreach (var secret in currentSecretObjectives)
+      if (secret.player.playerId == playerId)
+        return secret;
+    return null;
+  }
+
+  public void updateMinutesPerRound(string value)
+  {
+    minutesPerRound = int.Parse(value);
+    GamePreferences.MinutesPerRound = minutesPerRound;
+    GamePreferences.Save();
+  }
+
+  public void updateMouseSensitivity(float value)
+  {
+    mouseSensitivity = value;
+  }
+
+  public void updateObjectRotationSpeed(float value)
+  {
+    objectRotationSpeed = value;
+  }
+
+  public void LoadScene(string name)
+  {
+    SceneManager.LoadScene(name);
+  }
+
+  public void LoadMenuScene()
+  {
+    LoadScene("Menu");
+  }
+
+  public void LoadEndScene()
+  {
+    LoadScene("RoundEnd");
+  }
+
+  private bool checkCanStartGame()
+  {
+    return forceStart || PlayerManager.players.Count == 4;
+  }
+
+  public void LoadLevel()
+  {
+    if (checkCanStartGame())
+      LoadScene(mainSceneName);
+    else
+      Debug.Log("Not enough players");
+  }
+
+  public bool IsGameEnding()
+  {
+    if (levelManager == null)
+      return false;
+    return levelManager.gameIsEnding;
+  }
+
+  private void onGameStart(LevelStartEvent e)
+  {
+    Debug.Log("Game Start received by GameController");
+    levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+  }
+
+  public void SetupLevel()
+  {
+    if (_readyToSetUpLevel)
+    {
+      _readFromAPI = false;
+      // FOR DEV PURPOSES: (REMOVE ON BUILD)
+      PlayerManager.fillPlayers(gameInstance);
+      // ^
+      currentRound++; // Must be done FIRST
+      gameInstance.currentRound = currentRound;
+      assignSecretObjectives();
+
+      int detectiveId = detectiveOrder[currentRound];
+      gameInstance.rounds.Add(new Round(currentRound, detectiveId, GetInformantCards(), new List<RoundScore>()));
+      foreach (var player in gameInstance.players)
+      {
+        if (player.id == detectiveId)
+          player.isDetective = true;
+        else
+          player.isDetective = false;
+      }
+
+      APIClient.APIClient.Instance.UpdateGameInstance(gameInstance);
+      var e = new LevelSetupCompleteEvent();
+      EventManager.Broadcast(e);
+      _readyToSetUpLevel = false;
+    }
+  }
+
+  private List<InformantCard> GetInformantCards()
+  {
+    List<InformantCard> informantCards = new List<InformantCard>();
+    for (int i = 0; i < 4; i++)
+    {
+      if (i != detectiveOrder[currentRound])
+      {
+        var secret = getPlayersSecretObjective(i);
+        if (secret != null)
+        {
+          informantCards.Add(new InformantCard { playerId = i, clue = secret.clue, secretGoal = secret.description });
         }
-        return informantCards;
+      }
     }
+    return informantCards;
+  }
 
-    private void onLevelEnd(LevelEndEvent e)
+  private void onLevelEnd(LevelEndEvent e)
+  {
+    // Capture the level end info so that RoundEndController can access it on Start
+    _readyToSetUpLevel = true;
+    _roundEndMessages = e.messages;
+    _roundEndPuzzleComplete = e.puzzleCompleted;
+    _roundEndPointStages = e.pointStages;
+    Debug.Log("ROUND END PTS:");
+    foreach (List<int> pts in _roundEndPointStages)
     {
-        _readyToSetUpLevel = true;
-        _roundEndText = e.endMessage;
+      Debug.Log("\n");
+      foreach (int pt in pts)
+      {
+        Debug.Log(pt + " ");
+      }
     }
+  }
 
-    public void LoadGameEndScene()
-    {
-        Debug.Log("Game End");
-        LoadScene("GameEnd");
-    }
+  public void LoadGameEndScene()
+  {
+    Debug.Log("Game End");
+    LoadScene("GameEnd");
+  }
 
-    private void onGameEnd(GameEndEvent e)
-    {
-        _gameEndText = e.endMessage;
-    }
+  private void onGameEnd(GameEndEvent e)
+  {
+    _gameEndText = e.endMessage;
+  }
 }
