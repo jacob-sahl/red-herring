@@ -199,6 +199,10 @@ public class GameController : MonoBehaviour
         EventManager.RemoveListener<LevelStartEvent>(onGameStart);
         EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
         EventManager.RemoveListener<GameEndEvent>(onGameEnd);
+        if (gameInstance != null)
+        {
+            APIClient.APIClient.Instance.DestroyGameInstance(gameInstance);
+        }
     }
 
     private void LoadPrefereces()
@@ -343,11 +347,11 @@ public class GameController : MonoBehaviour
             gameInstance.currentRound = currentRound;
             assignSecretObjectives();
             
-            
-            gameInstance.rounds.Add(new Round(currentRound, PlayerManager.GetDetectiveId(), GetInformantCards(), new List<RoundScore>()));
+            int detectiveId = detectiveOrder[currentRound];
+            gameInstance.rounds.Add(new Round(currentRound, detectiveId, GetInformantCards(), new List<RoundScore>()));
             foreach (var player in gameInstance.players)
             {
-                if (player.id == PlayerManager.GetDetectiveId())
+                if (player.id == detectiveId)
                     player.isDetective = true;
                 else
                     player.isDetective = false;
@@ -365,7 +369,7 @@ public class GameController : MonoBehaviour
         List<InformantCard> informantCards = new List<InformantCard>();
         for (int i = 0; i < 4; i++)
         {
-            if (i != PlayerManager.GetDetectiveId())
+            if (i != detectiveOrder[currentRound])
             {
                 var secret = getPlayersSecretObjective(i);
                 if (secret != null)
