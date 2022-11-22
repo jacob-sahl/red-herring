@@ -12,6 +12,7 @@ import GameNotStart from '../components/gameNotStart';
 import GameEnded from '../components/gameEnded';
 import DectectiveHint from '../components/detectiveHint';
 import InformantHint from '../components/informantHint';
+import CardFrame from '../assets/CardFrame.png';
 
 const cookies = new Cookies();
 
@@ -64,6 +65,9 @@ const GamePage: NextPage<{ initialGameState: CurrentGameState }> = ({ initialGam
                 <h1>
                     {JSON.stringify(roundInfo)}
                 </h1> */}
+                {/* This is a hack to preload the image */}
+                <img src={CardFrame.src} alt="Informant Card" hidden/>
+
                 {body}
                 {/* <button className='bg-red-900 text-white rounded-md p-2 m-4 uppercase shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out' onClick={() => setScoreBoardVisible(!scoreBoardVisible)}>Scoreboard</button> */}
                 {/* <ScoreBoard visible={scoreBoardVisible} players={roundInfo.players} scores={roundInfo.scores} /> */}

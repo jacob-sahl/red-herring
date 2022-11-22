@@ -107,5 +107,12 @@ namespace APIClient
             }).Catch(error => { promise.Reject(error); Debug.LogWarning(error);});
             return promise;
         }
+
+        public Promise<bool> DestroyGameInstance(GameInstance gameInstance)
+        {
+            gameInstance.currentRound = 5;
+            gameInstance.joinCode = null;
+            return UpdateGameInstance(gameInstance);
+        }
     }
 }

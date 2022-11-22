@@ -9,7 +9,8 @@ interface DectectiveHintProps {
 export default function DectectiveHint({ roundInfo }: DectectiveHintProps) {
     return (
         <div>
-            Follow the instructions on the screen to complete the round.
+            <p>You are the detective!.</p>
+            <p>Follow the instructions on the screen to complete the round.</p>
         </div>
     )
 }
