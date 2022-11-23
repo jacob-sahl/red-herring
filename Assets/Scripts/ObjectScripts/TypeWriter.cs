@@ -25,8 +25,7 @@ public class TypeWriter : MonoBehaviour
   void Start()
   {
     time = 0f;
-    animator = GetComponent<Animator>();
-    animator.SetTrigger("IncorrectInput");
+    animator = GetComponentInChildren<Animator>();
     activePuzzle = GameController.Instance.getCurrentPuzzle().id;
     _typeWriterPuzzle = gameObject.GetComponent<TypeWriterPuzzle>();
     switch (activePuzzle)
@@ -47,12 +46,6 @@ public class TypeWriter : MonoBehaviour
   void Update()
   {
     time += Time.deltaTime;
-    if (time > 3)
-    {
-      Debug.Log("Animating TW");
-      animator.SetTrigger("IncorrectInput");
-      time = 0f;
-    }
     if (Vector3.Dot(transform.up, Vector3.down) > 0 && !broadcasted.Contains(SecretObjectiveID.InvertTypewriter))
     {
       SecretObjectiveEvent evt = new SecretObjectiveEvent();

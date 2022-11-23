@@ -23,7 +23,7 @@ public class AnimKeyTest : MonoBehaviour
     time += Time.deltaTime;
     if (time > offset && pass)
     {
-      Debug.Log("triggering");
+      // Debug.Log("triggering");
       animator.SetTrigger("KeyPress");
       pass = false;
     }
