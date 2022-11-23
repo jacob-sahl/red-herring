@@ -16,9 +16,12 @@ public class Detective : MonoBehaviour
   [Tooltip("Reference to the light used for focus illumination")]
   public GameObject focusLight;
 
-  [Header("Rotation")]
+  [Header("Mouse Sensitivity")]
   [Tooltip("Rotation speed for moving the camera")]
-  public float RotationSpeed = 1f;
+  public float mouseSensitivity = 1f;
+  [Tooltip("Mouse sensitivity factor when focused")]
+  public float focusSensitivityMultiplier = 1.5f;
+
 
   [Header("Movement")]
   [Tooltip("Max movement speed")]
@@ -31,7 +34,6 @@ public class Detective : MonoBehaviour
   private float velocity;
 
   [Header("Focused")]
-  public float cursorSpeed = 1;
   public float objectRotateSpeed = 0.3f;
 
   [Tooltip(
@@ -75,7 +77,7 @@ public class Detective : MonoBehaviour
     moveEnabled = true;
     EventManager.AddListener<FocusEvent>(OnFocus);
     cameraHeight = playerCamera.transform.localPosition.y;
-    cursorSpeed = GameController.Instance.mouseSensitivity;
+    mouseSensitivity = GameController.Instance.mouseSensitivity;
     objectRotateSpeed = GameController.Instance.objectRotationSpeed;
     focusControls = FindObjectOfType<FocusControls>().gameObject;
     focusControls.SetActive(false);
@@ -159,7 +161,7 @@ public class Detective : MonoBehaviour
     {
       Vector2 lookInput = _inputHandler.GetLookInput();
       // Process the raw lookInput 
-      Vector2 lookProcessed = lookInput * RotationSpeed;
+      Vector2 lookProcessed = lookInput * mouseSensitivity;
       cameraRotation.y -= lookProcessed.y;
       // Clamp y-rotation to a range of 180 degrees
       cameraRotation.y = Mathf.Clamp(cameraRotation.y, -89f, 89f);
@@ -238,7 +240,7 @@ public class Detective : MonoBehaviour
     // Observer cursor movement
     {
       Vector2 lookInput = _inputHandler.GetLookInput();
-      Vector2 lookProcessed = lookInput * cursorSpeed;
+      Vector2 lookProcessed = lookInput * mouseSensitivity * focusSensitivityMultiplier;
       RectTransform rect = cursor.GetComponent<RectTransform>();
       // Move the Rect of the cursor text
       float x = Mathf.Clamp(rect.anchoredPosition.x + lookProcessed.x, -(Screen.width / 2), Screen.width / 2);
@@ -362,17 +364,17 @@ public class Detective : MonoBehaviour
     Rigidbody rb = dragObject.GetComponent<Rigidbody>();
     if (rb != null)
     {
-      float originalMouseSpeed = RotationSpeed;
+      float originalMouseSpeed = mouseSensitivity;
       while (_inputHandler.GetInteractHeld())
       {
-        RotationSpeed = originalMouseSpeed * (1 / (1 + rb.mass));
+        mouseSensitivity = originalMouseSpeed * (1 / (1 + rb.mass));
         Ray ray = Camera.main.ScreenPointToRay(cursorPosition);
         Vector3 direction = ray.GetPoint(initialDistance) - dragObject.transform.position;
         rb.velocity = direction * mouseDragSpeed;
         rb.AddForce(direction * mouseDragSpeed);
         yield return new WaitForFixedUpdate();
       }
-      RotationSpeed = originalMouseSpeed;
+      mouseSensitivity = originalMouseSpeed;
     }
   }
 

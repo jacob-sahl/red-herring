@@ -4771,7 +4771,8 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   levelManager: {fileID: 0}
   forceStart: 1
-  _roundEndText: 
+  _roundEndMessages: []
+  _roundEndPuzzleComplete: 0
   _gameEndText: 
   gameInstance:
     id: 
@@ -4784,8 +4785,8 @@ MonoBehaviour:
   detectiveOrder: 
   currentRound: 0
   minutesPerRound: 5
-  mouseSensitivity: 1
-  objectRotationSpeed: 0.3
+  mouseSensitivity: 0.5
+  objectRotationSpeed: 0.6
   currentClues: []
 --- !u!4 &666354604
 Transform:
@@ -9516,10 +9517,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 1061649667}
   m_Direction: 0
-  m_MinValue: 0.01
+  m_MinValue: 0.1
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.3
+  m_Value: 0.6
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -9891,10 +9892,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 184575493}
   m_Direction: 0
-  m_MinValue: 0.01
+  m_MinValue: 0.2
   m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
