@@ -164,7 +164,7 @@ public class LevelManager : MonoBehaviour
         else
         {
           pointStages.Add(new List<int> { 0, 0, 0, 0 });
-          levelEndEvent.messages.Add("Player " + secret.player.playerId + " did not complete their secret objective.");
+          levelEndEvent.messages.Add("Player " + secret.player.playerId + " did not complete their secret objective: " + secret.description);
         }
       }
 
