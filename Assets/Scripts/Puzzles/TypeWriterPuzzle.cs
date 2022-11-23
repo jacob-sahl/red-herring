@@ -66,19 +66,65 @@ public class TypeWriterPuzzle : Puzzle
       { ButtonType.Query, "" },
     };
 
+  private Dictionary<ButtonType, string> ButtonToAnimTrigger = new Dictionary<ButtonType, string>
+    {
+      { ButtonType.Submit, "KeyPressSubmit" },
+      { ButtonType.A, "KeyPressA" },
+      { ButtonType.B, "KeyPressB" },
+      { ButtonType.C, "KeyPressC" },
+      { ButtonType.D, "KeyPressD" },
+      { ButtonType.E, "KeyPressE" },
+      { ButtonType.F, "KeyPressF" },
+      { ButtonType.G, "KeyPressG" },
+      { ButtonType.H, "KeyPressH" },
+      { ButtonType.I, "KeyPressI" },
+      { ButtonType.J, "KeyPressJ" },
+      { ButtonType.K, "KeyPressK" },
+      { ButtonType.L, "KeyPressL" },
+      { ButtonType.M, "KeyPressM" },
+      { ButtonType.N, "KeyPressN" },
+      { ButtonType.O, "KeyPressO" },
+      { ButtonType.P, "KeyPressP" },
+      { ButtonType.Q, "KeyPressQ" },
+      { ButtonType.R, "KeyPressR" },
+      { ButtonType.S, "KeyPressS" },
+      { ButtonType.T, "KeyPressT" },
+      { ButtonType.U, "KeyPressU" },
+      { ButtonType.V, "KeyPressV" },
+      { ButtonType.W, "KeyPressW" },
+      { ButtonType.X, "KeyPressX" },
+      { ButtonType.Y, "KeyPressY" },
+      { ButtonType.Z, "KeyPressZ" },
+      { ButtonType.One, "KeyPress1" },
+      { ButtonType.Two, "KeyPress2" },
+      { ButtonType.Three, "KeyPress3" },
+      { ButtonType.Four, "KeyPress4" },
+      { ButtonType.Five, "KeyPress5" },
+      { ButtonType.Six, "KeyPress6" },
+      { ButtonType.Seven, "KeyPress7" },
+      { ButtonType.Eight, "KeyPress8" },
+      { ButtonType.Nine, "KeyPress9" },
+      { ButtonType.Zero, "KeyPress0" },
+      { ButtonType.Space, "KeyPressSpace" },
+      { ButtonType.Backspace, "KeyPressBackspace" },
+      { ButtonType.Void, "Void" },
+      { ButtonType.Query, "KeyPressQuestion" },
+    };
+
   [SerializeField] public string pressed = "";
   [SerializeField] private string _solution = "";
   [SerializeField] private string _answer = "";
 
   private List<SecretObjectiveID> broadcastedObjectives = new List<SecretObjectiveID>();
   private TypeWriter typeWriter;
+  private Animator animator;
 
   public override void Awake()
   {
     base.Awake();
     puzzleName = "TypeWriter";
     EventManager.AddListener<InteractEvent>(OnButtonPressed);
-    typeWriter = GameObject.Find("Typewriter").GetComponent<TypeWriter>();
+    typeWriter = GetComponent<TypeWriter>();
   }
 
   private void OnDestroy()
@@ -88,7 +134,8 @@ public class TypeWriterPuzzle : Puzzle
 
   void Start()
   {
-    puzzle_text = GameObject.Find("PlayerText").GetComponent<TextMeshProUGUI>();
+    animator = GetComponentInChildren<Animator>();
+    puzzle_text = GameObject.Find("Puzzle_Text").GetComponentInChildren<TextMeshProUGUI>();
     string solution = GameController.Instance.puzzles[GameController.Instance.currentRound].solution;
     UpdateSolution(solution);
   }
@@ -110,8 +157,9 @@ public class TypeWriterPuzzle : Puzzle
   public void ButtonPressed(TypewriterButton button)
   {
     pressed += (ButtonToString[button.buttonType]);
-    // Debug.Log("Pressed: " + pressed);
     typeWriter.playKeydownClip();
+    animator.SetTrigger(ButtonToAnimTrigger[button.buttonType]);
+
     if (_answer.Length == 0)
     {
       puzzle_text.text = "";
@@ -129,6 +177,7 @@ public class TypeWriterPuzzle : Puzzle
         if (CheckAnswer())
         {
           levelManager.audioController.playSuccess();
+          animator.SetTrigger("CorrectInput");
           Complete();
         }
         else
@@ -136,6 +185,7 @@ public class TypeWriterPuzzle : Puzzle
           _answer = "";
           puzzle_text.text = "Incorrect.";
           levelManager.audioController.playMistake();
+          animator.SetTrigger("IncorrectInput");
         }
         break;
       case ButtonType.Query:
