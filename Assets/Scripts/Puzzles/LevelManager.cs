@@ -1,9 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.Serialization;
-
 
 public class LevelManager : MonoBehaviour
 {
@@ -18,19 +14,20 @@ public class LevelManager : MonoBehaviour
   [Tooltip("This string has to be the name of the scene you want to load when game ends")]
   public string endSceneName = "RoundEnd";
 
-  private float puzzleTime;
-  private float _completionTime;
   [SerializeField] private float _timeLeft;
   [SerializeField] private bool puzzleStarted;
-  private UIController uiController;
   public AudioController audioController;
-  private PlayerManager playerManager;
-  private GameController gameController;
   public bool gameIsEnding;
+  public List<Puzzle> puzzles = new();
+  private float _completionTime;
   private float _timeLoadEndGameScene;
-  public List<Puzzle> puzzles = new List<Puzzle> { };
+  private GameController gameController;
+  private PlayerManager playerManager;
 
-  void Start()
+  private float puzzleTime;
+  private UIController uiController;
+
+  private void Start()
   {
     gameController = GameController.Instance;
     audioController = GameObject.Find("AudioManager").GetComponent<AudioController>();
@@ -39,44 +36,36 @@ public class LevelManager : MonoBehaviour
     puzzleTime = gameController.minutesPerRound * 60f;
     _timeLeft = puzzleTime;
     puzzleStarted = true;
-    LevelStartEvent levelStartEvent = new LevelStartEvent();
+    var levelStartEvent = new LevelStartEvent();
     EventManager.Broadcast(levelStartEvent);
     Debug.Log("GameStartEvent broadcasted");
   }
 
   // Update is called once per frame
-  void Update()
+  private void Update()
   {
     if (puzzleStarted)
     {
       _timeLeft -= Time.deltaTime;
 
       if (_timeLeft > 0)
-      {
         uiController.displayTime(_timeLeft);
-      }
       else
-      {
         // ends the game
         EndLevel();
-      }
     }
 
     if (gameIsEnding)
     {
-      float timeRatio = 1 - (_timeLoadEndGameScene - Time.time) / endSceneLoadDelay;
+      var timeRatio = 1 - (_timeLoadEndGameScene - Time.time) / endSceneLoadDelay;
       endGameFadeCanvasGroup.alpha = timeRatio;
 
       if (Time.time >= _timeLoadEndGameScene)
       {
         if (GameController.Instance.currentRound == 3)
-        {
           GameController.Instance.LoadGameEndScene();
-        }
         else
-        {
           GameController.Instance.LoadEndScene();
-        }
         gameIsEnding = false;
       }
     }
@@ -91,21 +80,14 @@ public class LevelManager : MonoBehaviour
   private void onPuzzleComplete(Puzzle puzzle)
   {
     Debug.Log("Puzzle complete");
-    if (canEndLevel())
-    {
-      EndLevel();
-    }
+    if (canEndLevel()) EndLevel();
   }
 
   private bool canEndLevel()
   {
-    foreach (Puzzle puzzle in puzzles)
-    {
+    foreach (var puzzle in puzzles)
       if (!puzzle.isComplete)
-      {
         return false;
-      }
-    }
 
     return true;
   }
@@ -114,19 +96,20 @@ public class LevelManager : MonoBehaviour
   {
     _completionTime = _timeLeft;
     // Checking digits of completion time
-    int minutes = Mathf.FloorToInt(_completionTime / 60);
-    int seconds = Mathf.FloorToInt(_completionTime % 60);
+    var minutes = Mathf.FloorToInt(_completionTime / 60);
+    var seconds = Mathf.FloorToInt(_completionTime % 60);
     // Debug.Log("Completion Time, Minutes: " + minutes + " Seconds: " + seconds);
     if (minutes.ToString().Contains("3") || seconds.ToString().Contains("3"))
     {
-      SecretObjectiveEvent e = new SecretObjectiveEvent();
+      var e = new SecretObjectiveEvent();
       e.id = SecretObjectiveID.SolveWithThreeOnTimer;
       e.status = true;
       EventManager.Broadcast(e);
     }
+
     if (minutes >= 3)
     {
-      SecretObjectiveEvent e = new SecretObjectiveEvent();
+      var e = new SecretObjectiveEvent();
       e.id = SecretObjectiveID.SolveQuickly;
       e.status = true;
       EventManager.Broadcast(e);
@@ -136,11 +119,11 @@ public class LevelManager : MonoBehaviour
   private void checkObjectMovement()
   {
     Debug.Log("Checking object movement");
-    GameObject gramophone = GameObject.Find("Gramophone").gameObject;
+    var gramophone = GameObject.Find("Gramophone").gameObject;
     if (!gramophone.GetComponent<HasMoved>().hasMoved())
     {
       Debug.Log("Gramophone has not moved");
-      SecretObjectiveEvent e = new SecretObjectiveEvent();
+      var e = new SecretObjectiveEvent();
       e.id = SecretObjectiveID.StationaryGramophone;
       e.status = true;
       EventManager.Broadcast(e);
@@ -152,61 +135,61 @@ public class LevelManager : MonoBehaviour
     puzzleStarted = false;
     checkCompletionTime();
     checkObjectMovement();
-    List<int> pointsToAdd = new List<int> { 0, 0, 0, 0 };
-    string roundEndText = "In this round, ";
+    var pointStages = new List<List<int>> { };
+    LevelEndEvent levelEndEvent = new LevelEndEvent();
+    levelEndEvent.messages = new List<string>();
+
     foreach (var puzzle in puzzles)
     {
       if (puzzle.isComplete)
       {
-        roundEndText += $"the puzzle was completed. \n";
-        // Calculate points each player earned this round
-        for (int i = 0; i < pointsToAdd.Count; i++)
-        {
-          pointsToAdd[i] += 4;
-        }
+        levelEndEvent.puzzleCompleted = true;
+        pointStages.Add(new List<int> { 4, 4, 4, 4 });
       }
       else
       {
-        roundEndText += $"the puzzle was not completed. \n";
+        levelEndEvent.puzzleCompleted = false;
       }
-      foreach (SecretObjective secret in gameController.currentSecretObjectives)
+
+      foreach (var secret in gameController.currentSecretObjectives)
       {
-        roundEndText += $"\n<b>Player {secret.player.playerId + 1}'s Secret Objective:</b> {secret.description}\n";
         if (secret.completed)
         {
-          pointsToAdd[secret.player.playerId] += 4;
-          // TEMPORARY:
-          roundEndText += $"<b>Status:</b> Complete!\n";
-          // TEMP ^
-          for (int i = 0; i < pointsToAdd.Count; i++)
-          {
-            pointsToAdd[i] -= 1;
-          }
+          var points = new List<int> { 0, 0, 0, 0 };
+          points[secret.player.playerId] += 4;
+          for (var i = 0; i < points.Count; i++) points[i] -= 1;
+          pointStages.Add(points);
+          levelEndEvent.messages.Add("Player " + secret.player.playerId + " completed their secret objective: " + secret.description);
         }
         else
         {
-          roundEndText += "<b>Status:</b> Incomplete!\n";
+          pointStages.Add(new List<int> { 0, 0, 0, 0 });
+          levelEndEvent.messages.Add("Player " + secret.player.playerId + " did not complete their secret objective: " + secret.description);
         }
       }
+
       if (puzzle.isComplete)
-      {
-        // Add points to each player's total
-        for (int i = 0; i < pointsToAdd.Count; i++)
+        // Reset points this round
+        for (var i = 0; i < 4; i++)
         {
-          playerManager.players[i].points += pointsToAdd[i];
+          playerManager.players[i].pointsThisRound = 0;
+        }
+
+      // Add points to each player's total
+      foreach (var points in pointStages)
+      {
+        for (var i = 0; i < points.Count; i++)
+        {
+          playerManager.players[i].points += points[i];
+          playerManager.players[i].pointsThisRound += points[i];
         }
       }
     }
-    Debug.Log(roundEndText);
+    levelEndEvent.pointStages = pointStages;
 
-    LevelEndEvent levelEndEvent = new LevelEndEvent();
-    levelEndEvent.endMessage = roundEndText;
     EventManager.Broadcast(levelEndEvent);
 
-    if (GameController.Instance.currentRound == 3)
-    {
-      EndGame();
-    }
+    if (GameController.Instance.currentRound == 3) EndGame();
 
     FadeOut();
   }
@@ -226,12 +209,10 @@ public class LevelManager : MonoBehaviour
 
   private void EndGame()
   {
-    string gameEndText = "In this game,\n";
-    for (int i = 0; i < playerManager.players.Count; i++)
-    {
+    var gameEndText = "In this game,\n";
+    for (var i = 0; i < playerManager.players.Count; i++)
       gameEndText += $"Player {i + 1} earned {playerManager.players[i].points} points\n";
-    }
-    GameEndEvent gameEndEvent = new GameEndEvent();
+    var gameEndEvent = new GameEndEvent();
     gameEndEvent.endMessage = gameEndText;
     EventManager.Broadcast(gameEndEvent);
   }

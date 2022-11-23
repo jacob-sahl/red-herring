@@ -1,0 +1,129 @@
+  .scoreboard {
+    border: 1px solid #cbccce;
+    background: #fff;
+    display: grid;
+    grid-template-rows: 2rem minmax(3rem, 1fr) minmax(3rem, 1fr) 2rem;
+    grid-template-columns: minmax(8rem, 1fr) 6rem;
+    overflow: hidden;
+  }
+  @media only screen and (min-width: 500px) {
+    .scoreboard {
+      grid-template-columns: minmax(8rem, 1fr) repeat(4, 2rem) 6rem;
+    }
+  }
+  .scoreboard .title {
+    grid-column: 1/span 1;
+    grid-row: 1/span 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid #cbccce;
+    padding: 0 1rem;
+    text-transform: uppercase;
+    color: #7c7f84;
+    font-size: 0.9rem;
+  }
+  @media only screen and (min-width: 500px) {
+    .scoreboard .title {
+      grid-column: 0/span 2;
+    }
+  }
+
+  .scoreboard .rounds {
+    display: block;
+    grid-column: 2/span 4;
+    grid-row: 1/span 1;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #cbccce;
+  }
+  .scoreboard .rounds span {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #57595c;
+    font-size: 0.9rem;
+  }
+  
+  .scoreboard .total {
+    grid-column: 2/span 1;
+    grid-row: 1/span 1;
+    border-bottom: 1px solid #cbccce;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1rem;
+    color: #57595c;
+    font-size: 0.9rem;
+  }
+  @media only screen and (min-width: 500px) {
+    .scoreboard .total {
+      grid-column: 6/span 1;
+    }
+  }
+  .scoreboard .player {
+    grid-column: 1/span 2;
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 0 1rem;
+  }
+  @media only screen and (min-width: 500px) {
+    .scoreboard .player {
+      grid-column: 1/span 6;
+    }
+  }
+
+  .scoreboard .player__name {
+    grid-column: 2/span 1;
+    grid-row: 1/span 1;
+    padding: 0 0.5rem;
+    padding-right: 2rem;
+    font-weight: 700;
+    color: #9a9faa;
+  }
+  @media only screen and (min-width: 500px) {
+    .scoreboard .player__name {
+      padding-right: 4rem;
+    }
+  }
+
+  .scoreboard .player__score {
+    display: block;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #9a9faa;
+  }
+
+  .scoreboard .player__total {
+    position: relative;
+    width: 6rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1rem;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #9a9faa;
+  }
+  .scoreboard .note {
+    grid-column: 1/span 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1rem;
+    color: #b5b9c2;
+    font-size: 0.75rem;
+    border-top: 1px solid #cbccce;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  @media only screen and (min-width: 500px) {
+    .scoreboard .note {
+      grid-column: 1/span 6;
+    }
+  }

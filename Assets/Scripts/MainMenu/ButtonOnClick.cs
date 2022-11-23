@@ -1,80 +1,87 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using Utils;
 
 public class ButtonOnClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-  public TextMeshProUGUI theText;
-  void Start()
-  {
-    theText = GetComponentInChildren<TextMeshProUGUI>();
-  }
+    public TextMeshProUGUI theText;
 
-  public void OnPointerEnter(PointerEventData eventData) // mouse hovers over button
-  {
-    //Debug.Log(theText.text+ " bolded");
-    theText.fontStyle = FontStyles.Bold;
-  }
-
-  public void OnPointerExit(PointerEventData eventData) // mouse hovers off button
-  {
-    theText.fontStyle = FontStyles.Normal;
-  }
-
-  public void ExitGame()
-  {
-    Debug.Log("Quit");
-    Application.Quit();
-  }
-
-  public void StartGame()
-  {
-    Debug.Log("Start");
-    GameController.Instance.LoadLevel();
-  }
-
-  public void LoadMenu()
-  {
-    UndoDontDestroyOnLoad();
-    SceneManager.LoadScene("Menu");
-  }
-
-  public void SetupLevel()
-  {
-    Debug.Log("Setup");
-    GameController.Instance.SetupLevel();
-  }
-
-  private void UndoDontDestroyOnLoad()
-  {
-    foreach (GameObject go in GetDontDestroyOnLoadObjects())
+    private void Start()
     {
-      SceneManager.MoveGameObjectToScene(go, SceneManager.GetActiveScene());
+        theText = GetComponentInChildren<TextMeshProUGUI>();
     }
-  }
 
-  public static GameObject[] GetDontDestroyOnLoadObjects()
-  {
-    GameObject temp = null;
-    try
+    public void OnPointerEnter(PointerEventData eventData) // mouse hovers over button
     {
-      temp = new GameObject();
-      Object.DontDestroyOnLoad(temp);
-      UnityEngine.SceneManagement.Scene dontDestroyOnLoad = temp.scene;
-      Object.DestroyImmediate(temp);
-      temp = null;
-
-      return dontDestroyOnLoad.GetRootGameObjects();
+        //Debug.Log(theText.text+ " bolded");
+        theText.fontStyle = FontStyles.Bold;
     }
-    finally
+
+    public void OnPointerExit(PointerEventData eventData) // mouse hovers off button
     {
-      if (temp != null)
-        Object.DestroyImmediate(temp);
+        theText.fontStyle = FontStyles.Normal;
     }
-  }
 
+    public void ExitGame()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
+
+    public void StartGame()
+    {
+        Debug.Log("Start");
+        GameController.Instance.LoadLevel();
+    }
+
+    public void LoadMenu()
+    {
+        UndoDontDestroyOnLoad();
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void SetupLevel()
+    {
+        Debug.Log("Setup");
+        GameController.Instance.SetupLevel();
+    }
+
+    private void UndoDontDestroyOnLoad()
+    {
+        foreach (var go in GetDontDestroyOnLoadObjects())
+            SceneManager.MoveGameObjectToScene(go, SceneManager.GetActiveScene());
+    }
+
+    public static GameObject[] GetDontDestroyOnLoadObjects()
+    {
+        GameObject temp = null;
+        try
+        {
+            temp = new GameObject();
+            DontDestroyOnLoad(temp);
+            var dontDestroyOnLoad = temp.scene;
+            DestroyImmediate(temp);
+            temp = null;
+
+            return dontDestroyOnLoad.GetRootGameObjects();
+        }
+        finally
+        {
+            if (temp != null)
+                DestroyImmediate(temp);
+        }
+    }
+
+    public void CreateGame()
+    {
+        APIClient.APIClient.Instance.CreateGameInstance().Then(instance =>
+        {
+            Events.GameCreatedEvent.gameInstance = instance;
+            EventManager.Broadcast(Events.GameCreatedEvent);
+            Dispatcher.Instance.RunInMainThread(() => { GameController.Instance.gameInstance = instance; GameController.Instance.PlayerManager.ClearPlayers(); });
+        });
+        Debug.Log("Create");
+    }
 }

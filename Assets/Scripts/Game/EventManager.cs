@@ -1,7 +1,5 @@
-using System.Collections;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class GameEvent
 {
@@ -10,18 +8,17 @@ public class GameEvent
 // A simple Event System that can be used for remote systems communication
 public static class EventManager
 {
-    static readonly Dictionary<Type, Action<GameEvent>> Events = new Dictionary<Type, Action<GameEvent>>();
+    private static readonly Dictionary<Type, Action<GameEvent>> Events = new();
 
-    static readonly Dictionary<Delegate, Action<GameEvent>> EventLookups =
-        new Dictionary<Delegate, Action<GameEvent>>();
+    private static readonly Dictionary<Delegate, Action<GameEvent>> EventLookups = new();
 
     public static void AddListener<T>(Action<T> evt) where T : GameEvent
     {
         if (EventLookups.ContainsKey(evt)) return;
-        Action<GameEvent> newAction = (e) => evt((T) e);
+        Action<GameEvent> newAction = e => evt((T)e);
         EventLookups[evt] = newAction;
 
-        if (Events.TryGetValue(typeof(T), out Action<GameEvent> internalAction))
+        if (Events.TryGetValue(typeof(T), out var internalAction))
             Events[typeof(T)] = internalAction += newAction;
         else
             Events[typeof(T)] = newAction;

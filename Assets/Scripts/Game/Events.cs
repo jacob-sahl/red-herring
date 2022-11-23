@@ -1,36 +1,46 @@
+using System.Collections.Generic;
+using APIClient;
 using UnityEngine;
 
 public static class Events
 {
-  public static LevelEndEvent levelEndEvent = new LevelEndEvent();
-  public static LevelStartEvent LevelStartEvent = new LevelStartEvent();
-  public static LevelSetupCompleteEvent LevelSetupCompleteEvent = new LevelSetupCompleteEvent();
-  public static DisplayMessageEvent DisplayMessageEvent = new DisplayMessageEvent();
-  public static InteractEvent InteractEvent = new InteractEvent();
-  public static ICursorHoverEvent ICursorHoverEvent = new ICursorHoverEvent();
-  public static FocusEvent FocusEvent = new FocusEvent();
-  public static DefocusEvent DefocusEvent = new DefocusEvent();
-  public static PlayerJoinedEvent PlayerJoinedEvent = new PlayerJoinedEvent();
-  public static PlayerUpdateEvent PlayerUpdateEvent = new PlayerUpdateEvent();
-  public static SecretObjectiveEvent SecretObjectiveEvent = new SecretObjectiveEvent();
-  public static ClockTimeChangeEvent ClockTimeChangeEvent = new ClockTimeChangeEvent();
-  public static GamePreferenceChangeEvent GamePreferenceChangeEvent = new GamePreferenceChangeEvent();
-  public static GameEndEvent GameEndEvent = new GameEndEvent();
+  public static LevelEndEvent levelEndEvent = new();
+  public static LevelStartEvent LevelStartEvent = new();
+  public static LevelSetupCompleteEvent LevelSetupCompleteEvent = new();
+  public static DisplayMessageEvent DisplayMessageEvent = new();
+  public static InteractEvent InteractEvent = new();
+  public static ICursorHoverEvent ICursorHoverEvent = new();
+  public static FocusEvent FocusEvent = new();
+  public static DefocusEvent DefocusEvent = new();
+  public static PlayerJoinedEvent PlayerJoinedEvent = new();
+  public static PlayerUpdateEvent PlayerUpdateEvent = new();
+  public static SecretObjectiveEvent SecretObjectiveEvent = new();
+  public static ClockTimeChangeEvent ClockTimeChangeEvent = new();
+  public static GamePreferenceChangeEvent GamePreferenceChangeEvent = new();
+  public static GameEndEvent GameEndEvent = new();
+  public static GameCreatedEvent GameCreatedEvent = new();
+  public static GameInstanceUpdatedEvent GameInstanceUpdatedEvent = new();
   public static UIAnimationEndEvent UIAnimationEndEvent = new UIAnimationEndEvent();
   public static UIAnimationStartEvent UIAnimationStartEvent = new UIAnimationStartEvent();
   public static UIAnimationInterruptAllEvent UIAnimationInterruptAllEvent = new UIAnimationInterruptAllEvent();
 }
 
+public class GameCreatedEvent : GameEvent
+{
+  public GameInstance gameInstance;
+}
 
 public class LevelEndEvent : GameEvent
 {
-  public string endMessage;
+  public bool puzzleCompleted;
+  public List<string> messages;
+  public List<List<int>> pointStages;
 }
 
 public class DisplayMessageEvent : GameEvent
 {
-  public string Message;
   public float DelayBeforeDisplay;
+  public string Message;
 }
 
 public class InteractEvent : GameEvent
@@ -90,7 +100,6 @@ public class ClockTimeChangeEvent : GameEvent
 
 public class GamePreferenceChangeEvent : GameEvent
 {
-
 }
 
 public class GameEndEvent : GameEvent
@@ -98,6 +107,10 @@ public class GameEndEvent : GameEvent
   public string endMessage;
 }
 
+public class GameInstanceUpdatedEvent : GameEvent
+{
+  public GameInstance gameInstance;
+}
 public class UIAnimationStartEvent : GameEvent
 {
   public string name;

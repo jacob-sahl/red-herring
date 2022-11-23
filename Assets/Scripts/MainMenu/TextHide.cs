@@ -38,6 +38,7 @@ public class TextHide : MonoBehaviour
     {
       if (wobble != null) wobble.setWobbling(false);
       animating = true;
+      time = 0f;
     }
     else if (e.name == animationInstantName)
     {
@@ -94,15 +95,18 @@ public class TextHide : MonoBehaviour
     {
       time += Time.deltaTime;
       float proportion = time / duration;
+      // Debug.Log("Hiding. Proportion: " + proportion);
       mesh.ForceMeshUpdate();
       Mesh newMesh = mesh.mesh;
       Color[] colors = newMesh.colors;
+      // Debug.Log("CharCount: " + mesh.textInfo.characterCount);
       for (int i = 0; i < mesh.textInfo.characterCount; i++)
       {
         TMP_CharacterInfo c = mesh.textInfo.characterInfo[i];
 
         int index = c.vertexIndex;
-        Color newColor = new Color(colors[0].r, colors[0].g, colors[0].b, 1f - proportion);
+        float newAlpha = Mathf.Max(1f - proportion, 0f);
+        Color newColor = new Color(colors[0].r, colors[0].g, colors[0].b, newAlpha);
 
         colors[index] = newColor;
         colors[index + 1] = newColor;

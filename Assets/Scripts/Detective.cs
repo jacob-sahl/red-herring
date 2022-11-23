@@ -290,6 +290,7 @@ public class Detective : MonoBehaviour
       var outline = colliderGameObject.GetComponent<Outline>();
       var focus = colliderGameObject.GetComponent<Focus>();
       var draggable = colliderGameObject.GetComponent<Draggable>();
+      var typewriter = colliderGameObject.GetComponent<TypeWriter>();
 
       if (outline != null)
       {
@@ -301,17 +302,13 @@ public class Detective : MonoBehaviour
         _lastOutline.OutlineMode = Outline.Mode.OutlineAll;
         _lastOutline.OutlineWidth = 5;
 
-        if (focus != null)
+        if (typewriter != null)
         {
           _lastOutline.OutlineColor = Color.red;
         }
-        else if (draggable != null)
-        {
-          _lastOutline.OutlineColor = Color.gray;
-        }
         else
         {
-          _lastOutline.OutlineColor = Color.yellow;
+          _lastOutline.OutlineColor = Color.white;
         }
 
         if (interacted)

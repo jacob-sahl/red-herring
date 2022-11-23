@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InstructorInputHandler : MonoBehaviour
 {
-  private Vector2 cursorMovement;
+    private Vector2 cursorMovement;
 
-  public void OnCursorMove(InputAction.CallbackContext context)
-  {
-    cursorMovement = context.ReadValue<Vector2>();
-  }
+    public void OnCursorMove(InputAction.CallbackContext context)
+    {
+        cursorMovement = context.ReadValue<Vector2>();
+    }
 
-  public Vector2 GetCursorMove()
-  {
-    return cursorMovement;
-  }
+    public Vector2 GetCursorMove()
+    {
+        return cursorMovement;
+    }
 }

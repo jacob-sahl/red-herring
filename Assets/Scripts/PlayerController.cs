@@ -1,31 +1,31 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public enum PlayerRole
 {
   Detective,
   Informant
 }
+
 public class PlayerController : MonoBehaviour
 {
-  private Color[] playerColors = { Color.red, Color.cyan, Color.green, Color.magenta };
   public Color color;
   public int playerId;
 
   public PlayerRole role;
-  private GameObject iCursor;
-  private PlayerInputHandler _inputHandler;
-  private PlayerManager manager;
   public PlayerInput playerInput;
-  private GameController gameController;
   public int points;
+  public int pointsThisRound;
   public string playerName;
+  private PlayerInputHandler _inputHandler;
+  private GameController gameController;
+  private GameObject iCursor;
+  private PlayerManager manager;
+  private readonly Color[] playerColors = { Color.red, Color.cyan, Color.green, Color.magenta };
 
   private void Awake()
   {
-    DontDestroyOnLoad(this.gameObject);
+    DontDestroyOnLoad(gameObject);
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelSetupCompleteEvent>(onLevelSetupComplete);
     gameController = GameController.Instance;
@@ -34,9 +34,9 @@ public class PlayerController : MonoBehaviour
     playerInput = GetComponent<PlayerInput>();
     playerId = manager.addPlayer(this);
     points = 0;
-    playerName = "Player " + playerId.ToString();
+    playerName = "Player " + playerId;
     color = playerColors[playerId];
-    PlayerUpdateEvent e = new PlayerUpdateEvent();
+    var e = new PlayerUpdateEvent();
     e.PlayerID = playerId;
     EventManager.Broadcast(e);
   }
@@ -47,18 +47,15 @@ public class PlayerController : MonoBehaviour
     EventManager.RemoveListener<LevelSetupCompleteEvent>(onLevelSetupComplete);
   }
 
-  void onLevelSetupComplete(LevelSetupCompleteEvent e)
+  private void onLevelSetupComplete(LevelSetupCompleteEvent e)
   {
     if (playerId == gameController.getCurrentDetective())
-    {
       role = PlayerRole.Detective;
-    }
     else
-    {
       role = PlayerRole.Informant;
-    }
   }
-  void onGameStart(LevelStartEvent e)
+
+  private void onGameStart(LevelStartEvent e)
   {
     // If this is P1, make them the Detective
     if (playerId == gameController.getCurrentDetective())
