@@ -14,7 +14,7 @@ public class TypeWriter : MonoBehaviour
   {
     audioSource = gameObject.GetComponent<AudioSource>();
     EventManager.AddListener<DefocusEvent>(onDefocus);
-    carriageGroup = transform.Find("CarriageGroup").gameObject;
+    // carriageGroup = transform.Find("CarriageGroup").gameObject;
   }
 
   private void Start()
@@ -66,10 +66,6 @@ public class TypeWriter : MonoBehaviour
       }
   }
 
-  public void moveCarriageGroup()
-  {
-  }
-
   public void playKeydownClip()
   {
     audioSource.PlayOneShot(keydownClip);
@@ -77,14 +73,14 @@ public class TypeWriter : MonoBehaviour
 
   private void colorStrikers()
   {
-    var strikerParent = transform.Find("PR_Strikers_low").gameObject;
+    var strikerParent = transform.Find("Typewriter/PR_Typewritter_GRP/PR_Strikers_low").gameObject;
     var meshes = strikerParent.GetComponentsInChildren<MeshRenderer>();
     for (var i = 0; i < meshes.Length; i++)
       if (i % 3 == 0)
-        meshes[i].material.color = Color.blue;
-      else if (i % 3 == 1)
         meshes[i].material.color = Color.red;
-      else
+      else if (i % 3 == 1)
         meshes[i].material.color = Color.yellow;
+      else
+        meshes[i].material.color = Color.blue;
   }
 }

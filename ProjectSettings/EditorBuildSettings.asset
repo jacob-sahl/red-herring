@@ -8,14 +8,17 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/deprecated/MenuV2.unity
+    guid: d610c10ef78564149a7c1c809766e6ae
   - enabled: 1
     path: Assets/Scenes/Menu.unity
-    guid: d610c10ef78564149a7c1c809766e6ae
+    guid: 8f14dceb5cfa1594d81e6f45c54aabe7
   - enabled: 1
     path: Assets/Scenes/_MAINSCENE.unity
     guid: 74f598e239b39f04fb0e3ab5fc502fce
   - enabled: 0
-    path: Assets/Scenes/oldRoundEnd.unity
+    path: Assets/Scenes/deprecated/oldRoundEnd.unity
     guid: 34b10751cfaa4a840baa0dbd96eb500e
   - enabled: 1
     path: Assets/Scenes/RoundEnd.unity
@@ -24,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameEnd.unity
     guid: eafa16282c740154c813e2114a4ed3be
   - enabled: 0
-    path: Assets/Scenes/oldART.unity
+    path: Assets/Scenes/deprecated/oldART.unity
     guid: dcb44d89374ee3044a3b0039f45b4e06
   - enabled: 0
     path: Assets/Scenes/_ART.unity

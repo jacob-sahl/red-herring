@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
             new List<string>
             {
                 "The solution is very colourful.",
-                "There is a clue underneath the skull.",
+                "There is a clue behind the skull.",
                 "The solution is not secondary."
             },
             new Dictionary<string, string>

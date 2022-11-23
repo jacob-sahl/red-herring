@@ -2,13 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class RoundEndController : MonoBehaviour
 {
   RoundEndAnimationController animator;
+  public GameObject eventSystemObject;
+  EventSystem eventSystem;
+
+  string waitingFor;
+  private void Awake()
+  {
+    EventManager.AddListener<UIAnimationEndEvent>(onAnimFinished);
+  }
+
+  private void OnDestroy()
+  {
+    EventManager.RemoveListener<UIAnimationEndEvent>(onAnimFinished);
+  }
   void Start()
   {
     animator = GetComponent<RoundEndAnimationController>();
+
+    eventSystem = eventSystemObject.GetComponent<EventSystem>();
+    eventSystem.enabled = false;
+
     applyRoundEndMessages();
     TextMeshProUGUI tm = GameObject.Find("PuzzleSolvedText").gameObject.GetComponent<TextMeshProUGUI>();
     if (GameController.Instance._roundEndPuzzleComplete)
@@ -29,6 +47,7 @@ public class RoundEndController : MonoBehaviour
         "updateScore4",
       };
       animator.startAnimationGroup(animations);
+      waitingFor = "updateScore4";
     }
     else
     {
@@ -38,6 +57,15 @@ public class RoundEndController : MonoBehaviour
         "puzzleSolvedReveal",
       };
       animator.startAnimationGroup(animations);
+      waitingFor = "puzzleSolvedReveal";
+    }
+  }
+
+  void onAnimFinished(UIAnimationEndEvent e)
+  {
+    if (e.name == waitingFor)
+    {
+      eventSystem.enabled = true;
     }
   }
 
@@ -53,4 +81,5 @@ public class RoundEndController : MonoBehaviour
       tm.ForceMeshUpdate();
     }
   }
+
 }

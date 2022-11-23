@@ -9,19 +9,19 @@ public class Books1 : MonoBehaviour
     {
       TypeWriterPuzzleID.BlueRedYellow, new[]
       {
-        "The First Room",
+        "The Vampire",
         "Solution, Mixtures & Cures",
         "Is the Mystery Apparent?",
-        "The Curse of Erring Manor",
-        "Colours and Sounds",
-        "Of Ghosts and Ghouls",
-        "The Other Curse of Erring Manor",
-        "Left Behind",
-        "Bookshelf Arrangement Ettiquette",
+        "These Curse of Erring Manor",
+        "Words: Colours and Sounds",
+        "Blue Ghosts and Orange Ghouls",
+        "Red Rum & Other Curses of Erring Manor",
+        "Yellow Jacket Survival Guide",
         "!",
         "",
         "",
         "",
+        "Bookshelf Arrangement Ettiquette: The First Words are Vital",
       }
     },
     {
@@ -48,7 +48,7 @@ public class Books1 : MonoBehaviour
         "Book #1",
         "How To Make Your Manor a Home",
         "Cryptozoology No. 19",
-        "An Introduction to Pachydermophobia",
+        "An Introduction to PACHYDERMOPHOBIA",
         "The Last One Seems Important",
         "Der Katzenprinz",
         "Poisons Most Foul",
