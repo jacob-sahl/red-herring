@@ -35,6 +35,7 @@ public class Detective : MonoBehaviour
 
   [Header("Focused")]
   public float objectRotateSpeed = 0.3f;
+  public float cursorSpeed;
 
   [Tooltip(
       "Sharpness for the movement when grounded, a low value will make the player accelerate and decelerate slowly, a high value will do the opposite")]
