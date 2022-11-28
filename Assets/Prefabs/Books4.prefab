@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1989665575353069550}
   - component: {fileID: 4818126479564196035}
   - component: {fileID: 8989198200119923072}
-  - component: {fileID: 7393559199316051523}
   - component: {fileID: 4130843043662922727}
   - component: {fileID: 1143759734761214157}
+  - component: {fileID: 2062604683805431191}
   m_Layer: 0
   m_Name: Book3-11
   m_TagString: Untagged
@@ -101,24 +101,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1214227146965465814, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &7393559199316051523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765423227056601773}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &4130843043662922727
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -147,6 +129,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &2062604683805431191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765423227056601773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &2482691788540405747
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,9 +155,9 @@ GameObject:
   - component: {fileID: 253143527160975975}
   - component: {fileID: 4086804838487091309}
   - component: {fileID: 8939462684122387659}
-  - component: {fileID: 8003302614137687859}
   - component: {fileID: 569641842692146631}
   - component: {fileID: 441963157959062662}
+  - component: {fileID: 42673253264872077}
   m_Layer: 0
   m_Name: Book3-5
   m_TagString: Untagged
@@ -248,24 +244,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3147278738509129370, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &8003302614137687859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2482691788540405747}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &569641842692146631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -294,6 +272,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &42673253264872077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2482691788540405747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &2554321799868443961
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,9 +298,9 @@ GameObject:
   - component: {fileID: 3777738527009286102}
   - component: {fileID: 2867543947901588868}
   - component: {fileID: 5624453480322773111}
-  - component: {fileID: 6787708182474104028}
   - component: {fileID: 3586049095138107489}
   - component: {fileID: 3922293165019248055}
+  - component: {fileID: 5760980171650691997}
   m_Layer: 0
   m_Name: Book3-3
   m_TagString: Untagged
@@ -395,24 +387,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6346794656103368592, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &6787708182474104028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2554321799868443961}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &3586049095138107489
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -441,6 +415,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &5760980171650691997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2554321799868443961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &3092037292209157282
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,9 +486,9 @@ GameObject:
   - component: {fileID: 6167862997656341698}
   - component: {fileID: 5109725421432161588}
   - component: {fileID: 2709854881694148626}
-  - component: {fileID: 1176797225464306407}
   - component: {fileID: 839407683494558153}
   - component: {fileID: 727778812170143103}
+  - component: {fileID: 8194641293340836246}
   m_Layer: 0
   m_Name: Book3-4
   m_TagString: Untagged
@@ -587,24 +575,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4557902894435319854, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &1176797225464306407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5633262669877597864}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &839407683494558153
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -633,6 +603,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &8194641293340836246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5633262669877597864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6034236371270241499
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,9 +629,9 @@ GameObject:
   - component: {fileID: 77159501865891940}
   - component: {fileID: 7528117284670774926}
   - component: {fileID: 2179681853053370883}
-  - component: {fileID: 4191994255489932064}
   - component: {fileID: 5936856393897603002}
   - component: {fileID: 2670665666862493279}
+  - component: {fileID: 8232803109522997659}
   m_Layer: 0
   m_Name: Book3-12
   m_TagString: Untagged
@@ -734,24 +718,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4258357189289029919, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &4191994255489932064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6034236371270241499}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &5936856393897603002
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -780,6 +746,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &8232803109522997659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034236371270241499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6305293744796452314
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,9 +772,9 @@ GameObject:
   - component: {fileID: 8924479680030922629}
   - component: {fileID: 2618920664126165046}
   - component: {fileID: 4247233655657105227}
-  - component: {fileID: 5106320672151525269}
   - component: {fileID: 9202305059075283920}
   - component: {fileID: 3196238372232414268}
+  - component: {fileID: 1797821397993175765}
   m_Layer: 0
   m_Name: Book3-14
   m_TagString: Untagged
@@ -881,24 +861,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7752023034676242941, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &5106320672151525269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6305293744796452314}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &9202305059075283920
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -927,6 +889,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &1797821397993175765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305293744796452314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6693709511546135283
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,9 +915,9 @@ GameObject:
   - component: {fileID: 6713371568005871692}
   - component: {fileID: 3595125839896385601}
   - component: {fileID: 366879108812600925}
-  - component: {fileID: 1755690175122898959}
   - component: {fileID: 4117945775728198458}
   - component: {fileID: 936845747056277993}
+  - component: {fileID: 8203185591923453510}
   m_Layer: 0
   m_Name: Book3-8
   m_TagString: Untagged
@@ -1028,24 +1004,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 30685196239660120, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &1755690175122898959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6693709511546135283}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &4117945775728198458
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1074,6 +1032,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &8203185591923453510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6693709511546135283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6700134883093870217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,9 +1058,9 @@ GameObject:
   - component: {fileID: 8378367828919732218}
   - component: {fileID: 4776202692153023450}
   - component: {fileID: 6092321838935228876}
-  - component: {fileID: 7479354263939980754}
   - component: {fileID: 6159676264967713583}
   - component: {fileID: 9191109874830962450}
+  - component: {fileID: 8442033361964483471}
   m_Layer: 0
   m_Name: Book3-7
   m_TagString: Untagged
@@ -1175,24 +1147,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5380217516618921555, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &7479354263939980754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6700134883093870217}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &6159676264967713583
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1221,6 +1175,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &8442033361964483471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700134883093870217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6722329314145872682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,9 +1201,9 @@ GameObject:
   - component: {fileID: 3408849475211787089}
   - component: {fileID: 7142458959762072498}
   - component: {fileID: 6675128971607149203}
-  - component: {fileID: 7016184732794454948}
   - component: {fileID: 2215800701071281958}
   - component: {fileID: 7120242940969887335}
+  - component: {fileID: 6137216848739141796}
   m_Layer: 0
   m_Name: Book3-9
   m_TagString: Untagged
@@ -1322,24 +1290,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3788023066572088426, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &7016184732794454948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6722329314145872682}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &2215800701071281958
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1368,6 +1318,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &6137216848739141796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722329314145872682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &7371278942314583358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,9 +1344,9 @@ GameObject:
   - component: {fileID: 2292437002194263901}
   - component: {fileID: 3736589531794123540}
   - component: {fileID: 796477191751102066}
-  - component: {fileID: 4609960640531659387}
   - component: {fileID: 4701233201476968731}
   - component: {fileID: 3868663220901301340}
+  - component: {fileID: 8541281706465615351}
   m_Layer: 0
   m_Name: Book3-1
   m_TagString: Untagged
@@ -1469,24 +1433,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8346454554403871048, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &4609960640531659387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7371278942314583358}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &4701233201476968731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1515,6 +1461,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &8541281706465615351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7371278942314583358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &7467715521589258980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,9 +1487,9 @@ GameObject:
   - component: {fileID: 6374841782990062623}
   - component: {fileID: 8925204684702515066}
   - component: {fileID: 3502205815452982539}
-  - component: {fileID: 3426599652118002377}
   - component: {fileID: 7578741585220868346}
   - component: {fileID: 2093088990288292354}
+  - component: {fileID: 4536491611296310764}
   m_Layer: 0
   m_Name: Book3-6
   m_TagString: Untagged
@@ -1616,24 +1576,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3412415494479917325, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &3426599652118002377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7467715521589258980}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &7578741585220868346
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1662,6 +1604,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &4536491611296310764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467715521589258980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &7691817869191434024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,9 +1630,9 @@ GameObject:
   - component: {fileID: 2880788326258859116}
   - component: {fileID: 5294162132674671128}
   - component: {fileID: 9123971642323719048}
-  - component: {fileID: 875537591117649473}
   - component: {fileID: 7699433488026898998}
   - component: {fileID: 8164888823436849366}
+  - component: {fileID: 8242788057473981670}
   m_Layer: 0
   m_Name: Book3-13
   m_TagString: Untagged
@@ -1763,24 +1719,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -685081969279360914, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &875537591117649473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7691817869191434024}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &7699433488026898998
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1809,6 +1747,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &8242788057473981670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691817869191434024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &8613052501628261823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,9 +1773,9 @@ GameObject:
   - component: {fileID: 7595562935119788349}
   - component: {fileID: 3573929806669360478}
   - component: {fileID: 9073447992695745599}
-  - component: {fileID: 8871537967567944148}
   - component: {fileID: 1687846421555708966}
   - component: {fileID: 3741783025448218086}
+  - component: {fileID: 3356813803464120837}
   m_Layer: 0
   m_Name: Book3-2
   m_TagString: Untagged
@@ -1910,24 +1862,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2539317913700339681, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &8871537967567944148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8613052501628261823}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &1687846421555708966
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1956,6 +1890,20 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &3356813803464120837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613052501628261823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &9031922411931019143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,9 +1916,9 @@ GameObject:
   - component: {fileID: 6395266676985382144}
   - component: {fileID: 4444733897073685862}
   - component: {fileID: 8428431889559633122}
-  - component: {fileID: 3858723959534658871}
   - component: {fileID: 7248051291896988131}
   - component: {fileID: 6128786656997746421}
+  - component: {fileID: 8014133667327553186}
   m_Layer: 0
   m_Name: Book3-10
   m_TagString: Untagged
@@ -2057,24 +2005,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6491101718617235780, guid: aacfddb9e9459ef4ca80acd6cca4f29e, type: 3}
---- !u!114 &3858723959534658871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9031922411931019143}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &7248051291896988131
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2103,3 +2033,17 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+--- !u!114 &8014133667327553186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9031922411931019143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}

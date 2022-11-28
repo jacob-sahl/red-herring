@@ -58,6 +58,7 @@ public class Detective : MonoBehaviour
   Vector2 cameraRotation = new Vector2(0, 0);
   CharacterController _controller;
   Outline _lastOutline;
+  Highlight _lastHighlight;
   GameObject cursor;
   Vector3 cursorPosition;
   GameObject focusedObject;
@@ -130,7 +131,7 @@ public class Detective : MonoBehaviour
     // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.red, 120f, false);
 
     // Dim focus light
-    focusLight.intensity = 100f;
+    focusLight.intensity = 75f;
 
     focusActive = true;
     moveEnabled = false;
@@ -156,7 +157,7 @@ public class Detective : MonoBehaviour
     focusedObject.GetComponent<Focus>().enablePhysics();
 
     // Brighten focus light
-    focusLight.intensity = 150f;
+    focusLight.intensity = 250f;
 
     // Send event
     DefocusEvent e = new DefocusEvent();
@@ -301,29 +302,19 @@ public class Detective : MonoBehaviour
       }
 
       // Debug.Log(colliderGameObject);
+      var highlight = colliderGameObject.GetComponent<Highlight>();
       var outline = colliderGameObject.GetComponent<Outline>();
       var focus = colliderGameObject.GetComponent<Focus>();
       var draggable = colliderGameObject.GetComponent<Draggable>();
       var typewriter = colliderGameObject.GetComponent<TypeWriter>();
 
-      if (outline != null)
+      if (highlight != null)
       {
-        if (_lastOutline != null && _lastOutline != outline)
+        if (_lastHighlight != null && _lastHighlight != highlight)
         {
-          _lastOutline.enabled = false;
+          _lastHighlight.hideHighlight();
         }
-        _lastOutline = outline;
-        _lastOutline.OutlineMode = Outline.Mode.OutlineAll;
-        _lastOutline.OutlineWidth = 5;
-
-        if (typewriter != null)
-        {
-          _lastOutline.OutlineColor = Color.red;
-        }
-        else
-        {
-          _lastOutline.OutlineColor = Color.white;
-        }
+        _lastHighlight = highlight;
 
         if (interacted)
         {
@@ -341,13 +332,13 @@ public class Detective : MonoBehaviour
             EventManager.Broadcast(interact);
           }
         }
-        _lastOutline.enabled = true;
+        _lastHighlight.showHighlight();
       }
       else
       {
-        if (_lastOutline != null)
+        if (_lastHighlight != null)
         {
-          _lastOutline.enabled = false;
+          _lastHighlight.hideHighlight();
         }
       }
 

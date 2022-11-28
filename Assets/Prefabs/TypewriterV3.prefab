@@ -178,8 +178,8 @@ GameObject:
   - component: {fileID: 4633224258134684369}
   - component: {fileID: 1785851992806341799}
   - component: {fileID: 2220427000152490939}
-  - component: {fileID: 1584481123021773262}
   - component: {fileID: 2420957526726438104}
+  - component: {fileID: 6691963311182245537}
   m_Layer: 0
   m_Name: Key23
   m_TagString: Untagged
@@ -266,24 +266,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8874322314970714610, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &1584481123021773262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96000631361291365}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &2420957526726438104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +279,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 9
+--- !u!114 &6691963311182245537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96000631361291365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &133559351788134228
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,8 +606,8 @@ GameObject:
   - component: {fileID: 4588194822625769334}
   - component: {fileID: 5314459732263903245}
   - component: {fileID: 5756056789552992034}
-  - component: {fileID: 7674734380368135162}
   - component: {fileID: 7208478017633425964}
+  - component: {fileID: 2404368980079300002}
   m_Layer: 0
   m_Name: Key9
   m_TagString: Untagged
@@ -698,24 +694,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 964329385504680956, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &7674734380368135162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328836280582118073}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &7208478017633425964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,6 +707,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 31
+--- !u!114 &2404368980079300002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328836280582118073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &449176980477194742
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,8 +733,8 @@ GameObject:
   - component: {fileID: 2023207696073133737}
   - component: {fileID: 1450001779274384965}
   - component: {fileID: 1777567710445118767}
-  - component: {fileID: 2618534150283180725}
   - component: {fileID: 7075971694077335536}
+  - component: {fileID: 2325947163895567397}
   m_Layer: 0
   m_Name: Key4
   m_TagString: Untagged
@@ -829,24 +821,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3232621655650326806, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &2618534150283180725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449176980477194742}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &7075971694077335536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,6 +834,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 39
+--- !u!114 &2325947163895567397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449176980477194742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &452516554636932831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,8 +1026,8 @@ GameObject:
   - component: {fileID: 5837822639251715700}
   - component: {fileID: 8838010871806093142}
   - component: {fileID: 2409545202861139591}
-  - component: {fileID: 420169818714510644}
   - component: {fileID: 8603889296398752527}
+  - component: {fileID: 8863629970003693235}
   m_Layer: 0
   m_Name: Key44
   m_TagString: Untagged
@@ -1126,24 +1114,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7329054421307994903, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &420169818714510644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534887176369872603}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &8603889296398752527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,6 +1127,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 39
+--- !u!114 &8863629970003693235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534887176369872603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &566289430808305134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,8 +1153,8 @@ GameObject:
   - component: {fileID: 9127010200401129105}
   - component: {fileID: 1807429731113676426}
   - component: {fileID: 5259767999342025688}
-  - component: {fileID: 2846691972011684800}
   - component: {fileID: 1975500812225759851}
+  - component: {fileID: 377441849009307437}
   m_Layer: 0
   m_Name: Key24
   m_TagString: Untagged
@@ -1257,24 +1241,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1319497424049399263, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &2846691972011684800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566289430808305134}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1975500812225759851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,6 +1254,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 15
+--- !u!114 &377441849009307437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566289430808305134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &569662983981945350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,8 +1363,8 @@ GameObject:
   - component: {fileID: 2583396343999909117}
   - component: {fileID: 6994593221024914511}
   - component: {fileID: 7937402567439814993}
-  - component: {fileID: 8724223361572846754}
   - component: {fileID: 8307437281887811984}
+  - component: {fileID: 9027273595786998522}
   m_Layer: 0
   m_Name: Key45
   m_TagString: Untagged
@@ -1473,24 +1453,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7127777086355653123, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &8724223361572846754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600418169081614337}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &8307437281887811984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1504,6 +1466,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 0
+--- !u!114 &9027273595786998522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600418169081614337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &710737227962457581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,8 +1658,8 @@ GameObject:
   - component: {fileID: 5468784983910529966}
   - component: {fileID: 7469977372681555148}
   - component: {fileID: 6397000464972699160}
-  - component: {fileID: 2889738414210989956}
   - component: {fileID: 1532165149838231728}
+  - component: {fileID: 4111521092441365534}
   m_Layer: 0
   m_Name: Key35
   m_TagString: Untagged
@@ -1771,24 +1747,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3381229902363018925, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &2889738414210989956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853181966892568073}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1532165149838231728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1802,6 +1760,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 40
+--- !u!114 &4111521092441365534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853181966892568073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &907604650525117540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,8 +2027,8 @@ GameObject:
   - component: {fileID: 7668015950071887152}
   - component: {fileID: 7547895051796122197}
   - component: {fileID: 5144694792590527268}
-  - component: {fileID: 2161200567202681230}
   - component: {fileID: 5402047680303706095}
+  - component: {fileID: 7881808080700377414}
   m_Layer: 0
   m_Name: Key20
   m_TagString: Untagged
@@ -2143,24 +2115,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3864255887440043279, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &2161200567202681230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132877966064123047}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &5402047680303706095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2174,6 +2128,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 20
+--- !u!114 &7881808080700377414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132877966064123047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &1161246394906738747
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,8 +2237,8 @@ GameObject:
   - component: {fileID: 467274066779117421}
   - component: {fileID: 8044804842434369954}
   - component: {fileID: 5429266143950231021}
-  - component: {fileID: 206115306722499525}
   - component: {fileID: 659677296273785845}
+  - component: {fileID: 8695938226530722516}
   m_Layer: 0
   m_Name: Key22
   m_TagString: Untagged
@@ -2357,24 +2325,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6207780209162234741, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &206115306722499525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384767051338083109}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &659677296273785845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2388,6 +2338,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 21
+--- !u!114 &8695938226530722516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384767051338083109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &1460207039910619860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,8 +2530,8 @@ GameObject:
   - component: {fileID: 8452733793116401103}
   - component: {fileID: 8316941820003134456}
   - component: {fileID: 464910957777502108}
-  - component: {fileID: 3319788874590897825}
   - component: {fileID: 7832025421416291530}
+  - component: {fileID: 922733312850174727}
   m_Layer: 0
   m_Name: Key19
   m_TagString: Untagged
@@ -2654,24 +2618,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6511993557091046277, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &3319788874590897825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736844719980977512}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &7832025421416291530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2685,6 +2631,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 18
+--- !u!114 &922733312850174727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736844719980977512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &1790600725290741178
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,8 +3404,8 @@ GameObject:
   - component: {fileID: 311119724644523480}
   - component: {fileID: 6700232317445740757}
   - component: {fileID: 3438861776437435414}
-  - component: {fileID: 359585129706662232}
   - component: {fileID: 6279575163921184457}
+  - component: {fileID: 2606441314505766047}
   m_Layer: 0
   m_Name: Key43
   m_TagString: Untagged
@@ -3532,24 +3492,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8135696229000663498, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &359585129706662232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2299848444614818165}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &6279575163921184457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3563,6 +3505,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 39
+--- !u!114 &2606441314505766047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2299848444614818165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &2312483792189128349
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,8 +3614,8 @@ GameObject:
   - component: {fileID: 4551385016803393753}
   - component: {fileID: 3091055089625826151}
   - component: {fileID: 5385546085887052716}
-  - component: {fileID: 5358120068903279629}
   - component: {fileID: 5381665979920769056}
+  - component: {fileID: 7111434754730189737}
   m_Layer: 0
   m_Name: Key29
   m_TagString: Untagged
@@ -3746,24 +3702,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2085447454717869033, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &5358120068903279629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2411060189082635181}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &5381665979920769056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3777,6 +3715,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 6
+--- !u!114 &7111434754730189737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411060189082635181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &2487565374455418889
 GameObject:
   m_ObjectHideFlags: 0
@@ -3789,8 +3741,8 @@ GameObject:
   - component: {fileID: 8557573059052827842}
   - component: {fileID: 3268850375654979527}
   - component: {fileID: 5034710670577416996}
-  - component: {fileID: 4535556154611483007}
   - component: {fileID: 8938802542170205875}
+  - component: {fileID: 3892205065717259302}
   m_Layer: 0
   m_Name: Key41
   m_TagString: Untagged
@@ -3877,24 +3829,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6517281865210402906, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &4535556154611483007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2487565374455418889}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &8938802542170205875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3908,6 +3842,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 13
+--- !u!114 &3892205065717259302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487565374455418889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &2502945244019816209
 GameObject:
   m_ObjectHideFlags: 0
@@ -4003,8 +3951,8 @@ GameObject:
   - component: {fileID: 281514811170586299}
   - component: {fileID: 5076177819337212674}
   - component: {fileID: 9113110284647657809}
-  - component: {fileID: 5543248086660301094}
   - component: {fileID: 5739950588285681019}
+  - component: {fileID: 3302962747533736489}
   m_Layer: 0
   m_Name: Key36
   m_TagString: Untagged
@@ -4091,24 +4039,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1274417145658065764, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &5543248086660301094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2525286229123241456}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &5739950588285681019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4122,6 +4052,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 39
+--- !u!114 &3302962747533736489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525286229123241456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &2537157339957576282
 GameObject:
   m_ObjectHideFlags: 0
@@ -4616,8 +4560,8 @@ GameObject:
   - component: {fileID: 7271044888877417481}
   - component: {fileID: 7877082694234081733}
   - component: {fileID: 1173666312832863195}
-  - component: {fileID: 8892999493406353306}
   - component: {fileID: 5564440590300723027}
+  - component: {fileID: 3035834629254514168}
   m_Layer: 0
   m_Name: Key37
   m_TagString: Untagged
@@ -4704,24 +4648,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3882748942796008727, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &8892999493406353306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2896809090054096581}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &5564440590300723027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4735,6 +4661,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 24
+--- !u!114 &3035834629254514168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896809090054096581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &2909197908914398108
 GameObject:
   m_ObjectHideFlags: 0
@@ -4751,6 +4691,7 @@ GameObject:
   - component: {fileID: 1643191289612594501}
   - component: {fileID: 1359187478285720263}
   - component: {fileID: 3591167117769127448}
+  - component: {fileID: 2293925368714357624}
   m_Layer: 0
   m_Name: TypewriterV3
   m_TagString: typewriter
@@ -4963,6 +4904,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2293925368714357624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2909197908914398108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &2915508739786893206
 GameObject:
   m_ObjectHideFlags: 0
@@ -5330,8 +5285,8 @@ GameObject:
   - component: {fileID: 7753130954852548218}
   - component: {fileID: 2474655561811223044}
   - component: {fileID: 7470121374578749715}
-  - component: {fileID: 8734114315738327617}
   - component: {fileID: 6897202227374699310}
+  - component: {fileID: 6711225415339582109}
   m_Layer: 0
   m_Name: Key10
   m_TagString: Untagged
@@ -5418,24 +5373,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7790161085067826705, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &8734114315738327617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3121766865021235618}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &6897202227374699310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5449,6 +5386,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 32
+--- !u!114 &6711225415339582109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3121766865021235618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &3127898037100234063
 GameObject:
   m_ObjectHideFlags: 0
@@ -5461,8 +5412,8 @@ GameObject:
   - component: {fileID: 4909508931434062216}
   - component: {fileID: 728184002956139245}
   - component: {fileID: 2545673243531685998}
-  - component: {fileID: 6808846442021862226}
   - component: {fileID: 2400574498275108557}
+  - component: {fileID: 4045342502144099364}
   m_Layer: 0
   m_Name: Key16
   m_TagString: Untagged
@@ -5549,24 +5500,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7105586006637778391, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &6808846442021862226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3127898037100234063}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &2400574498275108557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5580,6 +5513,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 17
+--- !u!114 &4045342502144099364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127898037100234063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &3215663342966480336
 GameObject:
   m_ObjectHideFlags: 0
@@ -5881,8 +5828,8 @@ GameObject:
   - component: {fileID: 493590332957341204}
   - component: {fileID: 730477982489080094}
   - component: {fileID: 2707787196473454684}
-  - component: {fileID: 312696532794471811}
   - component: {fileID: 5002566012645168105}
+  - component: {fileID: 6757904949494028356}
   m_Layer: 0
   m_Name: Key14
   m_TagString: Untagged
@@ -5969,24 +5916,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7375908143803791537, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &312696532794471811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3413617126802749282}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &5002566012645168105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6000,6 +5929,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 36
+--- !u!114 &6757904949494028356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413617126802749282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &3562095392248945711
 GameObject:
   m_ObjectHideFlags: 0
@@ -6012,8 +5955,8 @@ GameObject:
   - component: {fileID: 8869301619564946389}
   - component: {fileID: 2814292296451601848}
   - component: {fileID: 5849780569596428923}
-  - component: {fileID: 7222198570013890949}
   - component: {fileID: 201255617571528210}
+  - component: {fileID: 6717893463239786576}
   m_Layer: 0
   m_Name: Key7
   m_TagString: Untagged
@@ -6100,24 +6043,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8185276356942146407, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &7222198570013890949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3562095392248945711}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &201255617571528210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6131,6 +6056,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 29
+--- !u!114 &6717893463239786576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3562095392248945711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &3581099653057656054
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,9 +6082,9 @@ GameObject:
   - component: {fileID: 7119892532135047216}
   - component: {fileID: 5973925445493664113}
   - component: {fileID: 1742246622360555898}
-  - component: {fileID: 5407175026140509675}
   - component: {fileID: 6489486072537555977}
   - component: {fileID: 7804978229759262287}
+  - component: {fileID: 6246643132910884091}
   m_Layer: 0
   m_Name: spacebar
   m_TagString: Untagged
@@ -6232,24 +6171,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2215325169736268469, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &5407175026140509675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3581099653057656054}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &6489486072537555977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6276,6 +6197,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.8308144, y: 0.15, z: 0.25}
   m_Center: {x: 1.2597914, y: 0.65, z: 1.71}
+--- !u!114 &6246643132910884091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3581099653057656054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &3586054332432879245
 GameObject:
   m_ObjectHideFlags: 0
@@ -6371,8 +6306,8 @@ GameObject:
   - component: {fileID: 6823973807252075149}
   - component: {fileID: 623510991131657226}
   - component: {fileID: 7294524737008346565}
-  - component: {fileID: 4987062656007713822}
   - component: {fileID: 2066242289741847223}
+  - component: {fileID: 7925110881307529533}
   m_Layer: 0
   m_Name: Key27
   m_TagString: Untagged
@@ -6459,24 +6394,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4983160524004163457, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &4987062656007713822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3651269216917845074}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &2066242289741847223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6490,6 +6407,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 19
+--- !u!114 &7925110881307529533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651269216917845074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &3679280608564682027
 GameObject:
   m_ObjectHideFlags: 0
@@ -6669,8 +6600,8 @@ GameObject:
   - component: {fileID: 9078739401186030986}
   - component: {fileID: 1099693815182854048}
   - component: {fileID: 3249432749605364313}
-  - component: {fileID: 905377642062733306}
   - component: {fileID: 5306102713928048201}
+  - component: {fileID: 6272495020842310406}
   m_Layer: 0
   m_Name: Key13
   m_TagString: Untagged
@@ -6757,24 +6688,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3239506375916827348, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &905377642062733306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3949227625098764689}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &5306102713928048201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6788,6 +6701,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 35
+--- !u!114 &6272495020842310406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3949227625098764689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &4224138145125026589
 GameObject:
   m_ObjectHideFlags: 0
@@ -6883,8 +6810,8 @@ GameObject:
   - component: {fileID: 2417077744506101628}
   - component: {fileID: 6298594419821083952}
   - component: {fileID: 6135228221681984456}
-  - component: {fileID: 3485594640599137853}
   - component: {fileID: 6886829026567034523}
+  - component: {fileID: 8766959917818697810}
   m_Layer: 0
   m_Name: Key11
   m_TagString: Untagged
@@ -6971,24 +6898,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1544238779634312513, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &3485594640599137853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4240367026760049910}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &6886829026567034523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7002,6 +6911,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 33
+--- !u!114 &8766959917818697810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240367026760049910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &4326109551919175275
 GameObject:
   m_ObjectHideFlags: 0
@@ -7014,8 +6937,8 @@ GameObject:
   - component: {fileID: 2542734800820751122}
   - component: {fileID: 8351373163894671243}
   - component: {fileID: 1590637915881009773}
-  - component: {fileID: 7380294784390046526}
   - component: {fileID: 1118874869864290499}
+  - component: {fileID: 1210799518159046859}
   m_Layer: 0
   m_Name: Key15
   m_TagString: Untagged
@@ -7103,24 +7026,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3899997079682112820, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &7380294784390046526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4326109551919175275}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1118874869864290499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7134,6 +7039,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 38
+--- !u!114 &1210799518159046859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326109551919175275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &4342305697136349924
 GameObject:
   m_ObjectHideFlags: 0
@@ -7561,8 +7480,8 @@ GameObject:
   - component: {fileID: 3334036859140623156}
   - component: {fileID: 6663631017036696761}
   - component: {fileID: 8153994279944741383}
-  - component: {fileID: 4708860120946145623}
   - component: {fileID: 7103356929736952689}
+  - component: {fileID: 3457341010993798441}
   m_Layer: 0
   m_Name: Key31
   m_TagString: Untagged
@@ -7649,24 +7568,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3482409829437991517, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &4708860120946145623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4631428264999794668}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &7103356929736952689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7680,6 +7581,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 8
+--- !u!114 &3457341010993798441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4631428264999794668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &4788567935530243700
 GameObject:
   m_ObjectHideFlags: 0
@@ -7692,8 +7607,8 @@ GameObject:
   - component: {fileID: 7472091264326521013}
   - component: {fileID: 7570046054075613951}
   - component: {fileID: 5932521832657707529}
-  - component: {fileID: 5328148069553869246}
   - component: {fileID: 8231122103136664085}
+  - component: {fileID: 1656112404929011818}
   m_Layer: 0
   m_Name: Key18
   m_TagString: Untagged
@@ -7780,24 +7695,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8019154216549545779, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &5328148069553869246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4788567935530243700}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &8231122103136664085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7811,6 +7708,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 5
+--- !u!114 &1656112404929011818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4788567935530243700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &4805583632456801563
 GameObject:
   m_ObjectHideFlags: 0
@@ -7906,8 +7817,8 @@ GameObject:
   - component: {fileID: 7901198699186732486}
   - component: {fileID: 5575772578261401973}
   - component: {fileID: 5866089477339567527}
-  - component: {fileID: 2985370798331417860}
   - component: {fileID: 1218661349783517149}
+  - component: {fileID: 2510697150424157746}
   m_Layer: 0
   m_Name: Key42
   m_TagString: Untagged
@@ -7994,24 +7905,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6704602750083123204, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &2985370798331417860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4875419544000129744}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1218661349783517149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8025,6 +7918,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 39
+--- !u!114 &2510697150424157746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875419544000129744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &5081315554385715075
 GameObject:
   m_ObjectHideFlags: 0
@@ -8037,8 +7944,8 @@ GameObject:
   - component: {fileID: 6753810097164244037}
   - component: {fileID: 5673036400005622729}
   - component: {fileID: 6924608176768064839}
-  - component: {fileID: 4250675947280965721}
   - component: {fileID: 7888375815480041551}
+  - component: {fileID: 7309542839230820377}
   m_Layer: 0
   m_Name: Key6
   m_TagString: Untagged
@@ -8125,24 +8032,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8059122707761598559, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &4250675947280965721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5081315554385715075}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &7888375815480041551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8156,6 +8045,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 28
+--- !u!114 &7309542839230820377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5081315554385715075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &5151230268315435964
 GameObject:
   m_ObjectHideFlags: 0
@@ -8168,8 +8071,8 @@ GameObject:
   - component: {fileID: 2469857111040308693}
   - component: {fileID: 6191336010354424152}
   - component: {fileID: 4973085275280271553}
-  - component: {fileID: 4476151828907261189}
   - component: {fileID: 3492467559559221778}
+  - component: {fileID: 6893495304918019145}
   m_Layer: 0
   m_Name: Key3
   m_TagString: Untagged
@@ -8256,24 +8159,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3444566355508928744, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &4476151828907261189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5151230268315435964}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &3492467559559221778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8287,6 +8172,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 39
+--- !u!114 &6893495304918019145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5151230268315435964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &5189627808622723201
 GameObject:
   m_ObjectHideFlags: 0
@@ -8747,8 +8646,8 @@ GameObject:
   - component: {fileID: 2102955734495115666}
   - component: {fileID: 207481172169851412}
   - component: {fileID: 2693389637560545260}
-  - component: {fileID: 7433684657095602977}
   - component: {fileID: 5551712875716186096}
+  - component: {fileID: 2404178846269353594}
   m_Layer: 0
   m_Name: Key39
   m_TagString: Untagged
@@ -8835,24 +8734,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2498489904735243524, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &7433684657095602977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5406996521493770542}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &5551712875716186096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8866,6 +8747,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 2
+--- !u!114 &2404178846269353594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5406996521493770542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &5484064179323602870
 GameObject:
   m_ObjectHideFlags: 0
@@ -9097,8 +8992,8 @@ GameObject:
   - component: {fileID: 4502081737442600778}
   - component: {fileID: 6459190309365994113}
   - component: {fileID: 5571180082180925914}
-  - component: {fileID: 2897709175337629630}
   - component: {fileID: 2381967526341108186}
+  - component: {fileID: 7741709819122019295}
   m_Layer: 0
   m_Name: Key8
   m_TagString: Untagged
@@ -9185,24 +9080,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1128870436436427426, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &2897709175337629630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5540010014660317666}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &2381967526341108186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9216,6 +9093,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 30
+--- !u!114 &7741709819122019295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540010014660317666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &5646701475611746987
 GameObject:
   m_ObjectHideFlags: 0
@@ -9311,8 +9202,8 @@ GameObject:
   - component: {fileID: 4598557671315236671}
   - component: {fileID: 5274540443199341739}
   - component: {fileID: 7332700996469902683}
-  - component: {fileID: 7740769570484760496}
   - component: {fileID: 734327828101924940}
+  - component: {fileID: 6592983272338342428}
   m_Layer: 0
   m_Name: Key2
   m_TagString: Untagged
@@ -9399,24 +9290,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2805758560558034005, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &7740769570484760496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5682961188266184542}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &734327828101924940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9430,6 +9303,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 26
+--- !u!114 &6592983272338342428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5682961188266184542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &5690301277727907073
 GameObject:
   m_ObjectHideFlags: 0
@@ -9442,8 +9329,8 @@ GameObject:
   - component: {fileID: 3153607418937520395}
   - component: {fileID: 239430721778246345}
   - component: {fileID: 1740857341421635437}
-  - component: {fileID: 2737848603627315019}
   - component: {fileID: 4815399893241934248}
+  - component: {fileID: 7523316755550790699}
   m_Layer: 0
   m_Name: Key21
   m_TagString: Untagged
@@ -9530,24 +9417,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -412702038155110784, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &2737848603627315019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5690301277727907073}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &4815399893241934248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9561,6 +9430,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 25
+--- !u!114 &7523316755550790699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5690301277727907073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &5699500287624073222
 GameObject:
   m_ObjectHideFlags: 0
@@ -9698,8 +9581,8 @@ GameObject:
   - component: {fileID: 1876652658521900754}
   - component: {fileID: 8115861735101429897}
   - component: {fileID: 2043096780961726784}
-  - component: {fileID: 4092450692778873697}
   - component: {fileID: 2539397653157967952}
+  - component: {fileID: 5914701266026382610}
   m_Layer: 0
   m_Name: Key30
   m_TagString: Untagged
@@ -9786,24 +9669,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3712295843101693500, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &4092450692778873697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5735307614432022724}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &2539397653157967952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9817,6 +9682,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 7
+--- !u!114 &5914701266026382610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735307614432022724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &5753817381625463464
 GameObject:
   m_ObjectHideFlags: 0
@@ -9930,8 +9809,8 @@ GameObject:
   - component: {fileID: 7216870551017097324}
   - component: {fileID: 6867245693226673504}
   - component: {fileID: 1243038334183290440}
-  - component: {fileID: 1928096632870023251}
   - component: {fileID: 2219754959352811704}
+  - component: {fileID: 3542087870196127170}
   m_Layer: 0
   m_Name: Key1
   m_TagString: Untagged
@@ -10018,24 +9897,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8362958982165418291, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &1928096632870023251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5778784571463889910}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &2219754959352811704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10049,6 +9910,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 1
+--- !u!114 &3542087870196127170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778784571463889910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &5792840030213203169
 GameObject:
   m_ObjectHideFlags: 0
@@ -10227,8 +10102,8 @@ GameObject:
   - component: {fileID: 9034761618618744027}
   - component: {fileID: 375177099327032394}
   - component: {fileID: 5779926501100863774}
-  - component: {fileID: 656892359231555609}
   - component: {fileID: 3214258691300884611}
+  - component: {fileID: 2627171745637461030}
   m_Layer: 0
   m_Name: Key5
   m_TagString: Untagged
@@ -10315,24 +10190,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7740754830181976171, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &656892359231555609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6070982734977285684}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &3214258691300884611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10346,6 +10203,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 22
+--- !u!114 &2627171745637461030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070982734977285684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6091467034362966922
 GameObject:
   m_ObjectHideFlags: 0
@@ -10358,8 +10229,8 @@ GameObject:
   - component: {fileID: 7139986182189494466}
   - component: {fileID: 3001059140348416663}
   - component: {fileID: 3998019329392810721}
-  - component: {fileID: 411124092106244429}
   - component: {fileID: 1549263844266003073}
+  - component: {fileID: 5238305073807791732}
   m_Layer: 0
   m_Name: Key12
   m_TagString: Untagged
@@ -10446,24 +10317,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1213348362289834195, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &411124092106244429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6091467034362966922}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1549263844266003073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10477,6 +10330,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 34
+--- !u!114 &5238305073807791732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091467034362966922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6175647996525125946
 GameObject:
   m_ObjectHideFlags: 0
@@ -10689,8 +10556,8 @@ GameObject:
   - component: {fileID: 542684359706377290}
   - component: {fileID: 7294030761450201618}
   - component: {fileID: 417939791533258281}
-  - component: {fileID: 7533393995437981647}
   - component: {fileID: 4079023552327550219}
+  - component: {fileID: 1164659509175997029}
   m_Layer: 0
   m_Name: Key32
   m_TagString: Untagged
@@ -10777,24 +10644,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8631330595989727858, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &7533393995437981647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6491865673756906574}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &4079023552327550219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10808,6 +10657,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 10
+--- !u!114 &1164659509175997029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491865673756906574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6506025611631716505
 GameObject:
   m_ObjectHideFlags: 0
@@ -10862,8 +10725,8 @@ GameObject:
   - component: {fileID: 153371942137953117}
   - component: {fileID: 5256343806640798176}
   - component: {fileID: 3059954890360304086}
-  - component: {fileID: 6255569961438900659}
   - component: {fileID: 1794971564119665770}
+  - component: {fileID: 8395605327747832135}
   m_Layer: 0
   m_Name: Key28
   m_TagString: Untagged
@@ -10950,24 +10813,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6795112068756274434, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &6255569961438900659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6646410886747153109}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1794971564119665770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10981,6 +10826,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 4
+--- !u!114 &8395605327747832135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6646410886747153109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6664939035308194384
 GameObject:
   m_ObjectHideFlags: 0
@@ -11076,8 +10935,8 @@ GameObject:
   - component: {fileID: 5269627076505328526}
   - component: {fileID: 7097305110155633120}
   - component: {fileID: 7831681638201404894}
-  - component: {fileID: 6249733290764216615}
   - component: {fileID: 5842929955728689527}
+  - component: {fileID: 4630261016161121280}
   m_Layer: 0
   m_Name: Key0
   m_TagString: Untagged
@@ -11164,24 +11023,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2766940365254083852, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &6249733290764216615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6669266594941279226}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &5842929955728689527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11195,6 +11036,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 27
+--- !u!114 &4630261016161121280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6669266594941279226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6852727435503960272
 GameObject:
   m_ObjectHideFlags: 0
@@ -11451,8 +11306,8 @@ GameObject:
   - component: {fileID: 5628288886572913787}
   - component: {fileID: 1169065180455546775}
   - component: {fileID: 2580068519894498854}
-  - component: {fileID: 1000151121969030554}
   - component: {fileID: 2901760063581654983}
+  - component: {fileID: 938529738886183336}
   m_Layer: 0
   m_Name: Key17
   m_TagString: Untagged
@@ -11539,24 +11394,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2307631151899500645, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &1000151121969030554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7169762648725879648}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &2901760063581654983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11570,6 +11407,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 23
+--- !u!114 &938529738886183336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169762648725879648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &7309602807829148116
 GameObject:
   m_ObjectHideFlags: 0
@@ -11833,8 +11684,8 @@ GameObject:
   - component: {fileID: 5344393552104598342}
   - component: {fileID: 309687669205571297}
   - component: {fileID: 2501086286670282083}
-  - component: {fileID: 102453736150361952}
   - component: {fileID: 6501105566559686928}
+  - component: {fileID: 8594193365128771}
   m_Layer: 0
   m_Name: Key34
   m_TagString: Untagged
@@ -11921,24 +11772,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6070918145312600719, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &102453736150361952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7793942131346482201}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &6501105566559686928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11952,6 +11785,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 12
+--- !u!114 &8594193365128771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793942131346482201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &7859826155658807038
 GameObject:
   m_ObjectHideFlags: 0
@@ -11964,8 +11811,8 @@ GameObject:
   - component: {fileID: 2567770123055351902}
   - component: {fileID: 2416654768641429574}
   - component: {fileID: 1513243593347730429}
-  - component: {fileID: 5228826219555977811}
   - component: {fileID: 6128323150018984784}
+  - component: {fileID: 8191941146831373708}
   m_Layer: 0
   m_Name: Key40
   m_TagString: Untagged
@@ -12052,24 +11899,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2718535250403984719, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &5228826219555977811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7859826155658807038}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &6128323150018984784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12083,6 +11912,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 14
+--- !u!114 &8191941146831373708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859826155658807038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &8028680801922359324
 GameObject:
   m_ObjectHideFlags: 0
@@ -12095,8 +11938,8 @@ GameObject:
   - component: {fileID: 4525874419785643136}
   - component: {fileID: 6241934397857411219}
   - component: {fileID: 8967022921949436222}
-  - component: {fileID: 6589995793764160691}
   - component: {fileID: 2321608092905661010}
+  - component: {fileID: 6161522521067344924}
   m_Layer: 0
   m_Name: Key26
   m_TagString: Untagged
@@ -12183,24 +12026,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2674557640577892394, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &6589995793764160691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8028680801922359324}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &2321608092905661010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12214,6 +12039,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 39
+--- !u!114 &6161522521067344924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8028680801922359324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &8126615313221976134
 GameObject:
   m_ObjectHideFlags: 0
@@ -12226,8 +12065,8 @@ GameObject:
   - component: {fileID: 4047592768515725010}
   - component: {fileID: 2267547223733710746}
   - component: {fileID: 2296769069261716762}
-  - component: {fileID: 3722231781846033948}
   - component: {fileID: 8772541347145706464}
+  - component: {fileID: 5278369220281861381}
   m_Layer: 0
   m_Name: Key38
   m_TagString: Untagged
@@ -12314,24 +12153,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2873431757874543040, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &3722231781846033948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8126615313221976134}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &8772541347145706464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12345,6 +12166,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 3
+--- !u!114 &5278369220281861381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126615313221976134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &8167274875153419904
 GameObject:
   m_ObjectHideFlags: 0
@@ -12357,8 +12192,8 @@ GameObject:
   - component: {fileID: 1387405027921291071}
   - component: {fileID: 6368561249977235083}
   - component: {fileID: 775004732056536153}
-  - component: {fileID: 5891881183439312889}
   - component: {fileID: 5008465899285395734}
+  - component: {fileID: 931952084626346401}
   m_Layer: 0
   m_Name: Key25
   m_TagString: Untagged
@@ -12445,24 +12280,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5577174430663981770, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &5891881183439312889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8167274875153419904}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &5008465899285395734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12476,6 +12293,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 16
+--- !u!114 &931952084626346401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167274875153419904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &8264733773728413241
 GameObject:
   m_ObjectHideFlags: 0
@@ -12860,8 +12691,8 @@ GameObject:
   - component: {fileID: 6744908573261749858}
   - component: {fileID: 7341855883946872410}
   - component: {fileID: 2106691935843186440}
-  - component: {fileID: 266082118145170150}
   - component: {fileID: 3146877200835277550}
+  - component: {fileID: 5818499496479796445}
   m_Layer: 0
   m_Name: Key33
   m_TagString: Untagged
@@ -12948,24 +12779,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1670566125263524541, guid: c6a490acbd83545438b6e7623696ee3b, type: 3}
---- !u!114 &266082118145170150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8771671426648111188}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &3146877200835277550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12979,6 +12792,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 11
+--- !u!114 &5818499496479796445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771671426648111188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
+  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &8793803375457032765
 GameObject:
   m_ObjectHideFlags: 0
