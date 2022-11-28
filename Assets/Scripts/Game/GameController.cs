@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
   public List<string> _roundEndMessages;
   public List<List<int>> _roundEndPointStages;
   public bool _roundEndPuzzleComplete;
-  public string _gameEndText;
+  public bool _gameEnd = false;
 
   public GameInstance gameInstance;
 
@@ -398,6 +398,10 @@ public class GameController : MonoBehaviour
       {
         Debug.Log(pt + " ");
       }
+    }
+    if (currentRound == 3)
+    {
+      _gameEnd = true;
     }
   }
 }

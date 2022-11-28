@@ -84,4 +84,9 @@ public class ButtonOnClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         });
         Debug.Log("Create");
     }
+
+    public void EndGame()
+    {
+      SceneManager.LoadScene("GameEnd");
+    }
 }
