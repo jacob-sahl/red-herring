@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
   private GameController gameController;
   private GameObject iCursor;
   private PlayerManager manager;
-  private readonly Color[] playerColors = { Color.red, Color.cyan, Color.green, Color.magenta };
+  public Color[] playerColors = { Color.red, Color.cyan, Color.green, Color.magenta };
 
   private void Awake()
   {

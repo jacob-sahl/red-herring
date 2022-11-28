@@ -250,5 +250,12 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   playerId: 0
   role: 0
+  playerInput: {fileID: 0}
   points: 0
+  pointsThisRound: 0
   playerName: 
+  playerColors:
+  - {r: 0.41509432, g: 0.1699537, b: 0.1699537, a: 1}
+  - {r: 0.25948733, g: 0.47340307, b: 0.6981132, a: 1}
+  - {r: 0.20053399, g: 0.4056604, b: 0.20053399, a: 1}
+  - {r: 0.7254902, g: 0.67066497, b: 0.3372549, a: 1}
