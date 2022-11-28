@@ -156,7 +156,7 @@ public class Detective : MonoBehaviour
     focusedObject.GetComponent<Focus>().enablePhysics();
 
     // Brighten focus light
-    focusLight.intensity = 375f;
+    focusLight.intensity = 150f;
 
     // Send event
     DefocusEvent e = new DefocusEvent();
