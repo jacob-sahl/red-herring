@@ -154,7 +154,6 @@ public class GameController : MonoBehaviour
     _apiInterval = new Interval(1);
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelEndEvent>(onLevelEnd);
-    EventManager.AddListener<GameEndEvent>(onGameEnd);
     LoadPrefereces();
 
     APIClient.APIClient.Instance.CreateGameInstance().Then(instance =>
@@ -202,7 +201,6 @@ public class GameController : MonoBehaviour
   {
     EventManager.RemoveListener<LevelStartEvent>(onGameStart);
     EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
-    EventManager.RemoveListener<GameEndEvent>(onGameEnd);
     if (gameInstance != null)
     {
       APIClient.APIClient.Instance.DestroyGameInstance(gameInstance);
@@ -401,16 +399,5 @@ public class GameController : MonoBehaviour
         Debug.Log(pt + " ");
       }
     }
-  }
-
-  public void LoadGameEndScene()
-  {
-    Debug.Log("Game End");
-    LoadScene("GameEnd");
-  }
-
-  private void onGameEnd(GameEndEvent e)
-  {
-    _gameEndText = e.endMessage;
   }
 }
