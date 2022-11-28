@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using static System.TimeZoneInfo;
+using UnityEngine.Rendering.HighDefinition;
 
 [RequireComponent(typeof(CharacterController))]
 public class Detective : MonoBehaviour
@@ -14,7 +15,8 @@ public class Detective : MonoBehaviour
   [Tooltip("Reference to the main camera used for the player")]
   public Camera playerCamera;
   [Tooltip("Reference to the light used for focus illumination")]
-  public GameObject focusLight;
+  public GameObject focusLightObject;
+  HDAdditionalLightData focusLight;
 
   [Header("Mouse Sensitivity")]
   [Tooltip("Rotation speed for moving the camera")]
@@ -56,6 +58,7 @@ public class Detective : MonoBehaviour
   Vector2 cameraRotation = new Vector2(0, 0);
   CharacterController _controller;
   Outline _lastOutline;
+  Highlight _lastHighlight;
   GameObject cursor;
   Vector3 cursorPosition;
   GameObject focusedObject;
@@ -70,6 +73,7 @@ public class Detective : MonoBehaviour
 
   void Start()
   {
+    focusLight = focusLightObject.GetComponent<HDAdditionalLightData>();
     focusedObjectPlaceholder = new GameObject("focusedObjectPlaceholder");
     _controller = GetComponent<CharacterController>();
     audioSource = GetComponent<AudioSource>();
@@ -126,8 +130,8 @@ public class Detective : MonoBehaviour
     focusedObject.transform.Translate(focus.defaultTranslation);
     // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.red, 120f, false);
 
-    // Turn on focus light
-    focusLight.SetActive(true);
+    // Dim focus light
+    focusLight.intensity = 75f;
 
     focusActive = true;
     moveEnabled = false;
@@ -137,19 +141,24 @@ public class Detective : MonoBehaviour
   {
     // Hide focus controls
     focusControls.SetActive(false);
+
     // Reset cursor to centre and exit focus
     cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
     cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+
     // exit focus
     moveEnabled = true;
     focusActive = false;
+
     // Put the object back where it was
     focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
     focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
     focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
     focusedObject.GetComponent<Focus>().enablePhysics();
-    // Turn off focus light
-    focusLight.SetActive(false);
+
+    // Brighten focus light
+    focusLight.intensity = 250f;
+
     // Send event
     DefocusEvent e = new DefocusEvent();
     e.gameObject = focusedObject;
@@ -293,29 +302,19 @@ public class Detective : MonoBehaviour
       }
 
       // Debug.Log(colliderGameObject);
+      var highlight = colliderGameObject.GetComponent<Highlight>();
       var outline = colliderGameObject.GetComponent<Outline>();
       var focus = colliderGameObject.GetComponent<Focus>();
       var draggable = colliderGameObject.GetComponent<Draggable>();
       var typewriter = colliderGameObject.GetComponent<TypeWriter>();
 
-      if (outline != null)
+      if (highlight != null)
       {
-        if (_lastOutline != null && _lastOutline != outline)
+        if (_lastHighlight != null && _lastHighlight != highlight)
         {
-          _lastOutline.enabled = false;
+          _lastHighlight.hideHighlight();
         }
-        _lastOutline = outline;
-        _lastOutline.OutlineMode = Outline.Mode.OutlineAll;
-        _lastOutline.OutlineWidth = 5;
-
-        if (typewriter != null)
-        {
-          _lastOutline.OutlineColor = Color.red;
-        }
-        else
-        {
-          _lastOutline.OutlineColor = Color.white;
-        }
+        _lastHighlight = highlight;
 
         if (interacted)
         {
@@ -333,13 +332,13 @@ public class Detective : MonoBehaviour
             EventManager.Broadcast(interact);
           }
         }
-        _lastOutline.enabled = true;
+        _lastHighlight.showHighlight();
       }
       else
       {
-        if (_lastOutline != null)
+        if (_lastHighlight != null)
         {
-          _lastOutline.enabled = false;
+          _lastHighlight.hideHighlight();
         }
       }
 
