@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using static System.TimeZoneInfo;
+using UnityEngine.Rendering.HighDefinition;
 
 [RequireComponent(typeof(CharacterController))]
 public class Detective : MonoBehaviour
@@ -14,7 +15,8 @@ public class Detective : MonoBehaviour
   [Tooltip("Reference to the main camera used for the player")]
   public Camera playerCamera;
   [Tooltip("Reference to the light used for focus illumination")]
-  public GameObject focusLight;
+  public GameObject focusLightObject;
+  HDAdditionalLightData focusLight;
 
   [Header("Mouse Sensitivity")]
   [Tooltip("Rotation speed for moving the camera")]
@@ -70,6 +72,7 @@ public class Detective : MonoBehaviour
 
   void Start()
   {
+    focusLight = focusLightObject.GetComponent<HDAdditionalLightData>();
     focusedObjectPlaceholder = new GameObject("focusedObjectPlaceholder");
     _controller = GetComponent<CharacterController>();
     audioSource = GetComponent<AudioSource>();
@@ -126,8 +129,8 @@ public class Detective : MonoBehaviour
     focusedObject.transform.Translate(focus.defaultTranslation);
     // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.red, 120f, false);
 
-    // Turn on focus light
-    focusLight.SetActive(true);
+    // Dim focus light
+    focusLight.intensity = 100f;
 
     focusActive = true;
     moveEnabled = false;
@@ -137,19 +140,24 @@ public class Detective : MonoBehaviour
   {
     // Hide focus controls
     focusControls.SetActive(false);
+
     // Reset cursor to centre and exit focus
     cursorPosition = new Vector3(Screen.width / 2, Screen.height / 2);
     cursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+
     // exit focus
     moveEnabled = true;
     focusActive = false;
+
     // Put the object back where it was
     focusedObject.transform.position = focusedObjectPlaceholder.transform.position;
     focusedObject.transform.rotation = focusedObjectPlaceholder.transform.rotation;
     focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
     focusedObject.GetComponent<Focus>().enablePhysics();
-    // Turn off focus light
-    focusLight.SetActive(false);
+
+    // Brighten focus light
+    focusLight.intensity = 375f;
+
     // Send event
     DefocusEvent e = new DefocusEvent();
     e.gameObject = focusedObject;
