@@ -9,6 +9,7 @@ public class Focus : MonoBehaviour
   public Vector3 defaultTranslation;
   public float focusDistance;
   private Rigidbody rb;
+  public float lightLevel = 0;
 
   private void Start()
   {

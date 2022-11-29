@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2544623671645320892}
   - component: {fileID: 8978971345783175369}
   - component: {fileID: 7542779397161501594}
-  - component: {fileID: 7429199587255814708}
   m_Layer: 0
   m_Name: Book2-13
   m_TagString: Untagged
@@ -129,20 +128,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &7429199587255814708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375866765233010457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &1605830259761938415
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +142,6 @@ GameObject:
   - component: {fileID: 1791940744621544556}
   - component: {fileID: 6661125642444110450}
   - component: {fileID: 2346402940623465792}
-  - component: {fileID: 7738725115382689972}
   m_Layer: 0
   m_Name: Book2-6
   m_TagString: Untagged
@@ -272,20 +256,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &7738725115382689972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605830259761938415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &1623791192575943647
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +270,6 @@ GameObject:
   - component: {fileID: 5962486619488950215}
   - component: {fileID: 3965136122127607411}
   - component: {fileID: 6333803563504927580}
-  - component: {fileID: 7647061414271560072}
   m_Layer: 0
   m_Name: Book2-7
   m_TagString: Untagged
@@ -415,20 +384,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &7647061414271560072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623791192575943647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &2205104334481387743
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +398,6 @@ GameObject:
   - component: {fileID: 4926170257734428475}
   - component: {fileID: 1820116607163364173}
   - component: {fileID: 368234379252823952}
-  - component: {fileID: 2377833116416700831}
   m_Layer: 0
   m_Name: Book2-15
   m_TagString: Untagged
@@ -558,20 +512,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &2377833116416700831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2205104334481387743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &2628918831319654488
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +526,6 @@ GameObject:
   - component: {fileID: 4092941861026202471}
   - component: {fileID: 8955083681603812616}
   - component: {fileID: 6890140673893618368}
-  - component: {fileID: 5325119208984290240}
   m_Layer: 0
   m_Name: Book2-2
   m_TagString: Untagged
@@ -701,20 +640,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &5325119208984290240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2628918831319654488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &3613061673384599903
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +654,6 @@ GameObject:
   - component: {fileID: 5329079256069091733}
   - component: {fileID: 6502088856153281148}
   - component: {fileID: 1520205106337983314}
-  - component: {fileID: 3716558392153609164}
   m_Layer: 0
   m_Name: Book2-12
   m_TagString: Untagged
@@ -844,20 +768,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &3716558392153609164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3613061673384599903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &3921160702985644106
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +782,6 @@ GameObject:
   - component: {fileID: 4261726312836727926}
   - component: {fileID: 6449522259016592043}
   - component: {fileID: 5593094634422019614}
-  - component: {fileID: 1618345968087488784}
   m_Layer: 0
   m_Name: Book2-3
   m_TagString: Untagged
@@ -987,20 +896,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &1618345968087488784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3921160702985644106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &4314166320185983645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,7 +910,6 @@ GameObject:
   - component: {fileID: 5982098849244669901}
   - component: {fileID: 7137133163185542857}
   - component: {fileID: 5539123740226044904}
-  - component: {fileID: 2813661600944991609}
   m_Layer: 0
   m_Name: Book2-5
   m_TagString: Untagged
@@ -1130,20 +1024,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &2813661600944991609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4314166320185983645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &4418646895479656876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1038,6 @@ GameObject:
   - component: {fileID: 4826734837871948116}
   - component: {fileID: 1215261489299942704}
   - component: {fileID: 6971465259383313765}
-  - component: {fileID: 1904021445192401348}
   m_Layer: 0
   m_Name: Book2-4
   m_TagString: Untagged
@@ -1273,20 +1152,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &1904021445192401348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4418646895479656876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &4659780752353808380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,7 +1166,6 @@ GameObject:
   - component: {fileID: 5653419203801187445}
   - component: {fileID: 1677120360036655703}
   - component: {fileID: 55353592609954061}
-  - component: {fileID: 6303845092965364896}
   m_Layer: 0
   m_Name: Book2-10
   m_TagString: Untagged
@@ -1416,20 +1280,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &6303845092965364896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4659780752353808380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &5126042767858595178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,7 +1294,6 @@ GameObject:
   - component: {fileID: 1813050059989664064}
   - component: {fileID: 6557623848733620511}
   - component: {fileID: 6550245280792042045}
-  - component: {fileID: 1626769146844995206}
   m_Layer: 0
   m_Name: Book2-14
   m_TagString: Untagged
@@ -1559,20 +1408,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &1626769146844995206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5126042767858595178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &5481765834786838817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,7 +1422,6 @@ GameObject:
   - component: {fileID: 1321552212754685507}
   - component: {fileID: 6732186781674045633}
   - component: {fileID: 4142037244124402759}
-  - component: {fileID: 7385598739447153474}
   m_Layer: 0
   m_Name: Book2-9
   m_TagString: Untagged
@@ -1702,20 +1536,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &7385598739447153474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5481765834786838817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6461887474211080985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,7 +1550,6 @@ GameObject:
   - component: {fileID: 5150849086180440337}
   - component: {fileID: 1400569872936481759}
   - component: {fileID: 7203055814410006215}
-  - component: {fileID: 6113244679418845195}
   m_Layer: 0
   m_Name: Book2-1
   m_TagString: Untagged
@@ -1845,20 +1664,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &6113244679418845195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6461887474211080985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &6704895185032496016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,7 +1678,6 @@ GameObject:
   - component: {fileID: 1113354088265467253}
   - component: {fileID: 3298045810837754458}
   - component: {fileID: 8897244028147490618}
-  - component: {fileID: 7326955052717509661}
   m_Layer: 0
   m_Name: Book2-8
   m_TagString: Untagged
@@ -1988,20 +1792,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &7326955052717509661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6704895185032496016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &7369673074101180150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,7 +1806,6 @@ GameObject:
   - component: {fileID: 764961283001108180}
   - component: {fileID: 3993822700720333547}
   - component: {fileID: 7757686970677276533}
-  - component: {fileID: 7850504703949201056}
   m_Layer: 0
   m_Name: Book2-11
   m_TagString: Untagged
@@ -2131,20 +1920,6 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
---- !u!114 &7850504703949201056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7369673074101180150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
 --- !u!1 &7977348935536944122
 GameObject:
   m_ObjectHideFlags: 0
