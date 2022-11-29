@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
   public List<List<int>> _roundEndPointStages;
   public bool _roundEndPuzzleComplete;
   public bool _gameEnd = false;
+  public List<List<int>> _pointsPerRound = new List<List<int>> { new List<int>{ 0, 0, 0, 0 }, new List<int> { 0, 0, 0, 0 }, new List<int> { 0, 0, 0, 0 }, new List<int> { 0, 0, 0, 0 } };
 
   public GameInstance gameInstance;
 
@@ -391,12 +392,11 @@ public class GameController : MonoBehaviour
     _roundEndPuzzleComplete = e.puzzleCompleted;
     _roundEndPointStages = e.pointStages;
     Debug.Log("ROUND END PTS:");
-    foreach (List<int> pts in _roundEndPointStages)
+    foreach (var pointStage in _roundEndPointStages)
     {
-      Debug.Log("\n");
-      foreach (int pt in pts)
+      for (var i = 0; i < 4; i++)
       {
-        Debug.Log(pt + " ");
+        _pointsPerRound[currentRound][i] += pointStage[i];
       }
     }
     if (currentRound == 3)
