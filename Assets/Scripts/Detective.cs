@@ -59,6 +59,7 @@ public class Detective : MonoBehaviour
   CharacterController _controller;
   Outline _lastOutline;
   Highlight _lastHighlight;
+  GameObject _lastHover;
   GameObject cursor;
   Vector3 cursorPosition;
   GameObject focusedObject;
@@ -131,7 +132,7 @@ public class Detective : MonoBehaviour
     // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.red, 120f, false);
 
     // Dim focus light
-    focusLight.intensity = 75f;
+    focusLight.intensity = focus.lightLevel;
 
     focusActive = true;
     moveEnabled = false;
@@ -315,23 +316,6 @@ public class Detective : MonoBehaviour
           _lastHighlight.hideHighlight();
         }
         _lastHighlight = highlight;
-
-        if (interacted)
-        {
-          if (focus != null)
-          {
-            FocusEvent focusEvent = Events.FocusEvent;
-            focusEvent.gameObject = colliderGameObject;
-            EventManager.Broadcast(focusEvent);
-          }
-          else
-          {
-            // Debug.Log("Interacting: " + colliderGameObject.name);
-            InteractEvent interact = Events.InteractEvent;
-            interact.gameObject = colliderGameObject;
-            EventManager.Broadcast(interact);
-          }
-        }
         _lastHighlight.showHighlight();
       }
       else
@@ -344,6 +328,19 @@ public class Detective : MonoBehaviour
 
       if (interacted)
       {
+        if (focus != null)
+        {
+          FocusEvent focusEvent = Events.FocusEvent;
+          focusEvent.gameObject = colliderGameObject;
+          EventManager.Broadcast(focusEvent);
+        }
+        else
+        {
+          // Debug.Log("Interacting: " + colliderGameObject.name);
+          InteractEvent interact = Events.InteractEvent;
+          interact.gameObject = colliderGameObject;
+          EventManager.Broadcast(interact);
+        }
         if (draggable != null)
         {
           StartCoroutine(DragObject(colliderGameObject));

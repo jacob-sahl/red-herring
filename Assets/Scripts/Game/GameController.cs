@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
             },
             new List<string>
             {
-                "The solution is very colourful.",
+                "Part of the typewriter looks like the answer.",
                 "There is a clue behind the skull.",
                 "The solution is not secondary."
             },

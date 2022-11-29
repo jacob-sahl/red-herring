@@ -243,11 +243,9 @@ GameObject:
   - component: {fileID: 3405794155110749959}
   - component: {fileID: 3405794155110749958}
   - component: {fileID: 3405794155110749957}
-  - component: {fileID: 3405794155110749956}
   - component: {fileID: 3405794155110750075}
   - component: {fileID: 3405794155110750074}
   - component: {fileID: 3405794155110749953}
-  - component: {fileID: 5607819928725258313}
   m_Layer: 0
   m_Name: HintPaper
   m_TagString: Untagged
@@ -334,24 +332,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3405794155110749956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3405794155110750073}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!54 &3405794155110750075
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -396,17 +376,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzles: 00000000
---- !u!114 &5607819928725258313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3405794155110750073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b58e1c6ddbd0ed41a5a54e0a64bec00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 00e38ffd4c686404c9c2831edc484438, type: 2}
-  transparent: {fileID: 2100000, guid: 35871f31956ae644189dfc7648b9b339, type: 2}
