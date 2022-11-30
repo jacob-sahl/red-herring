@@ -17,7 +17,6 @@ public class Clock : MonoBehaviour
   private Vector3 pivot;
   private TypeWriterPuzzleInstance puzzle;
   float time;
-  float totalMoved;
 
   private void Awake()
   {
@@ -27,7 +26,6 @@ public class Clock : MonoBehaviour
   private void Start()
   {
     time = 0f;
-    totalMoved = 0f;
     moving = false;
     clockTimeMinutes = 180;
     puzzle = GameController.Instance.getCurrentPuzzle();
