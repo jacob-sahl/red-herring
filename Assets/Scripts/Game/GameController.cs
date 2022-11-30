@@ -13,7 +13,8 @@ public class GameController : MonoBehaviour
   public List<string> _roundEndMessages;
   public List<List<int>> _roundEndPointStages;
   public bool _roundEndPuzzleComplete;
-  public string _gameEndText;
+  public bool _gameEnd = false;
+  public List<List<int>> _pointsPerRound = new List<List<int>> { new List<int>{ 0, 0, 0, 0 }, new List<int> { 0, 0, 0, 0 }, new List<int> { 0, 0, 0, 0 }, new List<int> { 0, 0, 0, 0 } };
 
   public GameInstance gameInstance;
 
@@ -154,7 +155,6 @@ public class GameController : MonoBehaviour
     _apiInterval = new Interval(1);
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelEndEvent>(onLevelEnd);
-    EventManager.AddListener<GameEndEvent>(onGameEnd);
     LoadPrefereces();
 
     APIClient.APIClient.Instance.CreateGameInstance().Then(instance =>
@@ -202,7 +202,6 @@ public class GameController : MonoBehaviour
   {
     EventManager.RemoveListener<LevelStartEvent>(onGameStart);
     EventManager.RemoveListener<LevelEndEvent>(onLevelEnd);
-    EventManager.RemoveListener<GameEndEvent>(onGameEnd);
     if (gameInstance != null)
     {
       APIClient.APIClient.Instance.DestroyGameInstance(gameInstance);
@@ -393,24 +392,16 @@ public class GameController : MonoBehaviour
     _roundEndPuzzleComplete = e.puzzleCompleted;
     _roundEndPointStages = e.pointStages;
     Debug.Log("ROUND END PTS:");
-    foreach (List<int> pts in _roundEndPointStages)
+    foreach (var pointStage in _roundEndPointStages)
     {
-      Debug.Log("\n");
-      foreach (int pt in pts)
+      for (var i = 0; i < 4; i++)
       {
-        Debug.Log(pt + " ");
+        _pointsPerRound[currentRound][i] += pointStage[i];
       }
     }
-  }
-
-  public void LoadGameEndScene()
-  {
-    Debug.Log("Game End");
-    LoadScene("GameEnd");
-  }
-
-  private void onGameEnd(GameEndEvent e)
-  {
-    _gameEndText = e.endMessage;
+    if (currentRound == 3)
+    {
+      _gameEnd = true;
+    }
   }
 }

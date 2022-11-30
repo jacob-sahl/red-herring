@@ -17,7 +17,6 @@ public static class Events
   public static SecretObjectiveEvent SecretObjectiveEvent = new();
   public static ClockTimeChangeEvent ClockTimeChangeEvent = new();
   public static GamePreferenceChangeEvent GamePreferenceChangeEvent = new();
-  public static GameEndEvent GameEndEvent = new();
   public static GameCreatedEvent GameCreatedEvent = new();
   public static GameInstanceUpdatedEvent GameInstanceUpdatedEvent = new();
   public static UIAnimationEndEvent UIAnimationEndEvent = new UIAnimationEndEvent();
@@ -100,11 +99,6 @@ public class ClockTimeChangeEvent : GameEvent
 
 public class GamePreferenceChangeEvent : GameEvent
 {
-}
-
-public class GameEndEvent : GameEvent
-{
-  public string endMessage;
 }
 
 public class GameInstanceUpdatedEvent : GameEvent
