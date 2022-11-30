@@ -392,15 +392,15 @@ public class GameController : MonoBehaviour
     _roundEndMessages = e.messages;
     _roundEndPuzzleComplete = e.puzzleCompleted;
     _roundEndPointStages = e.pointStages;
-    Debug.Log("ROUND END PTS:");
-    foreach (List<int> pts in _roundEndPointStages)
-    {
-      Debug.Log("\n");
-      foreach (int pt in pts)
-      {
-        Debug.Log(pt + " ");
-      }
-    }
+    // Debug.Log("ROUND END PTS:");
+    // foreach (List<int> pts in _roundEndPointStages)
+    // {
+    //   Debug.Log("\n");
+    //   foreach (int pt in pts)
+    //   {
+    //     Debug.Log(pt + " ");
+    //   }
+    // }
   }
 
   public void LoadGameEndScene()
