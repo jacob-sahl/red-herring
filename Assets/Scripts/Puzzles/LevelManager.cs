@@ -62,10 +62,7 @@ public class LevelManager : MonoBehaviour
 
       if (Time.time >= _timeLoadEndGameScene)
       {
-        if (GameController.Instance.currentRound == 3)
-          GameController.Instance.LoadGameEndScene();
-        else
-          GameController.Instance.LoadEndScene();
+        GameController.Instance.LoadEndScene();
         gameIsEnding = false;
       }
     }
@@ -159,12 +156,13 @@ public class LevelManager : MonoBehaviour
           points[secret.player.playerId] += 4;
           for (var i = 0; i < points.Count; i++) points[i] -= 1;
           pointStages.Add(points);
-          levelEndEvent.messages.Add("Player " + (secret.player.playerId + 1) + " completed their secret objective: " + secret.description);
+          levelEndEvent.messages.Add(playerManager.getPlayer(secret.player.playerId).playerName
+                                               + " completed their secret objective: " + secret.description);
         }
         else
         {
           pointStages.Add(new List<int> { 0, 0, 0, 0 });
-          levelEndEvent.messages.Add("Player " + (secret.player.playerId + 1) + " did not complete their secret objective: " + secret.description);
+          levelEndEvent.messages.Add(playerManager.getPlayer(secret.player.playerId).playerName + " did not complete their secret objective: " + secret.description);
         }
       }
 
@@ -189,8 +187,6 @@ public class LevelManager : MonoBehaviour
 
     EventManager.Broadcast(levelEndEvent);
 
-    if (GameController.Instance.currentRound == 3) EndGame();
-
     FadeOut();
   }
 
@@ -205,15 +201,5 @@ public class LevelManager : MonoBehaviour
     endGameFadeCanvasGroup.gameObject.SetActive(true);
 
     _timeLoadEndGameScene = Time.time + endSceneLoadDelay;
-  }
-
-  private void EndGame()
-  {
-    var gameEndText = "In this game,\n";
-    for (var i = 0; i < playerManager.players.Count; i++)
-      gameEndText += $"Player {i + 1} earned {playerManager.players[i].points} points\n";
-    var gameEndEvent = new GameEndEvent();
-    gameEndEvent.endMessage = gameEndText;
-    EventManager.Broadcast(gameEndEvent);
   }
 }

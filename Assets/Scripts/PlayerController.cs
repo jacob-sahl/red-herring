@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using APIClient;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
     DontDestroyOnLoad(gameObject);
     EventManager.AddListener<LevelStartEvent>(onGameStart);
     EventManager.AddListener<LevelSetupCompleteEvent>(onLevelSetupComplete);
+    EventManager.AddListener<GameInstanceUpdatedEvent>(OnGameInstanceUpdated);
     gameController = GameController.Instance;
     manager = GameController.Instance.PlayerManager;
     _inputHandler = GetComponent<PlayerInputHandler>();
@@ -45,6 +48,25 @@ public class PlayerController : MonoBehaviour
   {
     EventManager.RemoveListener<LevelStartEvent>(onGameStart);
     EventManager.RemoveListener<LevelSetupCompleteEvent>(onLevelSetupComplete);
+    EventManager.RemoveListener<GameInstanceUpdatedEvent>(OnGameInstanceUpdated);
+  }
+  
+  private void OnGameInstanceUpdated(GameInstanceUpdatedEvent e)
+  {
+    GameInstance gameInstance = e.gameInstance;
+    foreach (var player in gameInstance.players)
+    {
+      if (player.id == playerId)
+      {
+        if (player.name != playerName)
+        {
+          playerName = player.name;
+          var playerUpdateEvent = new PlayerUpdateEvent();
+          playerUpdateEvent.PlayerID = playerId;
+          EventManager.Broadcast(e);
+        }
+      }
+    }
   }
 
   private void onLevelSetupComplete(LevelSetupCompleteEvent e)

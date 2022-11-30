@@ -30,14 +30,15 @@ export default function InformantHint({ roundInfo }: InformantHintProps) {
     const canvasRef = React.useRef<HTMLCanvasElement>(null);
     const imgRef = React.useRef<HTMLImageElement>(null);
     const draw = (ctx: CanvasRenderingContext2D) => {
-            ctx.drawImage(imgRef.current!, 0, 0, 251, 377);
-            ctx.font = "15px Sans-Serif";
+            ctx.drawImage(imgRef.current!, 0, 0, 375, 565.5);
+            ctx.font = "20px EB Garamond";
             ctx.fillStyle = "black";
             ctx.textAlign = "center";
-            wrapText(ctx, "CLUE", 125, 65, 180, 20);
-            wrapText(ctx, roundInfo.currentInformantCard?.clue!, 125, 85, 180, 15);
-            wrapText(ctx, "GOAL", 125, 270, 180, 20);
-            wrapText(ctx, roundInfo.currentInformantCard?.secretGoal!, 125, 290, 200, 15);
+            wrapText(ctx, "CLUE", 187, 85, 180, 20);
+            wrapText(ctx, roundInfo.currentInformantCard?.clue!, 187, 105, 300, 15);
+            wrapText(ctx, "GOAL", 187, 400, 180, 20);
+            wrapText(ctx, roundInfo.currentInformantCard?.secretGoal!, 187, 420, 300, 15);
+
     };
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -46,7 +47,7 @@ export default function InformantHint({ roundInfo }: InformantHintProps) {
     }, [draw])
     return (
         <div className="m-auto" >
-            <canvas ref={canvasRef} width={250} height={377} className="scale-100 m-auto" />
+            <canvas ref={canvasRef} width={375} height={565.5} className="scale-100 m-auto" />
             <img src={CardFrameImg.src} alt="Informant Card" hidden ref={imgRef} />
         </div>
     )
