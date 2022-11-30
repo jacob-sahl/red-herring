@@ -14,15 +14,15 @@ public class GameEndInfo : MonoBehaviour
       transform.Find("Player3").gameObject,
       transform.Find("Player4").gameObject,
     };
-    Debug.Log(players[1]);
+    // Debug.Log(players[1]);
     for (var i = 0; i < 4; i++)  // player
     {
       int total = 0;
       for (var j = 0; j < 4; j++)  // round
       {
         //Debug.Log(players[i].transform.Find("Round" + (j + 1)).gameObject.GetComponent<TextMeshProUGUI>());
-        players[i].transform.Find("Round" + (j + 1)).gameObject.GetComponent<TextMeshProUGUI>().text = pointsPerRound[i][j].ToString();
-        total += pointsPerRound[i][j];
+        players[i].transform.Find("Round" + (j + 1)).gameObject.GetComponent<TextMeshProUGUI>().text = pointsPerRound[j][i].ToString();
+        total += pointsPerRound[j][i];
       }
       players[i].transform.Find("Total").gameObject.GetComponent<TextMeshProUGUI>().text = "_____________\n" + total.ToString();
     }
