@@ -17,6 +17,7 @@ public class Clock : MonoBehaviour
   private Vector3 pivot;
   private TypeWriterPuzzleInstance puzzle;
   float time;
+  float totalMoved;
 
   private void Awake()
   {
@@ -26,6 +27,7 @@ public class Clock : MonoBehaviour
   private void Start()
   {
     time = 0f;
+    totalMoved = 0f;
     moving = false;
     clockTimeMinutes = 180;
     puzzle = GameController.Instance.getCurrentPuzzle();
@@ -61,8 +63,6 @@ public class Clock : MonoBehaviour
     if (moving) return;
     moving = true;
     time = 0f;
-    // minuteHand.transform.RotateAround(pivot, axis, -30f);
-    // hourHand.transform.RotateAround(pivot, axis, -2.5f);
     clockTimeMinutes += 5;
 
     if (clockTimeMinutes >= 345 && !broadcasted.Contains(SecretObjectiveID.SetClockTo545))
@@ -111,8 +111,8 @@ public class Clock : MonoBehaviour
         moving = false;
       }
       float partial = Time.deltaTime / moveDuration;
-      minuteHand.transform.RotateAround(pivot, axis, -29.5f * partial);
-      hourHand.transform.RotateAround(pivot, axis, -2.45f * partial);
+      minuteHand.transform.RotateAround(pivot, axis, -29.25f * partial);
+      hourHand.transform.RotateAround(pivot, axis, -2.425f * partial);
     }
   }
 }
