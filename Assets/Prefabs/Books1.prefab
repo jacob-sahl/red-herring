@@ -476,6 +476,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &1230411995232296535
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +623,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &1283877931722558023
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +830,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &1496181066265388103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,6 +1442,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &2136172834600814368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1855,6 +1859,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &2596346719467343028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,6 +2666,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: 0, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &3442990341162214649
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,6 +3008,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &3584129570137291937
 GameObject:
   m_ObjectHideFlags: 0
@@ -3343,6 +3350,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &4351551308971336922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,6 +3557,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &4460435514881883908
 GameObject:
   m_ObjectHideFlags: 0
@@ -3755,6 +3764,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &4685605608455767163
 GameObject:
   m_ObjectHideFlags: 0
@@ -4231,6 +4241,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &5720287938015092109
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,6 +4388,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &5926296241496616036
 GameObject:
   m_ObjectHideFlags: 0
@@ -5510,6 +5522,7 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
 --- !u!1 &8362565584994448825
 GameObject:
   m_ObjectHideFlags: 0

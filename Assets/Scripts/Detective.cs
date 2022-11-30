@@ -131,7 +131,7 @@ public class Detective : MonoBehaviour
     focusedObject.transform.Translate(focus.defaultTranslation);
     // Debug.DrawLine(focusedObject.transform.position, playerCamera.transform.position, Color.red, 120f, false);
 
-    // Dim focus light
+    // Set focus light
     focusLight.intensity = focus.lightLevel;
 
     focusActive = true;
@@ -157,8 +157,8 @@ public class Detective : MonoBehaviour
     focusedObject.transform.localScale = focusedObjectPlaceholder.transform.localScale;
     focusedObject.GetComponent<Focus>().enablePhysics();
 
-    // Brighten focus light
-    focusLight.intensity = 250f;
+    // Turn off focus light
+    focusLight.intensity = 0f;
 
     // Send event
     DefocusEvent e = new DefocusEvent();

@@ -17,6 +17,7 @@ public enum ButtonType
 public class TypeWriterPuzzle : Puzzle
 {
   private TextMeshProUGUI puzzle_text;
+  private TextMeshProUGUI underscore_text;
 
   [Header("Puzzle")]
   [Tooltip("This defines the possible puzzle solutions.")]
@@ -135,14 +136,34 @@ public class TypeWriterPuzzle : Puzzle
   void Start()
   {
     animator = GetComponentInChildren<Animator>();
-    puzzle_text = GameObject.Find("Puzzle_Text").GetComponentInChildren<TextMeshProUGUI>();
+    puzzle_text = GameObject.Find("PlayerText").GetComponent<TextMeshProUGUI>();
+    underscore_text = GameObject.Find("TextUnderscores").GetComponent<TextMeshProUGUI>();
     string solution = GameController.Instance.puzzles[GameController.Instance.currentRound].solution;
     UpdateSolution(solution);
+    setUnderscores(solution);
   }
 
   void UpdateSolution(string solution)
   {
     _solution = solution;
+  }
+
+  void setUnderscores(string solution)
+  {
+    string temp = "<mspace=12>";
+    foreach (char c in solution)
+    {
+      if (c == ' ')
+      {
+        temp += " ";
+      }
+      else
+      {
+        temp += "_";
+      }
+    }
+    temp += "</mspace>";
+    underscore_text.text = temp;
   }
 
   public void OnButtonPressed(InteractEvent evt)
@@ -162,7 +183,7 @@ public class TypeWriterPuzzle : Puzzle
 
     if (_answer.Length == 0)
     {
-      puzzle_text.text = "";
+      setPuzzleText("");
     }
     switch (button.buttonType)
     {
@@ -170,7 +191,7 @@ public class TypeWriterPuzzle : Puzzle
         if (_answer.Length > 0)
         {
           _answer = _answer.Substring(0, _answer.Length - 1);
-          puzzle_text.text = puzzle_text.text.Substring(0, puzzle_text.text.Length - 1);
+          setPuzzleText(_answer);
         }
         break;
       case ButtonType.Submit:
@@ -183,7 +204,7 @@ public class TypeWriterPuzzle : Puzzle
         else
         {
           _answer = "";
-          puzzle_text.text = "Incorrect.";
+          setPuzzleText("Incorrect.");
           levelManager.audioController.playMistake();
           animator.SetTrigger("IncorrectInput");
         }
@@ -193,25 +214,14 @@ public class TypeWriterPuzzle : Puzzle
         break;
       default:
         _answer += ButtonToString[button.buttonType];
-        puzzle_text.text += ButtonToString[button.buttonType];
+        setPuzzleText(_answer);
         break;
     }
-    if (pressed.Contains("FOOL") && !broadcastedObjectives.Contains(SecretObjectiveID.TypeFOOL))
-    {
-      SecretObjectiveEvent s = new SecretObjectiveEvent();
-      s.id = SecretObjectiveID.TypeFOOL;
-      s.status = true;
-      EventManager.Broadcast(s);
-      broadcastedObjectives.Add(SecretObjectiveID.TypeFOOL);
-    }
-    if (pressed.Contains("GIRAFFE") && !broadcastedObjectives.Contains(SecretObjectiveID.TypeGIRAFFE))
-    {
-      SecretObjectiveEvent s = new SecretObjectiveEvent();
-      s.id = SecretObjectiveID.TypeGIRAFFE;
-      s.status = true;
-      EventManager.Broadcast(s);
-      broadcastedObjectives.Add(SecretObjectiveID.TypeGIRAFFE);
-    }
+  }
+
+  private void setPuzzleText(string str)
+  {
+    puzzle_text.text = "<mspace=12>" + str + "</mspace>";
   }
 
   private void queryString(string str)
@@ -227,7 +237,7 @@ public class TypeWriterPuzzle : Puzzle
       result = "???";
     }
     _answer = "";
-    puzzle_text.text = result;
+    setPuzzleText(result);
   }
 
   public bool CheckAnswer()
