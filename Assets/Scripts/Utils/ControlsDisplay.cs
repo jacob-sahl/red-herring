@@ -33,7 +33,35 @@ public class ControlsDisplay : MonoBehaviour
     }
     foreach (KeyValuePair<string, string> control in controlsMap)
     {
-      controlsText.text += control.Key + ": " + control.Value + "\n";
+     // Mouse, WASD/ Arrow Keys, Left Click, Ctrl, Space, Tab
+      if (control.Value == "E")
+      {
+        controlsText.text += control.Key + ": " + "<sprite=1>" + "\n";
+      }
+      else if (control.Value == "P")
+      {
+        controlsText.text += control.Key + ": " + "<sprite=2>" + "\n";
+      }
+      else if (control.Value == "Ctrl")
+      {
+        controlsText.text += control.Key + ": " + "<sprite=0>" + "\n";
+      }
+      else if (control.Value == "Space")
+      {
+        controlsText.text += control.Key + ": " + "<sprite=4>" + "\n";
+      }
+      else if (control.Value == "Tab")
+      {
+        controlsText.text += control.Key + ": " + "<sprite=5>" + "\n";
+      }
+      else if (control.Value == "WASD / Arrow Keys")
+      {
+        controlsText.text += control.Key + ": " + "<sprite=6>/<sprite=7>" + "\n";
+      }
+      else 
+      {
+        controlsText.text += control.Key + ": " + control.Value + "\n";
+      }
     }
   }
 }
