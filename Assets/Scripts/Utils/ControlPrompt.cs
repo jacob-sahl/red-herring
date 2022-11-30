@@ -33,7 +33,35 @@ public class ControlPrompt : MonoBehaviour
     {
       controlsMap = Constants.gamepadControls;
     }
-    promptText.text = control + ": " + controlsMap[control];
+        // Mouse, WASD/ Arrow Keys, Left Click, Ctrl, Space, Tab
+        if (controlsMap[control] == "E")
+        {
+            promptText.text += control + ": " + "<sprite=1>" + "\n";
+        }
+        else if (controlsMap[control] == "P")
+        {
+            promptText.text += control + ": " + "<sprite=2>" + "\n";
+        }
+        else if (controlsMap[control] == "Ctrl")
+        {
+            promptText.text += control + ": " + "<sprite=0>" + "\n";
+        }
+        else if (controlsMap[control] == "Space")
+        {
+            promptText.text += control + ": " + "<sprite=4>" + "\n";
+        }
+        else if (controlsMap[control] == "Tab")
+        {
+            promptText.text += control + ": " + "<sprite=5>" + "\n";
+        }
+        else if (controlsMap[control] == "WASD / Arrow Keys")
+        {
+            promptText.text += control + ": " + "<sprite=6>/<sprite=7>" + "\n";
+        }
+        else
+        {
+            promptText.text = control + ": " + controlsMap[control];
+        }
   }
 
   // Update is called once per frame
