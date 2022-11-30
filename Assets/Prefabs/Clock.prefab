@@ -721,7 +721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -30}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00025, y: 0.000292}
+  m_AnchoredPosition: {x: -0.000177, y: 0.000335}
   m_SizeDelta: {x: 0.4, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8126609035418606882
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -991,7 +991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000364, y: -0.000005}
+  m_AnchoredPosition: {x: -0.000364, y: 0.000015}
   m_SizeDelta: {x: 0.4, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3719492722805349183
@@ -1574,6 +1574,7 @@ MonoBehaviour:
   rotationVerticalOffset: 12.765
   debugSpherePrefab: {fileID: 3173939532006450971, guid: dcaae8537b33458488aa865bd7b0a059, type: 3}
   clockTimeMinutes: 0
+  moveDuration: 0.25
 --- !u!1 &8767009738428828914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,7 +1610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -60}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000395, y: 0.000053}
+  m_AnchoredPosition: {x: -0.000321, y: 0.000199}
   m_SizeDelta: {x: 0.4, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7011960949780196050
@@ -1674,7 +1675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: TWO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -1708,7 +1709,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

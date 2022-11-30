@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 7532256592131600484}
   - component: {fileID: 7296707332203145697}
   - component: {fileID: 8449345244285498083}
+  - component: {fileID: 7524316987434695816}
   m_Layer: 0
   m_Name: Book1-3
   m_TagString: Untagged
@@ -476,6 +477,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &7524316987434695816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113680440025123077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1230411995232296535
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +505,7 @@ GameObject:
   - component: {fileID: 6063803137626027384}
   - component: {fileID: 4676132670229202676}
   - component: {fileID: 7494650878182545986}
+  - component: {fileID: 4172908053575715366}
   m_Layer: 0
   m_Name: Book1-8
   m_TagString: Untagged
@@ -622,6 +637,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &4172908053575715366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230411995232296535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1283877931722558023
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +725,7 @@ GameObject:
   - component: {fileID: 8504521049087164610}
   - component: {fileID: 6971536814839050184}
   - component: {fileID: 8811575690895595270}
+  - component: {fileID: 8782763841021866457}
   m_Layer: 0
   m_Name: Book1-12
   m_TagString: Untagged
@@ -828,6 +857,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &8782763841021866457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284191265382089782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1496181066265388103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,6 +1350,7 @@ GameObject:
   - component: {fileID: 4748333931453344453}
   - component: {fileID: 4128676660507054792}
   - component: {fileID: 2768022976010572543}
+  - component: {fileID: 1785058630911684081}
   m_Layer: 0
   m_Name: Book1-5
   m_TagString: Untagged
@@ -1439,6 +1482,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &1785058630911684081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042111919060610415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2136172834600814368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,6 +1780,7 @@ GameObject:
   - component: {fileID: 7488314636175701752}
   - component: {fileID: 3790701111719562514}
   - component: {fileID: 931441774872212533}
+  - component: {fileID: 4828520948825123450}
   m_Layer: 0
   m_Name: Book1-9
   m_TagString: Untagged
@@ -1855,6 +1912,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &4828520948825123450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491854613173464527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2596346719467343028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2530,6 +2600,7 @@ GameObject:
   - component: {fileID: 8713515752036786985}
   - component: {fileID: 7468300597428940296}
   - component: {fileID: 8520424465615186634}
+  - component: {fileID: 987101969364978272}
   m_Layer: 0
   m_Name: Book1-1
   m_TagString: Untagged
@@ -2661,6 +2732,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: 0, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &987101969364978272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425597454066065244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3442990341162214649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,6 +2955,7 @@ GameObject:
   - component: {fileID: 8971040391944130998}
   - component: {fileID: 8735900108032861557}
   - component: {fileID: 181588955723434473}
+  - component: {fileID: 1871005487360029425}
   m_Layer: 0
   m_Name: Book1-10
   m_TagString: Untagged
@@ -3002,6 +3087,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &1871005487360029425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3564402533094244321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3584129570137291937
 GameObject:
   m_ObjectHideFlags: 0
@@ -3212,6 +3310,7 @@ GameObject:
   - component: {fileID: 4941782439033534891}
   - component: {fileID: 9025643240035947195}
   - component: {fileID: 1025424633471657717}
+  - component: {fileID: 4217818420580138163}
   m_Layer: 0
   m_Name: Book1-13
   m_TagString: Untagged
@@ -3343,6 +3442,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &4217818420580138163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4142132218592468032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4351551308971336922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3418,6 +3530,7 @@ GameObject:
   - component: {fileID: 7072256736131148377}
   - component: {fileID: 9014009538819421935}
   - component: {fileID: 7027731948365208940}
+  - component: {fileID: 5860766858401269461}
   m_Layer: 0
   m_Name: Book1-2
   m_TagString: Untagged
@@ -3549,6 +3662,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &5860766858401269461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448280334871843413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4460435514881883908
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,6 +3750,7 @@ GameObject:
   - component: {fileID: 748628383817282958}
   - component: {fileID: 1900993494183170678}
   - component: {fileID: 1487803537721538002}
+  - component: {fileID: 4027598569645656115}
   m_Layer: 0
   m_Name: Book1-11
   m_TagString: Untagged
@@ -3755,6 +3882,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &4027598569645656115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516010024552871068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4685605608455767163
 GameObject:
   m_ObjectHideFlags: 0
@@ -4100,6 +4240,7 @@ GameObject:
   - component: {fileID: 5499785251593790845}
   - component: {fileID: 7964699473758719017}
   - component: {fileID: 8338418660433179441}
+  - component: {fileID: 4742771822677235289}
   m_Layer: 0
   m_Name: Book1-4
   m_TagString: Untagged
@@ -4231,6 +4372,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &4742771822677235289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566837514143642325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5720287938015092109
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,6 +4400,7 @@ GameObject:
   - component: {fileID: 6845380613191331337}
   - component: {fileID: 2943992401036316924}
   - component: {fileID: 1490068277084418731}
+  - component: {fileID: 3643263165640010461}
   m_Layer: 0
   m_Name: Book1-6
   m_TagString: Untagged
@@ -4377,6 +4532,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &3643263165640010461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720287938015092109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5926296241496616036
 GameObject:
   m_ObjectHideFlags: 0
@@ -5379,6 +5547,7 @@ GameObject:
   - component: {fileID: 6005084631573062602}
   - component: {fileID: 7570167031666110691}
   - component: {fileID: 7187830630063593037}
+  - component: {fileID: 7900857198478839906}
   m_Layer: 0
   m_Name: Book1-7
   m_TagString: Untagged
@@ -5510,6 +5679,19 @@ MonoBehaviour:
   defaultRotation: {x: 0, y: 75, z: 0}
   defaultTranslation: {x: 1, y: -1, z: 0}
   focusDistance: 2
+  lightLevel: 10
+--- !u!114 &7900857198478839906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7724167920955317698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ed41ba30c0654da213502e538c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8362565584994448825
 GameObject:
   m_ObjectHideFlags: 0
