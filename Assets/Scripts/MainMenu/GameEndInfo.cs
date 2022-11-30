@@ -25,6 +25,8 @@ public class GameEndInfo : MonoBehaviour
         total += pointsPerRound[j][i];
       }
       players[i].transform.Find("Total").gameObject.GetComponent<TextMeshProUGUI>().text = "_____________\n" + total.ToString();
+      players[i].transform.Find("PlayerName").gameObject.GetComponent<TMP_Text>().text =
+        GameController.Instance.PlayerManager.getPlayer(i).playerName;
     }
   }
 }
