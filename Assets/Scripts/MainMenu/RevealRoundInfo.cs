@@ -33,6 +33,7 @@ namespace MainMenu
                 var playerController = PlayerManager.Instance.getPlayer(playerID);
                 avatar.GetComponent<Image>().color = playerController.color;
                 Debug.Log("Player: " + playerID + " Role: " + playerController.role);
+                player.transform.Find("PlayerName").GetComponent<TMP_Text>().text = playerController.playerName;
                 if (playerController.role == PlayerRole.Detective)
                 {
                     player.transform.Find("Role").GetComponent<TMP_Text>().text = "Detective";

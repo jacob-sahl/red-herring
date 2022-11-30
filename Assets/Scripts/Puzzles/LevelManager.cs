@@ -156,12 +156,13 @@ public class LevelManager : MonoBehaviour
           points[secret.player.playerId] += 4;
           for (var i = 0; i < points.Count; i++) points[i] -= 1;
           pointStages.Add(points);
-          levelEndEvent.messages.Add("Player " + (secret.player.playerId + 1) + " completed their secret objective: " + secret.description);
+          levelEndEvent.messages.Add(playerManager.getPlayer(secret.player.playerId).playerName
+                                               + " completed their secret objective: " + secret.description);
         }
         else
         {
           pointStages.Add(new List<int> { 0, 0, 0, 0 });
-          levelEndEvent.messages.Add("Player " + (secret.player.playerId + 1) + " did not complete their secret objective: " + secret.description);
+          levelEndEvent.messages.Add(playerManager.getPlayer(secret.player.playerId).playerName + " did not complete their secret objective: " + secret.description);
         }
       }
 

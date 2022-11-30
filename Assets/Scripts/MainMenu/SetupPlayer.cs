@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,7 @@ public class SetupPlayer : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        UpdateAllPlayers();
     }
 
     private void OnDestroy()
@@ -55,6 +57,8 @@ public class SetupPlayer : MonoBehaviour
             var avatar = player.transform.Find("Avatar");
             avatar.GetComponent<Image>().color = PlayerManager.Instance.getPlayer(playerID).color;
             avatar.gameObject.SetActive(true);
+            var nameObject = player.transform.Find("PlayerName");
+            nameObject.GetComponent<TMP_Text>().text = PlayerManager.Instance.getPlayer(playerID).playerName;
         }
     }
 }

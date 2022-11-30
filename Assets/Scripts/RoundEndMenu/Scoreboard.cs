@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Scoreboard : MonoBehaviour
@@ -9,6 +10,10 @@ public class Scoreboard : MonoBehaviour
   public GameObject player2icon;
   public GameObject player3icon;
   public GameObject player4icon;
+  public GameObject player1name;
+  public GameObject player2name;
+  public GameObject player3name;
+  public GameObject player4name;
   public float duration;
   public float pointYValue = 14.25f;
   private int pointIndex;
@@ -32,6 +37,11 @@ public class Scoreboard : MonoBehaviour
     setIconStartPositions();
     pointIndex = 0;
     animating = false;
+    
+    player1name.GetComponent<TMP_Text>().text = PlayerManager.Instance.players[0].playerName;
+    player2name.GetComponent<TMP_Text>().text = PlayerManager.Instance.players[1].playerName;
+    player3name.GetComponent<TMP_Text>().text = PlayerManager.Instance.players[2].playerName;
+    player4name.GetComponent<TMP_Text>().text = PlayerManager.Instance.players[3].playerName;
   }
 
   void setIconStartPositions()
