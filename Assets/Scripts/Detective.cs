@@ -111,7 +111,7 @@ public class Detective : MonoBehaviour
     focusedObjectPlaceholder.transform.position = focusedObject.transform.position;
     focusedObjectPlaceholder.transform.rotation = focusedObject.transform.rotation;
     focusedObjectPlaceholder.transform.localScale = focusedObject.transform.localScale;
-    Debug.Log("Focusing: " + focusedObject);
+    // Debug.Log("Focusing: " + focusedObject);
 
     // Reset the object to face the camera
     float distance = Vector3.Distance(focusedObject.transform.position, playerCamera.transform.position);

@@ -31,92 +31,87 @@ public class GameController : MonoBehaviour
   public float objectRotationSpeed = 0.3f;
 
   public List<TypeWriterPuzzleInstance> puzzles = new()
-    {
-        new(
-            TypeWriterPuzzleID.BlueRedYellow,
-            "BLUE RED YELLOW",
-            new List<(SecretObjectiveID, string)>
-            {
-                (SecretObjectiveID.LookThroughWindow,
-                    "Get the detective to look out of the window for three consecutive seconds."),
-                (SecretObjectiveID.InvertTypewriter, "Get the detective to turn the typewriter upside-down."),
-                (SecretObjectiveID.SpinGlobeThrice, "Get the detective to spin the globe around three times.")
-            },
-            new List<string>
-            {
-                "Part of the typewriter looks like the answer.",
-                "There is a clue behind the skull.",
-                "The solution is not secondary."
-            },
-            new Dictionary<string, string>
-            {
-                { "1", "BLUE" },
-                { "2", "RED" },
-                { "3", "Figure that one out yourself." }
-            }
-        ),
-        new(
-            TypeWriterPuzzleID.One2Three,
-            "ONE 2 THREE",
-            new List<(SecretObjectiveID, string)>
-            {
-                (SecretObjectiveID.LookThroughWindow,
-                    "Get the detective to look out of the window for three consecutive seconds."),
-                (SecretObjectiveID.DropCorrect,
-                    "Get the detective to drop the typewriter while the correct solution is written out (you must get them to do this before they hit 'submit')."),
-                (SecretObjectiveID.SkullOffShelf, "Get the detective to throw the skull off of the bookshelf.")
-            },
-            new List<string>
-            {
-                "The solution might require a few hours' thought.",
-                "The second word of the solution is a number.",
-                "... Four!"
-            },
-            new Dictionary<string, string>()
-        ),
-        new(
-            TypeWriterPuzzleID.FearOfElephants,
-            "FEAR OF ELEPHANTS",
-            new List<(SecretObjectiveID, string)>
-            {
-                (SecretObjectiveID.LookThroughWindow,
-                    "Get the detective to look out of the window for three consecutive seconds."),
-                (SecretObjectiveID.SolveWithThreeOnTimer,
-                    "Get the detective to solve the puzzle while there is a '3' on the timer."),
-                (SecretObjectiveID.TypeGIRAFFE, "Get the detective to type the word 'GIRAFFE'.")
-            },
-            new List<string>
-            {
-                "The solution is a feeling of immense apprehension. X = 4.",
-                "Pachyderm = Elephant. Y = 2.",
-                "Books 4 and 10 on the wall shelf are clues to the solution. Z = 9."
-            },
-            new Dictionary<string, string>
-            {
-                { "X", "4" },
-                { "Y", "2" },
-                { "Z", "9" }
-            }
-        ),
-        new(
-            TypeWriterPuzzleID.PlantsAndAnimals,
-            "PLANTS AND ANIMALS",
-            new List<(SecretObjectiveID, string)>
-            {
-                (SecretObjectiveID.SolveQuickly, "Ensure that the puzzle is solved with 3 or more minutes remaining."),
-                (SecretObjectiveID.SetClockTo545,
-                    "Get the detective to set the grandfather clock's time to 5:45 (or later)."),
-                (SecretObjectiveID.StationaryGramophone, "Make sure that the detective does NOT move the gramophone.")
-            },
-            new List<string>
-            {
-                "The solution can be seen high up in the night sky outside the window.",
-                "There is a clue stuck to the bottom of the gramophone.",
-                "There is a clue on the top of a bookshelf."
-            },
-            new Dictionary<string, string>()
-        )
-    };
+  {
+    new(
+      TypeWriterPuzzleID.BlueRedYellow,
+      "BLUE RED YELLOW",
+      new List<(SecretObjectiveID, string)>
+      {
+        (SecretObjectiveID.LookThroughWindow,
+            "Get the detective to look out of the window for three consecutive seconds."),
+        (SecretObjectiveID.InvertTypewriter, "Get the detective to turn the typewriter upside-down."),
+        (SecretObjectiveID.SpinGlobeThrice, "Get the detective to spin the globe around three times.")
+      },
+      new List<string>
+      {
+        "Part of the typewriter looks like the answer.",
+        "There is a clue behind the skull.",
+        "The solution is not secondary."
+      },
+      new Dictionary<string, string>
+      {
+        { "1", "BLUE" },
+        { "2", "RED" },
+        { "3", "Figure that one out yourself." }
+      }
+    ),
+    new(
+      TypeWriterPuzzleID.One2Three,
+      "ONE 2 THREE",
+      new List<(SecretObjectiveID, string)>
+      {
+        (SecretObjectiveID.Blackout,
+            "Get the detective to turn off all the lights in the room."),
+        (SecretObjectiveID.DropCorrect,
+            "Get the detective to drop the typewriter while the correct solution is written out, before they press submit."),
+        (SecretObjectiveID.SkullOffShelf, "Get the detective to throw the skull off of the bookshelf.")
+      },
+      new List<string>
+      {
+        "The solution might require a few hours' thought.",
+        "The second word of the solution is a number.",
+        "... Four!"
+      },
+      new Dictionary<string, string>()
+    ),
+    new(
+      TypeWriterPuzzleID.FearOfElephants,
+      "FEAR OF ELEPHANTS",
+      new List<(SecretObjectiveID, string)>
+      {
+        (SecretObjectiveID.Librarian,
+            "Get the detective to pick up ten different books."),
+        (SecretObjectiveID.SolveWithThreeOnTimer,
+            "Get the detective to solve the puzzle while there is a '3' on the timer."),
+        (SecretObjectiveID.TypeGIRAFFE, "Get the detective to type the word 'GIRAFFE'.")
+      },
+      new List<string>
+      {
+        "The solution is a feeling of immense apprehension.",
+        "The 4th and 10th books on the left bookshelf are clues.",
+        "There are clues underneath the pillow, and in the middle desk drawer."
+      },
+      new Dictionary<string, string>()
+    ),
+    new(
+      TypeWriterPuzzleID.PlantsAndAnimals,
+      "PLANTS AND ANIMALS",
+      new List<(SecretObjectiveID, string)>
+      {
+        (SecretObjectiveID.SolveQuickly, "Ensure that the puzzle is solved with 3 or more minutes remaining."),
+        (SecretObjectiveID.SetClockTo545,
+            "Get the detective to set the grandfather clock's time to 5:45 (or later)."),
+        (SecretObjectiveID.StationaryGramophone, "Make sure that the detective does NOT move the gramophone.")
+      },
+      new List<string>
+      {
+        "The solution can be seen high up in the night sky outside the window.",
+        "There is a clue stuck to the bottom of the gramophone.",
+        "There is a clue on the top of a bookshelf."
+      },
+      new Dictionary<string, string>()
+    )
+  };
 
   public List<SecretObjective> currentSecretObjectives;
   public List<string> currentClues;

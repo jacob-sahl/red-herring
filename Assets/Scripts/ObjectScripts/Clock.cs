@@ -9,7 +9,7 @@ public class Clock : MonoBehaviour
   public float moveDuration;
   private bool moving;
   private Vector3 axis;
-  private readonly List<SecretObjectiveID> broadcasted = new();
+  private List<SecretObjectiveID> broadcasted = new();
   private GameObject clockHead;
   private GameObject handCentre;
   private GameObject hourHand;

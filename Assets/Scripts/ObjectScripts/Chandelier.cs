@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 
-public class WallLight : MonoBehaviour
+public class Chandelier : MonoBehaviour
 {
   HDAdditionalLightData[] lights;
   public float onIntensity = 600f;
@@ -12,9 +12,10 @@ public class WallLight : MonoBehaviour
   bool dimming;
   bool illuminating;
   float time;
-  public float transitionDuration = 0.25f;
   public GameObject lightManagerObj;
   Lights lightManager;
+  public float transitionDuration = 0.25f;
+  public List<GameObject> flames;
 
   void Start()
   {
@@ -58,6 +59,10 @@ public class WallLight : MonoBehaviour
   {
     time = 0f;
     dimming = true;
+    foreach (GameObject flame in flames)
+    {
+      flame.GetComponent<Renderer>().enabled = false;
+    }
     lightManager.updateLightState(gameObject, false);
   }
 
@@ -65,6 +70,10 @@ public class WallLight : MonoBehaviour
   {
     time = 0f;
     illuminating = true;
+    foreach (GameObject flame in flames)
+    {
+      flame.GetComponent<Renderer>().enabled = true;
+    }
     lightManager.updateLightState(gameObject, true);
   }
 
