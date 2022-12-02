@@ -14,6 +14,7 @@ public class DetectiveCursor : MonoBehaviour
   public GameObject defaultCursor;
   public GameObject inspectionCursor;
   public GameObject handCursors;
+  public float expandTime = 0.2f;
   GameObject handCursor;
   CursorType showing;
   bool focused;
@@ -33,7 +34,8 @@ public class DetectiveCursor : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    selectRandomHandCursor();
+    //selectRandomHandCursor();
+    handCursor = handCursors;
     showDefaultCursor();
     focused = false;
   }
@@ -102,6 +104,8 @@ public class DetectiveCursor : MonoBehaviour
     defaultCursor.SetActive(false);
     handCursor.SetActive(true);
     showing = CursorType.Hand;
+    StopCoroutine("ExpandCursor");
+    StartCoroutine(ExpandCursor());
   }
 
   void showInspectionCursor()
@@ -110,6 +114,8 @@ public class DetectiveCursor : MonoBehaviour
     defaultCursor.SetActive(false);
     handCursor.SetActive(false);
     showing = CursorType.Inspection;
+    StopCoroutine("ExpandCursor");
+    StartCoroutine(ExpandCursor());
   }
 
   void showDefaultCursor()
@@ -118,5 +124,19 @@ public class DetectiveCursor : MonoBehaviour
     defaultCursor.SetActive(true);
     handCursor.SetActive(false);
     showing = CursorType.Default;
+    StopCoroutine("ExpandCursor");
+    transform.localScale = Vector3.one;
+  }
+
+  private IEnumerator ExpandCursor()
+  {
+    float timeElapsed = 0;
+    while (timeElapsed < expandTime)
+    {
+      transform.localScale = Vector3.one * Mathf.Lerp(0, 1, timeElapsed / expandTime);
+      timeElapsed += Time.deltaTime;
+      yield return null;
+    }
+    transform.localScale = Vector3.one;
   }
 }
