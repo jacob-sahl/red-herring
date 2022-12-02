@@ -10693,6 +10693,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6772145704774275977, guid: 0dccf9668be934440865f4b85cebe4c1, type: 3}
+      propertyPath: diagram
+      value: 
+      objectReference: {fileID: 834963865}
+    - target: {fileID: 6772145704774275977, guid: 0dccf9668be934440865f4b85cebe4c1, type: 3}
       propertyPath: controlScheme
       value: Keyboard
       objectReference: {fileID: 0}
