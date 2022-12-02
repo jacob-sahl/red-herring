@@ -7,10 +7,12 @@ public class ControlsDisplay : MonoBehaviour
 {
   TextMeshProUGUI controlsText;
   public string controlScheme = "";
+  [SerializeField] private GameObject diagram;
 
   void Start()
   {
     controlsText = transform.Find("ControlsText").GetComponent<TextMeshProUGUI>();
+    //diagram = GameObject.Find("ControllerDiagram");
 
     if (controlScheme == "")
     {
@@ -25,11 +27,13 @@ public class ControlsDisplay : MonoBehaviour
     {
       controlsMap = Constants.keyboardControls;
       controlsText.text += "Keyboard Controls \n \n";
+      diagram.SetActive(false);
     }
     else if (controlScheme == "Gamepad")
     {
       controlsMap = Constants.gamepadControls;
       controlsText.text += "Gamepad Controls \n \n";
+      diagram.SetActive(true);
     }
     foreach (KeyValuePair<string, string> control in controlsMap)
     {
@@ -58,10 +62,17 @@ public class ControlsDisplay : MonoBehaviour
       {
         controlsText.text += control.Key + ": " + "<sprite=6>/<sprite=7>" + "\n";
       }
-      else 
+      else if (controlScheme == "Keyboard")
       {
         controlsText.text += control.Key + ": " + control.Value + "\n";
       }
+        /*Look: Mouse
+        Movement: < sprite = 6 >/< sprite = 7 >
+        Interact Object: Left Click
+        Drop Object: < sprite = 1 >
+        Crouch: < sprite = 0 >
+        Jump: < sprite = 4 >
+        Pause: < sprite = 5 >*/
     }
-  }
+   }
 }
