@@ -14,7 +14,7 @@ public class DetectiveCursor : MonoBehaviour
   public GameObject defaultCursor;
   public GameObject inspectionCursor;
   public GameObject handCursors;
-  public float expandTime = 1f;
+  public float expandTime = 0.2f;
   GameObject handCursor;
   CursorType showing;
   bool focused;
@@ -104,6 +104,7 @@ public class DetectiveCursor : MonoBehaviour
     defaultCursor.SetActive(false);
     handCursor.SetActive(true);
     showing = CursorType.Hand;
+    StopCoroutine("ExpandCursor");
     StartCoroutine(ExpandCursor());
   }
 
@@ -113,6 +114,7 @@ public class DetectiveCursor : MonoBehaviour
     defaultCursor.SetActive(false);
     handCursor.SetActive(false);
     showing = CursorType.Inspection;
+    StopCoroutine("ExpandCursor");
     StartCoroutine(ExpandCursor());
   }
 
@@ -122,6 +124,8 @@ public class DetectiveCursor : MonoBehaviour
     defaultCursor.SetActive(true);
     handCursor.SetActive(false);
     showing = CursorType.Default;
+    StopCoroutine("ExpandCursor");
+    transform.localScale = Vector3.one;
   }
 
   private IEnumerator ExpandCursor()
