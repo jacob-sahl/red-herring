@@ -8,6 +8,7 @@ public class WallLight : MonoBehaviour
   HDAdditionalLightData[] lights;
   public float onIntensity = 600f;
   public float offIntensity = 0f;
+  public bool startOn = true;
   bool illuminated;
   bool dimming;
   bool illuminating;
@@ -25,6 +26,10 @@ public class WallLight : MonoBehaviour
     time = 0f;
     lightManager = lightManagerObj.GetComponent<Lights>();
     lightManager.registerLightState(gameObject, true);
+    if (!startOn)
+    {
+      turnOffLights();
+    }
   }
 
   private void Awake()

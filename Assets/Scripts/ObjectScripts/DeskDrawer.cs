@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class DeskDrawer : MonoBehaviour
 {
+  static int drawersOpened;
   public float transitionDuration;
   float time;
   bool ajar;
   bool moving;
   public float slideDistance;
+  bool opened;
+
 
   // Start is called before the first frame update
   void Start()
   {
-    time = 0f;
-    ajar = false;
-    moving = false;
+    time = 0f; ajar = false; moving = false; opened = false; drawersOpened = 0;
   }
 
   private void Awake()
@@ -32,6 +33,15 @@ public class DeskDrawer : MonoBehaviour
   {
     if (evt.gameObject == gameObject)
     {
+      if (!opened)
+      {
+        opened = true;
+        drawersOpened++;
+        if (drawersOpened == 9)
+        {
+          updateDrawersOpenSO();
+        }
+      }
       if (moving) return;
       if (ajar)
       {
@@ -59,5 +69,13 @@ public class DeskDrawer : MonoBehaviour
       yield return new WaitForEndOfFrame();
     }
     moving = false;
+  }
+
+  void updateDrawersOpenSO()
+  {
+    SecretObjectiveEvent evt = new SecretObjectiveEvent();
+    evt.id = SecretObjectiveID.OpenDeskDrawers;
+    evt.status = true;
+    EventManager.Broadcast(evt);
   }
 }

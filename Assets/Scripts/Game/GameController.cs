@@ -83,7 +83,7 @@ public class GameController : MonoBehaviour
             "Get the detective to pick up ten different books."),
         (SecretObjectiveID.SolveWithThreeOnTimer,
             "Get the detective to solve the puzzle while there is a '3' on the timer."),
-        (SecretObjectiveID.TypeGIRAFFE, "Get the detective to type the word 'GIRAFFE'.")
+        (SecretObjectiveID.OpenDeskDrawers, "Get the detective to open up every drawer in the desk at least once.")
       },
       new List<string>
       {
@@ -99,8 +99,8 @@ public class GameController : MonoBehaviour
       new List<(SecretObjectiveID, string)>
       {
         (SecretObjectiveID.SolveQuickly, "Ensure that the puzzle is solved with 3 or more minutes remaining."),
-        (SecretObjectiveID.SetClockTo545,
-            "Get the detective to set the grandfather clock's time to 5:45 (or later)."),
+        (SecretObjectiveID.CarefulBookInspection,
+            "Get the detective to spend 10 consecutive seconds inspecting a single book."),
         (SecretObjectiveID.StationaryGramophone, "Make sure that the detective does NOT move the gramophone.")
       },
       new List<string>

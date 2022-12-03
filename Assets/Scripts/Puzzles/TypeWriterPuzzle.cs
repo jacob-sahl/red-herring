@@ -126,12 +126,23 @@ public class TypeWriterPuzzle : Puzzle
     puzzleName = "TypeWriter";
     EventManager.AddListener<InteractEvent>(OnButtonPressed);
     typeWriter = GetComponent<TypeWriter>();
+    // DEV
+    EventManager.AddListener<SecretObjectiveEvent>(onSecretObjectiveEvent);
+    // DEV ^
   }
 
   private void OnDestroy()
   {
     EventManager.RemoveListener<InteractEvent>(OnButtonPressed);
+    EventManager.RemoveListener<SecretObjectiveEvent>(onSecretObjectiveEvent);
   }
+
+  // DEV
+  void onSecretObjectiveEvent(SecretObjectiveEvent evt)
+  {
+    Debug.Log(evt.id + ": " + evt.status);
+  }
+  // DEV ^
 
   void Start()
   {
