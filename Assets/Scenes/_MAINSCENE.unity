@@ -1245,7 +1245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3405794155110749952, guid: 7d440cfda77da9f41aa8829265ef3d86, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.0022222223
+      value: 0.004
       objectReference: {fileID: 0}
     - target: {fileID: 3405794155110749952, guid: 7d440cfda77da9f41aa8829265ef3d86, type: 3}
       propertyPath: m_LocalScale.z
@@ -1257,7 +1257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3405794155110749952, guid: 7d440cfda77da9f41aa8829265ef3d86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.61
+      value: 5.63
       objectReference: {fileID: 0}
     - target: {fileID: 3405794155110749952, guid: 7d440cfda77da9f41aa8829265ef3d86, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3278,6 +3278,7 @@ MonoBehaviour:
   defaultCursor: {fileID: 1833387709}
   inspectionCursor: {fileID: 1506580415}
   handCursors: {fileID: 494529225}
+  expandTime: 0.2
 --- !u!1001 &521078960
 PrefabInstance:
   m_ObjectHideFlags: 0
