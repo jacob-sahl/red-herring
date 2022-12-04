@@ -100,13 +100,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 306560508624070261}
-  RotationSpeed: 1
+  focusLightObject: {fileID: 0}
+  focusSensitivityMultiplier: 4
   maxSpeed: 10
   mouseDragSpeed: 25
   crouchHeight: 0.65
   jumpHeight: 20
-  cursorSpeed: 1
+  gravity: -9.81
+  gravityScale: 1
   objectRotateSpeed: 2
+  cursorSpeed: 8
   MovementSharpness: 15
   frozen: 0
   fastSteps: {fileID: 8300000, guid: a1a56cc38ca9550469b4aaf09dcd772e, type: 3}
