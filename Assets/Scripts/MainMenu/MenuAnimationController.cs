@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MenuAnimationController : MonoBehaviour
 {
+  public VoiceOver _VO;
   private List<List<string>> animationGroups;
   void Awake()
   {
@@ -43,6 +44,7 @@ public class MenuAnimationController : MonoBehaviour
     startAnimationGroup(new List<string> {
       "fadeMainMenuContentOut", "expandBackdrop", "fadeIntro1In", "fadeInWelcome", "textReveal1-1"
       });
+    _VO.playClip(0, delay: 0.5f, volume: 0.25f);
   }
 
   public void returnToTitleScreen()

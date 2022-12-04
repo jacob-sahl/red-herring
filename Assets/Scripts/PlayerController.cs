@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     EventManager.RemoveListener<LevelSetupCompleteEvent>(onLevelSetupComplete);
     EventManager.RemoveListener<GameInstanceUpdatedEvent>(OnGameInstanceUpdated);
   }
-  
+
   private void OnGameInstanceUpdated(GameInstanceUpdatedEvent e)
   {
     GameInstance gameInstance = e.gameInstance;

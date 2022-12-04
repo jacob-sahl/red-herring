@@ -16,6 +16,7 @@ public class MenuNavigationController : MonoBehaviour
   Button skipButton;
   public GameObject menuButtonObject;
   Button menuButton;
+  public VoiceOver _VO;
   MenuAnimationController animationController;
   private int position;
   private bool navEnabled;
@@ -66,33 +67,46 @@ public class MenuNavigationController : MonoBehaviour
     {
       case 0:
         animations = new List<string> { "textHide1-1", "textReveal1-2" };
+        _VO.playClip(1, delay: 0.25f, volume: 1f);
         break;
       case 1:
-        animations = new List<string> {
-          "fadeOutWelcome", "textHide1-2", "fadeInRules", "textReveal2-1"
-        };
+        animations = new List<string> { "textHide1-2", "playerTokensIn", "textReveal1-3" };
+        _VO.playClip(2, delay: 1f, volume: 0.25f);
         break;
       case 2:
-        animations = new List<string> { "textHide2-1", "textReveal2-2" };
+        animations = new List<string> { "textHide1-3", "textReveal1-4" };
+        // Simultaneously ...
+        animationController.startAnimation("P1raise");
+        animationController.startAnimation("P2raise");
+        animationController.startAnimation("P3raise");
+        animationController.startAnimationGroup(new List<string> { "P4raise", "crownIn" });
+        _VO.playClip(3, delay: 0.5f, volume: 0.25f);
         break;
       case 3:
-        animations = new List<string> { "textHide2-2", "textReveal2-3", "fullCardImageFadeIn" };
+        animations = new List<string> { "playerTokensOut", "textHide1-4", "detectiveGraphicIn", "textReveal1-5" };
+        animationController.startAnimation("crownOut");
+        _VO.playClip(4);
         break;
       case 4:
-        animations = new List<string> { "fullCardImageFadeOut", "textHide2-3", "textReveal2-4" };
+        animations = new List<string> { "detectiveGraphicOut", "textHide1-5", "textReveal1-6" };
+        animationController.startAnimation("informantGraphicIn");
+        _VO.playClip(5);
         break;
       case 5:
-        animations = new List<string> { "textHide2-4", "textReveal2-5" };
+        animations = new List<string> { "textHide1-6", "textReveal1-7" };
+        _VO.playClip(6, volume: 0.25f);
         break;
       case 6:
-        animations = new List<string> { "textHide2-5", "textReveal2-6" };
+        animations = new List<string> { "informantGraphicOut", "textHide1-7", "textReveal1-8" };
+        _VO.playClip(7);
         break;
       case 7:
-        animations = new List<string> { "textHide2-6", "textReveal2-7" };
+        animations = new List<string> { "textHide1-8", "textReveal1-9" };
         nextButtonText.GetComponent<TextMeshProUGUI>().text = "Begin";
+        _VO.playClip(8);
         break;
       case 8:
-        animations = new List<string> { "textHide2-7" };
+        animations = new List<string> { "textHide1-9" };
         mainMenuObject.SetActive(false);
         puzzleSetupObject.SetActive(true);
         eventSystem.SetSelectedGameObject(objectToSelectOnPuzzleSetup);
@@ -133,27 +147,25 @@ public class MenuNavigationController : MonoBehaviour
         animations = new List<string> { "textHide1-2", "textReveal1-1" };
         break;
       case 2:
-        animations = new List<string> {
-          "fadeOutRules", "textHide2-1", "fadeInWelcome", "textReveal1-2"
-          };
+        animations = new List<string> { "textHide1-3", "textReveal1-2" };
         break;
       case 3:
-        animations = new List<string> { "textHide2-2", "textReveal2-1" };
+        animations = new List<string> { "textHide1-4", "playerTokensIn", "textReveal1-3" };
         break;
       case 4:
-        animations = new List<string> { "fullCardImageFadeOut", "textHide2-3", "textReveal2-2" };
+        animations = new List<string> { "textHide1-5", "textReveal1-4" };
         break;
       case 5:
-        animations = new List<string> { "textHide2-4", "textReveal2-3", "fullCardImageFadeIn" };
+        animations = new List<string> { "textHide1-6", "textReveal1-5" };
         break;
       case 6:
-        animations = new List<string> { "textHide2-5", "textReveal2-4" };
+        animations = new List<string> { "textHide1-7", "textReveal1-6" };
         break;
       case 7:
-        animations = new List<string> { "textHide2-6", "textReveal2-5" };
+        animations = new List<string> { "textHide1-8", "textReveal1-7" };
         break;
       case 8:
-        animations = new List<string> { "textHide2-7", "textReveal2-6" };
+        animations = new List<string> { "textHide1-9", "textReveal1-8" };
         nextButtonText.GetComponent<TextMeshProUGUI>().text = "Next";
         break;
     }
