@@ -42,7 +42,7 @@ public class MenuAnimationController : MonoBehaviour
   public void playStartGameAnimation()
   {
     startAnimationGroup(new List<string> {
-      "fadeMainMenuContentOut", "expandBackdrop", "fadeIntro1In", "fadeInWelcome", "textReveal1-1"
+      "fadeMainMenuContentOut", "backdropIn", "fadeIntro1In", "fadeInWelcome", "textReveal1-1"
       });
     _VO.playClip(0, delay: 0.5f, volume: 0.25f);
   }
@@ -50,7 +50,7 @@ public class MenuAnimationController : MonoBehaviour
   public void returnToTitleScreen()
   {
     resetAllIntroContent();
-    startAnimationGroup(new List<string> { "fadeIntro1Out", "collapseBackdrop", "fadeMainMenuContentIn" });
+    startAnimationGroup(new List<string> { "fadeIntro1Out", "backdropOut", "fadeMainMenuContentIn" });
   }
 
   public void resetAllIntroContent()

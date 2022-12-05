@@ -88,8 +88,7 @@ public class MenuNavigationController : MonoBehaviour
         _VO.playClip(4);
         break;
       case 4:
-        animations = new List<string> { "detectiveGraphicOut", "textHide1-5", "textReveal1-6" };
-        animationController.startAnimation("informantGraphicIn");
+        animations = new List<string> { "detectiveGraphicOut", "textHide1-5", "informantGraphicIn", "textReveal1-6" };
         _VO.playClip(5);
         break;
       case 5:
