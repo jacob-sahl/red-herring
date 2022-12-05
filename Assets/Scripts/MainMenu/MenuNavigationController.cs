@@ -92,12 +92,12 @@ public class MenuNavigationController : MonoBehaviour
         _VO.playClip(5);
         break;
       case 5:
-        animations = new List<string> { "textHide1-6", "textReveal1-7" };
+        animations = new List<string> { "textHide1-6", "cardGraphicIn", "textReveal1-7" };
         _VO.playClip(6, volume: 0.25f);
         break;
       case 6:
-        animations = new List<string> { "informantGraphicOut", "textHide1-7", "textReveal1-8" };
-        _VO.playClip(7);
+        animations = new List<string> { "cardGraphicOut", "informantGraphicOut", "textHide1-7", "textReveal1-8" };
+        _VO.playClip(7, delay: 0.5f);
         break;
       case 7:
         animations = new List<string> { "textHide1-8", "textReveal1-9" };
