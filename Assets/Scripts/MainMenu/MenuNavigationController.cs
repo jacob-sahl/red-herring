@@ -36,9 +36,9 @@ public class MenuNavigationController : MonoBehaviour
     position = 0;
     animationController = GameObject.Find("MenuAnimator").GetComponent<MenuAnimationController>();
     skipButton = skipButtonObject.GetComponent<Button>();
-    skipButton.interactable = false;
+    // skipButton.interactable = false;
     menuButton = menuButtonObject.GetComponent<Button>();
-    menuButton.interactable = false;
+    // menuButton.interactable = false;
     waitingFor = "textReveal1-1";
   }
 
@@ -57,9 +57,10 @@ public class MenuNavigationController : MonoBehaviour
   {
     if (!navEnabled)
     {
-      UIAnimationInterruptAllEvent evt = new UIAnimationInterruptAllEvent();
-      evt.name = "test";
-      EventManager.Broadcast(evt);
+      // Interruption is too buggy to include right now
+      // UIAnimationInterruptAllEvent evt = new UIAnimationInterruptAllEvent();
+      // evt.name = "test";
+      // EventManager.Broadcast(evt);
       return;
     }
     List<string> animations = new List<string>();
@@ -89,20 +90,20 @@ public class MenuNavigationController : MonoBehaviour
         break;
       case 4:
         animations = new List<string> { "detectiveGraphicOut", "textHide1-5", "informantGraphicIn", "textReveal1-6" };
-        _VO.playClip(5);
+        _VO.playClip(5, delay: 0.5f);
         break;
       case 5:
         animations = new List<string> { "textHide1-6", "cardGraphicIn", "textReveal1-7" };
         _VO.playClip(6, volume: 0.25f);
         break;
       case 6:
-        animations = new List<string> { "cardGraphicOut", "informantGraphicOut", "textHide1-7", "textReveal1-8" };
+        animations = new List<string> { "textHide1-7", "textReveal1-8" };
         _VO.playClip(7, delay: 0.5f);
         break;
       case 7:
-        animations = new List<string> { "textHide1-8", "textReveal1-9" };
+        animations = new List<string> { "cardGraphicOut", "informantGraphicOut", "textHide1-8", "textReveal1-9" };
         nextButtonText.GetComponent<TextMeshProUGUI>().text = "Begin";
-        _VO.playClip(8);
+        _VO.playClip(8, delay: 0.5f);
         break;
       case 8:
         animations = new List<string> { "textHide1-9" };
@@ -120,9 +121,8 @@ public class MenuNavigationController : MonoBehaviour
     // Wait for the last animation to finish before allowing more navigation
     waitingFor = animations[animations.Count - 1];
     navEnabled = false;
-    skipButton.interactable = false;
-    menuButton.interactable = false;
-
+    // skipButton.interactable = false;
+    // menuButton.interactable = false;
     position++;
   }
 
@@ -186,7 +186,7 @@ public class MenuNavigationController : MonoBehaviour
     nextButtonText.GetComponent<TextMeshProUGUI>().text = "Next";
     waitingFor = "textReveal1-1";
     navEnabled = false;
-    animationController.resetAllIntroContent();
+    // animationController.resetAllIntroContent();
   }
 
   public void resetPosition()
