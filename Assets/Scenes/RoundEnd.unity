@@ -4352,6 +4352,7 @@ MonoBehaviour:
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 10
   wordFadeLength: 4
+  abortUpdate: 0
 --- !u!114 &1109246549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4689,7 +4690,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f0f9e97fa45a17b47aae908071d27d8d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1261f5041639af54ca568f1a65aa7b86, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
@@ -5156,6 +5157,7 @@ MonoBehaviour:
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 10
   wordFadeLength: 4
+  abortUpdate: 0
 --- !u!114 &1497107864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6353,6 +6355,7 @@ MonoBehaviour:
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 10
   wordFadeLength: 4
+  abortUpdate: 0
 --- !u!114 &1782903115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7631,6 +7634,7 @@ MonoBehaviour:
   targetTextColour: {r: 1, g: 1, b: 1, a: 1}
   fadeLength: 10
   wordFadeLength: 4
+  abortUpdate: 0
 --- !u!114 &2096891944
 MonoBehaviour:
   m_ObjectHideFlags: 0

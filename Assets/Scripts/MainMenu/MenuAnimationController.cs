@@ -44,7 +44,7 @@ public class MenuAnimationController : MonoBehaviour
     startAnimationGroup(new List<string> {
       "fadeMainMenuContentOut", "backdropIn", "fadeIntro1In", "fadeInWelcome", "textReveal1-1"
       });
-    _VO.playClip(0, delay: 0.5f, volume: 0.25f);
+    _VO.playClip(0, delay: 0.5f, volume: 1f);
   }
 
   public void returnToTitleScreen()

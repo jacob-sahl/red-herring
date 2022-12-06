@@ -72,7 +72,7 @@ public class MenuNavigationController : MonoBehaviour
         break;
       case 1:
         animations = new List<string> { "textHide1-2", "playerTokensIn", "textReveal1-3" };
-        _VO.playClip(2, delay: 1f, volume: 0.25f);
+        _VO.playClip(2, delay: 1f, volume: 1f);
         break;
       case 2:
         animations = new List<string> { "textHide1-3", "textReveal1-4" };
@@ -81,7 +81,7 @@ public class MenuNavigationController : MonoBehaviour
         animationController.startAnimation("P2raise");
         animationController.startAnimation("P3raise");
         animationController.startAnimationGroup(new List<string> { "P4raise", "crownIn" });
-        _VO.playClip(3, delay: 0.5f, volume: 0.25f);
+        _VO.playClip(3, delay: 0.5f, volume: 1f);
         break;
       case 3:
         animations = new List<string> { "playerTokensOut", "textHide1-4", "detectiveGraphicIn", "textReveal1-5" };
@@ -94,7 +94,7 @@ public class MenuNavigationController : MonoBehaviour
         break;
       case 5:
         animations = new List<string> { "textHide1-6", "cardGraphicIn", "textReveal1-7" };
-        _VO.playClip(6, volume: 0.25f);
+        _VO.playClip(6, volume: 1f);
         break;
       case 6:
         animations = new List<string> { "textHide1-7", "textReveal1-8" };
@@ -103,7 +103,7 @@ public class MenuNavigationController : MonoBehaviour
       case 7:
         animations = new List<string> { "cardGraphicOut", "informantGraphicOut", "textHide1-8", "textReveal1-9" };
         nextButtonText.GetComponent<TextMeshProUGUI>().text = "Begin";
-        _VO.playClip(8, delay: 0.5f);
+        _VO.playClip(8, delay: 1f);
         break;
       case 8:
         animations = new List<string> { "textHide1-9" };
