@@ -5716,7 +5716,7 @@ MonoBehaviour:
   detectiveOrder: 
   currentRound: 0
   minutesPerRound: 5
-  mouseSensitivity: 2
+  mouseSensitivity: 0.5
   objectRotationSpeed: 0.6
   currentClues: []
 --- !u!4 &666354604
@@ -8838,7 +8838,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Solving the puzzle is everybody's main objective, but INFORMANTS are also
-    each given their own SECRET OBJECTIVE.
+    each given their own SECRET OBJECTIVE (on your phone screen).
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
   m_sharedMaterial: {fileID: 842015486036366404, guid: 5990ea0b5fc8fbf499633fe722f611ba, type: 2}
@@ -10866,10 +10866,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1259618599}
+    m_SelectOnDown: {fileID: 1289373207}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -11257,10 +11257,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1289373207}
+    m_SelectOnDown: {fileID: 1209978630}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -11291,7 +11291,7 @@ MonoBehaviour:
   m_MinValue: 0.1
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 2
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
