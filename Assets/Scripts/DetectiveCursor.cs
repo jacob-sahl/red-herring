@@ -6,13 +6,15 @@ public enum CursorType
 {
   Hand,
   Inspection,
-  Default
+  Default,
+  Drag
 }
 
 public class DetectiveCursor : MonoBehaviour
 {
   public GameObject defaultCursor;
   public GameObject inspectionCursor;
+  public GameObject dragCursor;
   public GameObject handCursors;
   public float expandTime = 0.2f;
   GameObject handCursor;
@@ -63,6 +65,13 @@ public class DetectiveCursor : MonoBehaviour
       }
 
     }
+    else if (evt.gameObject.GetComponent<Draggable>() != null)
+    {
+      if (showing != CursorType.Drag)
+      {
+        showDragCursor();
+      }
+    }
     else if (evt.gameObject.GetComponent<Interactable>() != null)
     {
       if (showing != CursorType.Hand)
@@ -98,11 +107,23 @@ public class DetectiveCursor : MonoBehaviour
     }
   }
 
+  void showDragCursor()
+  {
+    inspectionCursor.SetActive(false);
+    defaultCursor.SetActive(false);
+    handCursor.SetActive(false);
+    dragCursor.SetActive(true);
+    showing = CursorType.Drag;
+    StopCoroutine("ExpandCursor");
+    StartCoroutine(ExpandCursor());
+  }
+
   void showHandCursor()
   {
     inspectionCursor.SetActive(false);
     defaultCursor.SetActive(false);
     handCursor.SetActive(true);
+    dragCursor.SetActive(false);
     showing = CursorType.Hand;
     StopCoroutine("ExpandCursor");
     StartCoroutine(ExpandCursor());
@@ -113,6 +134,7 @@ public class DetectiveCursor : MonoBehaviour
     inspectionCursor.SetActive(true);
     defaultCursor.SetActive(false);
     handCursor.SetActive(false);
+    dragCursor.SetActive(false);
     showing = CursorType.Inspection;
     StopCoroutine("ExpandCursor");
     StartCoroutine(ExpandCursor());
@@ -123,6 +145,7 @@ public class DetectiveCursor : MonoBehaviour
     inspectionCursor.SetActive(false);
     defaultCursor.SetActive(true);
     handCursor.SetActive(false);
+    dragCursor.SetActive(false);
     showing = CursorType.Default;
     StopCoroutine("ExpandCursor");
     transform.localScale = Vector3.one;
