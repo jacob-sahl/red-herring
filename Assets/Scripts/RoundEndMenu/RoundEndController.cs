@@ -9,7 +9,7 @@ public class RoundEndController : MonoBehaviour
   RoundEndAnimationController animator;
   public GameObject eventSystemObject;
   EventSystem eventSystem;
-
+  RoundEndAudio audioController;
   string waitingFor;
   private void Awake()
   {
@@ -23,6 +23,7 @@ public class RoundEndController : MonoBehaviour
   void Start()
   {
     animator = GetComponent<RoundEndAnimationController>();
+    audioController = GetComponent<RoundEndAudio>();
 
     eventSystem = eventSystemObject.GetComponent<EventSystem>();
     eventSystem.enabled = false;
@@ -31,6 +32,7 @@ public class RoundEndController : MonoBehaviour
     TextMeshProUGUI tm = GameObject.Find("PuzzleSolvedText").gameObject.GetComponent<TextMeshProUGUI>();
     if (GameController.Instance._roundEndPuzzleComplete)
     {
+      audioController.playSuccessMusic();
       tm.text = "The puzzle was solved! Well done.";
       tm.ForceMeshUpdate();
       List<string> animations = new List<string> {
@@ -51,6 +53,7 @@ public class RoundEndController : MonoBehaviour
     }
     else
     {
+      audioController.playFailureMusic();
       tm.text = "The puzzle was not solved. How disappointing ...";
       tm.ForceMeshUpdate();
       List<string> animations = new List<string> {

@@ -4692,7 +4692,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1261f5041639af54ca568f1a65aa7b86, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7417,6 +7417,7 @@ GameObject:
   - component: {fileID: 2054031370}
   - component: {fileID: 2054031369}
   - component: {fileID: 2054031371}
+  - component: {fileID: 2054031372}
   m_Layer: 0
   m_Name: RoundEndController
   m_TagString: Untagged
@@ -7464,6 +7465,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a03ca7190d81af4b871fcce8e72cec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2054031372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054031368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b91c2a84ee0b434599fe75936fec184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 1355351018}
+  successMusic: {fileID: 8300000, guid: e2d4b7028e1bcf7428322292fd16c118, type: 3}
+  failureMusic: {fileID: 8300000, guid: 8ffd562c6f06a9c4d8360ddc1829d48c, type: 3}
 --- !u!1 &2096891938
 GameObject:
   m_ObjectHideFlags: 0
