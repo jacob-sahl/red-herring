@@ -18,8 +18,8 @@ public class AudioController : MonoBehaviour
 
   public void playSuccess()
   {
-    source.Stop();
-    source.volume = 1.0f;
-    source.PlayOneShot(successAudio, 1f);
+    // source.Stop();
+    // source.volume = 1.0f;
+    // source.PlayOneShot(successAudio, 1f);
   }
 }
