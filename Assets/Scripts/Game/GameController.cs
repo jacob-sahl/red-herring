@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
 
   // NOTE: currentRound is 1-indexed (starts at 1 on round 1, NOT 0)
   public int currentRound;
-  private int startingRound = 1;
+  private int startingRound = 0;
   public int minutesPerRound = 5;
   public float mouseSensitivity = 1f;
   public float objectRotationSpeed = 0.3f;
@@ -344,7 +344,7 @@ public class GameController : MonoBehaviour
       // ^
       // currentRound++; // Must be done FIRST
       int detectiveId;
-      while (currentRound < startingRound)
+      while (currentRound < startingRound - 1)
       {
         currentRound++;
         gameInstance.currentRound = currentRound;
@@ -352,7 +352,11 @@ public class GameController : MonoBehaviour
         assignSecretObjectives();
         gameInstance.rounds.Add(new Round(currentRound, detectiveId, GetInformantCards(), new List<RoundScore>()));
       }
+      currentRound++;
+      gameInstance.currentRound = currentRound;
       detectiveId = detectiveOrder[currentRound];
+      assignSecretObjectives();
+      gameInstance.rounds.Add(new Round(currentRound, detectiveId, GetInformantCards(), new List<RoundScore>()));
       foreach (var player in gameInstance.players)
       {
         if (player.id == detectiveId)
