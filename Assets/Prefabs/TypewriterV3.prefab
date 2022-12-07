@@ -4755,7 +4755,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d7ebaeaf8e35d864db4d76169cb1157d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4868,7 +4868,7 @@ MonoBehaviour:
   defaultRotation: {x: 45, y: 0, z: 0}
   defaultTranslation: {x: 0, y: 0, z: 0}
   focusDistance: 6
-  lightLevel: 100
+  lightLevel: 65
 --- !u!54 &3591167117769127448
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class Highlight : MonoBehaviour
   public void showHighlight()
   {
     if (highlighted) return;
-    Debug.Log("Showing Highlight on " + gameObject.name);
+    // Debug.Log("Showing Highlight on " + gameObject.name);
     foreach (Renderer renderer in renderers)
     {
       Material[] mats = renderer.materials;
@@ -32,7 +32,7 @@ public class Highlight : MonoBehaviour
       }
       else
       {
-        Debug.Log("Adding highlight material to " + renderer.gameObject.name);
+        // Debug.Log("Adding highlight material to " + renderer.gameObject.name);
         List<Material> matList = new List<Material>(mats);
         matList.Add(highlightMaterial);
         renderer.materials = matList.ToArray();
@@ -45,10 +45,10 @@ public class Highlight : MonoBehaviour
   public void hideHighlight()
   {
     if (!highlighted) return;
-    Debug.Log("Hiding Highlight on " + gameObject.name);
+    // Debug.Log("Hiding Highlight on " + gameObject.name);
     foreach (Renderer renderer in renderers)
     {
-      Debug.Log("Turning highlight material transparent on " + renderer.gameObject.name);
+      // Debug.Log("Turning highlight material transparent on " + renderer.gameObject.name);
       Material[] mats = renderer.materials;
       mats[mats.Length - 1] = transparent;
       renderer.materials = mats;

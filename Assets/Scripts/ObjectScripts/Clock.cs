@@ -109,8 +109,8 @@ public class Clock : MonoBehaviour
         moving = false;
       }
       float partial = Time.deltaTime / moveDuration;
-      minuteHand.transform.RotateAround(pivot, axis, -29.25f * partial);
-      hourHand.transform.RotateAround(pivot, axis, -2.425f * partial);
+      minuteHand.transform.RotateAround(pivot, axis, -29.263f * partial);
+      hourHand.transform.RotateAround(pivot, axis, -2.4263f * partial);
     }
   }
 }

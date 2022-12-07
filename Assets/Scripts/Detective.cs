@@ -20,7 +20,7 @@ public class Detective : MonoBehaviour
 
   [Header("Mouse Sensitivity")]
   [Tooltip("Rotation speed for moving the camera")]
-  public float mouseSensitivity = 1f;
+  float mouseSensitivity;
   [Tooltip("Mouse sensitivity factor when focused")]
   public float focusSensitivityMultiplier = 1.5f;
 
@@ -71,6 +71,7 @@ public class Detective : MonoBehaviour
   Vector3 focusRotationYAxis;
   float cameraHeight;
   private Coroutine crouching = null;
+  int focusPreviousLayer;
 
   void Start()
   {
@@ -94,10 +95,18 @@ public class Detective : MonoBehaviour
     EventManager.RemoveListener<FocusEvent>(OnFocus);
   }
 
+  void SetLayerRecursively(GameObject obj, int layer)
+  {
+    obj.layer = layer;
+    foreach (Transform child in obj.transform)
+      SetLayerRecursively(child.gameObject, layer);
+  }
+
   void OnFocus(FocusEvent evt)
   {
     if (focusActive)
     {
+      if (evt.gameObject == focusedObject) return;
       defocus();
     }
     // Show focus controls on-screen
@@ -134,6 +143,10 @@ public class Detective : MonoBehaviour
     // Set focus light
     focusLight.intensity = focus.lightLevel;
 
+    // Set the focused object to render on top of everything:
+    focusPreviousLayer = focusedObject.layer;
+    SetLayerRecursively(focusedObject, LayerMask.NameToLayer("FocusLayer"));
+
     focusActive = true;
     moveEnabled = false;
   }
@@ -159,6 +172,9 @@ public class Detective : MonoBehaviour
 
     // Turn off focus light
     focusLight.intensity = 0f;
+
+    // Set layer back to previous (WILL NOT WORK WITH MIXED-LAYER CHILDREN)
+    SetLayerRecursively(focusedObject, focusPreviousLayer);
 
     // Send event
     DefocusEvent e = new DefocusEvent();
@@ -282,11 +298,24 @@ public class Detective : MonoBehaviour
     mouseSensitivity = GameController.Instance.mouseSensitivity;
     cursorSpeed = GameController.Instance.mouseSensitivity;
     objectRotateSpeed = GameController.Instance.objectRotationSpeed;
+
     if (_inputHandler == null || frozen) return;
 
     RaycastHit hit;
     Ray ray = playerCamera.ScreenPointToRay(cursorPosition);
-    if (Physics.Raycast(ray, out hit))
+
+    // If we're focused, only raycast to the FocusLayer
+    int layerMask;
+    if (focusActive)
+    {
+      layerMask = LayerMask.GetMask("FocusLayer");
+    }
+    else
+    {
+      layerMask = ~0; // Everything (all 1s)
+    }
+
+    if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
     {
       // Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
       var colliderGameObject = hit.collider.gameObject;
