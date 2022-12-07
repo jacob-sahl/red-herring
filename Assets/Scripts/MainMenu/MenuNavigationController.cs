@@ -126,7 +126,7 @@ public class MenuNavigationController : MonoBehaviour
     position++;
   }
 
-  public void moveBackward()
+  public void moveBackward() // NOT UPDATED (currently Back button is not in use)
   {
     if (!navEnabled)
     {
