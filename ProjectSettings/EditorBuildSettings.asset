@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/deprecated/MenuV2.unity
     guid: d610c10ef78564149a7c1c809766e6ae
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 8f14dceb5cfa1594d81e6f45c54aabe7
   - enabled: 1
