@@ -23,6 +23,7 @@ public class TextReveal : MonoBehaviour
   int previousStep;
   float[] alphas;
   bool interrupted;
+  public bool abortUpdate;
 
   void Awake()
   {
@@ -47,6 +48,7 @@ public class TextReveal : MonoBehaviour
     alphas = new float[mesh.textInfo.characterCount];
     // Hide the text to start
     hideText = true;
+    abortUpdate = false;
   }
 
   private void OnEnable()
@@ -72,6 +74,7 @@ public class TextReveal : MonoBehaviour
       time = 0f;
       previousStep = 0;
       animating = true;
+      abortUpdate = false;
       if (wobble != null) wobble.setWobbling(false);
     }
   }
@@ -198,6 +201,7 @@ public class TextReveal : MonoBehaviour
 
   void Update()
   {
+    if (abortUpdate) return;
     // This happens once on the very first Update (NOT Start() because the mesh update doesn't work)
     if (hideText)
     {

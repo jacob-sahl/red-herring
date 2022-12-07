@@ -13,6 +13,7 @@ public class TextHide : MonoBehaviour
   TextMeshProUGUI mesh;
   float time;
   string fullText;
+  TextReveal revealAnim;
   void Awake()
   {
     animating = false;
@@ -21,6 +22,7 @@ public class TextHide : MonoBehaviour
   }
   private void Start()
   {
+    revealAnim = GetComponent<TextReveal>();
     mesh = GetComponent<TextMeshProUGUI>();
     wobble = GetComponent<TextWobble>();
     fullText = mesh.text;
@@ -70,6 +72,7 @@ public class TextHide : MonoBehaviour
 
   void endInstantAnimation()
   {
+    revealAnim.abortUpdate = true;
     UIAnimationEndEvent e = new UIAnimationEndEvent();
     e.name = animationInstantName;
     EventManager.Broadcast(e);

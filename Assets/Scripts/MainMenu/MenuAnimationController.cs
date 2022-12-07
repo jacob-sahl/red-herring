@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MenuAnimationController : MonoBehaviour
 {
+  public VoiceOver _VO;
   private List<List<string>> animationGroups;
   void Awake()
   {
@@ -41,14 +42,15 @@ public class MenuAnimationController : MonoBehaviour
   public void playStartGameAnimation()
   {
     startAnimationGroup(new List<string> {
-      "fadeMainMenuContentOut", "expandBackdrop", "fadeIntro1In", "fadeInWelcome", "textReveal1-1"
+      "fadeMainMenuContentOut", "backdropIn", "fadeIntro1In", "fadeInWelcome", "textReveal1-1"
       });
+    _VO.playClip(0, delay: 0.5f, volume: 1f);
   }
 
   public void returnToTitleScreen()
   {
     resetAllIntroContent();
-    startAnimationGroup(new List<string> { "fadeIntro1Out", "collapseBackdrop", "fadeMainMenuContentIn" });
+    startAnimationGroup(new List<string> { "fadeIntro1Out", "backdropOut", "fadeMainMenuContentIn" });
   }
 
   public void resetAllIntroContent()
@@ -56,28 +58,29 @@ public class MenuAnimationController : MonoBehaviour
     List<string> animations = new List<string> {
       "textHide1-1instant",
       "textHide1-2instant",
-      "textHide2-1instant",
-      "textHide2-2instant",
-      "textHide2-3instant",
-      "textHide2-4instant",
-      "textHide2-5instant",
-      "textHide2-6instant",
-      "textHide2-7instant",
-      // "textHide3-1instant",
-      // "textHide3-2instant",
-      // "textHide3-3instant",
-      // "textHide4-1instant",
-      // "textHide4-2instant",
-      // "textHide4-3instant",
-      // "textHide4-4instant",
-      // "textHide4-5instant",
-      // "textHide4-6instant",
-      "fadeOutRules",
-      // "fadeOutPuzzle",
-      // "fadeOutD&I",
+      "textHide1-3instant",
+      "textHide1-4instant",
+      "textHide1-5instant",
+      "textHide1-6instant",
+      "textHide1-7instant",
+      "textHide1-8instant",
+      "textHide1-9instant",
       "fadeOutWelcome",
+      "crownOut",
+      "playerTokensOut",
+      "detectiveGraphicOut",
+      "cardGraphicOut",
+      "informantGraphicOut",
+      "P1reset",
+      "P2reset",
+      "P3reset",
+      "P4reset",
     };
-    startAnimationGroup(animations);
+    foreach (string animation in animations)
+    {
+      startAnimation(animation);
+    }
+    // startAnimationGroup(animations);
   }
   // ^^
 
